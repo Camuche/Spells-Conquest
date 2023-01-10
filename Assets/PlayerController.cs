@@ -219,7 +219,7 @@ public class PlayerController : MonoBehaviour
             if (!Physics.Raycast(transform.position, (Vector3.down* 1.01f + Vector3.down * ySpeed)*Mathf.Sign(-ySpeed), 1))
             {
                 
-                ySpeed -= grav* Time.deltaTime;//changement de la vitesse y pour que le player tombe de plus en plus
+                ySpeed -= grav*Time.deltaTime;//changement de la vitesse y pour que le player tombe de plus en plus
             }
 
 
@@ -237,7 +237,7 @@ public class PlayerController : MonoBehaviour
 
 
         //deplacement du transform en fonction de la vitesse Y
-        transform.position += (Vector3.up * (float)(ySpeed / 10f));
+        transform.position += Vector3.up * (float)(ySpeed) * Time.deltaTime;
         
 
 
