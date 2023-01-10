@@ -198,12 +198,11 @@ public class PlayerController : MonoBehaviour
         
         //si le joueur n'est pas au sol
         Debug.DrawRay(transform.position+ Vector3.down, Vector3.down*1);
-
         RaycastHit hit;
         Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity);
 
         //si le player est suffisamant loin du sol
-        if (hit.distance==1f)
+        if (hit.distance>=1f)
         {
 
             //collision au dessus de la tete
@@ -219,8 +218,8 @@ public class PlayerController : MonoBehaviour
             //si le joueur ne sera pas au sol a la frame d'après
             if (!Physics.Raycast(transform.position, (Vector3.down* 1.01f + Vector3.down * ySpeed)*Mathf.Sign(-ySpeed), 1))
             {
-
-                ySpeed -= grav *Time.deltaTime;//changement de la vitesse y pour que le player tombe de plus en plus
+                
+                ySpeed -= grav* Time.deltaTime;//changement de la vitesse y pour que le player tombe de plus en plus
             }
 
 
