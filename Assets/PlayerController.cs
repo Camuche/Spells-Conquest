@@ -143,23 +143,26 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
-
+    float rotY=0;
+    public float CamDistance;
+    
     void rotateCamera()
     {
 
         //change angle
-        Camera.main.transform.eulerAngles += new Vector3(
-            -Input.GetAxis("Mouse Y"),
-            0,
-            0
-        ) * Time.deltaTime * mouseSensitivity;
 
-        //change position
-        Camera.main.transform.localPosition += new Vector3(
-            -Input.GetAxis("Mouse Y") / 40,
-            -Input.GetAxis("Mouse Y")/30,
-            0
-        ) * Time.deltaTime * mouseSensitivity;
+        
+
+        rotY += Input.GetAxis("Mouse Y") * mouseSensitivity*Time.deltaTime;
+
+        rotY = Mathf.Clamp(rotY, -15f, 45f);
+
+        Camera.main.transform.rotation = Quaternion.Euler(-rotY, Camera.main.transform.eulerAngles.y, Camera.main.transform.eulerAngles.z);
+
+
+
+        //change cam position
+        Camera.main.transform.localPosition = new Vector3(-Mathf.Cos(rotY*Mathf.PI/180)* CamDistance, 0.8f-Mathf.Sin(rotY * Mathf.PI / 180)* CamDistance, Camera.main.transform.localPosition.z);
 
     }
 

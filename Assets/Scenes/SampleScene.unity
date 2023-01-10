@@ -2773,6 +2773,7 @@ GameObject:
   - component: {fileID: 1944340292}
   - component: {fileID: 1944340291}
   - component: {fileID: 1944340290}
+  - component: {fileID: 1944340295}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -2795,7 +2796,8 @@ MonoBehaviour:
   mouseSensitivity: 300
   playerSpeed: 20
   grav: 2
-  jumpForce: 0
+  jumpForce: 1
+  CamDistance: 2.5
 --- !u!136 &1944340291
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2872,6 +2874,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1944340295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944340289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25674a50688cc79468521ce1750e6d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpellL: 0
+  SpellR: 0
+  Elements:
+  - spell_name: Feu
+  - spell_name: Telekinesie
+  - spell_name: Clone
 --- !u!43 &2054016549
 Mesh:
   m_ObjectHideFlags: 0
