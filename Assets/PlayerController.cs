@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
         Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity);
 
         //si le player est suffisamant loin du sol
-        if (hit.distance>1)
+        if (hit.distance==1f)
         {
 
             //collision au dessus de la tete

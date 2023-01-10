@@ -11,11 +11,14 @@ public class CastSpell : MonoBehaviour
 
 
 
+
+
     //structure de donnée d'un element (avec le nom de l'element, son image d'ui, etc...)
     [System.Serializable]
     public struct Element
     {
         public string spell_name;
+        public Sprite spell_image;
     }
 
     
@@ -47,9 +50,17 @@ public class CastSpell : MonoBehaviour
         if (Input.GetButtonDown("ChangeSpellL"))
         {
             SpellL++;
+            if (SpellL == SpellR)
+            {
+                SpellL++;
+            }
             if (SpellL > Elements.Length - 1)
             {
                 SpellL = 0;
+            }
+            if (SpellL == SpellR)
+            {
+                SpellL++;
             }
             print(SpellL);
         }
@@ -59,9 +70,17 @@ public class CastSpell : MonoBehaviour
         if (Input.GetButtonDown("ChangeSpellR"))
         {
             SpellR++;
+            if (SpellR == SpellL)
+            {
+                SpellR++;
+            }
             if (SpellR > Elements.Length - 1)
             {
                 SpellR = 0;
+            }
+            if (SpellR == SpellL)
+            {
+                SpellR++;
             }
             print(SpellR);
         }
