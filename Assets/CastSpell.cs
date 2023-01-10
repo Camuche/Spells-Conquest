@@ -9,6 +9,8 @@ public class CastSpell : MonoBehaviour
     public int SpellR;
 
 
+
+
     //structure de donnée d'un element (avec le nom de l'element, son image d'ui, etc...)
     [System.Serializable]
     public struct Element
@@ -18,6 +20,14 @@ public class CastSpell : MonoBehaviour
 
     
     public Element[] Elements = new Element[3];
+
+
+    enum spells
+    {
+        Fire,
+        Telekinesy,
+        Clone
+    }
 
     bool aimed = false;
     bool fired = false;
@@ -84,7 +94,7 @@ public class CastSpell : MonoBehaviour
             if (fired == false)
             {
                 fired = true;
-                print("fire");
+                Cast();
             }
             
         }
@@ -93,6 +103,20 @@ public class CastSpell : MonoBehaviour
             if (fired)
             {
                 fired = false;
+            }
+        }
+    }
+
+    void Cast()
+    {
+        if (SpellR == 0)
+        {
+            if (SpellR.Equals(spells.Fire))
+            {
+                if (SpellL.Equals(spells.Telekinesy))
+                {
+                    //boule de feu
+                }
             }
         }
     }
