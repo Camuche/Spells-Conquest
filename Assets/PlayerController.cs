@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     }
 
 
+
+    float movementprecision=100f;
     void movements()
     {
 
@@ -80,16 +82,22 @@ public class PlayerController : MonoBehaviour
         //forward
         newpos = new Vector3(
         (Input.GetAxisRaw("Vertical") * (speed + dodgespeed) * Mathf.Cos(transform.eulerAngles.y * Mathf.PI / 180)),0,0) * Time.deltaTime;
-        if (!RaycastRange(15,newpos))
+        for (int i = 0; i < movementprecision; i++)
         {
-            transform.position += newpos;
+            if (!RaycastRange(15, newpos / movementprecision))
+            {
+                transform.position += (newpos / movementprecision);
+            }
         }
 
         //side
         newpos = new Vector3(0,0,(Input.GetAxisRaw("Vertical") * (speed + dodgespeed) * -Mathf.Sin(transform.eulerAngles.y * Mathf.PI / 180))) * Time.deltaTime;
-        if (!RaycastRange(15, newpos))
+        for (int i = 0; i < movementprecision; i++)
         {
-            transform.position += newpos;
+            if (!RaycastRange(15, newpos / movementprecision))
+            {
+                transform.position += (newpos / movementprecision);
+            }
         }
 
 
@@ -98,18 +106,25 @@ public class PlayerController : MonoBehaviour
         //forward
         newpos = new Vector3((Input.GetAxisRaw("Horizontal") * (speed + dodgespeed) * -Mathf.Sin(transform.eulerAngles.y * Mathf.PI / 180)),0,0) * Time.deltaTime;
 
-        if (!RaycastRange(15, newpos))
+
+        for (int i = 0; i < movementprecision; i++)
         {
-            transform.position += newpos;
+            if (!RaycastRange(15, newpos/ movementprecision))
+            {
+                transform.position += (newpos/ movementprecision);
+            }
         }
 
 
         //side
         newpos = new Vector3(0,0,(Input.GetAxisRaw("Horizontal") * (speed + dodgespeed) * -Mathf.Cos(transform.eulerAngles.y * Mathf.PI / 180))) * Time.deltaTime;
 
-        if (!RaycastRange(15, newpos))
+        for (int i = 0; i < movementprecision; i++)
         {
-            transform.position += newpos;
+            if (!RaycastRange(15, newpos / movementprecision))
+            {
+                transform.position += (newpos / movementprecision);
+            }
         }
 
 
