@@ -9,7 +9,9 @@ public class CastSpell : MonoBehaviour
     public int SpellR;
 
 
+    public int limit;
 
+    public GameObject fireBall;
 
 
 
@@ -19,6 +21,7 @@ public class CastSpell : MonoBehaviour
     {
         public string spell_name;
         public Sprite spell_image;
+        public int id;
     }
 
     
@@ -45,7 +48,6 @@ public class CastSpell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         //change spell left
         if (Input.GetButtonDown("ChangeSpellL"))
         {
@@ -54,7 +56,7 @@ public class CastSpell : MonoBehaviour
             {
                 SpellL++;
             }
-            if (SpellL > Elements.Length - 1)
+            if (SpellL > Elements.Length - 1 || SpellL>limit)
             {
                 SpellL = 0;
             }
@@ -74,7 +76,7 @@ public class CastSpell : MonoBehaviour
             {
                 SpellR++;
             }
-            if (SpellR > Elements.Length - 1)
+            if (SpellR > Elements.Length - 1 || SpellR > limit)
             {
                 SpellR = 0;
             }
@@ -112,8 +114,9 @@ public class CastSpell : MonoBehaviour
 
             if (fired == false)
             {
-                fired = true;
                 Cast();
+                fired = true;
+                
             }
             
         }
@@ -128,15 +131,11 @@ public class CastSpell : MonoBehaviour
 
     void Cast()
     {
-        if (SpellR == 0)
+
+        if (SpellL.ToString()+SpellR.ToString()=="01" || SpellL.ToString() + SpellR.ToString() == "10")
         {
-            if (SpellR.Equals(spells.Fire))
-            {
-                if (SpellL.Equals(spells.Telekinesy))
-                {
-                    //boule de feu
-                }
-            }
+            GameObject f = Instantiate(fireBall);
+            f.GetComponent<Fireball>().player = transform.gameObject;
         }
     }
 }
