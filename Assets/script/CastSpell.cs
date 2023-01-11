@@ -94,7 +94,6 @@ public class CastSpell : MonoBehaviour
             if (aimed == false)
             {
                 print("aim");
-
                 aimed = true;
             }
             
