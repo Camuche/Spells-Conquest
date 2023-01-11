@@ -154,7 +154,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movedir = Vector3.zero;
 
         movedir += transform.right * Input.GetAxisRaw("Vertical") * (speed + dodgespeed) * Time.deltaTime;
-        movedir += transform.forward * Input.GetAxisRaw("Horizontal") * (speed + dodgespeed) * Time.deltaTime;
+        movedir += transform.forward * -Input.GetAxisRaw("Horizontal") * (speed + dodgespeed) * Time.deltaTime;
 
         Controller.Move(movedir);
 
@@ -234,6 +234,16 @@ public class PlayerController : MonoBehaviour
                 transform.position += Vector3.up * .0001f;
             }
         }
+
+        //pour descendre les pentes
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity) && ySpeed<=0)
+        {
+            if (hit.distance < 1.3f && hit.distance>1)
+            {
+                Controller.Move(Vector3.down*hit.distance);
+            }
+        }
     }
 
 
@@ -288,7 +298,6 @@ public class PlayerController : MonoBehaviour
          
         */
 
-        print(ySpeed);
 
         RaycastHit hit;
         Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity);
@@ -297,6 +306,11 @@ public class PlayerController : MonoBehaviour
         if (hit.distance >= 1.3f)
         {
             {
+
+                if (Physics.Raycast(transform.position, Vector3.up, 1.1f)&&ySpeed>0){
+                    ySpeed = 0;
+                }
+
                 ySpeed -= grav * Time.deltaTime;
             }
 
