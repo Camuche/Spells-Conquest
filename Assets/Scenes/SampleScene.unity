@@ -4916,6 +4916,7 @@ GameObject:
   - component: {fileID: 1944340291}
   - component: {fileID: 1944340290}
   - component: {fileID: 1944340295}
+  - component: {fileID: 1944340296}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5037,6 +5038,24 @@ MonoBehaviour:
     spell_image: {fileID: 21300000, guid: 3cc34f1a2fb7f884db0827c817dbceb4, type: 3}
   - spell_name: Clone
     spell_image: {fileID: 21300000, guid: bbac172096b51014fb4dc8f0b1e9e27e, type: 3}
+--- !u!143 &1944340296
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944340289}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!43 &2054016549
 Mesh:
   m_ObjectHideFlags: 0

@@ -14,12 +14,16 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10;
     float ySpeed = 0;
 
+    CharacterController Controller;
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
 
         speed = playerSpeed;
+
+        Controller = GetComponent<CharacterController>();
 
 
     }
@@ -41,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    float movementprecision=100f;
+    float movementprecision=1f;
     void movements()
     {
 
@@ -76,7 +80,7 @@ public class PlayerController : MonoBehaviour
             speed = playerSpeed * Mathf.Cos(45 * Mathf.PI / 180);
         }
 
-
+        /*
         //vertical input
 
         //forward
@@ -126,6 +130,34 @@ public class PlayerController : MonoBehaviour
                 transform.position += (newpos / movementprecision);
             }
         }
+        */
+
+
+        //newpos = new Vector3(Input.GetAxisRaw("Vertical") * (speed + dodgespeed), 0, 0) * Time.deltaTime;
+
+        /*
+        newpos = transform.right* Input.GetAxisRaw("Vertical") * (speed + dodgespeed) *Time.deltaTime;
+        
+        if (!RaycastRange(15, newpos))
+        {
+            transform.position += newpos;
+        }
+
+        newpos = transform.forward * Input.GetAxisRaw("Horizontal") * (speed + dodgespeed) * Time.deltaTime;
+
+        if (!RaycastRange(15, newpos))
+        {
+            transform.position += newpos;
+        }
+        */
+
+        Vector3 movedir = Vector3.zero;
+
+        movedir += transform.right * Input.GetAxisRaw("Vertical") * (speed + dodgespeed) * Time.deltaTime;
+        movedir += transform.forward * Input.GetAxisRaw("Horizontal") * (speed + dodgespeed) * Time.deltaTime;
+
+        Controller.Move(movedir);
+
 
 
         //jump
@@ -209,8 +241,8 @@ public class PlayerController : MonoBehaviour
     {
 
 
-        
-        
+
+        /*
         //si le joueur n'est pas au sol
         Debug.DrawRay(transform.position+ Vector3.down, Vector3.down*1);
         RaycastHit hit;
@@ -245,16 +277,38 @@ public class PlayerController : MonoBehaviour
         //si le player tombe et est proche du sol
         else if ( ySpeed < 0)
         {
-            transform.position += new Vector3(0, hit.distance*Mathf.Sign(ySpeed)+1, 0); //placement precis sur le sol
+            //transform.position += new Vector3(0, hit.distance*Mathf.Sign(ySpeed)+1, 0); //placement precis sur le sol
             ySpeed = 0;//reset de la vitesse Y
 
         }
-
-
-        //deplacement du transform en fonction de la vitesse Y
-        transform.position += Vector3.up * (float)(ySpeed) * Time.deltaTime;
         
 
+        //deplacement du transform en fonction de la vitesse Y
+        //transform.position += Vector3.up * (float)(ySpeed) * Time.deltaTime;
+         
+        */
+
+        print(ySpeed);
+
+        RaycastHit hit;
+        Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity);
+        
+        //si le player est suffisamant loin du sol
+        if (hit.distance >= 1.3f)
+        {
+            {
+                ySpeed -= grav * Time.deltaTime;
+            }
+
+        }
+        else if( ySpeed<0)
+        {
+            print("cc");
+            ySpeed = 0;
+        }
+
+
+        Controller.Move(Vector3.up*ySpeed*Time.deltaTime);
 
 
     }
