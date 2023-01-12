@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireballTrigger : MonoBehaviour
+public class VineTrigger : MonoBehaviour
 {
-    public GameObject obstacle;
-
+    public Rigidbody rbObject;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,15 +20,10 @@ public class FireballTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Fireball")
+        if (other.tag == "Fireball")
         {
-
-            /*foreach (Transform child in transform)
-            {
-                child.gameObject.SetActive(false);
-            }*/
-
-            obstacle.SetActive(false);
+            Destroy(gameObject);
+            rbObject.useGravity = true;
         }
     }
 }
