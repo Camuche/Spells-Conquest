@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
 
     float rotY=0;
     public float CamDistance;
-    
+    public GameObject CamStart;
     void rotateCamera()
     {
 
@@ -124,7 +124,44 @@ public class PlayerController : MonoBehaviour
 
 
         //change cam position
-        Camera.main.transform.localPosition = new Vector3(-Mathf.Cos(rotY*Mathf.PI/180)* CamDistance, 0.8f-Mathf.Sin(rotY * Mathf.PI / 180)* CamDistance, Camera.main.transform.localPosition.z);
+
+        //Camera.main.transform.localPosition = new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * CamDistance, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * CamDistance, Camera.main.transform.localPosition.z);
+
+
+        Vector3 campos = transform.TransformPoint(new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * CamDistance, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * CamDistance, Camera.main.transform.localPosition.z));
+        Vector3 camposStart = CamStart.transform.position;
+
+        Vector3 camdir = campos - camposStart;
+
+
+        RaycastHit hit;
+
+        Physics.Raycast(camposStart, camdir,out hit,CamDistance);
+        Debug.DrawRay(camposStart, camdir);
+
+        float dist;
+
+
+        if (hit.distance > CamDistance || hit.collider==null || hit.collider.transform.name=="Player")
+        {
+            print("dist "+  (hit.distance > CamDistance));
+            print("collider null" + (hit.collider == null));
+
+            if (hit.collider != null)
+            {
+                print("is player" + (hit.collider.transform.name == "Player"));
+            }
+
+            dist = CamDistance;
+        }
+        else
+        {
+            dist = hit.distance;
+        }
+
+        Camera.main.transform.localPosition = new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, Camera.main.transform.localPosition.z);
+
+
 
     }
 
@@ -145,7 +182,6 @@ public class PlayerController : MonoBehaviour
         //simple fonction pour remonter des pentes (a ameliorer pour adapter la vitesse de deplacement en fonction de l'intensité de la pente)
         if (Physics.Raycast(transform.position,Vector3.down,.9f))
         {
-            print("ccc");
             while(Physics.Raycast(transform.position, Vector3.down,.9f))
             {
                 transform.position += Vector3.up * .0001f;
@@ -169,9 +205,6 @@ public class PlayerController : MonoBehaviour
         slide(transform.position + transform.right * .5f);
         slide(transform.position + transform.right * -.5f);
 
-
-        print(ySpeed);
-
         previousTransform = transform;
 
 
@@ -187,7 +220,6 @@ public class PlayerController : MonoBehaviour
             if (slopeAngle >= Controller.slopeLimit-5)
             {
 
-                print("glisse");
                 Vector3 slopeDirection = Vector3.up - slope.normal * Vector3.Dot(Vector3.up, slope.normal);
                 float slideSpeed = (ySpeed ) * Time.deltaTime;
 
@@ -237,7 +269,6 @@ public class PlayerController : MonoBehaviour
         }
         else if( ySpeed<0)
         {
-            print("cc");
             ySpeed = 0;
         }
 
