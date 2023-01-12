@@ -9,11 +9,13 @@ public class EnemyShooting : MonoBehaviour
     float timer;
     public GameObject Bullet;
     public Vector3 SpawnPoint;
+    public int BulletDammage;
+    public float BulletSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        SpawnPoint = transform.position;
+        
     }
 
     // Update is called once per frame
@@ -26,6 +28,10 @@ public class EnemyShooting : MonoBehaviour
             GameObject b = Instantiate(Bullet);
             b.GetComponent<EnemyProjectiles>().dir = gameObject.GetComponent<EnemyFollower>().dir;
             b.transform.position = SpawnPoint;
+            b.GetComponent<EnemyProjectiles>().Spawner = gameObject;
+            b.GetComponent<EnemyProjectiles>().dammage = BulletDammage;
+            b.GetComponent<EnemyProjectiles>().speed = BulletSpeed;
+
             timer = 0;
         }
     }

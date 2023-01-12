@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8432561856949892887}
   - component: {fileID: 5387335219111035024}
   - component: {fileID: 3092575754617821767}
+  - component: {fileID: 3931506438026593828}
   m_Layer: 0
   m_Name: Enemi_follower
   m_TagString: Untagged
@@ -147,3 +148,18 @@ MonoBehaviour:
   delay: 0.5
   Bullet: {fileID: 3856048993441989314, guid: d1a24f3734c82ca44ace6640f238fa07, type: 3}
   SpawnPoint: {x: 0, y: 0, z: 0}
+  BulletDammage: 1
+  BulletSpeed: 50
+--- !u!114 &3931506438026593828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4042794045697653259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b808c1647504114abe85e731baaa275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 20

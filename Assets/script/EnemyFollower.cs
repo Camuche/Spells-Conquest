@@ -26,24 +26,28 @@ public class EnemyFollower : MonoBehaviour
     void Update()
     {
 
-        //set shooting point
-        GetComponent<EnemyShooting>().SpawnPoint = transform.position;
-
-        //moving towards player
-        dir = (player.transform.position - transform.position).normalized;
-        controller.Move(dir*speed*Time.deltaTime);
-
-
-        //gravity
-        controller.Move(Vector3.up * ySpeed * Time.deltaTime);
-
-        if (Physics.Raycast(transform.position-Vector3.up, -Vector3.up*0.1f,0.1f))
+        if (player != null)
         {
-            ySpeed = 0;
-        }
-        else
-        {
-            ySpeed -= grav * Time.deltaTime;
+
+            //set shooting point
+            GetComponent<EnemyShooting>().SpawnPoint = transform.position;
+
+            //moving towards player
+            dir = (player.transform.position - transform.position).normalized;
+            controller.Move(dir * speed * Time.deltaTime);
+
+
+            //gravity
+            controller.Move(Vector3.up * ySpeed * Time.deltaTime);
+
+            if (Physics.Raycast(transform.position - Vector3.up, -Vector3.up * 0.1f, 0.1f))
+            {
+                ySpeed = 0;
+            }
+            else
+            {
+                ySpeed -= grav * Time.deltaTime;
+            }
         }
     }
 }

@@ -292,17 +292,17 @@ PrefabInstance:
     - target: {fileID: 484699292189609001, guid: 977ff1c8d414ddf4484d77c2e2370382,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.3598
+      value: 2.74
       objectReference: {fileID: 0}
     - target: {fileID: 484699292189609001, guid: 977ff1c8d414ddf4484d77c2e2370382,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.773379
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 484699292189609001, guid: 977ff1c8d414ddf4484d77c2e2370382,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 484699292189609001, guid: 977ff1c8d414ddf4484d77c2e2370382,
         type: 3}
@@ -338,6 +338,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092575754617821767, guid: 977ff1c8d414ddf4484d77c2e2370382,
+        type: 3}
+      propertyPath: BulletSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4042794045697653259, guid: 977ff1c8d414ddf4484d77c2e2370382,
         type: 3}
@@ -10176,8 +10181,12 @@ MonoBehaviour:
   playerSpeed: 10
   grav: 20
   jumpForce: 10
+  life: 100
   CamDistance: 2.5
   CamStart: {fileID: 902636151}
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!136 &1944340291
 CapsuleCollider:
   m_ObjectHideFlags: 0

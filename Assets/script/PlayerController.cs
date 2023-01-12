@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
 
     Transform previousTransform;
 
+    public int life;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,8 @@ public class PlayerController : MonoBehaviour
         updateY();
 
         gravity();
+
+        CheckLife();
 
 
     }
@@ -125,9 +129,6 @@ public class PlayerController : MonoBehaviour
 
         //change cam position
 
-        //Camera.main.transform.localPosition = new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * CamDistance, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * CamDistance, Camera.main.transform.localPosition.z);
-
-
         Vector3 campos = transform.TransformPoint(new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * CamDistance, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * CamDistance, Camera.main.transform.localPosition.z));
         Vector3 camposStart = CamStart.transform.position;
 
@@ -136,7 +137,7 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit hit;
 
-        Physics.Raycast(camposStart, camdir,out hit,CamDistance);
+        Physics.Raycast(camposStart, camdir,out hit,CamDistance, obstacleMask);
         Debug.DrawRay(camposStart, camdir);
 
         float dist;
@@ -174,19 +175,18 @@ public class PlayerController : MonoBehaviour
     void updateY()
     {
         
-        //simple fonction pour remonter des pentes (a ameliorer pour adapter la vitesse de deplacement en fonction de l'intensité de la pente)
-        if (Physics.Raycast(transform.position,Vector3.down,.9f))
+        //simple fonction pour remonter des pentes
+        if (Physics.Raycast(transform.position,Vector3.down,.9f, obstacleMask))
         {
-            while(Physics.Raycast(transform.position, Vector3.down,.9f))
+            while(Physics.Raycast(transform.position, Vector3.down,.9f, obstacleMask))
             {
                 transform.position += Vector3.up * .0001f;
             }
         }
 
         //pour descendre les pentes
-
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity) && ySpeed<=0)
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, obstacleMask) && ySpeed==0)
         {
             if (hit.distance < 1.3f && hit.distance>1)
             {
@@ -208,7 +208,7 @@ public class PlayerController : MonoBehaviour
     void slide(Vector3 t)
     {
         RaycastHit slope;
-        if (Physics.Raycast(t, Vector3.down, out slope, Controller.height / 2 + 0.001f))
+        if (Physics.Raycast(t, Vector3.down, out slope, Controller.height / 2 + 0.001f, obstacleMask))
         {
 
             float slopeAngle = Vector3.Angle(slope.normal, Vector3.up);
@@ -227,23 +227,25 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    public LayerMask obstacleMask;
+
     void gravity()
     {
 
         RaycastHit hit;
-        Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity);
+        Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, obstacleMask);
 
         RaycastHit hit2;
-        Physics.Raycast(transform.position+transform.forward*.05f, Vector3.down, out hit2, Mathf.Infinity);
+        Physics.Raycast(transform.position+transform.forward*.05f, Vector3.down, out hit2, Mathf.Infinity, obstacleMask);
 
         RaycastHit hit3;
-        Physics.Raycast(transform.position + transform.forward * -.05f, Vector3.down, out hit3, Mathf.Infinity);
+        Physics.Raycast(transform.position + transform.forward * -.05f, Vector3.down, out hit3, Mathf.Infinity, obstacleMask);
 
         RaycastHit hit4;
-        Physics.Raycast(transform.position + transform.right * .05f, Vector3.down, out hit4, Mathf.Infinity);
+        Physics.Raycast(transform.position + transform.right * .05f, Vector3.down, out hit4, Mathf.Infinity, obstacleMask);
 
         RaycastHit hit5;
-        Physics.Raycast(transform.position + Vector3.right * -.05f, Vector3.down, out hit5, Mathf.Infinity);
+        Physics.Raycast(transform.position + Vector3.right * -.05f, Vector3.down, out hit5, Mathf.Infinity, obstacleMask);
 
         float distToGround = 1.1f;
 
@@ -254,7 +256,7 @@ public class PlayerController : MonoBehaviour
 
             {
 
-                if (Physics.Raycast(transform.position, Vector3.up, 1.1f)&&ySpeed>0){
+                if (Physics.Raycast(transform.position, Vector3.up, 1.1f, obstacleMask)&&ySpeed>0){
                     ySpeed = 0;
                 }
 
@@ -271,5 +273,14 @@ public class PlayerController : MonoBehaviour
         Controller.Move(Vector3.up*ySpeed*Time.deltaTime);
 
 
+    }
+
+
+    void CheckLife()
+    {
+        if (life <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
