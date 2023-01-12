@@ -144,14 +144,6 @@ public class PlayerController : MonoBehaviour
 
         if (hit.distance > CamDistance || hit.collider==null || hit.collider.transform.name=="Player")
         {
-            print("dist "+  (hit.distance > CamDistance));
-            print("collider null" + (hit.collider == null));
-
-            if (hit.collider != null)
-            {
-                print("is player" + (hit.collider.transform.name == "Player"));
-            }
-
             dist = CamDistance;
         }
         else
@@ -159,7 +151,10 @@ public class PlayerController : MonoBehaviour
             dist = hit.distance;
         }
 
+
         Camera.main.transform.localPosition = new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, Camera.main.transform.localPosition.z);
+
+        //Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, -1.16f+0.3f * (CamDistance - dist));
 
 
 
