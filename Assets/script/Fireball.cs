@@ -64,7 +64,8 @@ public class Fireball : MonoBehaviour
 
         if (timer <= 0)
         {
-            Destroy(gameObject);
+            transform.position = new Vector3(666, -666, 666);
+            Destroy(gameObject,0.1f);
         }
 
         if (Input.GetAxis("Fire") < 1 && Input.GetMouseButtonUp(0))
@@ -85,7 +86,13 @@ public class Fireball : MonoBehaviour
     {
 
         if(other.gameObject.transform.name!="Player" && other.tag!="FireballTrigger" && !other.isTrigger)
-            Destroy(gameObject);
+
+        {
+            transform.position = new Vector3(666, -666, 666);
+            Destroy(gameObject, 0.1f);
+
+        }
+            
 
     }
 

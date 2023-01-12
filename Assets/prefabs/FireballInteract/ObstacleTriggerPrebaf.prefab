@@ -105,10 +105,10 @@ GameObject:
   - component: {fileID: 3965823724669057053}
   - component: {fileID: 7069048783454379471}
   - component: {fileID: 5595672566208328694}
-  - component: {fileID: 3516379725801532432}
+  - component: {fileID: 8497879126163339643}
   m_Layer: 0
   m_Name: FireballTrigger
-  m_TagString: FireballTrigger
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,7 +187,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3516379725801532432
+--- !u!114 &8497879126163339643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,10 +196,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 3303959528012291610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88dfb1f62246d944da8e0f7b9cfa3ac6, type: 3}
+  m_Script: {fileID: 11500000, guid: 832ab2a24a0478e4aa3ea263e43d25cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 0}
+  tagsAndNamesToCheck:
+  - Fireball
+  eventOnEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2610768588358193815}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  eventOnExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9120754839289899931
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5036361761259572514}
   m_Layer: 0
-  m_Name: DoorTriggerPrebaf
+  m_Name: ObstacleTriggerPrebaf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
