@@ -83,8 +83,10 @@ public class Fireball : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.transform.name!="Player")
-        Destroy(gameObject);
+
+        if(other.gameObject.transform.name!="Player" && other.tag!="FireballTrigger")
+            Destroy(gameObject);
+
     }
 
 }
