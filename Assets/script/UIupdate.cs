@@ -12,6 +12,9 @@ public class UIupdate : MonoBehaviour
     public GameObject LeftSpellImg;
     public GameObject RightSpellImg;
 
+    public GameObject HealthBar;
+    float healthbarsize = 500;
+
     public GameObject player;
 
     // Start is called before the first frame update
@@ -30,6 +33,7 @@ public class UIupdate : MonoBehaviour
             LeftSpellImg.GetComponent<Image>().sprite = player.GetComponent<CastSpell>().Elements[player.GetComponent<CastSpell>().SpellL].spell_image;
             RightSpellText.GetComponent<Text>().text = player.GetComponent<CastSpell>().Elements[player.GetComponent<CastSpell>().SpellR].spell_name;
             LeftSpellText.GetComponent<Text>().text = player.GetComponent<CastSpell>().Elements[player.GetComponent<CastSpell>().SpellL].spell_name;
+            HealthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(player.GetComponent<PlayerController>().life*healthbarsize/(player.GetComponent<PlayerController>().lifeMax), HealthBar.GetComponent<RectTransform>().sizeDelta.y);
         }
 
     }
