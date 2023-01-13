@@ -23,12 +23,12 @@ public class Fireball : MonoBehaviour
 
     Vector3 dir;
 
+    float inispeed;
+
     // Start is called before the first frame update
     void Start()
     {
-
-        transform.position = player.transform.position+Vector3.up;
-
+        transform.position = player.transform.position + Vector3.up;
         previousTransform = transform.position;
         startpos = transform.position;
     }
@@ -55,10 +55,17 @@ public class Fireball : MonoBehaviour
             destination = startpos + Camera.main.transform.forward * distance;
             transform.position = Vector3.MoveTowards(transform.position, destination, movespeed * Time.deltaTime);
 
+            player.GetComponent<PlayerController>().speedscale = 0.2f;
 
         }
         else
         {
+
+            if (player.GetComponent<PlayerController>().speedscale == 0.2f)
+            {
+                player.GetComponent<PlayerController>().speedscale = 1;
+            }
+
             transform.position +=dir*speed*Time.deltaTime;
         }
 
@@ -96,6 +103,14 @@ public class Fireball : MonoBehaviour
         }
             
 
+    }
+
+    private void OnDestroy()
+    {
+        if (player.GetComponent<PlayerController>().speedscale == 0.2f)
+        {
+            player.GetComponent<PlayerController>().speedscale = 1;
+        }
     }
 
 }

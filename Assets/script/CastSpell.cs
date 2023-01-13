@@ -12,6 +12,7 @@ public class CastSpell : MonoBehaviour
     public int limit;
 
     public GameObject fireBall;
+    public GameObject fireClone;
 
 
 
@@ -133,8 +134,27 @@ public class CastSpell : MonoBehaviour
 
         if (SpellL.ToString()+SpellR.ToString()=="01" || SpellL.ToString() + SpellR.ToString() == "10")
         {
-            GameObject f = Instantiate(fireBall);
-            f.GetComponent<Fireball>().player = transform.gameObject;
+            if (GameObject.Find("Fireball(Clone)") == null)
+            {
+            
+
+                GameObject f = Instantiate(fireBall);
+                f.GetComponent<Fireball>().player = transform.gameObject;
+                
+            }
+        }
+
+        if (SpellL.ToString() + SpellR.ToString() == "02" || SpellL.ToString() + SpellR.ToString() == "20")
+        {
+            //if (GameObject.Find("FireClone(Clone)") == null)
+            {
+
+
+                GameObject f = Instantiate(fireClone);
+                f.GetComponent<FireClone>().player = transform.gameObject;
+                f.transform.position = transform.position;
+
+            }
         }
     }
 }

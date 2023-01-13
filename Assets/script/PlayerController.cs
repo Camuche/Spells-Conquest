@@ -18,10 +18,11 @@ public class PlayerController : MonoBehaviour
 
     Transform previousTransform;
 
-    public int life;
+    public float life;
 
     [HideInInspector]
-    public int lifeMax;
+    public float lifeMax;
+    public float speedscale = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,10 @@ public class PlayerController : MonoBehaviour
         speed = playerSpeed;
 
         Controller = GetComponent<CharacterController>();
+
+        Controller.enabled = false;
+        Controller.transform.position = transform.position;
+        Controller.enabled = true;
 
         previousTransform = transform;
 
@@ -85,11 +90,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetAxis("Vertical")==0 || Input.GetAxis("Horizontal") == 0)
         {
-            speed = playerSpeed;
+            speed = playerSpeed * speedscale;
         }
         else
         {
-            speed = playerSpeed * Mathf.Cos(45 * Mathf.PI / 180);
+            speed = playerSpeed * Mathf.Cos(45 * Mathf.PI / 180) * speedscale;
         }
 
 
