@@ -157,4 +157,9 @@ public class CastSpell : MonoBehaviour
             }
         }
     }
+
+    void CamRaycast()
+    {
+
+    }
 }

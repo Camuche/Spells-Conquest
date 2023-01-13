@@ -363,6 +363,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemi_follower
       objectReference: {fileID: 0}
+    - target: {fileID: 8432561856949892887, guid: 977ff1c8d414ddf4484d77c2e2370382,
+        type: 3}
+      propertyPath: life
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 977ff1c8d414ddf4484d77c2e2370382, type: 3}
 --- !u!1 &421437624 stripped
@@ -10183,6 +10188,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181547021955089122, guid: f71c71d617d07b548b2f0f38f0068d1d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3181547021955089122, guid: f71c71d617d07b548b2f0f38f0068d1d,
         type: 3}
