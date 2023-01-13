@@ -90,7 +90,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075203169369399783}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -160,6 +160,7 @@ MonoBehaviour:
   eventOnExit:
     m_PersistentCalls:
       m_Calls: []
+  numberInTrigger: 0
 --- !u!1 &1261933018831463784
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +172,7 @@ GameObject:
   - component: {fileID: 4913362859122865375}
   - component: {fileID: 1430354240796891813}
   m_Layer: 0
-  m_Name: ObstacleTorchPrefab
+  m_Name: Obstacle4TorchPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -317,7 +318,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430354240949910161}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -387,6 +388,7 @@ MonoBehaviour:
   eventOnExit:
     m_PersistentCalls:
       m_Calls: []
+  numberInTrigger: 0
 --- !u!1 &1430354241431331568
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +667,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430354241635008206}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -735,6 +737,7 @@ MonoBehaviour:
   eventOnExit:
     m_PersistentCalls:
       m_Calls: []
+  numberInTrigger: 0
 --- !u!1 &1430354241732588677
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,7 +920,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430354241898380267}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -987,6 +990,7 @@ MonoBehaviour:
   eventOnExit:
     m_PersistentCalls:
       m_Calls: []
+  numberInTrigger: 0
 --- !u!1 &1430354242042010797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1463,7 +1467,6 @@ GameObject:
   - component: {fileID: 5347945559458471283}
   - component: {fileID: 4475896902387794749}
   - component: {fileID: 4346627059642001023}
-  - component: {fileID: 1430354241081475367}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -1545,15 +1548,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1430354241081475367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8857483881434099944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe42f487e5dbb764f8160bf44517e25a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

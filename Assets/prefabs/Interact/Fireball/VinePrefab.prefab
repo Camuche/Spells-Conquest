@@ -136,6 +136,7 @@ MonoBehaviour:
   eventOnExit:
     m_PersistentCalls:
       m_Calls: []
+  numberInTrigger: 0
 --- !u!1 &5166331558925147475
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +152,7 @@ GameObject:
   - component: {fileID: 5166331558925147486}
   m_Layer: 0
   m_Name: Object
-  m_TagString: Untagged
+  m_TagString: CanTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
