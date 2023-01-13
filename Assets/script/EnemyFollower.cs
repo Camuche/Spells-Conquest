@@ -32,9 +32,19 @@ public class EnemyFollower : MonoBehaviour
             //set shooting point
             GetComponent<EnemyShooting>().SpawnPoint = transform.position;
 
-            //moving towards player
-            dir = (player.transform.position - transform.position).normalized;
-            controller.Move(dir * speed * Time.deltaTime);
+            GameObject teleclone = GameObject.Find("TelekinesisClone(Clone)");
+            if (teleclone == null)
+            {
+                dir = (player.transform.position - transform.position).normalized;
+                controller.Move(dir * speed * Time.deltaTime);
+            }
+            else
+            {
+                //moving towards player
+                dir = (teleclone.transform.position - transform.position).normalized;
+                controller.Move(dir * speed * Time.deltaTime);
+
+            }
 
 
             //gravity

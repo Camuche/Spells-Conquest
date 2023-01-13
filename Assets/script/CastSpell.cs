@@ -13,8 +13,9 @@ public class CastSpell : MonoBehaviour
 
     public GameObject fireBall;
     public GameObject fireClone;
-
-
+    public GameObject teleClone;
+    public GameObject AimPoint;
+    GameObject viseur;
 
     //structure de donnée d'un element (avec le nom de l'element, son image d'ui, etc...)
     [System.Serializable]
@@ -27,6 +28,8 @@ public class CastSpell : MonoBehaviour
 
     
     public Element[] Elements = new Element[3];
+
+    
 
 
     enum spells
@@ -43,7 +46,7 @@ public class CastSpell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        viseur = Instantiate(AimPoint);
     }
 
     // Update is called once per frame
@@ -127,11 +130,21 @@ public class CastSpell : MonoBehaviour
                 fired = false;
             }
         }
+
+        //aiming in case it is tele-clone
+        if (SpellL.ToString() + SpellR.ToString() == "12" || SpellL.ToString() + SpellR.ToString() == "21")
+        {
+            viseur.SetActive(true);
+            CamRaycast();
+        }
+        else
+        {
+            viseur.SetActive(false);
+        }
     }
 
     void Cast()
     {
-
         if (SpellL.ToString()+SpellR.ToString()=="01" || SpellL.ToString() + SpellR.ToString() == "10")
         {
             if (GameObject.Find("Fireball(Clone)") == null)
@@ -156,10 +169,31 @@ public class CastSpell : MonoBehaviour
 
             }
         }
+
+        if (SpellL.ToString() + SpellR.ToString() == "12" || SpellL.ToString() + SpellR.ToString() == "21")
+        {
+
+            if (GameObject.Find("TelekinesisClone(Clone)") == null)
+            {
+
+
+                GameObject t = Instantiate(teleClone);
+                t.transform.position = viseur.transform.position+Vector3.up;
+
+            }
+        }
     }
 
     void CamRaycast()
     {
+        RaycastHit hit;
+        Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity);
 
+
+        if (hit.collider != null && hit.distance<200)
+        {
+            viseur.transform.position = Camera.main.transform.position + Camera.main.transform.forward * hit.distance;
+            viseur.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+        }
     }
 }
