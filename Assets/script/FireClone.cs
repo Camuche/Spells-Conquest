@@ -6,14 +6,17 @@ public class FireClone : MonoBehaviour
 {
 
     public float speed;
+    public float timer;
 
 
     [HideInInspector]
     public Vector3 direction;
 
+    [HideInInspector]
+    public GameObject player;
+
     CharacterController controller;
 
-    public GameObject player;
 
 
     // Start is called before the first frame update
@@ -36,5 +39,14 @@ public class FireClone : MonoBehaviour
     void Update()
     {
         controller.Move(direction * speed *Time.deltaTime);
+
+        timer -= Time.deltaTime;
+
+        if (timer <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
+
+    
 }

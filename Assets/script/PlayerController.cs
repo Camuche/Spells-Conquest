@@ -293,4 +293,28 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public bool CheckShield()
+    {
+        GameObject shield = GameObject.Find("FireClone(Clone)");
+
+        if (shield != null)
+        {
+            if (Vector3.Distance(transform.position, shield.transform.position)<2.5f)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+
+
+            }
+        }
+        else
+        {
+            return false;
+
+        }
+    }
 }
