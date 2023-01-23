@@ -147,7 +147,7 @@ public class CastSpell : MonoBehaviour
     {
         if (SpellL.ToString()+SpellR.ToString()=="01" || SpellL.ToString() + SpellR.ToString() == "10")
         {
-            if (GameObject.Find("Fireball(Clone)") == null)
+            if (GameObject.Find("PrefabFireball(Clone)") == null)
             {
             
 
