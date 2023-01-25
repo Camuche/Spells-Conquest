@@ -173,7 +173,7 @@ public class CastSpell : MonoBehaviour
         if (SpellL.ToString() + SpellR.ToString() == "12" || SpellL.ToString() + SpellR.ToString() == "21")
         {
 
-            if (GameObject.Find("TelekinesisClone(Clone)") == null)
+            if (GameObject.Find("TelekinesisClone(Clone)") == null && viseur.transform.GetComponent<MeshRenderer>().enabled)
             {
 
 
@@ -190,10 +190,15 @@ public class CastSpell : MonoBehaviour
         Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity);
 
 
-        if (hit.collider != null && hit.distance<200)
+        if (hit.collider != null && hit.distance<200 && hit.transform.gameObject.layer == LayerMask.NameToLayer("ground"))
         {
+            viseur.transform.GetComponent<MeshRenderer>().enabled=true;
             viseur.transform.position = Camera.main.transform.position + Camera.main.transform.forward * hit.distance;
             viseur.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+        }
+        else
+        {
+            viseur.transform.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 }

@@ -122,7 +122,7 @@ MonoBehaviour:
   CamStart: {fileID: 3870732602979315408}
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1025
 --- !u!143 &3870732601873632239
 CharacterController:
   m_ObjectHideFlags: 0
@@ -160,6 +160,9 @@ MonoBehaviour:
     type: 3}
   fireClone: {fileID: 2042409260256181007, guid: b349e459012a5ac44a5210933b186579,
     type: 3}
+  teleClone: {fileID: 0}
+  AimPoint: {fileID: 8136853320341797314, guid: 598d7544ceedcbc409f35e791b167678,
+    type: 3}
   Elements:
   - spell_name: Fire
     spell_image: {fileID: 21300000, guid: cc74df736f3362f4b8c1037893e8587c, type: 3}
@@ -170,8 +173,6 @@ MonoBehaviour:
   - spell_name: Clone
     spell_image: {fileID: 21300000, guid: bbac172096b51014fb4dc8f0b1e9e27e, type: 3}
     id: 0
-  AimPoint: {fileID: 8136853320341797314, guid: 598d7544ceedcbc409f35e791b167678,
-    type: 3}
 --- !u!1 &3870732602788733398
 GameObject:
   m_ObjectHideFlags: 0
