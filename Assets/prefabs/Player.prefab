@@ -156,11 +156,12 @@ MonoBehaviour:
   SpellL: 0
   SpellR: 1
   limit: 2
-  fireBall: {fileID: 6751601381311631589, guid: 9627deac83118a14e8677ee260780a32,
+  fireBall: {fileID: 6861626685482858038, guid: 6a61a2eac223e8d4bac72a6bc4190492,
     type: 3}
   fireClone: {fileID: 2042409260256181007, guid: b349e459012a5ac44a5210933b186579,
     type: 3}
-  teleClone: {fileID: 0}
+  teleClone: {fileID: 838386325406439919, guid: 924f649d6c605e9479d895c465796552,
+    type: 3}
   AimPoint: {fileID: 8136853320341797314, guid: 598d7544ceedcbc409f35e791b167678,
     type: 3}
   Elements:
