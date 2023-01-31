@@ -158,7 +158,7 @@ MonoBehaviour:
   limit: 2
   fireBall: {fileID: 6861626685482858038, guid: 6a61a2eac223e8d4bac72a6bc4190492,
     type: 3}
-  fireClone: {fileID: 2042409260256181007, guid: b349e459012a5ac44a5210933b186579,
+  fireClone: {fileID: 1108065954000898894, guid: d1777b53a23a507408368fe1192facfe,
     type: 3}
   teleClone: {fileID: 838386325406439919, guid: 924f649d6c605e9479d895c465796552,
     type: 3}
