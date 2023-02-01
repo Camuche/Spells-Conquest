@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: MatLave
   m_Shader: {fileID: 4800000, guid: a6bf0610a1f2c554ab9c515fcd53e1b6, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
