@@ -6,7 +6,6 @@ public class EnemyFollower : MonoBehaviour
 {
 
     public float speed;
-    public int life;
     GameObject player;
     CharacterController controller;
 
@@ -29,8 +28,6 @@ public class EnemyFollower : MonoBehaviour
         if (player != null)
         {
 
-            //set shooting point
-            GetComponent<EnemyShooting>().SpawnPoint = transform.position;
 
             GameObject teleclone = GameObject.Find("TelekinesisClone(Clone)");
             if (teleclone == null)

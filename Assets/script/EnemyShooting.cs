@@ -21,6 +21,9 @@ public class EnemyShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        SpawnPoint = transform.position;
+
         timer += Time.deltaTime;
 
         if (timer >= delay)
