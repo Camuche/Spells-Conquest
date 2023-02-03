@@ -77,7 +77,6 @@ public class Fireball : MonoBehaviour
         }
 
         transform.rotation = Quaternion.LookRotation((oldPos - transform.position).normalized);
-        print(transform.eulerAngles);
 
 
         if (timer <= 0)

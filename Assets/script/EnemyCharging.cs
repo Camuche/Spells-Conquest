@@ -65,16 +65,8 @@ public class EnemyCharging : MonoBehaviour
         {
 
 
-            GameObject teleclone = GameObject.Find("TelekinesisClone(Clone)");
-            if (teleclone == null)
-            {
-                dir = (player.transform.position - transform.position).normalized;
-            }
-            else
-            {
-                dir = (teleclone.transform.position - transform.position).normalized;
-
-            }
+            dir = (player.transform.position - transform.position).normalized;
+            controller.Move(dir * speed * Time.deltaTime);
 
             speed = chargeSpeed;
 
