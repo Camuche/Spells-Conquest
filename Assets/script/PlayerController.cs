@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -290,7 +291,7 @@ public class PlayerController : MonoBehaviour
     {
         if (life <= 0)
         {
-            Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
