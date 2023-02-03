@@ -28,9 +28,11 @@ public class EnemyFollower : MonoBehaviour
         if (player != null)
         {
 
-
-            dir = (player.transform.position - transform.position).normalized;
-            controller.Move(dir * speed * Time.deltaTime);
+            if (Vector3.Distance(player.transform.position, transform.position) < 30)
+            {
+                dir = (player.transform.position - transform.position).normalized;
+                controller.Move(dir * speed * Time.deltaTime);
+            }
 
 
             //gravity
