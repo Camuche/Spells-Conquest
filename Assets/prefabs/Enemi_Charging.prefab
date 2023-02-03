@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ddd880bfdc20694380195e14c404feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  continuous: 1
-  damage: 5
+  continuous: 0
+  damage: 1
   instaKill: 0
 --- !u!135 &120852052043948174
 SphereCollider:
@@ -155,7 +155,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 4042794045697653259}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -224,7 +224,7 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
   grav: 0
-  ChargeDelay: 1
+  ChargeDelay: 3
 --- !u!1001 &2427657593493359843
 PrefabInstance:
   m_ObjectHideFlags: 0

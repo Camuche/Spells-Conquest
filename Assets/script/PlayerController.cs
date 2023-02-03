@@ -297,7 +297,7 @@ public class PlayerController : MonoBehaviour
 
     public bool CheckShield()
     {
-        GameObject shield = GameObject.Find("FireClone(Clone)");
+        GameObject shield = GameObject.Find("PrefabFireShield(Clone)");
 
         if (shield != null)
         {

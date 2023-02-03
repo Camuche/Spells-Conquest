@@ -97,7 +97,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Size: 79.6
+    - _Size: 119.6
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: 0.008
@@ -109,9 +109,9 @@ Material:
     - _UVSec: 0
     - _VisualisePosition: 0
     - _ZWrite: 1
-    - __dirty: 1
+    - __dirty: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 1, g: 0, b: 0.03164482, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpherePosition: {r: -9.29, g: 1, b: 1.96, a: 0}
+    - _SpherePosition: {r: 11.7669325, g: 1.08, b: 17.974592, a: 0}

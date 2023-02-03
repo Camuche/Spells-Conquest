@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5437f3402c2ac014681499f77d2b526b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Shield: {fileID: 1108065954000898894, guid: d1777b53a23a507408368fe1192facfe,
+      type: 3}
+  - lava: {fileID: 2100000, guid: dc4b9a797342a75468c6ecd34afd4114, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

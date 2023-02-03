@@ -34,7 +34,7 @@ public class EnemyCharging : MonoBehaviour
             charging();
 
             speed -= Time.deltaTime * chargeSpeed;
-            speed = Mathf.Clamp(speed, 0, Mathf.Infinity);
+            
 
 
             controller.Move(dir * speed * Time.deltaTime);
@@ -60,17 +60,33 @@ public class EnemyCharging : MonoBehaviour
     float RemainingDelay = 0;
     private void charging()
     {
+
+
+        
+
+
         RemainingDelay += Time.deltaTime;
         if (RemainingDelay >= ChargeDelay)
         {
 
 
             dir = (player.transform.position - transform.position).normalized;
-            controller.Move(dir * speed * Time.deltaTime);
 
             speed = chargeSpeed;
 
             RemainingDelay = 0;
+        }
+
+
+        if (RemainingDelay > ChargeDelay - 1)
+        {
+            dir = (player.transform.position - transform.position).normalized;
+            speed = Mathf.Clamp(speed, -5, Mathf.Infinity);
+        }
+        else
+        {
+            speed = Mathf.Clamp(speed, 0, Mathf.Infinity);
+
         }
     }
 }

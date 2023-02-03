@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireShield : MonoBehaviour
+public class pickupSpell : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,13 +16,14 @@ public class FireShield : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("enemiBullet"))
+        if(other.name == "Player" && Input.GetKeyDown(KeyCode.F))
         {
-            Destroy(other.gameObject);
+            other.GetComponent<CastSpell>().limit++;
+            Destroy(gameObject);
         }
-    }
 
-    
+        
+    }
 }

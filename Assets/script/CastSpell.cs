@@ -92,7 +92,7 @@ public class CastSpell : MonoBehaviour
         }
 
 
-        //fire input
+        //qi; input
         if (Input.GetAxis("Aim")< 0 || Input.GetMouseButtonDown(1))
         {
             if (aimed == false)
@@ -115,7 +115,7 @@ public class CastSpell : MonoBehaviour
         if (Input.GetAxis("Fire")>0 || Input.GetMouseButtonDown(0))
         {
 
-            if (fired == false)
+            if (fired == false && limit>0)
             {
                 Cast();
                 fired = true;

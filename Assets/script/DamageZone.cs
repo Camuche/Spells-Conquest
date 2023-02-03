@@ -58,7 +58,7 @@ public class DamageZone : MonoBehaviour
 
                 if (!continuous)
                 {
-                    other.GetComponent<PlayerController>().life -= damage * Time.deltaTime;
+                    other.GetComponent<PlayerController>().life -= damage;
                 }
             }
         

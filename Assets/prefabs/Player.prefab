@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellL: 0
   SpellR: 1
-  limit: 2
+  limit: -1
   fireBall: {fileID: 6861626685482858038, guid: 6a61a2eac223e8d4bac72a6bc4190492,
     type: 3}
   fireClone: {fileID: 1108065954000898894, guid: d1777b53a23a507408368fe1192facfe,
@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3870732602788733398}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.77, y: 0.5, z: -1.16}
+  m_LocalPosition: {x: -2.72, y: 0.5, z: -1.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3870732601873632225}
