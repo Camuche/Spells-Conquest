@@ -111,6 +111,9 @@ MonoBehaviour:
   dammage: 0
   Spawner: {fileID: 0}
   speed: 3
+  mask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!54 &-3171197780263925946
 Rigidbody:
   m_ObjectHideFlags: 0

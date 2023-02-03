@@ -21,9 +21,24 @@ public class EnemyProjectiles : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    public LayerMask mask;
+
     void Update()
     {
-        transform.position += dir * speed*Time.deltaTime;
+
+
+        RaycastHit hit;
+        Physics.Raycast(transform.position, (transform.position - (transform.position + dir)).normalized,out hit,speed*Time.deltaTime+GetComponent<SphereCollider>().radius,mask);
+
+        if (hit.transform == null)
+        {
+            transform.position += dir * speed * Time.deltaTime;
+        }
+        else
+        {
+            transform.position += dir * (hit.distance- GetComponent<SphereCollider>().radius);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

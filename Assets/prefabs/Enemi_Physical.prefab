@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1415464157433182439}
   - component: {fileID: 3489472006297785433}
   - component: {fileID: 120852052043948174}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DamageZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 8432561856949892887}
   - component: {fileID: 5387335219111035024}
   - component: {fileID: 3931506438026593828}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemi_Physical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  life: 0
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
   grav: 10

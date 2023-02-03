@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3092575754617821767}
   - component: {fileID: 3931506438026593828}
   m_Layer: 11
-  m_Name: Enemi_Shooter
+  m_Name: Enemi_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d1a6e1b7bd4c44eb9397d6a1b0507e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
+  speed: 0
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
   grav: 10
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4b13a27f0d8234d9acd522a6a63f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.5
+  delay: 0.1
   Bullet: {fileID: 3856048993441989314, guid: d1a24f3734c82ca44ace6640f238fa07, type: 3}
   SpawnPoint: {x: 0, y: 0, z: 0}
   BulletDammage: 1
