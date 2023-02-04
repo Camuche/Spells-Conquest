@@ -159,7 +159,7 @@ public class CastSpell : MonoBehaviour
 
         if ((SpellL.ToString() + SpellR.ToString() == "02" || SpellL.ToString() + SpellR.ToString() == "20")&& limit>0)
         {
-            if (GameObject.Find("FireClone(Clone)") == null)
+            if (GameObject.Find("PrefabFireShield(Clone)") == null)
             {
 
 
