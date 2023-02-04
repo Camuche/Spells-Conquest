@@ -13,6 +13,7 @@ public class EnemyFollower : MonoBehaviour
 
     public float ySpeed;
     public float grav;
+    public float followDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,7 @@ public class EnemyFollower : MonoBehaviour
         if (player != null)
         {
 
-            if (Vector3.Distance(player.transform.position, transform.position) < 30)
+            if (Vector3.Distance(player.transform.position, transform.position) < followDistance)
             {
                 dir = (player.transform.position - transform.position).normalized;
                 controller.Move(dir * speed * Time.deltaTime);
