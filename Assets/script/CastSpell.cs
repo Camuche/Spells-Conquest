@@ -60,7 +60,7 @@ public class CastSpell : MonoBehaviour
             {
                 SpellL++;
             }
-            if (SpellL > Elements.Length - 1 || SpellL>limit)
+            if (SpellL > Elements.Length - 1)
             {
                 SpellL = 0;
             }
@@ -80,7 +80,7 @@ public class CastSpell : MonoBehaviour
             {
                 SpellR++;
             }
-            if (SpellR > Elements.Length - 1 || SpellR > limit)
+            if (SpellR > Elements.Length - 1)
             {
                 SpellR = 0;
             }
@@ -115,7 +115,7 @@ public class CastSpell : MonoBehaviour
         if (Input.GetAxis("Fire")>0 || Input.GetMouseButtonDown(0))
         {
 
-            if (fired == false && limit>0)
+            if (fired == false && limit>-1)
             {
                 Cast();
                 fired = true;
@@ -132,7 +132,7 @@ public class CastSpell : MonoBehaviour
         }
 
         //aiming in case it is tele-clone
-        if (SpellL.ToString() + SpellR.ToString() == "12" || SpellL.ToString() + SpellR.ToString() == "21")
+        if ((SpellL.ToString() + SpellR.ToString() == "12" || SpellL.ToString() + SpellR.ToString() == "21") && limit>1)
         {
             viseur.SetActive(true);
             CamRaycast();
@@ -145,7 +145,7 @@ public class CastSpell : MonoBehaviour
 
     void Cast()
     {
-        if (SpellL.ToString()+SpellR.ToString()=="01" || SpellL.ToString() + SpellR.ToString() == "10")
+        if ((SpellL.ToString()+SpellR.ToString()=="01" || SpellL.ToString() + SpellR.ToString() == "10") && limit>-1)
         {
             if (GameObject.Find("PrefabFireball(Clone)") == null)
             {
@@ -157,7 +157,7 @@ public class CastSpell : MonoBehaviour
             }
         }
 
-        if (SpellL.ToString() + SpellR.ToString() == "02" || SpellL.ToString() + SpellR.ToString() == "20")
+        if ((SpellL.ToString() + SpellR.ToString() == "02" || SpellL.ToString() + SpellR.ToString() == "20")&& limit>0)
         {
             if (GameObject.Find("FireClone(Clone)") == null)
             {
@@ -170,7 +170,7 @@ public class CastSpell : MonoBehaviour
             }
         }
 
-        if (SpellL.ToString() + SpellR.ToString() == "12" || SpellL.ToString() + SpellR.ToString() == "21")
+        if ((SpellL.ToString() + SpellR.ToString() == "12" || SpellL.ToString() + SpellR.ToString() == "21")&& limit > 1)
         {
 
             if (GameObject.Find("TelekinesisClone(Clone)") == null && viseur.transform.GetComponent<MeshRenderer>().enabled)

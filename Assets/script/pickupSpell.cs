@@ -18,7 +18,7 @@ public class pickupSpell : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.name == "Player" && Input.GetKeyDown(KeyCode.F))
+        if(other.name == "Player" && Input.GetButtonDown("Interract"))
         {
             other.GetComponent<CastSpell>().limit++;
             Destroy(gameObject);
