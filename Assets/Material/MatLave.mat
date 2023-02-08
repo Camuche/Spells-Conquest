@@ -81,6 +81,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
+    - _CircleSize: 6.25
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _Disto: 0.1
@@ -88,7 +89,7 @@ Material:
     - _EdgeLength: 15
     - _Float0: 1.16
     - _Float1: 0.138
-    - _Float2: 0.14
+    - _Float2: 0.027
     - _Float3: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -114,4 +115,5 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 1, g: 0, b: 0.03164482, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpherePosition: {r: -0.81324744, g: 1.08, b: 16.768015, a: 0}
+    - _SpherePosition: {r: 2.1020555, g: 1.08, b: 23.638594, a: 0}
+    - _Vector0: {r: 5, g: 1, b: 7, a: 0}
