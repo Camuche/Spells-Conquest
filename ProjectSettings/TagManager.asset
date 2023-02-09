@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fireball
   - CanTrigger
+  - ShaderEffect
   layers:
   - Default
   - TransparentFX
