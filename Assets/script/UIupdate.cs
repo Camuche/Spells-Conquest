@@ -27,6 +27,11 @@ public class UIupdate : MonoBehaviour
     void Update()
     {
 
+        if (player == null)
+        {
+            player = GameObject.Find("Player");
+        }
+
         if (player != null)
         {
 

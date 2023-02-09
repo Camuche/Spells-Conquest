@@ -28,14 +28,19 @@ public class EnemyShooting : MonoBehaviour
 
         if (timer >= delay)
         {
-            GameObject b = Instantiate(Bullet);
-            b.GetComponent<EnemyProjectiles>().dir = gameObject.GetComponent<EnemyFollower>().dir;
-            b.transform.position = SpawnPoint;
-            b.GetComponent<EnemyProjectiles>().Spawner = gameObject;
-            b.GetComponent<EnemyProjectiles>().dammage = BulletDammage;
-            b.GetComponent<EnemyProjectiles>().speed = BulletSpeed;
 
-            timer = 0;
+            if (gameObject.GetComponent<EnemyFollower>().dir != Vector3.zero)
+            {
+                GameObject b = Instantiate(Bullet);
+                b.GetComponent<EnemyProjectiles>().dir = gameObject.GetComponent<EnemyFollower>().dir;
+                b.transform.position = SpawnPoint;
+                b.GetComponent<EnemyProjectiles>().Spawner = gameObject;
+                b.GetComponent<EnemyProjectiles>().dammage = BulletDammage;
+                b.GetComponent<EnemyProjectiles>().speed = BulletSpeed;
+
+                timer = 0;
+
+            }
         }
     }
 }

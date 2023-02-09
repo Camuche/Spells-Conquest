@@ -34,6 +34,10 @@ public class EnemyFollower : MonoBehaviour
                 dir = (player.transform.position - transform.position).normalized;
                 controller.Move(dir * speed * Time.deltaTime);
             }
+            else
+            {
+                dir = Vector3.zero;
+            }
 
 
             //gravity

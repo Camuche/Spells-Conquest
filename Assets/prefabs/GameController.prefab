@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1275252939218452237
 Transform:
@@ -63,3 +63,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matLave: {fileID: 2100000, guid: dc4b9a797342a75468c6ecd34afd4114, type: 2}
+  CheckPoint: {x: 0, y: 0, z: 0}

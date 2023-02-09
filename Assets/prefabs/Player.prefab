@@ -111,13 +111,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4751d2aec445224cb635f7f64867148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 200
+  mouseSensitivity: 400
   playerSpeed: 10
   grav: 20
   jumpForce: 10
   life: 100
   lifeMax: 0
   speedscale: 1
+  AimDistance: 1
   CamDistance: 2.5
   CamStart: {fileID: 3870732602979315408}
   obstacleMask:

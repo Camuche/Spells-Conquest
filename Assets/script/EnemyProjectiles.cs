@@ -17,7 +17,7 @@ public class EnemyProjectiles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -28,6 +28,7 @@ public class EnemyProjectiles : MonoBehaviour
     {
 
 
+        
         RaycastHit hit;
         Physics.Raycast(transform.position, (transform.position - (transform.position + dir)).normalized,out hit,speed*Time.deltaTime+GetComponent<SphereCollider>().radius,mask);
 
@@ -37,7 +38,8 @@ public class EnemyProjectiles : MonoBehaviour
         }
         else
         {
-            transform.position += dir * (hit.distance- GetComponent<SphereCollider>().radius);
+            //transform.position += dir * (hit.distance- GetComponent<SphereCollider>().radius);
+            transform.position += dir * speed * Time.deltaTime;
         }
     }
 
