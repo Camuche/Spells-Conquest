@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class PlayerController : MonoBehaviour
 {
     public float mouseSensitivity;
@@ -21,13 +22,17 @@ public class PlayerController : MonoBehaviour
 
     public float life;
 
+
     [HideInInspector]
     public float lifeMax;
     public float speedscale = 1;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
+
         Cursor.lockState = CursorLockMode.Locked;
 
         speed = playerSpeed;
@@ -42,13 +47,15 @@ public class PlayerController : MonoBehaviour
 
         lifeMax = life;
 
+        DefaultCamDistance = CamDistance;
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        aiming();
         rotateCamera();
         rotatePlayer();
         movements();
@@ -120,9 +127,52 @@ public class PlayerController : MonoBehaviour
         
     }
 
+
+
+    [SerializeField] float AimDistance;
+    float DefaultCamDistance;
+    private bool isAiming;
+
+    void aiming()
+    {
+        if (Input.GetAxis("Aim") > 0 || Input.GetMouseButton(1))
+        {
+
+            if (CamDistance > AimDistance)
+            {
+                CamDistance /= 1.02f;
+            }
+
+            if (isAiming == false)
+            {
+                isAiming = true;
+
+                
+            }
+
+        }
+        else
+        {
+            if (CamDistance < DefaultCamDistance)
+            {
+                CamDistance *= 1.02f;
+            }
+
+            if (isAiming)
+            {
+                isAiming = false;
+            }
+
+            
+        }
+    }
+
+
     float rotY=0;
     public float CamDistance;
+    
     public GameObject CamStart;
+
     void rotateCamera()
     {
 
@@ -162,12 +212,27 @@ public class PlayerController : MonoBehaviour
         {
             dist = hit.distance;
         }
+        /*
+        RaycastHit hitz;
+
+        Physics.Raycast(transform.position, transform.forward * -1, out hitz, CamDistance, obstacleMask);
 
 
+        
+        float zdistance;
+
+        if (hitz.transform == null)
+        {
+            zdistance = (float)(CamDistance/2f);
+        }
+        else
+        {
+            zdistance = (float)(hitz.distance/2f)-0.25f*(CamDistance-hitz.distance)* (CamDistance - hitz.distance) / CamDistance;
+        }
+        */
         Camera.main.transform.localPosition = new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, Camera.main.transform.localPosition.z);
 
         //Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, -1.16f+0.3f * (CamDistance - dist));
-
 
 
     }
@@ -318,4 +383,6 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+
+
 }
