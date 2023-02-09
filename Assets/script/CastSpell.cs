@@ -92,8 +92,8 @@ public class CastSpell : MonoBehaviour
         }
 
 
-        //qi; input
-        if (Input.GetAxis("Aim")< 0 || Input.GetMouseButtonDown(1))
+        //aim input
+        if (Input.GetAxis("Aim")> 0 || Input.GetMouseButtonDown(1))
         {
             if (aimed == false)
             {

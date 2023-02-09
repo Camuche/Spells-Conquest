@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class pickupSpell : MonoBehaviour
 {
+
+    bool canPickUp = false;
+    GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,17 +17,31 @@ public class pickupSpell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (canPickUp && Input.GetButtonDown("Interact"))
+        {
+            player.GetComponent<CastSpell>().limit++;
+            Destroy(gameObject);
+        }
     }
 
-    private void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Player" && Input.GetButtonDown("Interract"))
+        if (other.name == "Player")
         {
-            other.GetComponent<CastSpell>().limit++;
-            Destroy(gameObject);
+            player = other.gameObject;
+            canPickUp = true;
         }
 
         
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.name == "Player")
+        {
+            canPickUp = false;
+        }
+
+
     }
 }

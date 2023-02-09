@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FireClone : MonoBehaviour
 {
+    [SerializeField] Material matLave;
 
     public float speed;
     public float timer;
@@ -38,12 +39,15 @@ public class FireClone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         controller.Move(direction * speed *Time.deltaTime);
 
         timer -= Time.deltaTime;
 
         if (timer <= 0)
         {
+            matLave.SetVector("_SpherePosition", new Vector4(0, 9999999999999, 0, 0));
             Destroy(gameObject);
         }
     }

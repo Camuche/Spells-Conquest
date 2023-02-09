@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1275252939218452237}
   - component: {fileID: 1275252939218452236}
+  - component: {fileID: 1744762725}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -49,3 +50,16 @@ MonoBehaviour:
   RightSpellImg: {fileID: 0}
   HealthBar: {fileID: 0}
   player: {fileID: 0}
+--- !u!114 &1744762725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275252939218452239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49489a79ae531940a083ef8358a9f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matLave: {fileID: 2100000, guid: dc4b9a797342a75468c6ecd34afd4114, type: 2}

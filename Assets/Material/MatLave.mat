@@ -115,5 +115,5 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 1, g: 0, b: 0.03164482, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpherePosition: {r: 2.1020555, g: 1.08, b: 23.638594, a: 0}
+    - _SpherePosition: {r: 0, g: 1e+13, b: 0, a: 0}
     - _Vector0: {r: 5, g: 1, b: 7, a: 0}
