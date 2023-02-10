@@ -2716,7 +2716,7 @@ GameObject:
   - component: {fileID: 1764120042}
   - component: {fileID: 1764120043}
   m_Layer: 0
-  m_Name: Plane (4)
+  m_Name: SmokePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4961,7 +4961,7 @@ PrefabInstance:
     - target: {fileID: 1108065954000898894, guid: d1777b53a23a507408368fe1192facfe,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1108065954000898895, guid: d1777b53a23a507408368fe1192facfe,
         type: 3}
@@ -5145,7 +5145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &6831488190830805154
 BoxCollider:
   m_ObjectHideFlags: 0
