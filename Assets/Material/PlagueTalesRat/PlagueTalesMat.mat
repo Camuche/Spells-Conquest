@@ -54,7 +54,7 @@ Material:
     - _TessMin: 10
     - _TessValue: 32
     - _VertexOffestPower: 0.528
-    - __dirty: 0
+    - __dirty: 1
     m_Colors:
     - _FireballLocation: {r: 2.33, g: 0, b: 0, a: 0}
     - _SpherePosition: {r: -10, g: 0, b: -11, a: 0}
