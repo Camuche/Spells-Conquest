@@ -252,9 +252,9 @@ public class PlayerController : MonoBehaviour
     {
         
         //simple fonction pour remonter des pentes
-        if (Physics.Raycast(transform.position,Vector3.down,.9f, obstacleMask))
+        if (Physics.Raycast(transform.position,Vector3.down,.9f, obstacleMask, QueryTriggerInteraction.Ignore))
         {
-            while(Physics.Raycast(transform.position, Vector3.down,.9f, obstacleMask))
+            while(Physics.Raycast(transform.position, Vector3.down,.9f, obstacleMask, QueryTriggerInteraction.Ignore))
             {
                 transform.position += Vector3.up * .0001f;
             }
@@ -271,11 +271,12 @@ public class PlayerController : MonoBehaviour
         }
 
         //glisser sur les pentes raides
+        
         slide(transform.position+transform.forward*.5f);
         slide(transform.position+ transform.forward*-.5f);
         slide(transform.position + transform.right * .5f);
         slide(transform.position + transform.right * -.5f);
-
+        
         previousTransform = transform;
 
 

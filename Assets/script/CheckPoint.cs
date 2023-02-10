@@ -5,7 +5,7 @@ using UnityEngine;
 public class CheckPoint : MonoBehaviour
 {
     bool canSave = false;
-    GameObject gameController;
+    [SerializeField]GameObject gameController;
     GameObject player;
 
 
@@ -18,10 +18,13 @@ public class CheckPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetButtonDown("Interact") && canSave)
         {
             gameController.GetComponent<gameController>().CheckPoint = player.transform.position;
+            Destroy(gameObject);
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)
