@@ -70,16 +70,18 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
+    [HideInInspector] public float dashCoolDown = 0;
     void movements()
     {
 
+        dashCoolDown -= Time.deltaTime;
 
         //dodge input
         if (Input.GetButtonDown("Dodge"))
         {
-            if (dodgespeed == 0) {
+            if (dodgespeed == 0 && dashCoolDown<=0) {
                 dodgespeed = 200;
+                dashCoolDown = 1.5f;
             }
         }
 

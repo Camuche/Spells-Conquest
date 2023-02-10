@@ -201,4 +201,25 @@ public class CastSpell : MonoBehaviour
             viseur.transform.GetComponent<MeshRenderer>().enabled = false;
         }
     }
+
+    public bool CheckValidation()
+    {
+        if ((SpellL.ToString() + SpellR.ToString() == "01" || SpellL.ToString() + SpellR.ToString() == "10") && limit > -1)
+        {
+            return true;
+        }
+
+        if ((SpellL.ToString() + SpellR.ToString() == "02" || SpellL.ToString() + SpellR.ToString() == "20") && limit > 0)
+        {
+            return true;
+        }
+
+        if ((SpellL.ToString() + SpellR.ToString() == "12" || SpellL.ToString() + SpellR.ToString() == "21") && limit > 1)
+        {
+
+            return true;
+        }
+
+        return false;
+    }
 }

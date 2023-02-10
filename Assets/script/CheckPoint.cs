@@ -19,10 +19,9 @@ public class CheckPoint : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetButtonDown("Interact") && canSave)
+        if (canSave)
         {
-            gameController.GetComponent<gameController>().CheckPoint = player.transform.position;
-            Destroy(gameObject);
+            gameController.GetComponent<gameController>().CheckPoint = transform.position;
         }
         
     }
