@@ -21,7 +21,8 @@ public class CheckPoint : MonoBehaviour
         
         if (canSave)
         {
-            gameController.GetComponent<gameController>().CheckPoint = transform.position;
+            gameController.GetComponent<gameController>().CheckPoint = new Vector3(transform.position.x,player.transform.position.y,transform.position.z);
+            gameController.GetComponent<gameController>().checkpointed = true;
         }
         
     }

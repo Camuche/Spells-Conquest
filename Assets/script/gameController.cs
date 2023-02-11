@@ -9,7 +9,8 @@ public class gameController : MonoBehaviour
 
     GameObject player;
 
-    [HideInInspector]public Vector3 CheckPoint;
+    [HideInInspector]public Vector3 CheckPoint = Vector3.zero;
+    [HideInInspector] public bool checkpointed = false;
 
     private void OnLevelWasLoaded(int level)
     {
@@ -18,7 +19,7 @@ public class gameController : MonoBehaviour
 
 
         player = GameObject.Find("Player");
-        if (CheckPoint != Vector3.zero)
+        if (checkpointed)
         {
             player.transform.position = CheckPoint;
         }

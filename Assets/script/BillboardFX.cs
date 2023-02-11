@@ -5,7 +5,7 @@ using UnityEngine;
 public class BillboardFX : MonoBehaviour
 {
 
-    public Transform camTransform;
+    Transform camTransform;
 
     Quaternion originalRotation;
 

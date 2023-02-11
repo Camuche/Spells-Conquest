@@ -7,14 +7,22 @@ using UnityEngine.UI;
 public class UIupdate : MonoBehaviour
 {
 
-    public GameObject LeftSpellText;
-    public GameObject RightSpellText;
-    public GameObject LeftSpellImg;
-    public GameObject RightSpellImg;
+    [SerializeField] GameObject _UI;
+    GameObject UI;
 
-    public GameObject HealthBar;
-    public GameObject Crosshair;
-    float healthbarsize = 500;
+    GameObject StaminaFront;
+    GameObject StaminaBack;
+
+    GameObject LeftSpellText;
+    GameObject RightSpellText;
+
+    GameObject LeftSpellImg;
+    GameObject RightSpellImg;
+
+    GameObject HealthBar;
+    float healthbarsize;
+
+    GameObject Crosshair;
 
     public GameObject player;
 
@@ -23,7 +31,24 @@ public class UIupdate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        UI = Instantiate(_UI);
+        UI.transform.SetParent(transform.parent);
+
+        StaminaFront = UI.transform.Find("StaminaFront").gameObject;
+        StaminaBack = UI.transform.Find("StaminaBack").gameObject;
+
+        HealthBar = UI.transform.Find("HealthFront").gameObject;
+        healthbarsize = HealthBar.GetComponent<RectTransform>().sizeDelta.x;
+
+        LeftSpellText = UI.transform.Find("SpellLText").gameObject;
+        RightSpellText = UI.transform.Find("SpellRText").gameObject;
+
+        LeftSpellImg = UI.transform.Find("SpellLImage").gameObject;
+        RightSpellImg = UI.transform.Find("SpellRImage").gameObject;
+
+        Crosshair = UI.transform.Find("Crosshair").gameObject;
+
     }
 
     // Update is called once per frame
@@ -63,6 +88,7 @@ public class UIupdate : MonoBehaviour
             
 
             HealthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(player.GetComponent<PlayerController>().life*healthbarsize/(player.GetComponent<PlayerController>().lifeMax), HealthBar.GetComponent<RectTransform>().sizeDelta.y);
+            StaminaFront.GetComponent<RectTransform>().sizeDelta = new Vector2((1.5f-player.GetComponent<PlayerController>().dashCoolDown) / 1.5f * StaminaBack.GetComponent<RectTransform>().sizeDelta.x, StaminaBack.GetComponent<RectTransform>().sizeDelta.y);
         }
 
     }

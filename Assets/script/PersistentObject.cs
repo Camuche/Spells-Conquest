@@ -11,6 +11,7 @@ public class PersistentObject : MonoBehaviour
     {
         if (instance != null && instance != this)
         {
+            print("destroyed");
             Destroy(gameObject);
         }
         else

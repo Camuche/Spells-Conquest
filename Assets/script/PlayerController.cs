@@ -76,10 +76,13 @@ public class PlayerController : MonoBehaviour
 
         dashCoolDown -= Time.deltaTime;
 
+        if (dashCoolDown < 0)
+            dashCoolDown = 0;
+
         //dodge input
         if (Input.GetButtonDown("Dodge"))
         {
-            if (dodgespeed == 0 && dashCoolDown<=0) {
+            if (dodgespeed == 0 && dashCoolDown<=0 && grounded==true) {
                 dodgespeed = 200;
                 dashCoolDown = 1.5f;
             }
@@ -308,6 +311,7 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask obstacleMask;
 
+    bool grounded=true;
     void gravity()
     {
 
@@ -328,10 +332,13 @@ public class PlayerController : MonoBehaviour
 
         float distToGround = 1.1f;
 
+        grounded = true;
+
+
         //si le joueur est assez loin du sol
         if (hit.distance>= distToGround && hit2.distance >= distToGround && hit3.distance >= distToGround && hit4.distance >= distToGround && hit5.distance >= distToGround)
         {
-
+            grounded = false;
 
             {
 
