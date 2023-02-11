@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 197770723639140482}
   - component: {fileID: 1304212492748968495}
   - component: {fileID: 5367457180681664071}
+  - component: {fileID: 6477326898289415579}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Untagged
@@ -5551,6 +5552,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameController: {fileID: 1275252939218452239, guid: 8c2b3450d37b9a6478051d2110cb60f9,
     type: 3}
+--- !u!114 &6477326898289415579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2755459280642887116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832ab2a24a0478e4aa3ea263e43d25cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagsAndNamesToCheck: []
+  eventOnEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7544309288533985210}
+        m_MethodName: set_material
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2100000, guid: 2d25d85bbc64eb74da3514e191534ba5,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  eventOnExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  numberInTrigger: 0
 --- !u!1 &8086676200582850053
 GameObject:
   m_ObjectHideFlags: 0

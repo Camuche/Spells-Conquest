@@ -149,7 +149,7 @@ MonoBehaviour:
   delay: 1
   Bullet: {fileID: 3856048993441989314, guid: d1a24f3734c82ca44ace6640f238fa07, type: 3}
   SpawnPoint: {x: 0, y: 0, z: 0}
-  BulletDammage: 1
+  BulletDammage: 10
   BulletSpeed: 20
 --- !u!114 &3931506438026593828
 MonoBehaviour:
