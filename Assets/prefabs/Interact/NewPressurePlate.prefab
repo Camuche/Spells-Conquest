@@ -138,8 +138,8 @@ GameObject:
   - component: {fileID: 5410446297333464549}
   - component: {fileID: 5410446297333464547}
   - component: {fileID: 5410446297333464548}
-  - component: {fileID: 5410446297333464551}
   - component: {fileID: 5410446297333464546}
+  - component: {fileID: 7936887744626967057}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -182,21 +182,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5410446297333464551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5410446297333464550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40330efd6aaa1d94db2158ee727ae278, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 8917432669895591123}
-  obstacle: {fileID: 5410446296125037739}
-  speed: 1
 --- !u!114 &5410446297333464546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +228,23 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   numberInTrigger: 0
+--- !u!114 &7936887744626967057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5410446297333464550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90da95fa71aac5647a718a1e7d2a5f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 8917432669895591123}
+  obstacle: {fileID: 5410446296125037739}
+  speed: 1
+  rendererGameObject: {fileID: 5410446297467122272}
+  speedRenderer: 0.1
 --- !u!1 &5410446297467122272
 GameObject:
   m_ObjectHideFlags: 0
