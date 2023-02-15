@@ -5,14 +5,14 @@ using UnityEngine;
 public class CheckPoint : MonoBehaviour
 {
     bool canSave = false;
-    [SerializeField]GameObject gameController;
+    GameObject gameController;
     GameObject player;
 
-
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameController = GameObject.Find("GameController");
     }
 
     // Update is called once per frame
@@ -21,6 +21,7 @@ public class CheckPoint : MonoBehaviour
         
         if (canSave)
         {
+            print("saved");
             gameController.GetComponent<gameController>().CheckPoint = new Vector3(transform.position.x,player.transform.position.y,transform.position.z);
             gameController.GetComponent<gameController>().checkpointed = true;
         }

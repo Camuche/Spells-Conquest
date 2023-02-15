@@ -9,8 +9,8 @@ public class gameController : MonoBehaviour
 
     GameObject player;
 
-    [HideInInspector]public Vector3 CheckPoint = Vector3.zero;
-    [HideInInspector] public bool checkpointed = false;
+    public Vector3 CheckPoint = Vector3.zero;
+     public bool checkpointed = false;
 
     private void OnLevelWasLoaded(int level)
     {
@@ -21,6 +21,7 @@ public class gameController : MonoBehaviour
         player = GameObject.Find("Player");
         if (checkpointed)
         {
+            print("checkpointed");
             player.transform.position = CheckPoint;
         }
     }
@@ -28,8 +29,8 @@ public class gameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
-
+        CheckPoint = Vector3.zero;
+        checkpointed = false;
 
 
     }

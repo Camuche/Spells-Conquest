@@ -44,12 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba623ea08804e747adb6d28c5208829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftSpellText: {fileID: 0}
-  RightSpellText: {fileID: 0}
-  LeftSpellImg: {fileID: 0}
-  RightSpellImg: {fileID: 0}
-  HealthBar: {fileID: 0}
-  Crosshair: {fileID: 0}
+  _UI: {fileID: 8768267520420010745, guid: fe034f69a05b5c140bc511f1584ea905, type: 3}
   player: {fileID: 0}
   mat_Stamina: {fileID: 2100000, guid: 427f79974cfe58f4eba5d8fb5921a4b5, type: 2}
 --- !u!114 &1744762725
@@ -66,3 +61,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   matLave: {fileID: 2100000, guid: dc4b9a797342a75468c6ecd34afd4114, type: 2}
   CheckPoint: {x: 5.535337, y: 1.0001, z: 1.8812282}
+  checkpointed: 0

@@ -24,7 +24,7 @@ public class UIupdate : MonoBehaviour
 
     GameObject Crosshair;
 
-    public GameObject player;
+    GameObject player;
 
     [SerializeField]Material mat_Stamina;
 

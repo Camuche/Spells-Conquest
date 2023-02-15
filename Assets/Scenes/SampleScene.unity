@@ -11287,6 +11287,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d654a3b46fdb314f8f6edf86b07e03e, type: 3}
+--- !u!1 &1353261613 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1275252939218452239, guid: 8c2b3450d37b9a6478051d2110cb60f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1275252940339904010}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1371418482
 GameObject:
   m_ObjectHideFlags: 0
@@ -12322,6 +12328,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint
       objectReference: {fileID: 0}
+    - target: {fileID: 2755459280642887116, guid: abff9d47732119042bea68a0ce86d4da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3223439362016784572, guid: abff9d47732119042bea68a0ce86d4da,
         type: 3}
       propertyPath: m_Mesh
@@ -12332,6 +12343,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 394515531}
+    - target: {fileID: 5367457180681664071, guid: abff9d47732119042bea68a0ce86d4da,
+        type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 1353261613}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abff9d47732119042bea68a0ce86d4da, type: 3}
 --- !u!1 &1823762323
@@ -15577,51 +15593,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1275252939218452236, guid: 8c2b3450d37b9a6478051d2110cb60f9,
         type: 3}
-      propertyPath: UI
-      value: 
-      objectReference: {fileID: 8768267520420010745, guid: fe034f69a05b5c140bc511f1584ea905,
-        type: 3}
-    - target: {fileID: 1275252939218452236, guid: 8c2b3450d37b9a6478051d2110cb60f9,
-        type: 3}
-      propertyPath: _UI
-      value: 
-      objectReference: {fileID: 8768267520420010745, guid: fe034f69a05b5c140bc511f1584ea905,
-        type: 3}
-    - target: {fileID: 1275252939218452236, guid: 8c2b3450d37b9a6478051d2110cb60f9,
-        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2097280927}
-    - target: {fileID: 1275252939218452236, guid: 8c2b3450d37b9a6478051d2110cb60f9,
-        type: 3}
-      propertyPath: Crosshair
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1275252939218452236, guid: 8c2b3450d37b9a6478051d2110cb60f9,
-        type: 3}
-      propertyPath: HealthBar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1275252939218452236, guid: 8c2b3450d37b9a6478051d2110cb60f9,
-        type: 3}
-      propertyPath: LeftSpellImg
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1275252939218452236, guid: 8c2b3450d37b9a6478051d2110cb60f9,
-        type: 3}
-      propertyPath: LeftSpellText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1275252939218452236, guid: 8c2b3450d37b9a6478051d2110cb60f9,
-        type: 3}
-      propertyPath: RightSpellImg
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1275252939218452236, guid: 8c2b3450d37b9a6478051d2110cb60f9,
-        type: 3}
-      propertyPath: RightSpellText
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1275252939218452237, guid: 8c2b3450d37b9a6478051d2110cb60f9,
         type: 3}
       propertyPath: m_RootOrder
@@ -15704,7 +15678,7 @@ PrefabInstance:
     - target: {fileID: 3181547021955089122, guid: f71c71d617d07b548b2f0f38f0068d1d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 3181547021955089122, guid: f71c71d617d07b548b2f0f38f0068d1d,
         type: 3}
