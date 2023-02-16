@@ -18,6 +18,8 @@ public class AnimationPressurePlate : MonoBehaviour
     Vector3 targetRenderer;
     Vector3 posInitRenderer;
 
+    public string[] namesAndTagsToCheck;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,13 +44,39 @@ public class AnimationPressurePlate : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        isTrigger = true;
+        if (CheckName(other.gameObject))
+        {
+            isTrigger = true;
+
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        isTrigger = false;
+        if (CheckName(other.gameObject))
+        {
+            isTrigger = false;
+
+        }
+    }
+
+    bool CheckName(GameObject toBeChecked)
+    {
+        if (namesAndTagsToCheck.Length == 0)
+        {
+            return true;
+        }
+
+        for (int i = 0; i < namesAndTagsToCheck.Length; i++)
+        {
+            if (toBeChecked.name == namesAndTagsToCheck[i] || toBeChecked.tag == namesAndTagsToCheck[i])
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
