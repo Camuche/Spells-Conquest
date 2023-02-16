@@ -45,7 +45,7 @@ public class CheckPoint : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.name == "player")
+        if (other.name == "Player")
         {
             canSave = false;
         }
