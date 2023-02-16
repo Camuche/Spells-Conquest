@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public float speedscale = 1;
 
 
+    bool canMove = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -392,6 +394,20 @@ public class PlayerController : MonoBehaviour
             return false;
 
         }
+    }
+
+
+    ///getters and setters
+
+    //canMove
+    public bool getCanMove()
+    {
+        return canMove;
+    }
+
+    public void setCanMove(bool c)
+    {
+        canMove = c;
     }
 
 
