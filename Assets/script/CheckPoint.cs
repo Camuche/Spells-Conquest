@@ -9,6 +9,8 @@ public class CheckPoint : MonoBehaviour
     GameObject player;
 
     
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,24 +20,34 @@ public class CheckPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+
         if (canSave)
         {
             print("saved");
             gameController.GetComponent<gameController>().CheckPoint = new Vector3(transform.position.x,player.transform.position.y,transform.position.z);
             gameController.GetComponent<gameController>().checkpointed = true;
+            gameController.GetComponent<gameController>().spellLimit = player.GetComponent<CastSpell>().limit;
+
         }
         
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        player = other.gameObject;
-        canSave = true;
+
+        if (other.name == "Player")
+        {
+            player = other.gameObject;
+            canSave = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        canSave = false;
+        if (other.name == "player")
+        {
+            canSave = false;
+        }
     }
 }

@@ -10,7 +10,8 @@ public class gameController : MonoBehaviour
     GameObject player;
 
     public Vector3 CheckPoint = Vector3.zero;
-     public bool checkpointed = false;
+    public bool checkpointed = false;
+    public int spellLimit;
 
     private void OnLevelWasLoaded(int level)
     {
@@ -21,14 +22,17 @@ public class gameController : MonoBehaviour
         player = GameObject.Find("Player");
         if (checkpointed)
         {
-            print("checkpointed");
             player.transform.position = CheckPoint;
+            player.GetComponent<CastSpell>().limit = spellLimit;
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
+
+        player = GameObject.Find("Player");
+        //spellLimit = player.GetComponent<CastSpell>().limit;
         CheckPoint = Vector3.zero;
         checkpointed = false;
 
