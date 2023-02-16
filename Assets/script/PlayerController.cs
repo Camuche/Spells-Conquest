@@ -35,6 +35,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
 
+
+
+
+
         Cursor.lockState = CursorLockMode.Locked;
 
         speed = playerSpeed;
@@ -93,7 +97,7 @@ public class PlayerController : MonoBehaviour
         //dodge
         if (dodgespeed > 1.5)
         {
-            dodgespeed /= 1.1f;
+            dodgespeed /=(1+ 20* Time.deltaTime);
         }
         else
         {
