@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyCharging : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class EnemyCharging : MonoBehaviour
     private float speed=0;
     GameObject player;
     CharacterController controller;
+
+    NavMeshAgent navMeshAgent;
 
     public Vector3 dir;
 
@@ -21,6 +24,7 @@ public class EnemyCharging : MonoBehaviour
     {
         player = GameObject.Find("Player");
         controller = GetComponent<CharacterController>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -34,11 +38,11 @@ public class EnemyCharging : MonoBehaviour
             charging();
 
             speed -= Time.deltaTime * chargeSpeed;
-            
 
 
-            controller.Move(dir * speed * Time.deltaTime);
 
+            //controller.Move(dir * speed * Time.deltaTime);
+            navMeshAgent.speed = 100*speed*Time.deltaTime;
 
 
             //gravity
@@ -71,6 +75,8 @@ public class EnemyCharging : MonoBehaviour
 
 
             dir = (player.transform.position - transform.position).normalized;
+            navMeshAgent.SetDestination(player.transform.position);
+
 
             speed = chargeSpeed;
 
@@ -81,7 +87,11 @@ public class EnemyCharging : MonoBehaviour
         if (RemainingDelay > ChargeDelay - 1)
         {
             dir = (player.transform.position - transform.position).normalized;
+            navMeshAgent.SetDestination(player.transform.position);
+
             speed = Mathf.Clamp(speed, -5, Mathf.Infinity);
+
+            transform.position += dir * speed * Time.deltaTime;
         }
         else
         {

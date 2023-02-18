@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class EnemyFollower : MonoBehaviour
 {
@@ -15,11 +17,15 @@ public class EnemyFollower : MonoBehaviour
     public float grav;
     public float followDistance;
 
+    NavMeshAgent navMeshAgent;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
         controller = GetComponent<CharacterController>();
+
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -32,7 +38,8 @@ public class EnemyFollower : MonoBehaviour
             if (Vector3.Distance(player.transform.position, transform.position) < followDistance)
             {
                 dir = (player.transform.position - transform.position).normalized;
-                controller.Move(dir * speed * Time.deltaTime);
+                //controller.Move(dir * speed * Time.deltaTime);
+                navMeshAgent.SetDestination(player.transform.position);
             }
             else
             {

@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 5387335219111035024}
   - component: {fileID: 3931506438026593828}
   - component: {fileID: 2340217472438014316}
+  - component: {fileID: 7462844917890485267}
   m_Layer: 11
   m_Name: Enemi_Charging
   m_TagString: Untagged
@@ -186,7 +187,7 @@ CharacterController:
   m_GameObject: {fileID: 4042794045697653259}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5
@@ -226,6 +227,28 @@ MonoBehaviour:
   ySpeed: 0
   grav: 0
   ChargeDelay: 3
+--- !u!195 &7462844917890485267
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4042794045697653259}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 1000
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &2427657593493359843
 PrefabInstance:
   m_ObjectHideFlags: 0
