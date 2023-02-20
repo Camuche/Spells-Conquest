@@ -19,6 +19,8 @@ public class UIupdate : MonoBehaviour
     GameObject LeftSpellImg;
     GameObject RightSpellImg;
 
+    GameObject Combination;
+
     GameObject HealthBar;
     float healthbarsize;
 
@@ -46,6 +48,8 @@ public class UIupdate : MonoBehaviour
 
         LeftSpellImg = UI.transform.Find("SpellLImage").gameObject;
         RightSpellImg = UI.transform.Find("SpellRImage").gameObject;
+
+        Combination = UI.transform.Find("Combination").gameObject;
 
         Crosshair = UI.transform.Find("Crosshair").gameObject;
 
@@ -78,14 +82,17 @@ public class UIupdate : MonoBehaviour
             {
                 RightSpellImg.GetComponent<Image>().color = new Color(.2f, .2f, .2f, 1f);
                 LeftSpellImg.GetComponent<Image>().color = new Color(.2f, .2f, .2f, 1f);
+                Combination.GetComponent<Image>().color = new Color(1f, 0f, 0f, 0f);
 
             }
             else
             {
                 RightSpellImg.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
                 LeftSpellImg.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
+                Combination.GetComponent<Image>().color = new Color(0f, 1f, 0f, 1f);
+
             }
-            
+
 
             HealthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(player.GetComponent<PlayerController>().life*healthbarsize/(player.GetComponent<PlayerController>().lifeMax), HealthBar.GetComponent<RectTransform>().sizeDelta.y);
             StaminaFront.GetComponent<RectTransform>().sizeDelta = new Vector2((1.5f-player.GetComponent<PlayerController>().dashCoolDown) / 1.5f * StaminaBack.GetComponent<RectTransform>().sizeDelta.x, StaminaBack.GetComponent<RectTransform>().sizeDelta.y);
