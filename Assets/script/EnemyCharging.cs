@@ -34,15 +34,18 @@ public class EnemyCharging : MonoBehaviour
         if (player != null)
         {
 
+            if (Vector3.Distance(transform.position, player.transform.position) < GetComponent<EnemyFollower>().followDistance)
+            {
+                charging();
 
-            charging();
+                speed -= Time.deltaTime * chargeSpeed;
 
-            speed -= Time.deltaTime * chargeSpeed;
+                //controller.Move(dir * speed * Time.deltaTime);
+                navMeshAgent.speed = 100 * speed * Time.deltaTime;
+            }
 
 
-
-            //controller.Move(dir * speed * Time.deltaTime);
-            navMeshAgent.speed = 100*speed*Time.deltaTime;
+            
 
 
             //gravity

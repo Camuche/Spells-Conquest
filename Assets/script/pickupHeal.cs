@@ -21,6 +21,10 @@ public class pickupHeal : MonoBehaviour
         if (canPickUp && Input.GetButtonDown("Interact"))
         {
             player.GetComponent<PlayerController>().life += amount;
+            if (player.GetComponent<PlayerController>().life > player.GetComponent<PlayerController>().lifeMax)
+            {
+                player.GetComponent<PlayerController>().life = player.GetComponent<PlayerController>().lifeMax;
+            }
             Destroy(gameObject);
         }
     }
