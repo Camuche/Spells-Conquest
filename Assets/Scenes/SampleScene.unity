@@ -8932,8 +8932,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3870732602788733396, guid: 3fffc912ff8d5014c95a20db5ac6b188,
         type: 3}
+      propertyPath: near clip plane
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870732602788733396, guid: 3fffc912ff8d5014c95a20db5ac6b188,
+        type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870732602788733398, guid: 3fffc912ff8d5014c95a20db5ac6b188,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fffc912ff8d5014c95a20db5ac6b188, type: 3}
@@ -12373,17 +12383,17 @@ PrefabInstance:
     - target: {fileID: 484699292189609001, guid: 71f0456360fc8a044aea9e9353146d36,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.038984
+      value: -5.3
       objectReference: {fileID: 0}
     - target: {fileID: 484699292189609001, guid: 71f0456360fc8a044aea9e9353146d36,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 484699292189609001, guid: 71f0456360fc8a044aea9e9353146d36,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.828571
+      value: -111.5
       objectReference: {fileID: 0}
     - target: {fileID: 484699292189609001, guid: 71f0456360fc8a044aea9e9353146d36,
         type: 3}

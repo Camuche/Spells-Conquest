@@ -188,8 +188,16 @@ public class PlayerController : MonoBehaviour
     
     public GameObject CamStart;
 
+
+    float CamzDefault=999;
+
     void rotateCamera()
     {
+
+        if (CamzDefault == 999)
+        {
+            CamzDefault = Camera.main.transform.localPosition.z;
+        }
 
         //change angle
 
@@ -205,7 +213,7 @@ public class PlayerController : MonoBehaviour
 
         //change cam position
 
-        Vector3 campos = transform.TransformPoint(new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * CamDistance, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * CamDistance, Camera.main.transform.localPosition.z));
+        Vector3 campos = transform.TransformPoint(new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * CamDistance, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * CamDistance, CamzDefault));
         Vector3 camposStart = CamStart.transform.position;
 
         Vector3 camdir = campos - camposStart;
@@ -222,10 +230,18 @@ public class PlayerController : MonoBehaviour
         if (hit.distance > CamDistance || hit.collider==null || hit.collider.transform.name=="Player")
         {
             dist = CamDistance;
+            Camera.main.transform.localPosition = new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, CamzDefault + (CamDistance - dist));
+
         }
         else
         {
             dist = hit.distance;
+            Vector3 camdest = hit.point;
+            camdest = Vector3.MoveTowards(camdest, camposStart, 1f);
+            print(hit.distance);
+            Camera.main.transform.position = camdest;
+            //Camera.main.transform.position = camposStart+((hit.point - camposStart).normalized * dist*-0.9f);
+
         }
         /*
         RaycastHit hitz;
@@ -245,7 +261,10 @@ public class PlayerController : MonoBehaviour
             zdistance = (float)(hitz.distance/2f)-0.25f*(CamDistance-hitz.distance)* (CamDistance - hitz.distance) / CamDistance;
         }
         */
-        Camera.main.transform.localPosition = new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, Camera.main.transform.localPosition.z);
+
+
+
+        //Camera.main.transform.localPosition = new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, CamzDefault + (CamDistance-dist));
 
         //Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, -1.16f+0.3f * (CamDistance - dist));
 
@@ -403,7 +422,6 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-
 
     ///getters and setters
 
