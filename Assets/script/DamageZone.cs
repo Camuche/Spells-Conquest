@@ -32,7 +32,7 @@ public class DamageZone : MonoBehaviour
                 {
                     other.GetComponent<PlayerController>().life -= damage * Time.deltaTime;
 
-                    if (instaKill)
+                    if (instaKill && damage>0)
                     {
                         other.GetComponent<PlayerController>().life = 0;
                     }
@@ -51,7 +51,7 @@ public class DamageZone : MonoBehaviour
             if (!other.GetComponent<PlayerController>().CheckShield())
             {
 
-                if (instaKill)
+                if (instaKill && damage > 0)
                 {
                     other.GetComponent<PlayerController>().life = 0;
                 }
