@@ -221,7 +221,7 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit hit;
 
-        Physics.Raycast(camposStart, camdir,out hit,CamDistance, obstacleMask);
+        Physics.Raycast(camposStart, camdir,out hit,CamDistance, obstacleMask, QueryTriggerInteraction.Ignore);
         Debug.DrawRay(camposStart, camdir);
 
         float dist;
@@ -237,7 +237,7 @@ public class PlayerController : MonoBehaviour
         {
             dist = hit.distance;
             Vector3 camdest = hit.point;
-            camdest = Vector3.MoveTowards(camdest, camposStart, 1f);
+            camdest = Vector3.MoveTowards(camdest, camposStart, 0.1f);
             print(hit.distance);
             Camera.main.transform.position = camdest;
             //Camera.main.transform.position = camposStart+((hit.point - camposStart).normalized * dist*-0.9f);
