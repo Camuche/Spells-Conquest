@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
+
+
+
 
 public class EnemyCharging : MonoBehaviour
 {
@@ -17,6 +21,8 @@ public class EnemyCharging : MonoBehaviour
     public float ySpeed;
     public float grav;
 
+
+    bool touched = false;
 
 
     // Start is called before the first frame update
@@ -38,10 +44,20 @@ public class EnemyCharging : MonoBehaviour
             {
                 charging();
 
-                speed -= Time.deltaTime * chargeSpeed;
 
                 //controller.Move(dir * speed * Time.deltaTime);
                 navMeshAgent.speed = 100 * speed * Time.deltaTime;
+            }
+
+            speed -= Time.deltaTime * chargeSpeed;
+
+            if (touched)
+            {
+                transform.position -= speed * dir * Time.deltaTime;
+                if (speed <= 0)
+                {
+                    setTouched(false);
+                }
             }
 
 
@@ -59,6 +75,8 @@ public class EnemyCharging : MonoBehaviour
             {
                 ySpeed -= grav * Time.deltaTime;
             }
+
+            
         }
     }
 
@@ -102,4 +120,13 @@ public class EnemyCharging : MonoBehaviour
 
         }
     }
+
+
+
+    public void setTouched(bool t)
+    {
+        touched = t;
+    }
+
+
 }

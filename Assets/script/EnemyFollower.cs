@@ -40,6 +40,10 @@ public class EnemyFollower : MonoBehaviour
                 dir = (player.transform.position - transform.position).normalized;
                 //controller.Move(dir * speed * Time.deltaTime);
                 navMeshAgent.SetDestination(player.transform.position);
+                if (GetComponent<EnemyCharging>() == null)
+                {
+                    navMeshAgent.speed = speed;
+                }
             }
             else
             {
