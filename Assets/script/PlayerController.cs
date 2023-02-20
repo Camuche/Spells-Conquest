@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     public float speedscale = 1;
 
 
-    bool canMove = false;
+    bool canMove = true;
 
 
     // Start is called before the first frame update
@@ -61,6 +61,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (!canMove)
+            return;
+
         aiming();
         rotateCamera();
         rotatePlayer();

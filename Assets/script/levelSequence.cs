@@ -21,11 +21,16 @@ public class levelSequence : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!sequenceAnim.isPlaying && triggered)
+
+        if (playerCam == null){
+            playerCam = Camera.main.gameObject;
+        }
+
+        if (!sequenceAnim.isPlaying && triggered)
         {
             playerCam.SetActive(true);
             sequenceCam.SetActive(false);
-            //player.GetComponent<PlayerController>().setCanMove(true);
+            player.GetComponent<PlayerController>().setCanMove(true);
             Destroy(gameObject);
         }
     }
@@ -34,12 +39,16 @@ public class levelSequence : MonoBehaviour
     {
         if(other.gameObject.name == "Player")
         {
+
+
+            print("sequence");
+
             player = other.gameObject;
             playerCam.SetActive(false);
             sequenceCam.SetActive(true);
             sequenceAnim.Play();
             triggered = true;
-            //player.GetComponent<PlayerController>().setCanMove(false);
+            player.GetComponent<PlayerController>().setCanMove(false);
         }
     }
 }

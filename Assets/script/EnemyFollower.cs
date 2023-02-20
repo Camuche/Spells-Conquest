@@ -48,7 +48,7 @@ public class EnemyFollower : MonoBehaviour
 
 
             //gravity
-            controller.Move(Vector3.up * ySpeed * Time.deltaTime);
+            //controller.Move(Vector3.up * ySpeed * Time.deltaTime);
 
             if (Physics.Raycast(transform.position - Vector3.up, -Vector3.up * 0.1f, 0.1f))
             {
