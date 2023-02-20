@@ -33,13 +33,25 @@ public class SmokeProtection : MonoBehaviour
             }
         }
 
+
+        GameObject[] smokes = GameObject.FindGameObjectsWithTag("Smoke");
+        float waitTime = 3f;
+
+        
+
         if (oldDistance< protectDistance)
         {
-            GameObject.Find("SmokePrefab").GetComponent<DamageZone>().damage = 0;
+            foreach (GameObject smoke in smokes)
+            {
+                smoke.GetComponent<DamageZone>().damage = 0;
+            }
         }
         else
         {
-            GameObject.Find("SmokePrefab").GetComponent<DamageZone>().damage = 100;
+            foreach (GameObject smoke in smokes)
+            {
+                smoke.GetComponent<DamageZone>().damage = 100;
+            }
         }
     }
 
