@@ -48,11 +48,28 @@ public class Fireball : MonoBehaviour
             previousTransform = transform.position;
 
             //move forward
-            transform.position = Vector3.MoveTowards(transform.position, startpos, -speed * Time.deltaTime);
+
+            //startpos = transform.position;
+
+            if (transform.position != startpos)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, startpos, -speed * Time.deltaTime);
+            }
 
             //move towards aiming point
             movespeed = 5 + Vector3.Distance(transform.position, player.transform.position) / 3;
+
             destination = startpos + Camera.main.transform.forward * distance;
+
+            RaycastHit hit;
+
+            Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 999999);
+
+            if (distance<Vector3.Distance(Camera.main.transform.position,transform.position) && hit.distance!=999999)
+            {
+                print("adaptation");
+                transform.position += transform.right*Time.deltaTime*-1/(hit.distance/10);
+            }
 
 
 
