@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlagueTalesMat
+  m_Name: SmokeMat
   m_Shader: {fileID: 4800000, guid: bc4f4cf23b49c4f4f87a1302456d119a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
