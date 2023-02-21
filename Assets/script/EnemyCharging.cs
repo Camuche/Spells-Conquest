@@ -40,21 +40,23 @@ public class EnemyCharging : MonoBehaviour
         if (player != null)
         {
 
-            speed -= Time.deltaTime * chargeSpeed;
 
 
-            if (Vector3.Distance(transform.position, player.transform.position) < GetComponent<EnemyFollower>().followDistance)
+            if (Vector3.Distance(transform.position, player.transform.position) < GetComponent<EnemyFollower>().followDistance || speed!=0)
             {
+                speed -= Time.deltaTime * chargeSpeed;
+
                 charging();
 
 
                 //controller.Move(dir * speed * Time.deltaTime);
             }
+            
 
 
             if (touched)
             {
-                navMeshAgent.speed = 0;
+                //navMeshAgent.speed = 0;
                 speed = 0;
 
                 //transform.position -= speed * dir * Time.deltaTime;
@@ -65,7 +67,8 @@ public class EnemyCharging : MonoBehaviour
             }
             else
             {
-                navMeshAgent.speed = speed;
+                //navMeshAgent.speed = speed;
+                transform.position += speed * dir * Time.deltaTime;
 
             }
 
@@ -106,7 +109,7 @@ public class EnemyCharging : MonoBehaviour
         {
             if (speed >-1)
             {
-                navMeshAgent.SetDestination(player.transform.position);
+                //navMeshAgent.SetDestination(player.transform.position);
                 dir = (player.transform.position - transform.position).normalized;
             }
             speed = Mathf.Clamp(speed, -5, Mathf.Infinity);
