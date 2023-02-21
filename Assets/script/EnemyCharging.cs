@@ -10,7 +10,7 @@ using UnityEngine.Events;
 public class EnemyCharging : MonoBehaviour
 {
     public float chargeSpeed;
-    private float speed=0;
+    [SerializeField]private float speed=0;
     GameObject player;
     CharacterController controller;
 
@@ -40,28 +40,37 @@ public class EnemyCharging : MonoBehaviour
         if (player != null)
         {
 
+            speed -= Time.deltaTime * chargeSpeed;
+
+
             if (Vector3.Distance(transform.position, player.transform.position) < GetComponent<EnemyFollower>().followDistance)
             {
                 charging();
 
 
                 //controller.Move(dir * speed * Time.deltaTime);
-                navMeshAgent.speed = 100 * speed * Time.deltaTime;
             }
 
-            speed -= Time.deltaTime * chargeSpeed;
 
             if (touched)
             {
-                transform.position -= speed * dir * Time.deltaTime;
+                navMeshAgent.speed = 0;
+                speed = 0;
+
+                //transform.position -= speed * dir * Time.deltaTime;
                 if (speed <= 0)
                 {
                     setTouched(false);
                 }
             }
+            else
+            {
+                navMeshAgent.speed = speed;
+
+            }
 
 
-            
+
 
 
             //gravity
@@ -91,40 +100,45 @@ public class EnemyCharging : MonoBehaviour
 
 
         RemainingDelay += Time.deltaTime;
-        if (RemainingDelay >= ChargeDelay)
-        {
-
-
-            dir = (player.transform.position - transform.position).normalized;
-            navMeshAgent.SetDestination(player.transform.position);
-
-
-            speed = chargeSpeed;
-
-            RemainingDelay = 0;
-        }
 
 
         if (RemainingDelay > ChargeDelay - 1)
         {
-            dir = (player.transform.position - transform.position).normalized;
-            navMeshAgent.SetDestination(player.transform.position);
-
+            if (speed >-1)
+            {
+                navMeshAgent.SetDestination(player.transform.position);
+                dir = (player.transform.position - transform.position).normalized;
+            }
             speed = Mathf.Clamp(speed, -5, Mathf.Infinity);
-
             transform.position += dir * speed * Time.deltaTime;
         }
         else
         {
             speed = Mathf.Clamp(speed, 0, Mathf.Infinity);
+            
+
+
 
         }
+
+        if (RemainingDelay >= ChargeDelay)
+        {
+            //dir = (player.transform.position - transform.position).normalized;
+            //navMeshAgent.SetDestination(player.transform.position);
+
+            speed = chargeSpeed;
+            RemainingDelay = 0;
+        }
+
+
+
     }
 
 
 
     public void setTouched(bool t)
     {
+        print(t);
         touched = t;
     }
 

@@ -201,8 +201,6 @@ public class PlayerController : MonoBehaviour
 
         //change angle
 
-        
-
         rotY += Input.GetAxis("Mouse Y") * mouseSensitivity*Time.deltaTime;
 
         rotY = Mathf.Clamp(rotY, -15f, 45f);
@@ -238,7 +236,6 @@ public class PlayerController : MonoBehaviour
             dist = hit.distance;
             Vector3 camdest = hit.point;
             camdest = Vector3.MoveTowards(camdest, camposStart, 0.1f);
-            print(hit.distance);
             Camera.main.transform.position = camdest;
             //Camera.main.transform.position = camposStart+((hit.point - camposStart).normalized * dist*-0.9f);
 

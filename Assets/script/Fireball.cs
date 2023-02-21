@@ -85,7 +85,6 @@ public class Fireball : MonoBehaviour
             Destroy(gameObject, 0.1f);
         }
 
-        print(Input.GetAxis("Fire"));
 
         if (Input.GetAxis("Fire") == 0 && !Input.GetMouseButton(0))
         {
