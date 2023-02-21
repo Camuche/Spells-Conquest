@@ -46,12 +46,13 @@ public class telekinesisClone : MonoBehaviour
 
                 Vector3 movement = dir * force * Time.deltaTime * (go.layer == LayerMask.NameToLayer("enemiBullet") ? 5 : 1);
 
-                if (exists != null)
+                if (exists != null && go.GetComponent<CharacterController>().enabled)
                 {
                     go.GetComponent<CharacterController>().Move(movement);
                 }
                 else
                 {
+                    print("moving");
                     go.transform.position += movement;
                 }
             }

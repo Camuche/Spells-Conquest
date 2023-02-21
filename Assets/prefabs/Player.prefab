@@ -177,6 +177,9 @@ MonoBehaviour:
   - spell_name: Clone
     spell_image: {fileID: 21300000, guid: bbac172096b51014fb4dc8f0b1e9e27e, type: 3}
     id: 0
+  - spell_name: Glace
+    spell_image: {fileID: 21300000, guid: bd2d92a4f76a5704b98cc10b987d8c6c, type: 3}
+    id: 0
 --- !u!1 &3870732602788733398
 GameObject:
   m_ObjectHideFlags: 0
