@@ -15,6 +15,9 @@ public class CastSpell : MonoBehaviour
     public GameObject fireClone;
     public GameObject teleClone;
     public GameObject AimPoint;
+
+    [SerializeField] GameObject wave;
+
     GameObject viseur;
 
     //structure de donnée d'un element (avec le nom de l'element, son image d'ui, etc...)
@@ -97,7 +100,6 @@ public class CastSpell : MonoBehaviour
         {
             if (aimed == false)
             {
-                print("aim");
                 aimed = true;
             }
             
@@ -182,6 +184,19 @@ public class CastSpell : MonoBehaviour
 
             }
         }
+
+        if ((SpellL.ToString() + SpellR.ToString() == "03" || SpellL.ToString() + SpellR.ToString() == "30") && limit > 2)
+        {
+            if (GameObject.Find("Wave(Clone)") == null)
+            {
+
+                GameObject w = Instantiate(wave);
+                w.transform.rotation = transform.rotation;
+                w.transform.position = transform.position + transform.right * 1+transform.up*-1;
+
+            }
+        }
+
     }
 
     void CamRaycast()
@@ -217,6 +232,11 @@ public class CastSpell : MonoBehaviour
         if ((SpellL.ToString() + SpellR.ToString() == "12" || SpellL.ToString() + SpellR.ToString() == "21") && limit > 1)
         {
 
+            return true;
+        }
+
+        if ((SpellL.ToString() + SpellR.ToString() == "03" || SpellL.ToString() + SpellR.ToString() == "30") && limit > -1)
+        {
             return true;
         }
 

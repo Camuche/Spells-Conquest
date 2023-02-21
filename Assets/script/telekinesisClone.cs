@@ -52,7 +52,6 @@ public class telekinesisClone : MonoBehaviour
                 }
                 else
                 {
-                    print("moving");
                     go.transform.position += movement;
                 }
             }
