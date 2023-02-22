@@ -245,6 +245,9 @@ MonoBehaviour:
   speed: 1
   rendererGameObject: {fileID: 5410446297467122272}
   speedRenderer: 0.1
+  namesAndTagsToCheck:
+  - Player
+  - CanTrigger
 --- !u!1 &5410446297467122272
 GameObject:
   m_ObjectHideFlags: 0
