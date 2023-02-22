@@ -8,6 +8,7 @@ TagManager:
   - CanTrigger
   - ShaderEffect
   - Smoke
+  - FireShield
   layers:
   - Default
   - TransparentFX

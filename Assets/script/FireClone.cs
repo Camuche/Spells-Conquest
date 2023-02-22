@@ -48,7 +48,8 @@ public class FireClone : MonoBehaviour
         if (timer <= 0)
         {
             matLave.SetVector("_SpherePosition", new Vector4(0, 9999999999999, 0, 0));
-            Destroy(gameObject);
+            transform.position = new Vector3(100000, -100000, 100000);
+            Destroy(gameObject,0.1f);
         }
     }
 

@@ -20,6 +20,7 @@ public class FireShield : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("enemiBullet"))
         {
+            
             Destroy(other.gameObject);
         }
     }

@@ -51,6 +51,7 @@ public class AnimationPressurePlate : MonoBehaviour
             isTrigger = true;
 
         }
+        
     }
 
     private void OnTriggerExit(Collider other)
