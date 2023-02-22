@@ -19,6 +19,8 @@ public class EnemyFollower : MonoBehaviour
 
     NavMeshAgent navMeshAgent;
 
+
+
     // Start is called before the first frame update
     void Start()
     {

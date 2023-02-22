@@ -169,6 +169,7 @@ MonoBehaviour:
     type: 3}
   wave: {fileID: 7494473617347374062, guid: 5eb235b56f5e76b47b98ec011973f267, type: 3}
   iceBall: {fileID: 7671956535631379919, guid: 8db51b43ad3e7fb4d81ded3ead91a104, type: 3}
+  iceClone: {fileID: 838386325406439919, guid: cf5971ea913a16f4da90a3661daae853, type: 3}
   Elements:
   - spell_name: Fire
     spell_image: {fileID: 21300000, guid: cc74df736f3362f4b8c1037893e8587c, type: 3}

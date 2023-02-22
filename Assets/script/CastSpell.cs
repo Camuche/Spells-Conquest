@@ -18,6 +18,8 @@ public class CastSpell : MonoBehaviour
 
     [SerializeField] GameObject wave;
     [SerializeField] GameObject iceBall;
+    [SerializeField] GameObject iceClone;
+
 
     GameObject viseur;
 
@@ -135,7 +137,7 @@ public class CastSpell : MonoBehaviour
         }
 
         //aiming in case it is tele-clone
-        if ((SpellL.ToString() + SpellR.ToString() == "12" || SpellL.ToString() + SpellR.ToString() == "21") && limit>1)
+        if ((SpellL.ToString() + SpellR.ToString() == "12" || SpellL.ToString() + SpellR.ToString() == "21" || SpellL.ToString() + SpellR.ToString() == "32" || SpellL.ToString() + SpellR.ToString() == "23") && CheckValidation())
         {
             viseur.SetActive(true);
             CamRaycast();
@@ -212,6 +214,19 @@ public class CastSpell : MonoBehaviour
             }
         }
 
+        if ((SpellL.ToString() + SpellR.ToString() == "32" || SpellL.ToString() + SpellR.ToString() == "23") && limit > 1)
+        {
+
+            if (GameObject.Find("IceExplosion(Clone)") == null && GameObject.Find("IceClone(Clone)") == null && viseur.transform.GetComponent<MeshRenderer>().enabled)
+            {
+
+
+                GameObject i = Instantiate(iceClone);
+                i.transform.position = viseur.transform.position + Vector3.up;
+
+            }
+        }
+
     }
 
     void CamRaycast()
@@ -250,7 +265,7 @@ public class CastSpell : MonoBehaviour
             return true;
         }
 
-        if ((SpellL.ToString() + SpellR.ToString() == "03" || SpellL.ToString() + SpellR.ToString() == "30") && limit > -1)
+        if ((SpellL.ToString() + SpellR.ToString() == "03" || SpellL.ToString() + SpellR.ToString() == "30") && limit > 2)
         {
             return true;
         }
@@ -258,7 +273,12 @@ public class CastSpell : MonoBehaviour
         {
             return true;
         }
-        
+
+        if ((SpellL.ToString() + SpellR.ToString() == "23" || SpellL.ToString() + SpellR.ToString() == "32") && limit > 3)
+        {
+            return true;
+        }
+
         return false;
     }
 }
