@@ -167,6 +167,8 @@ MonoBehaviour:
     type: 3}
   AimPoint: {fileID: 8136853320341797314, guid: 598d7544ceedcbc409f35e791b167678,
     type: 3}
+  wave: {fileID: 7494473617347374062, guid: 5eb235b56f5e76b47b98ec011973f267, type: 3}
+  iceBall: {fileID: 7671956535631379919, guid: 8db51b43ad3e7fb4d81ded3ead91a104, type: 3}
   Elements:
   - spell_name: Fire
     spell_image: {fileID: 21300000, guid: cc74df736f3362f4b8c1037893e8587c, type: 3}

@@ -2,42 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class IceBall : MonoBehaviour
 {
     public float speed;
     float movespeed;
-
     float distance = 0;
-
     Vector3 destination;
-
     public GameObject player;
-
     Vector3 startpos;
-
     public float timer;
-
     Vector3 previousTransform;
-
     bool following = true;
-
     Vector3 dir;
-
     float inispeed;
+    float y_pos;
+
+    [SerializeField] GameObject trace;
+    private float spawnTimer =1;
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = player.transform.position + Vector3.up;
+
         previousTransform = transform.position;
         startpos = transform.position;
+        y_pos = startpos.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        distance += speed / 2 * Time.deltaTime;
 
+        spawnTimer -= speed / 2 * Time.deltaTime;
+
+        if (spawnTimer <= 0)
+        {
+            GameObject t = Instantiate(trace);
+            t.transform.position = transform.position;
+            spawnTimer = 1;
+        }
+
+        distance += speed / 2 * Time.deltaTime;
 
         timer -= Time.deltaTime;
 
@@ -60,15 +65,15 @@ public class Fireball : MonoBehaviour
             movespeed = 5 + Vector3.Distance(transform.position, player.transform.position) / 3;
 
             destination = startpos + Camera.main.transform.forward * distance;
+            destination = new Vector3(destination.x, y_pos, destination.z);
 
             RaycastHit hit;
 
             Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 999999);
 
-            if (distance<Vector3.Distance(Camera.main.transform.position,transform.position) && hit.distance!=999999 && hit.distance !=0)
+            if (distance < Vector3.Distance(Camera.main.transform.position, transform.position) && hit.distance != 999999 && hit.distance!=0)
             {
-                print("adaptation");
-                transform.position += transform.right*Time.deltaTime*-1/(hit.distance/10);
+                transform.position += transform.right * Time.deltaTime * -1 / (hit.distance / 10);
             }
 
 
@@ -121,7 +126,8 @@ public class Fireball : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.transform.name != "Player" && other.tag != "FireballTrigger" && !other.isTrigger)
+
+        if (other.gameObject.transform.name != "Player" && !other.isTrigger)
 
         {
             transform.position = new Vector3(666, -666, 666);

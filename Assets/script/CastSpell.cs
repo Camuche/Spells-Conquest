@@ -17,6 +17,7 @@ public class CastSpell : MonoBehaviour
     public GameObject AimPoint;
 
     [SerializeField] GameObject wave;
+    [SerializeField] GameObject iceBall;
 
     GameObject viseur;
 
@@ -197,6 +198,20 @@ public class CastSpell : MonoBehaviour
             }
         }
 
+        if ((SpellL.ToString() + SpellR.ToString() == "13" || SpellL.ToString() + SpellR.ToString() == "31") && limit > 3)
+        {
+            if (GameObject.Find("IceBall(Clone)") == null)
+            {
+
+                GameObject i = Instantiate(iceBall);
+                i.transform.rotation = transform.rotation;
+                i.transform.position = transform.position + transform.right * 1 + transform.up * -1;
+                i.GetComponent<IceBall>().player = transform.gameObject;
+
+
+            }
+        }
+
     }
 
     void CamRaycast()
@@ -239,7 +254,11 @@ public class CastSpell : MonoBehaviour
         {
             return true;
         }
-
+        if ((SpellL.ToString() + SpellR.ToString() == "13" || SpellL.ToString() + SpellR.ToString() == "31") && limit > 3)
+        {
+            return true;
+        }
+        
         return false;
     }
 }
