@@ -20,6 +20,26 @@ public class IceBallTrace : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
+        //detect water
+        int water_mask = LayerMask.GetMask("Water");
+
+        if (
+            Physics.Raycast(transform.position + Vector3.up + Vector3.left * 2, Vector3.down, 1.1f, water_mask) ||
+            Physics.Raycast(transform.position + Vector3.up + Vector3.right * 2, Vector3.down, 1.1f, water_mask) ||
+            Physics.Raycast(transform.position + Vector3.up + Vector3.forward * 2, Vector3.down, 1.1f, water_mask) ||
+            Physics.Raycast(transform.position + Vector3.up + Vector3.back * 2, Vector3.down, 1.1f, water_mask)
+            )
+        {
+            GetComponentInChildren<MeshCollider>().enabled = true;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+
         transform.localScale = Vector3.zero;
     }
 
@@ -33,21 +53,6 @@ public class IceBallTrace : MonoBehaviour
             if (transform.localScale.x <= 1)
             {
                 transform.localScale += Vector3.one * Time.deltaTime / transitionDelay;
-            }
-            else
-            {
-                //detect water
-                int water_mask = LayerMask.GetMask("Water");
-
-                if (
-                    Physics.Raycast(transform.position + Vector3.up + Vector3.left*2, Vector3.down, 1.1f, water_mask) ||
-                    Physics.Raycast(transform.position + Vector3.up + Vector3.right*2, Vector3.down, 1.1f, water_mask) ||
-                    Physics.Raycast(transform.position + Vector3.up + Vector3.forward*2, Vector3.down, 1.1f, water_mask) ||
-                    Physics.Raycast(transform.position + Vector3.up + Vector3.back*2, Vector3.down, 1.1f, water_mask)
-                    )
-                {
-                    GetComponentInChildren<MeshCollider>().enabled = true;
-                }
             }
         }
         else

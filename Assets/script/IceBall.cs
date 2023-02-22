@@ -6,6 +6,9 @@ public class IceBall : MonoBehaviour
 {
     public float speed;
     float movespeed;
+
+    float defalutSpeed;
+
     float distance = 0;
     Vector3 destination;
     public GameObject player;
@@ -23,10 +26,19 @@ public class IceBall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
+        RaycastHit slopeHit;
+        if (Physics.Raycast(transform.position + Vector3.up * 1, Vector3.down, out slopeHit, 999f, LayerMask.GetMask("Default")))
+        {
+            transform.position = new Vector3(transform.position.x, slopeHit.point.y, transform.position.z);
+        }
+        
         previousTransform = transform.position;
         startpos = transform.position;
         y_pos = startpos.y;
+
+        defalutSpeed = speed;
+
     }
 
     // Update is called once per frame
@@ -65,7 +77,7 @@ public class IceBall : MonoBehaviour
 
             if (transform.position != startpos)
             {
-                transform.position = Vector3.MoveTowards(transform.position, startpos, -speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(startpos.x,y_pos,startpos.z), -speed * Time.deltaTime);
             }
 
             //move towards aiming point
@@ -102,10 +114,48 @@ public class IceBall : MonoBehaviour
 
 
             //movement
+            previousTransform = transform.position;
+
             transform.position += dir * speed * Time.deltaTime;
         }
 
-        transform.rotation = Quaternion.LookRotation((oldPos - transform.position).normalized);
+        //transform.rotation = Quaternion.LookRotation((oldPos - transform.position).normalized);
+
+        //collide wall
+        if(
+            Physics.Raycast(previousTransform,(transform.position-previousTransform).normalized,speed) &&
+            Physics.Raycast(previousTransform+Vector3.up, (transform.position + Vector3.up - previousTransform + Vector3.up).normalized, speed)
+            )
+        {
+            Destroy(gameObject);
+        }
+
+        //detect slopes
+        RaycastHit slopeHit;
+        if (Physics.Raycast(transform.position + Vector3.up*.5f, Vector3.down,  out slopeHit, 999f, LayerMask.GetMask("Default","ground")))
+        {
+            if (y_pos != slopeHit.point.y)
+            {
+
+                print("coucou" + slopeHit.collider.name);
+
+                speed = defalutSpeed - Mathf.Abs(y_pos - slopeHit.point.y)*200;
+
+                speed = Mathf.Clamp(speed, 1, Mathf.Infinity);
+
+
+                print(speed);
+
+                y_pos = slopeHit.point.y;
+
+
+                transform.position = new Vector3(transform.position.x, y_pos, transform.position.z);
+            }
+            else
+            {
+                speed = defalutSpeed;
+            }
+        }
 
         //timer end
         if (timer <= 0)
@@ -132,24 +182,27 @@ public class IceBall : MonoBehaviour
             {
 
                 dir = (transform.position - previousTransform).normalized;
+                dir.y = 0;
                 following = false;
 
             }
         }
 
 
+
+
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
 
 
         if (other.gameObject.transform.name != "Player" && !other.isTrigger)
 
         {
-            transform.position = new Vector3(666, -666, 666);
-            Destroy(gameObject, 0.1f);
+            //transform.position = new Vector3(666, -666, 666);
+            //Destroy(gameObject, 0.1f);
 
         }
 

@@ -204,7 +204,7 @@ public class CastSpell : MonoBehaviour
             {
 
                 GameObject i = Instantiate(iceBall);
-                i.transform.rotation = transform.rotation;
+                //i.transform.rotation = transform.rotation;
                 i.transform.position = transform.position + transform.right * 1 + transform.up * -1;
                 i.GetComponent<IceBall>().player = transform.gameObject;
 
