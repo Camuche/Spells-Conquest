@@ -44,7 +44,7 @@ public class DamageZone : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-
+        
         if (other.name == "Player")
         {
 

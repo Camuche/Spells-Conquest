@@ -39,8 +39,15 @@ public class IceBall : MonoBehaviour
         {
             GameObject t = Instantiate(trace);
             t.transform.position = transform.position;
-            spawnTimer = 1;
+            spawnTimer = 2;
+
+            
+            
         }
+
+
+        
+
 
         distance += speed / 2 * Time.deltaTime;
 
@@ -100,12 +107,23 @@ public class IceBall : MonoBehaviour
 
         transform.rotation = Quaternion.LookRotation((oldPos - transform.position).normalized);
 
-
+        //timer end
         if (timer <= 0)
         {
             transform.position = new Vector3(666, -666, 666);
             Destroy(gameObject, 0.1f);
         }
+
+        //detect lava
+        int lava_mask = LayerMask.GetMask("lava");
+
+        if (Physics.Raycast(transform.position + Vector3.up, Vector3.down, 1.1f,lava_mask))
+        {
+            transform.position = new Vector3(666, -666, 666);
+            Destroy(gameObject, 0.1f);
+        }
+
+        
 
 
         if (Input.GetAxis("Fire") == 0 && !Input.GetMouseButton(0))
