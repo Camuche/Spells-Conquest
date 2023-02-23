@@ -20,7 +20,8 @@ public class telekinesisClone : MonoBehaviour
 
         if (timer < 0)
         {
-            Destroy(gameObject);
+            transform.position = new Vector3(100000, -100000, 100000);
+            Destroy(gameObject, 0.1f);
         }
 
         attract(force);

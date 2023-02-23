@@ -138,4 +138,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shield: {fileID: 1108065954000898894, guid: d1777b53a23a507408368fe1192facfe, type: 3}
-  lava: {fileID: 0}
+  lava: {fileID: 2100000, guid: dc4b9a797342a75468c6ecd34afd4114, type: 2}

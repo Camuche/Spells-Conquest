@@ -47,9 +47,10 @@ public class FireProtectionStart : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Fireball")
+        if (other.tag == "Fireball" || other.tag == "FireShield")
         { 
             boolEnable = true;
+            
         }
     }
 }
