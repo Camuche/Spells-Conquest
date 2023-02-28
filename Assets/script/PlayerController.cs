@@ -238,32 +238,7 @@ public class PlayerController : MonoBehaviour
             camdest = Vector3.MoveTowards(camdest, camposStart, 0.1f);
             Camera.main.transform.position = camdest;
             //Camera.main.transform.position = camposStart+((hit.point - camposStart).normalized * dist*-0.9f);
-
         }
-        /*
-        RaycastHit hitz;
-
-        Physics.Raycast(transform.position, transform.forward * -1, out hitz, CamDistance, obstacleMask);
-
-
-        
-        float zdistance;
-
-        if (hitz.transform == null)
-        {
-            zdistance = (float)(CamDistance/2f);
-        }
-        else
-        {
-            zdistance = (float)(hitz.distance/2f)-0.25f*(CamDistance-hitz.distance)* (CamDistance - hitz.distance) / CamDistance;
-        }
-        */
-
-
-
-        //Camera.main.transform.localPosition = new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, CamzDefault + (CamDistance-dist));
-
-        //Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, -1.16f+0.3f * (CamDistance - dist));
 
 
     }
