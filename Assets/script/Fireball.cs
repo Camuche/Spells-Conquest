@@ -67,7 +67,6 @@ public class Fireball : MonoBehaviour
 
             if (distance<Vector3.Distance(Camera.main.transform.position,transform.position) && hit.distance!=999999 && hit.distance !=0)
             {
-                print("adaptation");
                 transform.position += transform.right*Time.deltaTime*-1/(hit.distance/10);
             }
 

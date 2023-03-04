@@ -7,7 +7,7 @@ public class DamageZone : MonoBehaviour
     public bool continuous;
     public float damage;
     public bool instaKill;
-
+    [SerializeField] bool canDamageEnemies;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +23,10 @@ public class DamageZone : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-
+        
         if (continuous)
         {
+            
             if (other.name == "Player")
             {
                 if (!other.GetComponent<PlayerController>().CheckShield())
@@ -38,6 +39,24 @@ public class DamageZone : MonoBehaviour
                     }
                 }
             }
+            
+
+            if (other.gameObject.layer == LayerMask.NameToLayer("enemi") && canDamageEnemies)
+            {
+
+                
+
+                other.GetComponent<EnemyLife>().life -= damage * Time.deltaTime;
+                if (instaKill && damage > 0)
+                {
+                    other.GetComponent<EnemyLife>().life = 0;
+                }
+            }
+
+            if (canDamageEnemies)
+                print("enculmé");
+
+
         }
     }
 
@@ -64,5 +83,27 @@ public class DamageZone : MonoBehaviour
         
         }
 
+        if (other.gameObject.layer == LayerMask.NameToLayer("enemi") && canDamageEnemies)
+        {
+
+            
+
+            if (instaKill && damage > 0)
+            {
+                other.GetComponent<EnemyLife>().life = 0;
+            }
+
+            if (!continuous)
+            {
+                other.GetComponent<EnemyLife>().life -= damage;
+            }
+        }
+
+        if(canDamageEnemies)
+            print("abrutin");
+
     }
+
+
+
 }
