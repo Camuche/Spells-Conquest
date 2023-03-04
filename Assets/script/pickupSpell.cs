@@ -7,11 +7,12 @@ public class pickupSpell : MonoBehaviour
 
     bool canPickUp = false;
     GameObject player;
+    GameObject gameController;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameController = GameObject.Find("GameController");
     }
 
     // Update is called once per frame
@@ -20,6 +21,7 @@ public class pickupSpell : MonoBehaviour
         if (canPickUp && Input.GetButtonDown("Interact"))
         {
             player.GetComponent<CastSpell>().limit++;
+            gameController.GetComponent<gameController>().spellsToDestroyNext.Add(transform.position.x.ToString() + transform.position.z.ToString());
             Destroy(gameObject);
         }
     }

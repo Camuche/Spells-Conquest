@@ -24,10 +24,10 @@ public class CheckPoint : MonoBehaviour
 
         if (canSave)
         {
-            print("saved");
             gameController.GetComponent<gameController>().CheckPoint = new Vector3(transform.position.x,player.transform.position.y,transform.position.z);
             gameController.GetComponent<gameController>().checkpointed = true;
             gameController.GetComponent<gameController>().spellLimit = player.GetComponent<CastSpell>().limit;
+            gameController.GetComponent<gameController>().setSpellsToDestroy();
 
         }
         
