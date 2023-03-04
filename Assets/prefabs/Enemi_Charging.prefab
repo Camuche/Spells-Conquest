@@ -254,8 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94305b92f619e204ca73509fd7e7d1aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeSpeed: 5
-  speed: 0
+  chargeSpeed: 25
+  speed: 50
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
   grav: 0
