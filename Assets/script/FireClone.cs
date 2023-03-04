@@ -9,6 +9,9 @@ public class FireClone : MonoBehaviour
     public float speed;
     public float timer;
 
+    [SerializeField]float grav;
+    float ySpeed=0;
+
 
     [HideInInspector]
     public Vector3 direction;
@@ -50,6 +53,20 @@ public class FireClone : MonoBehaviour
             matLave.SetVector("_SpherePosition", new Vector4(0, 9999999999999, 0, 0));
             transform.position = new Vector3(100000, -100000, 100000);
             Destroy(gameObject,0.1f);
+        }
+
+
+
+        //gravity
+        controller.Move(Vector3.up * ySpeed * Time.deltaTime);
+
+        if (Physics.Raycast(transform.position - Vector3.up, -Vector3.up * 0.1f, 0.1f))
+        {
+            ySpeed = 0;
+        }
+        else
+        {
+            ySpeed -= grav * Time.deltaTime;
         }
     }
 

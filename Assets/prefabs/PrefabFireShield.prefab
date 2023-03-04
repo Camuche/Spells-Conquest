@@ -4973,6 +4973,7 @@ MonoBehaviour:
   matLave: {fileID: 2100000, guid: dc4b9a797342a75468c6ecd34afd4114, type: 2}
   speed: 2
   timer: 10
+  grav: 10
   direction: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
 --- !u!143 &76482160417221039
