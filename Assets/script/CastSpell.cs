@@ -23,6 +23,8 @@ public class CastSpell : MonoBehaviour
 
     GameObject viseur;
 
+    [SerializeField] Animator animator;
+
     //structure de donnée d'un element (avec le nom de l'element, son image d'ui, etc...)
     [System.Serializable]
     public struct Element
@@ -150,6 +152,8 @@ public class CastSpell : MonoBehaviour
 
     void Cast()
     {
+        animator.SetTrigger("Throw");
+
         if ((SpellL.ToString()+SpellR.ToString()=="01" || SpellL.ToString() + SpellR.ToString() == "10") && limit>-1)
         {
             if (GameObject.Find("PrefabFireball(Clone)") == null)
@@ -226,6 +230,10 @@ public class CastSpell : MonoBehaviour
 
             }
         }
+
+
+        
+
 
     }
 

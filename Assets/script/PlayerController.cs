@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
 
     bool canMove = true;
 
+    [SerializeField] Animator animator;
+
 
     // Start is called before the first frame update
     void Start()
@@ -76,11 +78,23 @@ public class PlayerController : MonoBehaviour
 
         CheckLife();
 
+        AnimationControl();
+    }
+
+
+    void AnimationControl()
+    {
+        animator.SetBool("IsMoving", movedir != Vector3.zero);
+        animator.SetFloat("VelocityZ", Input.GetAxis("Vertical"));
+        animator.SetFloat("VelocityX", Input.GetAxis("Horizontal"));
 
     }
 
 
+
+
     [HideInInspector] public float dashCoolDown = 0;
+    private Vector3 movedir;
     void movements()
     {
 
@@ -121,7 +135,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        Vector3 movedir = Vector3.zero;
+        movedir = Vector3.zero;
 
         movedir += transform.right * Input.GetAxisRaw("Vertical") * (speed + dodgespeed) * Time.deltaTime;
         movedir += transform.forward * -Input.GetAxisRaw("Horizontal") * (speed + dodgespeed) * Time.deltaTime;
