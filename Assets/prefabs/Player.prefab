@@ -46,7 +46,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3870732601873632230}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 6622264641530768373, guid: 75c562fdd2b488845aba94e8e0ccc468, type: 3}
 --- !u!23 &3870732601873632227
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   speedscale: 1
   dashCoolDown: 0
   AimDistance: 1
-  CamDistance: 2.5
+  CamDistance: 1.5
   CamStart: {fileID: 3870732602979315408}
   obstacleMask:
     serializedVersion: 2
@@ -210,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3870732602788733398}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.72, y: 0.5, z: -1.03}
+  m_LocalPosition: {x: -2.72, y: 0.5, z: -0.801}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3870732601873632225}
