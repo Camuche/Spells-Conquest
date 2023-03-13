@@ -16,10 +16,10 @@ GameObject:
   - component: {fileID: 5387335219111035024}
   - component: {fileID: 3931506438026593828}
   - component: {fileID: 5042605685589712362}
-  - component: {fileID: 3327947476686879643}
-  - component: {fileID: 7879921098002538824}
+  - component: {fileID: 116146419551874056}
+  - component: {fileID: 5923067253688777717}
   m_Layer: 11
-  m_Name: Enemi_Kamikaze
+  m_Name: Enemi_Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,11 +113,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d1a6e1b7bd4c44eb9397d6a1b0507e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 5
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
   grav: 10
-  followDistance: 20
+  followDistance: 10
 --- !u!143 &5387335219111035024
 CharacterController:
   m_ObjectHideFlags: 0
@@ -150,7 +150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 40
   DisplayLife: 1
-  IgnoreCol: {fileID: 0}
 --- !u!195 &5042605685589712362
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -162,34 +161,18 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 5
-  m_Acceleration: 16
+  m_Acceleration: 888
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 9999
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
+  m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3327947476686879643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4042794045697653259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcf5880a448c18344b273e1f3efcdc72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionDistance: 3
-  explosionRange: 8
-  explosionObject: {fileID: 575539391420538535, guid: 7191a20366f4e7e41a58b2b110d0ce12,
-    type: 3}
---- !u!54 &7879921098002538824
+--- !u!54 &116146419551874056
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,6 +188,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5923067253688777717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4042794045697653259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226be105330fa504888fab7915a64610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Laser: {fileID: 2941706858298650370, guid: d0787c7befe9ae54cb8dadd90ceb3cee, type: 3}
+  enemyShield: {fileID: 337749727935250985, guid: e8ea05cceb08d594ca8f934a22a45199,
+    type: 3}
+  activeTimer: 3
+  cooldownTimer: 3
+  _laserStart: {x: 0, y: 0, z: 0}
 --- !u!1001 &2427657593493359843
 PrefabInstance:
   m_ObjectHideFlags: 0

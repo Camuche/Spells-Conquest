@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 3879585535044264261}
   - component: {fileID: 4671192272901912689}
   - component: {fileID: 1619177641031987823}
+  - component: {fileID: 7695077307525349797}
   m_Layer: 0
   m_Name: SmokeProtection
   m_TagString: Untagged
@@ -370,6 +371,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   protectDistance: 5.7
+--- !u!114 &7695077307525349797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6580663571075640290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5437f3402c2ac014681499f77d2b526b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shield: {fileID: 1108065954000898894, guid: d1777b53a23a507408368fe1192facfe, type: 3}
+  lava: {fileID: 2100000, guid: 26f87a3133cc2534680246b3b5c9f6d9, type: 2}
 --- !u!1001 &1219468212062375211
 PrefabInstance:
   m_ObjectHideFlags: 0

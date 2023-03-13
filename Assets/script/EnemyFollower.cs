@@ -19,6 +19,7 @@ public class EnemyFollower : MonoBehaviour
 
     NavMeshAgent navMeshAgent;
 
+    
 
 
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class EnemyFollower : MonoBehaviour
         controller = GetComponent<CharacterController>();
 
         navMeshAgent = GetComponent<NavMeshAgent>();
+
     }
 
     // Update is called once per frame

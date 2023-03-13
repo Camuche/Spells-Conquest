@@ -11,6 +11,10 @@ public class EnemyLife : MonoBehaviour
 
     private float maxLife;
 
+    public Collider IgnoreCol;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +31,26 @@ public class EnemyLife : MonoBehaviour
 
 
         maxLife = life;
+
+
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
         drawHealth();
+
+
+        if (IgnoreCol != null)
+        {
+            if (GameObject.Find("PrefabFireball(Clone)"))
+            {
+                Physics.IgnoreCollision(IgnoreCol, GameObject.Find("PrefabFireball(Clone)").GetComponent<SphereCollider>());
+            }
+        }
+
     }
 
 

@@ -244,6 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 40
   DisplayLife: 1
+  IgnoreCol: {fileID: 120852052043948174}
 --- !u!114 &2340217472438014316
 MonoBehaviour:
   m_ObjectHideFlags: 0
