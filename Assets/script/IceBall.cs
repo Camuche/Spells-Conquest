@@ -137,14 +137,9 @@ public class IceBall : MonoBehaviour
             if (y_pos != slopeHit.point.y)
             {
 
-                print("coucou" + slopeHit.collider.name);
-
                 speed = defalutSpeed - Mathf.Abs(y_pos - slopeHit.point.y)*200;
 
                 speed = Mathf.Clamp(speed, 1, Mathf.Infinity);
-
-
-                print(speed);
 
                 y_pos = slopeHit.point.y;
 

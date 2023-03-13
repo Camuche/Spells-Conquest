@@ -12,7 +12,17 @@ public class ShieldedEnemy : MonoBehaviour
     void Start()
     {
         GameObject s = Instantiate(shield);
-        s.GetComponent<BreakableShield>().parent = gameObject;
+
+
+        if (s.GetComponent<BreakableShield>() != null)
+        {
+            s.GetComponent<BreakableShield>().parent = gameObject;
+        }
+
+        if (s.GetComponent<EnemiFireShield>() != null)
+        {
+            s.GetComponent<EnemiFireShield>().parent = gameObject;
+        }
     }
 
     // Update is called once per frame
