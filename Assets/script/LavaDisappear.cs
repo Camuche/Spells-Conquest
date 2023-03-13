@@ -7,6 +7,8 @@ public class LavaDisappear : MonoBehaviour
     [SerializeField] GameObject Shield;
     Vector3 shieldPos;
     [SerializeField] Material lava;
+   
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,8 @@ public class LavaDisappear : MonoBehaviour
             lava.SetVector("_SpherePosition", shieldPos);
 
         }
+      
+       
 
     }
 }

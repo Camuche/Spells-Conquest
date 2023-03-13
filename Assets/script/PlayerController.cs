@@ -391,7 +391,7 @@ public class PlayerController : MonoBehaviour
 
         if (shield != null)
         {
-            if (Vector3.Distance(transform.position, shield.transform.position)<2.5f)
+            if (Vector3.Distance(transform.position, shield.transform.position)<2.7f)
             {
                 return true;
             }
