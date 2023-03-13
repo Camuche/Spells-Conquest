@@ -101,6 +101,8 @@ public class PlayerController : MonoBehaviour
 
         animator.SetBool("Dead", life <= 0);
 
+       
+
     }
 
 
@@ -120,6 +122,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Dodge"))
         {
             if (dodgespeed == 0 && dashCoolDown<=0 && grounded==true) {
+                animator.SetTrigger("Dash");
                 dodgespeed = 200;
                 dashCoolDown = 1.5f;
             }
