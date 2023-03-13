@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 12ab94fdb16c3dd47a4a91cdf46656c5
+guid: 57f0caede863a884881db1d6b910da9a
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: RunForward
+    second: HoldSpell
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,25 +35,25 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: RunForward
+      name: HoldSpell
       takeName: mixamo.com
       internalID: 0
-      firstFrame: 0
-      lastFrame: 24
+      firstFrame: 30
+      lastFrame: 37
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: 300
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
+      keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
+      keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000

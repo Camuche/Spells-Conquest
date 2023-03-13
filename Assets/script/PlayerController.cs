@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator animator;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
         lifeMax = life;
 
         DefaultCamDistance = CamDistance;
+
 
 
     }
@@ -87,6 +89,17 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsMoving", movedir != Vector3.zero);
         animator.SetFloat("VelocityZ", Input.GetAxis("Vertical"));
         animator.SetFloat("VelocityX", Input.GetAxis("Horizontal"));
+
+        if (Input.GetAxis("Fire") > 0 || Input.GetMouseButton(0))
+        {
+            animator.SetBool("HoldSpell", true);
+        }
+        else
+        {
+            animator.SetBool("HoldSpell", false);
+        }
+
+        animator.SetBool("Dead", life <= 0);
 
     }
 
@@ -331,19 +344,19 @@ public class PlayerController : MonoBehaviour
     {
 
         RaycastHit hit;
-        Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, obstacleMask);
+        Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, obstacleMask,QueryTriggerInteraction.Ignore);
 
         RaycastHit hit2;
-        Physics.Raycast(transform.position+transform.forward*.05f, Vector3.down, out hit2, Mathf.Infinity, obstacleMask);
+        Physics.Raycast(transform.position+transform.forward*.05f, Vector3.down, out hit2, Mathf.Infinity, obstacleMask, QueryTriggerInteraction.Ignore);
 
         RaycastHit hit3;
-        Physics.Raycast(transform.position + transform.forward * -.05f, Vector3.down, out hit3, Mathf.Infinity, obstacleMask);
+        Physics.Raycast(transform.position + transform.forward * -.05f, Vector3.down, out hit3, Mathf.Infinity, obstacleMask, QueryTriggerInteraction.Ignore);
 
         RaycastHit hit4;
-        Physics.Raycast(transform.position + transform.right * .05f, Vector3.down, out hit4, Mathf.Infinity, obstacleMask);
+        Physics.Raycast(transform.position + transform.right * .05f, Vector3.down, out hit4, Mathf.Infinity, obstacleMask, QueryTriggerInteraction.Ignore);
 
         RaycastHit hit5;
-        Physics.Raycast(transform.position + Vector3.right * -.05f, Vector3.down, out hit5, Mathf.Infinity, obstacleMask);
+        Physics.Raycast(transform.position + Vector3.right * -.05f, Vector3.down, out hit5, Mathf.Infinity, obstacleMask, QueryTriggerInteraction.Ignore);
 
         float distToGround = 1.1f;
 
@@ -377,11 +390,17 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     void CheckLife()
     {
         if (life <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            StartCoroutine(Restart());
         }
     }
 
