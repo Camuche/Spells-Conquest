@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5263546259678239793}
   - component: {fileID: 9125424220186743700}
   - component: {fileID: 6431408218662692702}
-  - component: {fileID: -1063051380212296242}
   m_Layer: 0
   m_Name: fleur_magique_low
   m_TagString: Untagged
@@ -60,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 90e1d7cc95c47e842af259222f9b371a, type: 2}
+  - {fileID: 2100000, guid: 4bb0fc95b3391c64bb335de7a01b8c19, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,20 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &-1063051380212296242
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4773832935478740619}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1473268048168699723, guid: 76a007090528a884c8151771997dcc62, type: 3}
 --- !u!1 &5656914836757722413
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,13 +105,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5656914836757722413}
-  m_LocalRotation: {x: 0.20255026, y: -0.6882464, z: 0.67747575, w: 0.16222477}
+  m_LocalRotation: {x: 0.6831594, y: -0.18246433, z: -0.18246433, w: -0.6831594}
   m_LocalPosition: {x: 0.015, y: 0.286, z: -0.001}
   m_LocalScale: {x: 1.2573, y: 1.2572998, z: 1.2573}
   m_Children: []
   m_Father: {fileID: 5263546259678239793}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 86.617004, y: -240.091, z: -90.00001}
+  m_LocalEulerAnglesHint: {x: -90, y: -240.09201, z: -90}
 --- !u!198 &5656914836757722411
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -263,7 +248,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.001
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2721,7 +2706,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.71
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2878,7 +2863,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 0
-    frequency: 0.5
+    frequency: 0.54
     damping: 0
     octaves: 1
     octaveMultiplier: 0.5

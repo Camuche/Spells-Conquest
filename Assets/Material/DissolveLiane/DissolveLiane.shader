@@ -44,7 +44,7 @@ Shader "DissolveLiane"
 }
 /*ASEBEGIN
 Version=19001
-1920;0;1920;1019;1280;213.5;1;True;True
+-1920;0;1920;1019;1280;213.5;1;True;False
 Node;AmplifyShaderEditor.TextureCoordinatesNode;2;-879,258.5;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.OneMinusNode;7;-644,328.5;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;6;-734,171.5;Inherit;False;Property;_Dissolve;Dissolve;1;0;Create;True;0;0;0;False;0;False;0;1;0;0;0;1;FLOAT;0
@@ -57,4 +57,4 @@ WireConnection;5;2;6;0
 WireConnection;0;0;8;0
 WireConnection;0;10;5;0
 ASEEND*/
-//CHKSM=2AB54BE4A9A9E01078C729A1D4E6C002E5E3DD55
+//CHKSM=466A809FA9674200E9CE44E0DD39092D66024107
