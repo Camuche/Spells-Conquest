@@ -19,8 +19,13 @@ public class WorkshopMenu : MonoBehaviour
         
     }
 
-    public void Workshop1()
+    public void Workshop_Environment()
     {
-        SceneManager.LoadScene("Workshop");
+        SceneManager.LoadScene("Workshop_Environment");
+    }
+
+    public void Workshop_Arena()
+    {
+        SceneManager.LoadScene("Workshop_Arena");
     }
 }
