@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4b13a27f0d8234d9acd522a6a63f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.3
+  delay: 1
   Bullet: {fileID: 3856048993441989314, guid: d1a24f3734c82ca44ace6640f238fa07, type: 3}
   SpawnPoint: {x: 0, y: 0, z: 0}
   BulletDammage: 5

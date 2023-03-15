@@ -70,8 +70,12 @@ public class PlayerController : MonoBehaviour
             return;
 
         aiming();
-        rotateCamera();
-        rotatePlayer();
+
+        if (life > 0)
+        {
+            rotateCamera();
+            rotatePlayer();
+        }
         movements();
 
         updateY();
@@ -121,7 +125,7 @@ public class PlayerController : MonoBehaviour
         //dodge input
         if (Input.GetButtonDown("Dodge"))
         {
-            if (dodgespeed == 0 && dashCoolDown<=0 && grounded==true) {
+            if (dodgespeed == 0 && dashCoolDown<=0 && grounded==true && life>0) {
                 animator.SetTrigger("Dash");
                 dodgespeed = 200;
                 dashCoolDown = 1.5f;
