@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 5757210786316105627}
   m_Layer: 11
   m_Name: Enemi_Physical_WeakPoint
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -360,6 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 40
   DisplayLife: 1
+  IgnoreCol: {fileID: 0}
 --- !u!54 &894514966126261706
 Rigidbody:
   m_ObjectHideFlags: 0

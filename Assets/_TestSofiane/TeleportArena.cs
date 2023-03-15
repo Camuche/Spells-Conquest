@@ -11,9 +11,20 @@ public class TeleportArena : MonoBehaviour
 
 
     [SerializeField] GameObject player;
-    [SerializeField] GameObject enemyLaser;
 
-    
+    [SerializeField] GameObject enemyCharging;
+    [SerializeField] GameObject enemyFire;
+    [SerializeField] GameObject enemyHeavy;
+    [SerializeField] GameObject enemyKamikaze;
+    [SerializeField] GameObject enemyLaser;
+    [SerializeField] GameObject enemyPhysical;
+    [SerializeField] GameObject enemyWeakPoint;
+    [SerializeField] GameObject enemyShield;
+    [SerializeField] GameObject enemyShooter;
+    [SerializeField] GameObject enemyTurret;
+    [SerializeField] GameObject enemyFlying;
+
+
 
 
 
@@ -28,9 +39,17 @@ public class TeleportArena : MonoBehaviour
     {
         
 
-        //listEnemyAlive = GameObject.FindGameObjectsWithTag("Enemi");
-        //Debug.Log(listEnemyAlive.Length);
-        
+        listEnemyAlive = GameObject.FindGameObjectsWithTag("Enemy");
+       
+
+        if (listEnemyAlive.Length == 0)
+        {
+            TeleportTriggerToHub.SetActive(true);
+        }
+        else
+        {
+            TeleportTriggerToHub.SetActive(false);
+        }
         
 
     }
@@ -39,6 +58,7 @@ public class TeleportArena : MonoBehaviour
     {
         player.GetComponent<CharacterController>().enabled = false;
         player.transform.position = new Vector3(0, 1, 0);
+        player.transform.eulerAngles = new Vector3(0, -90, 0);
         player.GetComponent<CharacterController>().enabled = true;
 
         puzzleTrigger.numberInTrigger = 0;
@@ -48,17 +68,73 @@ public class TeleportArena : MonoBehaviour
     public void TeleportPlayerToHub(PuzzleTrigger puzzleTrigger)
     {
         player.GetComponent<CharacterController>().enabled = false;
-        player.transform.position = new Vector3(100, 1, 0);
+        player.transform.position = new Vector3(100, 1, -10);
+        player.transform.eulerAngles = new Vector3(0, 180, 0);
         player.GetComponent<CharacterController>().enabled = true;
 
         puzzleTrigger.numberInTrigger = 0;
     }
 
+
+
+
+
     public void SetEnemyCharging()
+    {
+        Instantiate(enemyCharging, new Vector3(0, 1, 30), Quaternion.identity);
+
+    }
+    public void SetEnemyFire()
+    {
+        Instantiate(enemyFire, new Vector3(0, 1, 30), Quaternion.identity);
+
+    }
+    public void SetEnemyHeavy()
+    {
+        Instantiate(enemyHeavy, new Vector3(0, 1, 30), Quaternion.identity);
+
+    }
+    public void SetEnemyKamikaze()
+    {
+        Instantiate(enemyKamikaze, new Vector3(0, 1, 30), Quaternion.identity);
+
+    }
+    public void SetEnemyLaser()
     {
         Instantiate(enemyLaser, new Vector3(0, 1, 30),Quaternion.identity);
         
     }
+    public void SetEnemyPhysical()
+    {
+        Instantiate(enemyPhysical, new Vector3(0, 1, 30), Quaternion.identity);
 
-    
+    }
+    public void SetEnemyWeakpoint()
+    {
+        Instantiate(enemyWeakPoint, new Vector3(0, 1, 30), Quaternion.identity);
+
+    }
+    public void SetEnemyShield()
+    {
+        Instantiate(enemyShield, new Vector3(0, 1, 30), Quaternion.identity);
+
+    }
+    public void SetEnemyShooter()
+    {
+        Instantiate(enemyShooter, new Vector3(0, 1, 30), Quaternion.identity);
+
+    }
+    public void SetEnemyTurret()
+    {
+        Instantiate(enemyTurret, new Vector3(0, 1, 30), Quaternion.identity);
+
+    }
+    public void SetEnemyFlying()
+    {
+        Instantiate(enemyFlying, new Vector3(0, 1, 30), Quaternion.identity);
+
+    }
+
+
+
 }

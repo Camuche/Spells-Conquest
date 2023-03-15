@@ -9,6 +9,7 @@ TagManager:
   - ShaderEffect
   - Smoke
   - FireShield
+  - Enemy
   layers:
   - Default
   - TransparentFX

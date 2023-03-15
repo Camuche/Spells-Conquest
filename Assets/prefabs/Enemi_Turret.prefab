@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 4244470556581129561}
   m_Layer: 11
   m_Name: Enemi_Turret
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 20
   DisplayLife: 1
+  IgnoreCol: {fileID: 0}
 --- !u!195 &5012097407215716803
 NavMeshAgent:
   m_ObjectHideFlags: 0

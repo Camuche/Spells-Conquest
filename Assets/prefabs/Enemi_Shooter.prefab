@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 7798065246354532114}
   m_Layer: 11
   m_Name: Enemi_Shooter
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 20
   DisplayLife: 1
+  IgnoreCol: {fileID: 0}
 --- !u!54 &7798065246354532114
 Rigidbody:
   m_ObjectHideFlags: 0
