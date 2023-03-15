@@ -109,7 +109,14 @@ public class ShootLaser : MonoBehaviour
         GameObject player = GameObject.Find("Player");
         RaycastHit hit;
         Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out hit, Mathf.Infinity, ~0, QueryTriggerInteraction.Ignore);
-        return (hit.collider.gameObject == player.gameObject || hit.transform.parent.gameObject == GameObject.Find("PrefabFireShield(Clone)"));
+        if (GameObject.Find("PrefabFireShield(Clone)")!=null)
+        {
+            return hit.collider.gameObject == player.gameObject || hit.transform.parent.gameObject == GameObject.Find("PrefabFireShield(Clone)");
+        }
+        else
+        {
+            return hit.collider.gameObject == player.gameObject;
+        }
     }
 
     void SetRotation()

@@ -37,9 +37,11 @@ public class kamikaze : MonoBehaviour
 
     private void OnDestroy()
     {
-
-        if (!this.gameIsShuttingDown)
-            explode();
+        if (GameObject.Find("Player") != null)
+        {
+            if (GameObject.Find("Player").GetComponent<PlayerController>().life > 0 && !gameIsShuttingDown)
+                explode();
+        }
     }
 
     void explode()

@@ -393,7 +393,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    IEnumerator Restart()
+    IEnumerator RestartLevel()
     {
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -403,7 +403,8 @@ public class PlayerController : MonoBehaviour
     {
         if (life <= 0)
         {
-            StartCoroutine(Restart());
+            playerSpeed = 0;
+            StartCoroutine(RestartLevel());
         }
     }
 
