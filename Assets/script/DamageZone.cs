@@ -53,8 +53,6 @@ public class DamageZone : MonoBehaviour
                 }
             }
 
-            if (canDamageEnemies)
-                print("enculmé");
 
 
         }
@@ -98,9 +96,6 @@ public class DamageZone : MonoBehaviour
                 other.GetComponent<EnemyLife>().life -= damage;
             }
         }
-
-        if(canDamageEnemies)
-            print("abrutin");
 
     }
 

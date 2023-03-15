@@ -16,6 +16,7 @@ public class ShootLaser : MonoBehaviour
     bool active = false;
     bool canDestroy = false;
     float timer = 0;
+    GameObject player;
 
 
     GameObject shield;
@@ -23,6 +24,7 @@ public class ShootLaser : MonoBehaviour
     void Start()
     {
         shield = Instantiate(enemyShield);
+        player = GameObject.Find("Player");
     }
 
 
@@ -32,18 +34,10 @@ public class ShootLaser : MonoBehaviour
     void Update()
     {
 
-        
-
         timer -= Time.deltaTime;
-
-
-        
 
         if (timer <= 0)
         {
-
-
-
             active = !active;
 
             if(canDestroy && !active)
@@ -61,8 +55,6 @@ public class ShootLaser : MonoBehaviour
             {
                 canDestroy = false;
             }
-
-
 
             timer = active ? activeTimer : cooldownTimer;
         }
@@ -96,6 +88,10 @@ public class ShootLaser : MonoBehaviour
     {
         l.transform.position = transform.position + laserStart;
         l.transform.rotation = transform.rotation;
+        if (isSeeingPlayer())
+        {
+            l.transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+        }
     }
 
     void SetShield()
@@ -106,7 +102,6 @@ public class ShootLaser : MonoBehaviour
 
     bool isSeeingPlayer()
     {
-        GameObject player = GameObject.Find("Player");
         RaycastHit hit;
         Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out hit, Mathf.Infinity, ~0, QueryTriggerInteraction.Ignore);
         if (GameObject.Find("PrefabFireShield(Clone)")!=null)
@@ -121,7 +116,6 @@ public class ShootLaser : MonoBehaviour
 
     void SetRotation()
     {
-        GameObject player = GameObject.Find("Player");
         transform.rotation = Quaternion.LookRotation((player.transform.position- transform.position).normalized); ;
     }
 
