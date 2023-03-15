@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1415464157433182439
 Transform:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4042794045697653259
 GameObject:
@@ -179,7 +179,7 @@ MonoBehaviour:
   speed: 5
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
-  grav: 10
+  grav: 15
   followDistance: 10
 --- !u!143 &5387335219111035024
 CharacterController:

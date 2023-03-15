@@ -43,7 +43,7 @@ public class EnemyFollower : MonoBehaviour
             {
                 dir = (player.transform.position - transform.position).normalized;
                 //controller.Move(dir * speed * Time.deltaTime);
-                if (GetComponent<EnemyCharging>() == null)
+                if (GetComponent<EnemyCharging>() == null && navMeshAgent!=null)
                 {
                     navMeshAgent.SetDestination(player.transform.position);
 

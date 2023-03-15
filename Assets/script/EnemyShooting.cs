@@ -29,7 +29,7 @@ public class EnemyShooting : MonoBehaviour
         if (timer >= delay)
         {
 
-            if (gameObject.GetComponent<EnemyFollower>().dir != Vector3.zero)
+            if (gameObject.GetComponent<EnemyFollower>().dir != Vector3.zero && (GameObject.Find("Player").transform.position-transform.position).magnitude< gameObject.GetComponent<EnemyFollower>().followDistance)
             {
                 GameObject b = Instantiate(Bullet);
                 b.GetComponent<EnemyProjectiles>().dir = gameObject.GetComponent<EnemyFollower>().dir;
