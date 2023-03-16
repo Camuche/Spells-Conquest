@@ -67,7 +67,7 @@ public class Fireball : MonoBehaviour
 
             if (distance<Vector3.Distance(Camera.main.transform.position,transform.position) && hit.distance!=999999 && hit.distance !=0)
             {
-                transform.position += transform.right*Time.deltaTime*-1/(hit.distance/10);
+                transform.position += (transform.right*Time.deltaTime*-1/(hit.distance/10))*(Vector3.Distance(Camera.main.transform.position,player.GetComponent<PlayerController>().CamStart.transform.position)/player.GetComponent<PlayerController>().CamDistance);
             }
 
 
@@ -133,7 +133,7 @@ public class Fireball : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (player.GetComponent<PlayerController>().speedscale == 0.2f)
+        if (player !=null && player.GetComponent<PlayerController>().speedscale == 0.2f)
         {
             player.GetComponent<PlayerController>().speedscale = 1;
         }

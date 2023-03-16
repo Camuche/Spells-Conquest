@@ -124,7 +124,7 @@ public class EnemyCharging : MonoBehaviour
                 //navMeshAgent.SetDestination(player.transform.position);
                 dir = (player.transform.position - transform.position).normalized;
             }
-            speed = Mathf.Clamp(speed, -5, Mathf.Infinity);
+            speed = Mathf.Clamp(speed, -2, Mathf.Infinity);
             transform.position += dir * speed * Time.deltaTime;
         }
         else
