@@ -63,7 +63,7 @@ public class Fireball : MonoBehaviour
 
             RaycastHit hit;
 
-            Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 999999);
+            Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 999999, LayerMask.NameToLayer("FireShield"), QueryTriggerInteraction.Ignore);
 
             if (distance<Vector3.Distance(Camera.main.transform.position,transform.position) && hit.distance!=999999 && hit.distance !=0)
             {
