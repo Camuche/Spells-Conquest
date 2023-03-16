@@ -44,6 +44,6 @@ Material:
     - _Opacity: 0.72
     - _Smoothness: 0.3
     - _SmoothnessEmi: 1.57
-    - __dirty: 0
+    - __dirty: 1
     m_Colors:
     - _ColorEmi: {r: 0, g: 0.42320108, b: 1, a: 0}
