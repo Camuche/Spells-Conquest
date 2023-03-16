@@ -29,7 +29,7 @@ public class EnemyFlying : MonoBehaviour
 
         
 
-        if (timer <= 0)
+        if (timer <= 0 && GetComponent<EnemyFollower>()!=null && GetComponent<EnemyFollower>().followDistance>Vector3.Distance(transform.position,player.transform.position))
         {
             SetNewDir(0);
 
