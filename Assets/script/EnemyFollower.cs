@@ -23,7 +23,7 @@ public class EnemyFollower : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         player = GameObject.Find("Player");
         controller = GetComponent<CharacterController>();
@@ -39,7 +39,10 @@ public class EnemyFollower : MonoBehaviour
         if (player != null)
         {
 
-            if (Vector3.Distance(player.transform.position, transform.position) < followDistance)
+            RaycastHit hit;
+            Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out hit, Mathf.Infinity,~0, QueryTriggerInteraction.Ignore);
+
+            if (Vector3.Distance(player.transform.position, transform.position) < followDistance && hit.transform.gameObject == player)
             {
                 dir = (player.transform.position - transform.position).normalized;
                 //controller.Move(dir * speed * Time.deltaTime);

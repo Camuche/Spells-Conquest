@@ -87,7 +87,6 @@ public class ShootLaser : MonoBehaviour
     void SetLaser()
     {
         l.transform.position = transform.position + laserStart;
-        l.transform.rotation = transform.rotation;
         if (isSeeingPlayer())
         {
             l.transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
@@ -104,6 +103,15 @@ public class ShootLaser : MonoBehaviour
     {
         RaycastHit hit;
         Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out hit, Mathf.Infinity, ~0, QueryTriggerInteraction.Ignore);
+
+        if (hit.transform.gameObject == null)
+            return false;
+
+        if (Vector3.Distance(player.transform.position, transform.position) > GetComponent<EnemyFollower>().followDistance)
+        {
+            return false;
+        } 
+
         if (GameObject.Find("PrefabFireShield(Clone)")!=null)
         {
             return hit.collider.gameObject == player.gameObject || hit.transform.parent.gameObject == GameObject.Find("PrefabFireShield(Clone)");

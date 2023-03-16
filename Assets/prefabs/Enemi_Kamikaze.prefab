@@ -117,7 +117,7 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
   grav: 10
-  followDistance: 20
+  followDistance: 100
 --- !u!143 &5387335219111035024
 CharacterController:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class Laser : MonoBehaviour
         
         Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity,~0, QueryTriggerInteraction.Ignore);
 
-        transform.localScale = new Vector3(1, 1, hit.collider==null?9999:(hit.distance+.2f));
+        transform.localScale = new Vector3(1, 1, hit.collider==null?0:(hit.distance+.2f));
 
 
     }
