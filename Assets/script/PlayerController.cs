@@ -237,7 +237,7 @@ public class PlayerController : MonoBehaviour
 
         rotY += Input.GetAxis("Mouse Y") * mouseSensitivity*Time.deltaTime;
 
-        rotY = Mathf.Clamp(rotY, -15f, 45f);
+        rotY = Mathf.Clamp(rotY, -30f, 45f);
 
         Camera.main.transform.rotation = Quaternion.Euler(-rotY, Camera.main.transform.eulerAngles.y, Camera.main.transform.eulerAngles.z);
 
