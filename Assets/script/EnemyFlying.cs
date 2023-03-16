@@ -29,7 +29,7 @@ public class EnemyFlying : MonoBehaviour
 
         
 
-        if (timer <= 0 && GetComponent<EnemyFollower>()!=null && GetComponent<EnemyFollower>().followDistance>Vector3.Distance(transform.position,player.transform.position))
+        if (timer <= 0)
         {
             SetNewDir(0);
 
@@ -44,6 +44,12 @@ public class EnemyFlying : MonoBehaviour
 
     void SetNewDir(int iterations)
     {
+        if(GetComponent<EnemyFollower>() != null && GetComponent<EnemyFollower>().followDistance < Vector3.Distance(transform.position, player.transform.position))
+        {
+            newDir = Vector3.zero;
+            return;
+        }
+
         if (iterations >= 10)
         {
             newDir = Vector3.zero;
