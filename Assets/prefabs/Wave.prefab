@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7494473616723428052}
   - component: {fileID: 7494473616723428055}
   - component: {fileID: 7494473616723428054}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,9 +122,9 @@ GameObject:
   - component: {fileID: 7494473617347374063}
   - component: {fileID: 5291192272866259176}
   - component: {fileID: 2533988798614384337}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wave
-  m_TagString: Untagged
+  m_TagString: WaterWave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

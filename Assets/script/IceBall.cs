@@ -132,7 +132,7 @@ public class IceBall : MonoBehaviour
 
         //detect slopes
         RaycastHit slopeHit;
-        if (Physics.Raycast(transform.position + Vector3.up*.5f, Vector3.down,  out slopeHit, 999f, LayerMask.GetMask("Default","ground")))
+        if (Physics.Raycast(transform.position + Vector3.up*.5f, Vector3.down,  out slopeHit, 999f, LayerMask.GetMask("Default","ground", "CollideOnlyWithIceBall")))
         {
             if (y_pos != slopeHit.point.y)
             {

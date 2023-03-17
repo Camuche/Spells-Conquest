@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6420472757966510122}
   - component: {fileID: 1867876151806613689}
   - component: {fileID: 4109291595461072429}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1469,7 +1469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8859990255658823039}
   - component: {fileID: 5799525314261475176}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: IceBallTrace
   m_TagString: Untagged
   m_Icon: {fileID: 0}

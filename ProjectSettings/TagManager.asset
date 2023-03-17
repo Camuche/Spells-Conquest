@@ -11,6 +11,7 @@ TagManager:
   - FireShield
   - Enemy
   - IceExplosion
+  - WaterWave
   layers:
   - Default
   - TransparentFX
@@ -27,9 +28,9 @@ TagManager:
   - player
   - PP
   - FireShield
-  - 
-  - 
-  - 
+  - CollideOnlyWithIceBall
+  - IceBallTrace
+  - WaterWave
   - 
   - 
   - 
