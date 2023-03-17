@@ -412,22 +412,13 @@ public class PlayerController : MonoBehaviour
 
     void CheckLife()
     {
-
         damagedTimer -= Time.deltaTime;
-
-        if (previousLife!=null && previousLife != life)
+        if (previousLife!=null && previousLife > life)
         {
-
             damagedTimer = .05f;
         }
-
         playerMesh.GetComponent<SkinnedMeshRenderer>().material = damagedTimer > 0 ? damageMat : playerMat;
-
         previousLife = life;
-
-        
-
-
 
         if (life <= 0)
         {

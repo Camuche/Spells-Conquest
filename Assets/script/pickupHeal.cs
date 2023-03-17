@@ -18,7 +18,7 @@ public class pickupHeal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canPickUp && Input.GetButtonDown("Interact"))
+        if (canPickUp && player.GetComponent<PlayerController>().life< player.GetComponent<PlayerController>().lifeMax)
         {
             player.GetComponent<PlayerController>().life += amount;
             if (player.GetComponent<PlayerController>().life > player.GetComponent<PlayerController>().lifeMax)

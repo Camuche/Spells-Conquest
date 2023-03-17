@@ -121,7 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832ab2a24a0478e4aa3ea263e43d25cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagsAndNamesToCheck: []
+  tagsAndNamesToCheck:
+  - Player
   eventOnEnter:
     m_PersistentCalls:
       m_Calls:
@@ -134,7 +135,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
   eventOnExit:
     m_PersistentCalls:
