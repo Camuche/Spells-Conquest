@@ -143,6 +143,9 @@ MonoBehaviour:
   player: {fileID: 0}
   timer: 3
   trace: {fileID: 3469900191223738168, guid: 76edc266dab19bf488c664d00780f5dd, type: 3}
+  aimingIgnore:
+    serializedVersion: 2
+    m_Bits: 16384
 --- !u!135 &7698071997079305174
 SphereCollider:
   m_ObjectHideFlags: 0

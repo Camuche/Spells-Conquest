@@ -41,6 +41,8 @@ public class IceBall : MonoBehaviour
 
     }
 
+    [SerializeField] LayerMask aimingIgnore;
+
     // Update is called once per frame
     void Update()
     {
@@ -88,7 +90,7 @@ public class IceBall : MonoBehaviour
 
             RaycastHit hit;
 
-            Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 999999);
+            Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 999999, ~aimingIgnore, QueryTriggerInteraction.Ignore);
 
             if (distance < Vector3.Distance(Camera.main.transform.position, transform.position) && hit.distance != 999999 && hit.distance!=0)
             {

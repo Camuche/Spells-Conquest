@@ -74,15 +74,17 @@ public class EnemyCharging : MonoBehaviour
 
 
             //raycast pour quand il est en train de charger (pour qu'il s'arrete quand il touche un mur non taggué)
+            
             RaycastHit hit;
             Physics.queriesHitTriggers = false;
-            if (Physics.Raycast(transform.position+Vector3.down*0.3f, dir, out hit, .6f) ||
-                Physics.Raycast(transform.position + Vector3.down * 0.3f, Quaternion.Euler(0, -45, 0) * dir, .6f) ||
-                Physics.Raycast(transform.position + Vector3.down * 0.3f, Quaternion.Euler(0, 45, 0) * dir, .6f))
+            if (Physics.Raycast(transform.position+Vector3.down*0.1f, dir, out hit, .6f) ||
+                Physics.Raycast(transform.position + Vector3.down * 0.1f, Quaternion.Euler(0, -45, 0) * dir, .6f) ||
+                Physics.Raycast(transform.position + Vector3.down * 0.1f, Quaternion.Euler(0, 45, 0) * dir, .6f))
             {
                 print(hit.point);
                 setTouched(true);
             }
+            
 
 
 
@@ -147,12 +149,14 @@ public class EnemyCharging : MonoBehaviour
 
 
 
+
     }
 
 
 
     public void setTouched(bool t)
     {
+        print((new System.Diagnostics.StackTrace()).GetFrame(1).GetMethod().Name);
         touched = t;
     }
 
