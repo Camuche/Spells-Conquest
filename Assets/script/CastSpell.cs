@@ -64,17 +64,14 @@ public class CastSpell : MonoBehaviour
         if (Input.GetButtonDown("ChangeSpellL"))
         {
             SpellL++;
-            if (SpellL == SpellR)
+
+            while (!CheckValidation())
             {
                 SpellL++;
-            }
-            if (SpellL > Elements.Length - 1)
-            {
-                SpellL = 0;
-            }
-            if (SpellL == SpellR)
-            {
-                SpellL++;
+                if (SpellL > Elements.Length - 1)
+                {
+                    SpellL = 0;
+                }
             }
             print(SpellL);
         }
@@ -84,17 +81,15 @@ public class CastSpell : MonoBehaviour
         if (Input.GetButtonDown("ChangeSpellR"))
         {
             SpellR++;
-            if (SpellR == SpellL)
+
+            while (!CheckValidation())
             {
+                
                 SpellR++;
-            }
-            if (SpellR > Elements.Length - 1)
-            {
-                SpellR = 0;
-            }
-            if (SpellR == SpellL)
-            {
-                SpellR++;
+                if (SpellR > Elements.Length - 1)
+                {
+                    SpellR = 0;
+                }
             }
             print(SpellR);
         }

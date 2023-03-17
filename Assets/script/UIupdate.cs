@@ -59,13 +59,21 @@ public class UIupdate : MonoBehaviour
     void Update()
     {
 
+
+
         if (player == null)
         {
             player = GameObject.Find("Player");
         }
 
+
+
         if (player != null)
         {
+
+
+            UI.SetActive(player.GetComponent<CastSpell>().limit > -1);
+            
 
             mat_Stamina.SetFloat("_Endurance",(float)(1.5f-player.GetComponent<PlayerController>().dashCoolDown)/1.5f);
 
