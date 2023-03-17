@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 116146419551874056}
   - component: {fileID: 2158736474650565186}
   - component: {fileID: 7905536987875810319}
+  - component: {fileID: 8678148493722281519}
   m_Layer: 11
   m_Name: Enemi_Heavy
   m_TagString: Enemy
@@ -176,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d1a6e1b7bd4c44eb9397d6a1b0507e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 15
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
   grav: 15
@@ -225,7 +226,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 5
-  m_Acceleration: 8
+  m_Acceleration: 16
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -274,6 +275,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4774a22d967ff14daed3774ebe25955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8678148493722281519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4042794045697653259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c010e1a628a04b94da5f053b33ad5e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2427657593493359843
