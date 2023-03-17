@@ -403,8 +403,32 @@ public class PlayerController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+
+    float damagedTimer = 0;
+    float? previousLife;
+    [SerializeField] Material playerMat;
+    [SerializeField] Material damageMat;
+    [SerializeField] GameObject playerMesh;
+
     void CheckLife()
     {
+
+        damagedTimer -= Time.deltaTime;
+
+        if (previousLife!=null && previousLife != life)
+        {
+
+            damagedTimer = .05f;
+        }
+
+        playerMesh.GetComponent<SkinnedMeshRenderer>().material = damagedTimer > 0 ? damageMat : playerMat;
+
+        previousLife = life;
+
+        
+
+
+
         if (life <= 0)
         {
             playerSpeed = 0;

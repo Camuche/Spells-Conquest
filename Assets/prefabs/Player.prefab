@@ -128,6 +128,10 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1025
+  playerMat: {fileID: -9066251516560888549, guid: 481ad312ea359274f91d032cce63d413,
+    type: 3}
+  damageMat: {fileID: 2100000, guid: d8cfd64c1bed43e4d98e42f78ea6da9f, type: 2}
+  playerMesh: {fileID: 9063284820451186801}
 --- !u!143 &3870732601873632239
 CharacterController:
   m_ObjectHideFlags: 0
@@ -473,6 +477,12 @@ Transform:
 --- !u!95 &4721740849922928826 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 481ad312ea359274f91d032cce63d413,
+    type: 3}
+  m_PrefabInstance: {fileID: 1219468212062375211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9063284820451186801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1356944241255443110, guid: 481ad312ea359274f91d032cce63d413,
     type: 3}
   m_PrefabInstance: {fileID: 1219468212062375211}
   m_PrefabAsset: {fileID: 0}
