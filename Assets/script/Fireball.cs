@@ -34,6 +34,8 @@ public class Fireball : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    [SerializeField] LayerMask aimingIgnore;
     void Update()
     {
         distance += speed / 2 * Time.deltaTime;
@@ -63,7 +65,9 @@ public class Fireball : MonoBehaviour
 
             RaycastHit hit;
 
-            Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 999999, LayerMask.NameToLayer("FireShield"), QueryTriggerInteraction.Ignore);
+
+
+            Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 999999, ~aimingIgnore, QueryTriggerInteraction.Ignore);
 
             if (distance<Vector3.Distance(Camera.main.transform.position,transform.position) && hit.distance!=999999 && hit.distance !=0)
             {

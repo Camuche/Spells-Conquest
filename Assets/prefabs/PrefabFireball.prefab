@@ -272,6 +272,9 @@ MonoBehaviour:
   speed: 20
   player: {fileID: 0}
   timer: 3
+  aimingIgnore:
+    serializedVersion: 2
+    m_Bits: 16384
 --- !u!54 &976263845659192678
 Rigidbody:
   m_ObjectHideFlags: 0
