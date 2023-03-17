@@ -72,7 +72,7 @@ public class UIupdate : MonoBehaviour
         {
 
 
-            UI.SetActive(player.GetComponent<CastSpell>().limit > -1);
+            
             
 
             mat_Stamina.SetFloat("_Endurance",(float)(1.5f-player.GetComponent<PlayerController>().dashCoolDown)/1.5f);
@@ -100,6 +100,14 @@ public class UIupdate : MonoBehaviour
                 Combination.GetComponent<Image>().color = new Color(0f, 1f, 0f, 1f);
 
             }
+
+
+            RightSpellImg.SetActive(player.GetComponent<CastSpell>().limit > -1);
+            LeftSpellImg.SetActive(player.GetComponent<CastSpell>().limit > -1);
+            RightSpellText.SetActive(player.GetComponent<CastSpell>().limit > -1);
+            LeftSpellText.SetActive(player.GetComponent<CastSpell>().limit > -1);
+            Combination.SetActive(player.GetComponent<CastSpell>().limit > -1);
+
 
 
             HealthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(player.GetComponent<PlayerController>().life*healthbarsize/(player.GetComponent<PlayerController>().lifeMax), HealthBar.GetComponent<RectTransform>().sizeDelta.y);
