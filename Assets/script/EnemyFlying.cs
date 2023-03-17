@@ -39,6 +39,11 @@ public class EnemyFlying : MonoBehaviour
 
         transform.position += newDir*speed*Time.deltaTime;
 
+        if (GameObject.Find("TelekinesisClone(Clone)")!=null)
+        {
+            EscapeTeleClone();
+        }
+
 
     }
 
@@ -64,5 +69,10 @@ public class EnemyFlying : MonoBehaviour
         {
             SetNewDir(iterations+1);
         }
+    }
+
+    void EscapeTeleClone()
+    {
+        transform.position += Vector3.up * Time.deltaTime*7;
     }
 }

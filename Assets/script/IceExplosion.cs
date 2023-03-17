@@ -97,6 +97,15 @@ public class IceExplosion : MonoBehaviour
             castSpell.enabled = false;
 
         }
+
+        EnemyFlying enemyFlying;
+        other.gameObject.TryGetComponent<EnemyFlying>(out enemyFlying);
+
+        if (enemyFlying != null)
+        {
+            enemyFlying.enabled = false;
+
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -153,6 +162,15 @@ public class IceExplosion : MonoBehaviour
         if (castSpell != null)
         {
             castSpell.enabled = true;
+
+        }
+
+        EnemyFlying enemyFlying;
+        other.gameObject.TryGetComponent<EnemyFlying>(out enemyFlying);
+
+        if (enemyFlying != null)
+        {
+            enemyFlying.enabled = true;
 
         }
     }
