@@ -172,8 +172,8 @@ MonoBehaviour:
   root: {fileID: 732236969445141188}
   target: {fileID: 732236968256275253}
   trigger: {fileID: 732236969083216191}
-  positionSpeed: 0.2
-  scaleSpeed: 0.6
+  positionSpeed: 0.3
+  scaleSpeed: 0.9
 --- !u!1 &732236969445141188
 GameObject:
   m_ObjectHideFlags: 0

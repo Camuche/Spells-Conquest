@@ -27,7 +27,7 @@ public class MovementPlate : MonoBehaviour
         }
         
         
-        sinMove = posInitX + Mathf.Sin(timer) *4f;
+        sinMove = posInitX + Mathf.Sin(timer) *7f;
         
         
         transform.position = new Vector3(sinMove, transform.position.y, transform.position.z);

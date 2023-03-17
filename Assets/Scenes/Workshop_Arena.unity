@@ -711,11 +711,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArenaSQ
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: c3f05df723d4e054f9f6dd99c99e1838,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3f05df723d4e054f9f6dd99c99e1838, type: 3}
 --- !u!1 &141781291
@@ -730,7 +725,7 @@ GameObject:
   - component: {fileID: 141781295}
   - component: {fileID: 141781294}
   - component: {fileID: 141781293}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1430,7 +1425,7 @@ GameObject:
   - component: {fileID: 316376652}
   - component: {fileID: 316376651}
   - component: {fileID: 316376650}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5768,7 +5763,7 @@ GameObject:
   - component: {fileID: 1278604717}
   - component: {fileID: 1278604716}
   - component: {fileID: 1278604715}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6247,7 +6242,7 @@ GameObject:
   - component: {fileID: 1378463365}
   - component: {fileID: 1378463364}
   - component: {fileID: 1378463363}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8817,7 +8812,7 @@ GameObject:
   - component: {fileID: 1913406349}
   - component: {fileID: 1913406348}
   - component: {fileID: 1913406347}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
