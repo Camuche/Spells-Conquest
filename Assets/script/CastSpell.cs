@@ -61,7 +61,7 @@ public class CastSpell : MonoBehaviour
     void Update()
     {
         //change spell left
-        if (Input.GetButtonDown("ChangeSpellL"))
+        if (Input.GetButtonDown("ChangeSpellL") && limit>-1)
         {
             SpellL++;
 
@@ -78,7 +78,7 @@ public class CastSpell : MonoBehaviour
 
 
         //change spell right
-        if (Input.GetButtonDown("ChangeSpellR"))
+        if (Input.GetButtonDown("ChangeSpellR") && limit > -1)
         {
             SpellR++;
 
