@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   life: 1
+  ignoreCol: {fileID: 3955821240525404548}
 --- !u!136 &6338929191286241927
 CapsuleCollider:
   m_ObjectHideFlags: 0

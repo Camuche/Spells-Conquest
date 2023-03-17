@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 5042605685589712362}
   - component: {fileID: 116146419551874056}
   - component: {fileID: 4618001311641978087}
+  - component: {fileID: 5429252892939181409}
   m_Layer: 11
   m_Name: Enemi_Fire
   m_TagString: Enemy
@@ -265,6 +266,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shield: {fileID: 337749727935250985, guid: 0f84e8761c8d32b4b9cba8a8ea06f3bc, type: 3}
   damageZone: {fileID: 3938742483950002101}
+--- !u!114 &5429252892939181409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4042794045697653259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347c6fe0c10204443b55a197db6395ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needShield: 1
 --- !u!1001 &2427657593493359843
 PrefabInstance:
   m_ObjectHideFlags: 0

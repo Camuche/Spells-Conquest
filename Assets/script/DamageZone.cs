@@ -41,7 +41,7 @@ public class DamageZone : MonoBehaviour
             }
             
 
-            if (other.gameObject.layer == LayerMask.NameToLayer("enemi") && canDamageEnemies)
+            if (other.gameObject.layer == LayerMask.NameToLayer("enemi") && canDamageEnemies && other.GetComponent<EnemyLife>()!=null)
             {
 
                 
@@ -81,7 +81,7 @@ public class DamageZone : MonoBehaviour
         
         }
 
-        if (other.gameObject.layer == LayerMask.NameToLayer("enemi") && canDamageEnemies)
+        if (other.gameObject.layer == LayerMask.NameToLayer("enemi") && canDamageEnemies && other.GetComponent<EnemyLife>() != null)
         {
 
             

@@ -14,7 +14,7 @@ public class IgnoreIceClone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindGameObjectsWithTag("IceExplosion")!=null)
+        if (GameObject.FindGameObjectsWithTag("IceExplosion").Length>0)
         {
             Physics.IgnoreCollision(GameObject.FindGameObjectsWithTag("IceExplosion")[0].GetComponent<SphereCollider>(),GetComponent<Collider>());
         }

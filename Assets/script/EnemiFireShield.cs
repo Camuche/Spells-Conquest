@@ -7,18 +7,35 @@ public class EnemiFireShield : MonoBehaviour
 
     [HideInInspector] public GameObject parent;
     [SerializeField] int life = 1;
+    [SerializeField] Collider ignoreCol;
+
+    float parentLife;
 
     // Start is called before the first frame update
     void Start()
     {
-        print("ENEMYFIRESHIELD");
+        parentLife = transform.parent.GetComponent<EnemyLife>().life;
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        if (GameObject.Find("TelekinesisClone(Clone)"))
+        {
+            Physics.IgnoreCollision(GetComponent<Collider>(), GameObject.Find("TelekinesisClone(Clone)").GetComponent<Collider>());
+        }
+
+        if (GameObject.FindGameObjectsWithTag("Fireball").Length > 0)
+        {
+            Physics.IgnoreCollision(GetComponent<Collider>(), GameObject.FindGameObjectsWithTag("Fireball")[0].GetComponent<Collider>());
+        }
+
+        //transform.parent.gameObject.transform.GetComponent<EnemyLife>().IgnoreCol = ignoreCol;
+
         transform.position = parent.transform.position;
+
+        transform.parent.GetComponent<EnemyLife>().life = parentLife;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,6 +55,6 @@ public class EnemiFireShield : MonoBehaviour
 
     private void OnDestroy()
     {
-        print("HAHA");
+        transform.parent.gameObject.transform.GetComponent<EnemyLife>().IgnoreCol = transform.parent.Find("DamageZone").GetComponent<SphereCollider>();
     }
 }

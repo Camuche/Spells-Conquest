@@ -23,6 +23,8 @@ public class ShieldedEnemy : MonoBehaviour
         {
             s.GetComponent<EnemiFireShield>().parent = gameObject;
         }
+
+        s.transform.parent = transform;
     }
 
     // Update is called once per frame

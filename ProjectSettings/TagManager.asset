@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - IceExplosion
   - WaterWave
+  - Lava
   layers:
   - Default
   - TransparentFX
