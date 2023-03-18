@@ -30,7 +30,13 @@ public class EnemyFollower : MonoBehaviour
 
         navMeshAgent = GetComponent<NavMeshAgent>();
 
+        _LayersToIgnore = LayerMask.GetMask("FireShield");
+        LayersToIgnore = ~_LayersToIgnore;
+
     }
+
+    LayerMask _LayersToIgnore;
+    LayerMask LayersToIgnore;
 
     // Update is called once per frame
     void Update()
@@ -40,9 +46,9 @@ public class EnemyFollower : MonoBehaviour
         if (player != null)
         {
             RaycastHit hit;
-            bool isHit = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out hit, Mathf.Infinity,~0, QueryTriggerInteraction.Ignore);
+            bool isHit = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out hit, Mathf.Infinity, LayersToIgnore, QueryTriggerInteraction.Ignore);
 
-            if (Vector3.Distance(player.transform.position, transform.position) < followDistance && isHit && hit.transform.gameObject == player)
+            if (Vector3.Distance(player.transform.position, transform.position) < followDistance && isHit && (hit.transform.gameObject == player))
             {
                 dir = (player.transform.position - transform.position).normalized;
                 //controller.Move(dir * speed * Time.deltaTime);
@@ -55,6 +61,10 @@ public class EnemyFollower : MonoBehaviour
             }
             else
             {
+                if (hit.transform != null)
+                {
+                    print(hit.transform.name);
+                }
                 dir = Vector3.zero;
             }
 
