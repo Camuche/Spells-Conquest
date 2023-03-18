@@ -37,9 +37,7 @@ public class EnemyShooting : MonoBehaviour
                 b.GetComponent<EnemyProjectiles>().Spawner = gameObject;
                 b.GetComponent<EnemyProjectiles>().dammage = BulletDammage;
                 b.GetComponent<EnemyProjectiles>().speed = BulletSpeed;
-
                 timer = 0;
-
             }
         }
     }
