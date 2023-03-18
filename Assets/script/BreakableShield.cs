@@ -6,6 +6,8 @@ public class BreakableShield : MonoBehaviour
 {
     [HideInInspector]public GameObject parent;
     [SerializeField]float life;
+
+    bool onWave = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,14 +22,29 @@ public class BreakableShield : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Wave>() != null)
+        if (other.gameObject.layer == LayerMask.NameToLayer("WaterWave"))
         {
-            life--;
+            onWave = true;
 
-            if (life <= 0){
+            
+        }
+        else if(onWave && other.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        {
+            print("life--");
+            life--;
+            if (life <= 0)
+            {
                 parent.GetComponent<ShieldedEnemy>().damageZone.SetActive(true);
                 Destroy(gameObject);
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<Wave>() != null)
+        {
+            onWave = false;
         }
     }
 }

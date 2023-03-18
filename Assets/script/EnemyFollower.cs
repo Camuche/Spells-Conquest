@@ -30,7 +30,7 @@ public class EnemyFollower : MonoBehaviour
 
         navMeshAgent = GetComponent<NavMeshAgent>();
 
-        _LayersToIgnore = LayerMask.GetMask("FireShield");
+        _LayersToIgnore = LayerMask.GetMask("FireShield","enemi");
         LayersToIgnore = ~_LayersToIgnore;
 
     }
