@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 1108065953891251248}
   - component: {fileID: 1108065953891251255}
   - component: {fileID: 1108065953891251254}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: DistortionPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5040,7 +5040,7 @@ GameObject:
   - component: {fileID: 3586985669530311139}
   - component: {fileID: 5176844566778294179}
   - component: {fileID: 3894823405036368950}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -61,7 +61,7 @@ public class EnemyLife : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.name.Contains("Fireball"))
+        if (other.tag == "Fireball")
         {
             life -= 10;
         }

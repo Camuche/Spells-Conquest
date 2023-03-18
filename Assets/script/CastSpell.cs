@@ -143,20 +143,27 @@ public class CastSpell : MonoBehaviour
         {
             viseur.SetActive(false);
         }
+
+        timerFireball += Time.deltaTime;
     }
 
+
+    [SerializeField] float cdFireball;
+    float timerFireball;
     void Cast()
     {
         animator.SetTrigger("Throw");
 
         if ((SpellL.ToString()+SpellR.ToString()=="01" || SpellL.ToString() + SpellR.ToString() == "10") && limit>-1)
         {
-            if (GameObject.Find("PrefabFireball(Clone)") == null)
+            if (timerFireball >= cdFireball)
             {
             
 
                 GameObject f = Instantiate(fireBall);
                 f.GetComponent<Fireball>().player = transform.gameObject;
+                timerFireball = 0f;
+
                 
             }
         }

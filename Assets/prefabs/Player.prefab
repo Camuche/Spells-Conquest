@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3870732601873632229}
   - component: {fileID: 3870732601873632239}
   - component: {fileID: 3870732601873632224}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -191,6 +191,7 @@ MonoBehaviour:
   - spell_name: Glace
     spell_image: {fileID: 21300000, guid: 70799a0650dfb454889f87da92c64076, type: 3}
     id: 0
+  cdFireball: 1
 --- !u!1 &3870732602788733398
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +256,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 261911
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
