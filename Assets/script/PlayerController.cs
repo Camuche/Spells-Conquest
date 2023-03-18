@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Animator animator;
 
+    [SerializeField] Material shaderUI;
+
+
 
 
     // Start is called before the first frame update
@@ -65,6 +68,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        
 
         if (!canMove)
             return;
@@ -116,6 +121,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 movedir;
     void movements()
     {
+        
+        shaderUI.SetFloat("_Stamina", dashCoolDown /-1.5f +1f);
 
         dashCoolDown -= Time.deltaTime;
 
@@ -425,6 +432,8 @@ public class PlayerController : MonoBehaviour
             playerSpeed = 0;
             StartCoroutine(RestartLevel());
         }
+
+        shaderUI.SetFloat("_Life", life / 100);
     }
 
     public bool CheckShield()

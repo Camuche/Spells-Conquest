@@ -2,7 +2,11 @@ fileFormatVersion: 2
 guid: d1e3ff2fe4ea5024cbb3af6f482ff3b0
 ShaderImporter:
   externalObjects: {}
-  defaultTextures: []
+  defaultTextures:
+  - _Empty_LifeBar: {fileID: 2800000, guid: e553f9ae2353fb84ba10b20fe0b9b322, type: 3}
+  - _LifeBar: {fileID: 2800000, guid: 6d5591ed0712b514b815492dc9f86b7c, type: 3}
+  - _Spell_LB: {fileID: 2800000, guid: 9550229004d2a5649a26bb8a904e1022, type: 3}
+  - _Spell_RB: {fileID: 2800000, guid: d540565bd16c8d14e82bd637a9a40e6d, type: 3}
   nonModifiableTextures: []
   userData: 
   assetBundleName: 

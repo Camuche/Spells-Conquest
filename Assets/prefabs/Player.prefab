@@ -121,6 +121,7 @@ MonoBehaviour:
   lifeMax: 0
   speedscale: 1
   animator: {fileID: 4721740849922928826}
+  shaderUI: {fileID: 2100000, guid: 11640e417c416e044a4de109bd9bf2e7, type: 2}
   dashCoolDown: 0
   AimDistance: 1
   CamDistance: 1.5
@@ -179,7 +180,7 @@ MonoBehaviour:
   animator: {fileID: 4721740849922928826}
   Elements:
   - spell_name: Fire
-    spell_image: {fileID: 21300000, guid: cc74df736f3362f4b8c1037893e8587c, type: 3}
+    spell_image: {fileID: 21300000, guid: 8b64123dc25195d4db22894407fdb0f0, type: 3}
     id: 0
   - spell_name: Telekinesis
     spell_image: {fileID: 21300000, guid: 3cc34f1a2fb7f884db0827c817dbceb4, type: 3}
@@ -188,7 +189,7 @@ MonoBehaviour:
     spell_image: {fileID: 21300000, guid: bbac172096b51014fb4dc8f0b1e9e27e, type: 3}
     id: 0
   - spell_name: Glace
-    spell_image: {fileID: 21300000, guid: bd2d92a4f76a5704b98cc10b987d8c6c, type: 3}
+    spell_image: {fileID: 21300000, guid: 70799a0650dfb454889f87da92c64076, type: 3}
     id: 0
 --- !u!1 &3870732602788733398
 GameObject:
@@ -254,7 +255,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 261911
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
