@@ -18,7 +18,7 @@ public class IgnoreWave : MonoBehaviour
         {
             Physics.IgnoreCollision(gameObject.GetComponent<CapsuleCollider>(), GameObject.Find("Wave(Clone)").GetComponent<BoxCollider>());
             Physics.IgnoreCollision(gameObject.GetComponent<CapsuleCollider>(), GameObject.Find("Wave(Clone)").GetComponentInChildren<BoxCollider>());
-            Physics.IgnoreCollision(gameObject.GetComponent<CapsuleCollider>(), GameObject.Find("Wave(Clone)").GetComponent<CharacterController>());
+            //Physics.IgnoreCollision(gameObject.GetComponent<CapsuleCollider>(), GameObject.Find("Wave(Clone)").GetComponent<CharacterController>());
 
         }
     }

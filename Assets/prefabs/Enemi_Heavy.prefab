@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b808c1647504114abe85e731baaa275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 40
+  life: 60
   DisplayLife: 1
   IgnoreCol: {fileID: 120852052043948174}
 --- !u!195 &5042605685589712362

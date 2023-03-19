@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
-  life: 3
+  life: 1
 --- !u!136 &6338929191286241927
 CapsuleCollider:
   m_ObjectHideFlags: 0

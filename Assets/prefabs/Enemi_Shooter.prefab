@@ -117,7 +117,7 @@ MonoBehaviour:
   speed: 0
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
-  grav: 10
+  grav: 15
   followDistance: 100
 --- !u!143 &5387335219111035024
 CharacterController:
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timer: 2
-  speed: 10
+  speed: 9
 --- !u!1001 &2492633539918363287
 PrefabInstance:
   m_ObjectHideFlags: 0

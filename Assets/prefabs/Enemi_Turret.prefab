@@ -116,7 +116,7 @@ MonoBehaviour:
   speed: 0
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
-  grav: 10
+  grav: 15
   followDistance: 100
 --- !u!143 &5387335219111035024
 CharacterController:
@@ -127,7 +127,7 @@ CharacterController:
   m_GameObject: {fileID: 4042794045697653259}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5

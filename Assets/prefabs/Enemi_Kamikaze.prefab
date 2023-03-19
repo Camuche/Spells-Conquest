@@ -113,10 +113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d1a6e1b7bd4c44eb9397d6a1b0507e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 9
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
-  grav: 10
+  grav: 15
   followDistance: 100
 --- !u!143 &5387335219111035024
 CharacterController:

@@ -171,6 +171,8 @@ public class CastSpell : MonoBehaviour
             }
         }
 
+        //Vector3 directionClone = transform.rotation.right;
+        //Quaternion rotationClone = transform.rotation
         if ((SpellL.ToString() + SpellR.ToString() == "02" || SpellL.ToString() + SpellR.ToString() == "20")&& limit>0)
         {
             if (GameObject.Find("PrefabFireShield(Clone)") == null)
@@ -180,6 +182,8 @@ public class CastSpell : MonoBehaviour
                 GameObject f = Instantiate(fireClone);
                 f.GetComponent<FireClone>().player = transform.gameObject;
                 f.transform.position = transform.position;
+                f.transform.rotation = transform.rotation;
+                f.transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y +90, transform.rotation.z));
 
             }
         }
@@ -193,6 +197,8 @@ public class CastSpell : MonoBehaviour
 
                 GameObject t = Instantiate(teleClone);
                 t.transform.position = viseur.transform.position+Vector3.up;
+                t.transform.rotation = transform.rotation;
+                t.transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y - 90, transform.rotation.z));
 
             }
         }
@@ -236,6 +242,8 @@ public class CastSpell : MonoBehaviour
 
                 GameObject i = Instantiate(iceClone);
                 i.transform.position = viseur.transform.position + Vector3.up;
+                i.transform.rotation = transform.rotation;
+                i.transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y + 90, transform.rotation.z));
 
             }
         }

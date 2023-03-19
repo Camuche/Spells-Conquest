@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e94f58e3e122c4cbbaf2d8dadb2a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 9
   _timer: 2
 --- !u!114 &-8423256486973846815
 MonoBehaviour:
@@ -144,7 +144,7 @@ MonoBehaviour:
   delay: 1
   Bullet: {fileID: 3856048993441989314, guid: d1a24f3734c82ca44ace6640f238fa07, type: 3}
   SpawnPoint: {x: 0, y: 0, z: 0}
-  BulletDammage: 5
+  BulletDammage: 10
   BulletSpeed: 20
 --- !u!114 &-52154337180194338
 MonoBehaviour:
@@ -161,7 +161,7 @@ MonoBehaviour:
   speed: 0
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
-  grav: 0
+  grav: 15
   followDistance: 100
 --- !u!114 &2251700849353350816
 MonoBehaviour:
@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b808c1647504114abe85e731baaa275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 10
-  DisplayLife: 0
+  life: 20
+  DisplayLife: 1
   IgnoreCol: {fileID: 0}
 --- !u!1001 &536890354983117189
 PrefabInstance:
