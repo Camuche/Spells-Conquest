@@ -68,9 +68,9 @@ public class CastSpell : MonoBehaviour
         if(Input.GetButton("ChangeSpellL") || Input.GetButton("ChangeSpellR"))
         {
             isSelecting = true;
-            if (Time.timeScale > 0.2f)
+            if (Time.timeScale > 0.05f)
             {
-                Time.timeScale -=Time.deltaTime*5f;
+                Time.timeScale -=Time.deltaTime*10f;
             }
 
             
@@ -81,7 +81,7 @@ public class CastSpell : MonoBehaviour
             isSelecting = false;
             if (Time.timeScale < 1)
             {
-                Time.timeScale += Time.deltaTime * 5f;
+                Time.timeScale += Time.deltaTime * 10f;
             }
             else
             {

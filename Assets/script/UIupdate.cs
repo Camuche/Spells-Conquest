@@ -28,11 +28,25 @@ public class UIupdate : MonoBehaviour
 
     GameObject player;
 
+    GameObject UIPlane;
+
     [SerializeField]Material mat_Stamina;
+    [SerializeField] Material mat_UIPlane;
+
+    Vector4[,] SubSpellPositions;
+
 
     // Start is called before the first frame update
     void Start()
     {
+
+        SubSpellPositions = new Vector4[4, 2]
+        {
+            {new Vector4(mat_UIPlane.GetVector("__SubSpell1_Position").x, mat_UIPlane.GetVector("__SubSpell1_Position").y,0,0), new Vector4(0,0,0,0) },
+            {new Vector4(mat_UIPlane.GetVector("__SubSpell2_Position").x, mat_UIPlane.GetVector("__SubSpell2_Position").y,0,0), new Vector4(0,0,0,0) },
+            {new Vector4(mat_UIPlane.GetVector("__SubSpell3_Position").x, mat_UIPlane.GetVector("__SubSpell3_Position").y,0,0), new Vector4(0,0,0,0) },
+            {new Vector4(mat_UIPlane.GetVector("__SubSpell4_Position").x, mat_UIPlane.GetVector("__SubSpell4_Position").y,0,0), new Vector4(0,0,0,0) }
+        };
 
         UI = Instantiate(_UI);
         UI.transform.SetParent(transform.parent);
@@ -52,6 +66,10 @@ public class UIupdate : MonoBehaviour
         Combination = UI.transform.Find("Combination").gameObject;
 
         Crosshair = UI.transform.Find("Crosshair").gameObject;
+
+        UIPlane = UI.transform.Find("CameraUI").transform.Find("UIPlane").gameObject;
+
+
 
     }
 
@@ -116,5 +134,16 @@ public class UIupdate : MonoBehaviour
 
         UI.SetActive(player.transform.Find("Main Camera").gameObject.activeSelf);
 
+        mat_UIPlane.SetVector("_SubSpell1_Position", new Vector4(mat_UIPlane.GetVector("_SubSpell1_Position").x, 0, 0,0));
+
     }
+
+
+    void AnimateSubSpells()
+    {
+
+    }
+
+
+    
 }

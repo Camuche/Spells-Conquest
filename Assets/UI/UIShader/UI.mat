@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: d1e3ff2fe4ea5024cbb3af6f482ff3b0, type: 3}
   m_ShaderKeywords: _ENABLESPELL_ON _ENABLESUBSPELLS_ON _ENABLE_SPELL_ON
   m_LightmapFlags: 0
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -62,17 +62,17 @@ Material:
     - _Keyword0: 0
     - _LB_SpellOffsetX: 0
     - _LB_SpellOffsetY: 0.15
-    - _Life: 0.95
+    - _Life: 1
     - _LifeBarOffsetX: -0.04
     - _LifeBarOffsetY: -4.9
     - _LifeBarScaleX: 3.11
     - _LifeBarScaleY: 6.02
-    - _RB_SpellOffsetX: -4.17
+    - _RB_SpellOffsetX: -5.03
     - _RB_SpellOffsetY: 0.15
     - _SpellAvailable: 0
     - _SpellOffsetX: 0.04
     - _SpellOffsetY: 0
-    - _SpellScaleX: 5.19
+    - _SpellScaleX: 6.03
     - _SpellScaleY: 3.33
     - _SpellSelection_CommunScale: 10
     - _Stamina: 1
@@ -86,10 +86,10 @@ Material:
     - _SpellSelection_Scale_Offset: {r: 1.65, g: 1, b: -7.75, a: -0.25}
     - _StaminaColor: {r: 1, g: 1, b: 0, a: 0}
     - _StaminaLostColor: {r: 0, g: 0, b: 0, a: 0}
-    - _SubSpell1_Position: {r: -0.14, g: -1.63, b: 0, a: 0}
-    - _SubSpell2_Position: {r: -1.18, g: -1.28, b: 0, a: 0}
-    - _SubSpell3_Position: {r: -6.255, g: -0.41, b: 0, a: 0}
-    - _SubSpell4_Position: {r: -6.885, g: -1.28, b: 0, a: 0}
-    - _SubSpell5_Position: {r: -7.928, g: -1.63, b: 0, a: 0}
-    - _SubSpell6_Position: {r: -1.81, g: -0.41, b: 0, a: 0}
+    - _SubSpell1_Position: {r: -0.58, g: -1.21, b: 0, a: 0}
+    - _SubSpell2_Position: {r: -1.36, g: -0.43, b: 0, a: 0}
+    - _SubSpell3_Position: {r: -6.255, g: 99, b: 0, a: 0}
+    - _SubSpell4_Position: {r: -7.41, g: -1.21, b: 0, a: 0}
+    - _SubSpell5_Position: {r: -6.72, g: -0.43, b: 0, a: 0}
+    - _SubSpell6_Position: {r: -1.81, g: 99, b: 0, a: 0}
     - _Vector0: {r: -1.29, g: -1.02, b: 0, a: 0}
