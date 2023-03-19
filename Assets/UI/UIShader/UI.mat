@@ -86,7 +86,7 @@ Material:
     - _SpellSelection_Scale_Offset: {r: 1.65, g: 1, b: -7.75, a: -0.25}
     - _StaminaColor: {r: 1, g: 1, b: 0, a: 0}
     - _StaminaLostColor: {r: 0, g: 0, b: 0, a: 0}
-    - _SubSpell1_Position: {r: -0.58, g: -1.21, b: 0, a: 0}
+    - _SubSpell1_Position: {r: -0.58, g: 0, b: 0, a: 0}
     - _SubSpell2_Position: {r: -1.36, g: -0.43, b: 0, a: 0}
     - _SubSpell3_Position: {r: -6.255, g: 99, b: 0, a: 0}
     - _SubSpell4_Position: {r: -7.41, g: -1.21, b: 0, a: 0}
