@@ -140,7 +140,7 @@ public class EnemyCharging : MonoBehaviour
 
         if (RemainingDelay >= ChargeDelay)
         {
-            //dir = (player.transform.position - transform.position).normalized;
+            dir = (player.transform.position - transform.position).normalized;
             //navMeshAgent.SetDestination(player.transform.position);
 
             speed = chargeSpeed;

@@ -30,7 +30,6 @@ public class BreakableShield : MonoBehaviour
         }
         else if(onWave && other.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-            print("life--");
             life--;
             if (life <= 0)
             {
