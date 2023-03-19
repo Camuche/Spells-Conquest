@@ -47,7 +47,7 @@ Material:
     - _Cutoff: 0.5
     - _LB_SpellOffsetX: 0
     - _LB_SpellOffsetY: 0.15
-    - _Life: 1
+    - _Life: 0.95
     - _LifeBarOffsetX: -0.04
     - _LifeBarOffsetY: -4.9
     - _LifeBarScaleX: 3.11
