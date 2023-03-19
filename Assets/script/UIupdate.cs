@@ -104,8 +104,8 @@ public class UIupdate : MonoBehaviour
 
             RightSpellImg.SetActive(player.GetComponent<CastSpell>().limit > -1);
             LeftSpellImg.SetActive(player.GetComponent<CastSpell>().limit > -1);
-            RightSpellText.SetActive(player.GetComponent<CastSpell>().limit > -1);
-            LeftSpellText.SetActive(player.GetComponent<CastSpell>().limit > -1);
+            RightSpellText.SetActive(false);
+            LeftSpellText.SetActive(false);
             Combination.SetActive(player.GetComponent<CastSpell>().limit > -1);
 
 

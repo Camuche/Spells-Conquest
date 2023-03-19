@@ -60,6 +60,7 @@ public class CastSpell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //change spell left
         if (Input.GetButtonDown("ChangeSpellL") && limit>-1)
         {

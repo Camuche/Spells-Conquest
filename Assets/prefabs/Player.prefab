@@ -128,7 +128,7 @@ MonoBehaviour:
   CamStart: {fileID: 3870732602979315408}
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 1025
+    m_Bits: 525313
   playerMat: {fileID: -9066251516560888549, guid: 481ad312ea359274f91d032cce63d413,
     type: 3}
   damageMat: {fileID: 2100000, guid: d8cfd64c1bed43e4d98e42f78ea6da9f, type: 2}

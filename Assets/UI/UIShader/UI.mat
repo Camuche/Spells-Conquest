@@ -46,14 +46,14 @@ Material:
     m_Floats:
     - _Cutoff: 0.5
     - _LB_SpellOffsetX: 0
-    - _LB_SpellOffsetY: 0
-    - _Life: 0.51400125
+    - _LB_SpellOffsetY: 0.15
+    - _Life: 1
     - _LifeBarOffsetX: -0.04
     - _LifeBarOffsetY: -4.9
     - _LifeBarScaleX: 3.11
     - _LifeBarScaleY: 6.02
     - _RB_SpellOffsetX: -4.17
-    - _RB_SpellOffsetY: 0
+    - _RB_SpellOffsetY: 0.15
     - _SpellOffsetX: 0.04
     - _SpellOffsetY: 0
     - _SpellScaleX: 5.19
