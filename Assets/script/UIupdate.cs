@@ -36,16 +36,21 @@ public class UIupdate : MonoBehaviour
     Vector4[,] SubSpellPositions;
 
 
+    GameObject[] SubSpell = new GameObject[4];
+
+    [SerializeField] Sprite[] spellImg;
+
+
     // Start is called before the first frame update
     void Start()
     {
 
         SubSpellPositions = new Vector4[4, 2]
         {
-            {new Vector4(mat_UIPlane.GetVector("__SubSpell1_Position").x, mat_UIPlane.GetVector("__SubSpell1_Position").y,0,0), new Vector4(0,0,0,0) },
-            {new Vector4(mat_UIPlane.GetVector("__SubSpell2_Position").x, mat_UIPlane.GetVector("__SubSpell2_Position").y,0,0), new Vector4(0,0,0,0) },
-            {new Vector4(mat_UIPlane.GetVector("__SubSpell3_Position").x, mat_UIPlane.GetVector("__SubSpell3_Position").y,0,0), new Vector4(0,0,0,0) },
-            {new Vector4(mat_UIPlane.GetVector("__SubSpell4_Position").x, mat_UIPlane.GetVector("__SubSpell4_Position").y,0,0), new Vector4(0,0,0,0) }
+            {new Vector4(-.58f, -1.21f,0,0), new Vector4(0,0,0,0) },
+            {new Vector4(-1.36f, -0.43f,0,0), new Vector4(0,0,0,0) },
+            {new Vector4(-7.41f, -1.21f,0,0), new Vector4(-8,0,0,0) },
+            {new Vector4(-6.72f, -0.43f,0,0), new Vector4(-8,0,0,0) }
         };
 
         UI = Instantiate(_UI);
@@ -68,6 +73,12 @@ public class UIupdate : MonoBehaviour
         Crosshair = UI.transform.Find("Crosshair").gameObject;
 
         UIPlane = UI.transform.Find("CameraUI").transform.Find("UIPlane").gameObject;
+
+
+        SubSpell[0] = UI.transform.Find("SubSpell01").gameObject;
+        SubSpell[1] = UI.transform.Find("SubSpell02").gameObject;
+        SubSpell[2] = UI.transform.Find("SubSpell03").gameObject;
+        SubSpell[3] = UI.transform.Find("SubSpell04").gameObject;
 
 
 
@@ -134,7 +145,12 @@ public class UIupdate : MonoBehaviour
 
         UI.SetActive(player.transform.Find("Main Camera").gameObject.activeSelf);
 
-        mat_UIPlane.SetVector("_SubSpell1_Position", new Vector4(mat_UIPlane.GetVector("_SubSpell1_Position").x, 0, 0,0));
+        
+
+        AnimateSubSpells();
+
+
+        mat_UIPlane.SetInt("_EnableSpell", player.GetComponent<CastSpell>().limit > -1 ? 1 : 0);
 
     }
 
@@ -142,6 +158,97 @@ public class UIupdate : MonoBehaviour
     void AnimateSubSpells()
     {
 
+        
+
+        Vector3 velocity = Vector3.zero;
+
+        if (player.GetComponent<CastSpell>().getSelecting()!=0)
+        {
+
+            if (player.GetComponent<CastSpell>().getSelecting() == -1)
+            {
+                mat_UIPlane.SetVector("_SubSpell1_Position", Vector3.SmoothDamp(mat_UIPlane.GetVector("_SubSpell1_Position"), SubSpellPositions[0, 0], ref velocity, Time.deltaTime * 3));
+                mat_UIPlane.SetVector("_SubSpell2_Position", Vector3.SmoothDamp(mat_UIPlane.GetVector("_SubSpell2_Position"), SubSpellPositions[1, 0], ref velocity, Time.deltaTime * 3));
+            }
+            if (player.GetComponent<CastSpell>().getSelecting() == 1)
+            {
+                mat_UIPlane.SetVector("_SubSpell4_Position", Vector3.SmoothDamp(mat_UIPlane.GetVector("_SubSpell4_Position"), SubSpellPositions[2, 0], ref velocity, Time.deltaTime * 3));
+                mat_UIPlane.SetVector("_SubSpell5_Position", Vector3.SmoothDamp(mat_UIPlane.GetVector("_SubSpell5_Position"), SubSpellPositions[3, 0], ref velocity, Time.deltaTime * 3));
+            }
+        }
+        else
+        {
+            mat_UIPlane.SetVector("_SubSpell1_Position", Vector3.SmoothDamp(mat_UIPlane.GetVector("_SubSpell1_Position"), SubSpellPositions[0, 1], ref velocity, Time.deltaTime * 3));
+            mat_UIPlane.SetVector("_SubSpell2_Position", Vector3.SmoothDamp(mat_UIPlane.GetVector("_SubSpell2_Position"), SubSpellPositions[1, 1], ref velocity, Time.deltaTime * 3));
+            mat_UIPlane.SetVector("_SubSpell4_Position", Vector3.SmoothDamp(mat_UIPlane.GetVector("_SubSpell4_Position"), SubSpellPositions[2, 1], ref velocity, Time.deltaTime * 3));
+            mat_UIPlane.SetVector("_SubSpell5_Position", Vector3.SmoothDamp(mat_UIPlane.GetVector("_SubSpell5_Position"), SubSpellPositions[3, 1], ref velocity, Time.deltaTime * 3));
+        }
+
+        if (player.GetComponent<CastSpell>().getSelecting() == -1)
+        {
+            SubSpell[0].GetComponent<Image>().enabled = (true);
+            SubSpell[1].GetComponent<Image>().enabled = (true);
+
+            SetSpellImgs(0, 1);
+
+            
+        }
+
+        if (player.GetComponent<CastSpell>().getSelecting() == 1)
+        {
+            SubSpell[2].GetComponent<Image>().enabled = (true);
+            SubSpell[3].GetComponent<Image>().enabled = (true);
+
+            SetSpellImgs(2, 3);
+        }
+
+
+
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (player.GetComponent<CastSpell>().getSelecting() == 0)
+            {
+                SubSpell[i].GetComponent<Image>().enabled = (false);
+            }
+            SubSpell[i].GetComponent<RectTransform>().position = mat_UIPlane.GetVector("_SubSpell"+(i+(i>1?2:1)).ToString()+"_Position") * -200;
+        }
+    }
+
+
+    void SetSpellImgs(int a, int b)
+    {
+        if (player.GetComponent<CastSpell>().getCombination() == "01")
+        {
+            SubSpell[a].GetComponent<Image>().sprite = spellImg[2];
+            SubSpell[b].GetComponent<Image>().sprite = spellImg[3];
+
+        }
+        if (player.GetComponent<CastSpell>().getCombination() == "02")
+        {
+            SubSpell[a].GetComponent<Image>().sprite = spellImg[1];
+            SubSpell[b].GetComponent<Image>().sprite = spellImg[3];
+        }
+        if (player.GetComponent<CastSpell>().getCombination() == "03")
+        {
+            SubSpell[a].GetComponent<Image>().sprite = spellImg[1];
+            SubSpell[b].GetComponent<Image>().sprite = spellImg[2];
+        }
+        if (player.GetComponent<CastSpell>().getCombination() == "12")
+        {
+            SubSpell[a].GetComponent<Image>().sprite = spellImg[0];
+            SubSpell[b].GetComponent<Image>().sprite = spellImg[3];
+        }
+        if (player.GetComponent<CastSpell>().getCombination() == "23")
+        {
+            SubSpell[a].GetComponent<Image>().sprite = spellImg[0];
+            SubSpell[b].GetComponent<Image>().sprite = spellImg[1];
+        }
+        if (player.GetComponent<CastSpell>().getCombination() == "13")
+        {
+            SubSpell[a].GetComponent<Image>().sprite = spellImg[0];
+            SubSpell[b].GetComponent<Image>().sprite = spellImg[2];
+        }
     }
 
 

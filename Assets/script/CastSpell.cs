@@ -27,7 +27,7 @@ public class CastSpell : MonoBehaviour
 
 
 
-    bool isSelecting;
+    int selecting;
 
     //structure de donnée d'un element (avec le nom de l'element, son image d'ui, etc...)
     [System.Serializable]
@@ -65,29 +65,7 @@ public class CastSpell : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetButton("ChangeSpellL") || Input.GetButton("ChangeSpellR"))
-        {
-            isSelecting = true;
-            if (Time.timeScale > 0.05f)
-            {
-                Time.timeScale -=Time.deltaTime*10f;
-            }
-
-            
-        }
-        else
-        {
-
-            isSelecting = false;
-            if (Time.timeScale < 1)
-            {
-                Time.timeScale += Time.deltaTime * 10f;
-            }
-            else
-            {
-                Time.timeScale = 1;
-            }
-        }
+        SetSelecting();
 
         //change spell left
         if (Input.GetButtonDown("ChangeSpellL") && limit>-1)
@@ -178,10 +156,49 @@ public class CastSpell : MonoBehaviour
         timerIceball += Time.deltaTime;
     }
 
-
-    public bool getIsSelecting()
+    void SetSelecting()
     {
-        return isSelecting;
+        if (selecting == 0 && (Input.GetButtonDown("ChangeSpellL") || Input.GetButtonDown("ChangeSpellR")))
+        {
+            selecting = Input.GetButtonDown("ChangeSpellL") ? -1 : 1;
+        }
+
+        if (selecting == -1 && Input.GetButtonUp("ChangeSpellL"))
+        {
+            selecting = 0;
+        }
+
+        if (selecting == 1 && Input.GetButtonUp("ChangeSpellR"))
+        {
+            selecting = 0;
+        }
+
+        //set time scale
+        if (selecting == 0)
+        {
+
+            if (Time.timeScale < 1)
+            {
+                Time.timeScale += Time.deltaTime * 10f;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+        }
+        else
+        {
+            if (Time.timeScale > 0.05f)
+            {
+                Time.timeScale -= Time.deltaTime * 10f;
+            }
+        }
+    }
+
+
+    public int getSelecting()
+    {
+        return selecting;
     }
 
 
@@ -341,5 +358,19 @@ public class CastSpell : MonoBehaviour
         }
 
         return false;
+    }
+
+    public string getCombination()
+    {
+        if (SpellL > SpellR)
+        {
+            return SpellR.ToString() + SpellL.ToString();
+        }
+        if (SpellL <= SpellR)
+        {
+            return SpellL.ToString() + SpellR.ToString();
+        }
+
+        return SpellL.ToString() + SpellR.ToString();
     }
 }

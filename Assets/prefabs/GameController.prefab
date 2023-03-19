@@ -47,6 +47,11 @@ MonoBehaviour:
   _UI: {fileID: 8768267520420010745, guid: fe034f69a05b5c140bc511f1584ea905, type: 3}
   mat_Stamina: {fileID: 2100000, guid: 427f79974cfe58f4eba5d8fb5921a4b5, type: 2}
   mat_UIPlane: {fileID: 2100000, guid: 11640e417c416e044a4de109bd9bf2e7, type: 2}
+  spellImg:
+  - {fileID: 21300000, guid: 8b64123dc25195d4db22894407fdb0f0, type: 3}
+  - {fileID: 21300000, guid: b038c163d34fe1c4ea6a5548cbb9b118, type: 3}
+  - {fileID: 21300000, guid: b1611245472d78e40a8034f66e6f1cff, type: 3}
+  - {fileID: 21300000, guid: 70799a0650dfb454889f87da92c64076, type: 3}
 --- !u!114 &1744762725
 MonoBehaviour:
   m_ObjectHideFlags: 0
