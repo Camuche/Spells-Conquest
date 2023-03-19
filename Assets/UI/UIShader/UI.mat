@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: UI
   m_Shader: {fileID: 4800000, guid: d1e3ff2fe4ea5024cbb3af6f482ff3b0, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _ENABLESPELL_ON _ENABLESUBSPELLS_ON _ENABLE_SPELL_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -39,12 +39,27 @@ Material:
         m_Texture: {fileID: 2800000, guid: d540565bd16c8d14e82bd637a9a40e6d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Spell_Selection:
+        m_Texture: {fileID: 2800000, guid: 4bff210abe0bc7f41b336f44a0976ddc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Spell_Selection_Mask:
+        m_Texture: {fileID: 2800000, guid: 2a6878d0c446f584d94678d0f61a3eb2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Cutoff: 0.5
+    - _DebugMiddle: 0
+    - _DebugMiddleOffset: 0
+    - _EnableSpell: 1
+    - _EnableSubSpells: 1
+    - _Enable_Spell: 1
+    - _Float2: 0.78
+    - _Keyword0: 0
     - _LB_SpellOffsetX: 0
     - _LB_SpellOffsetY: 0.15
     - _Life: 0.95
@@ -54,16 +69,27 @@ Material:
     - _LifeBarScaleY: 6.02
     - _RB_SpellOffsetX: -4.17
     - _RB_SpellOffsetY: 0.15
+    - _SpellAvailable: 0
     - _SpellOffsetX: 0.04
     - _SpellOffsetY: 0
     - _SpellScaleX: 5.19
     - _SpellScaleY: 3.33
+    - _SpellSelection_CommunScale: 10
     - _Stamina: 1
+    - _SubSpells_Scale: 5.5
     - __dirty: 0
     m_Colors:
     - _Life: {r: 0, g: 1, b: 0, a: 0}
     - _LifeColor: {r: 0, g: 1, b: 0, a: 0}
     - _LifeLost: {r: 1, g: 0, b: 0, a: 0}
     - _LifeLostColor: {r: 1, g: 0, b: 0, a: 0}
+    - _SpellSelection_Scale_Offset: {r: 1.65, g: 1, b: -7.75, a: -0.25}
     - _StaminaColor: {r: 1, g: 1, b: 0, a: 0}
     - _StaminaLostColor: {r: 0, g: 0, b: 0, a: 0}
+    - _SubSpell1_Position: {r: -0.14, g: -1.63, b: 0, a: 0}
+    - _SubSpell2_Position: {r: -1.18, g: -1.28, b: 0, a: 0}
+    - _SubSpell3_Position: {r: -6.255, g: -0.41, b: 0, a: 0}
+    - _SubSpell4_Position: {r: -6.885, g: -1.28, b: 0, a: 0}
+    - _SubSpell5_Position: {r: -7.928, g: -1.63, b: 0, a: 0}
+    - _SubSpell6_Position: {r: -1.81, g: -0.41, b: 0, a: 0}
+    - _Vector0: {r: -1.29, g: -1.02, b: 0, a: 0}
