@@ -153,7 +153,7 @@ MonoBehaviour:
   Bullet: {fileID: 3856048993441989314, guid: d1a24f3734c82ca44ace6640f238fa07, type: 3}
   SpawnPoint: {x: 0, y: 0, z: 0}
   BulletDammage: 1
-  BulletSpeed: 50
+  BulletSpeed: 25
 --- !u!114 &3931506438026593828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timer: 2
+  _speed: 9
   speed: 9
 --- !u!1001 &2492633539918363287
 PrefabInstance:

@@ -47,6 +47,11 @@ public class telekinesisClone : MonoBehaviour
 
                 Vector3 movement = dir * force * Time.deltaTime * (go.layer == LayerMask.NameToLayer("enemiBullet") ? 5 : 1);
 
+                if (go.name.Contains("Shooting"))
+                {
+                    movement *= 15f;
+                }
+
                 if (exists != null && go.GetComponent<CharacterController>().enabled && go.GetComponent<IgnoreTeleClone>()==null)
                 {
                     go.GetComponent<CharacterController>().Move(movement);

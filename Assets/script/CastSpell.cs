@@ -25,6 +25,10 @@ public class CastSpell : MonoBehaviour
 
     [SerializeField] Animator animator;
 
+
+
+    bool isSelecting;
+
     //structure de donnée d'un element (avec le nom de l'element, son image d'ui, etc...)
     [System.Serializable]
     public struct Element
@@ -61,6 +65,30 @@ public class CastSpell : MonoBehaviour
     void Update()
     {
 
+        if(Input.GetButton("ChangeSpellL") || Input.GetButton("ChangeSpellR"))
+        {
+            isSelecting = true;
+            if (Time.timeScale > 0.2f)
+            {
+                Time.timeScale -=Time.deltaTime*5f;
+            }
+
+            
+        }
+        else
+        {
+
+            isSelecting = false;
+            if (Time.timeScale < 1)
+            {
+                Time.timeScale += Time.deltaTime * 5f;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+        }
+
         //change spell left
         if (Input.GetButtonDown("ChangeSpellL") && limit>-1)
         {
@@ -81,6 +109,7 @@ public class CastSpell : MonoBehaviour
         //change spell right
         if (Input.GetButtonDown("ChangeSpellR") && limit > -1)
         {
+
             SpellR++;
 
             while (!CheckValidation())
@@ -147,6 +176,12 @@ public class CastSpell : MonoBehaviour
 
         timerFireball += Time.deltaTime;
         timerIceball += Time.deltaTime;
+    }
+
+
+    public bool getIsSelecting()
+    {
+        return isSelecting;
     }
 
 

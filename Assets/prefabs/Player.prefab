@@ -183,10 +183,10 @@ MonoBehaviour:
     spell_image: {fileID: 21300000, guid: 8b64123dc25195d4db22894407fdb0f0, type: 3}
     id: 0
   - spell_name: Telekinesis
-    spell_image: {fileID: 21300000, guid: 3cc34f1a2fb7f884db0827c817dbceb4, type: 3}
+    spell_image: {fileID: 21300000, guid: b038c163d34fe1c4ea6a5548cbb9b118, type: 3}
     id: 0
   - spell_name: Clone
-    spell_image: {fileID: 21300000, guid: bbac172096b51014fb4dc8f0b1e9e27e, type: 3}
+    spell_image: {fileID: 21300000, guid: b1611245472d78e40a8034f66e6f1cff, type: 3}
     id: 0
   - spell_name: Glace
     spell_image: {fileID: 21300000, guid: 70799a0650dfb454889f87da92c64076, type: 3}

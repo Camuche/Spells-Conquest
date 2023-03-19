@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
         aiming();
 
-        if (life > 0)
+        if (life > 0 && !GetComponent<CastSpell>().getIsSelecting())
         {
             rotateCamera();
             rotatePlayer();

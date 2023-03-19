@@ -10,18 +10,25 @@ public class MovingAroundPlayer : MonoBehaviour
     [SerializeField] float _timer;
     float timer=0;
 
-    [SerializeField] public float speed;
+    [SerializeField] float _speed;
+    [HideInInspector] public float speed;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        speed = _speed;
         player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        speed = GameObject.Find("TelekinesisClone(Clone)")==null?_speed:0;
+
+        print(speed);
+
         timer+=Time.deltaTime;
 
         if (player!=null && timer > _timer)
@@ -33,6 +40,8 @@ public class MovingAroundPlayer : MonoBehaviour
 
         transform.position += newDir * speed * Time.deltaTime;
         Debug.DrawRay(transform.position + Vector3.down * 0.95f, newDir*speed * _timer);
+
+
 
     }
 

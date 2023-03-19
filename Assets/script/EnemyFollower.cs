@@ -61,10 +61,6 @@ public class EnemyFollower : MonoBehaviour
             }
             else
             {
-                if (hit.transform != null)
-                {
-                    print(hit.transform.name);
-                }
                 dir = Vector3.zero;
             }
 

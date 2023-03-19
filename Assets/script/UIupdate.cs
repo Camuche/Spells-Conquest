@@ -114,5 +114,7 @@ public class UIupdate : MonoBehaviour
             StaminaFront.GetComponent<RectTransform>().sizeDelta = new Vector2((1.5f-player.GetComponent<PlayerController>().dashCoolDown) / 1.5f * StaminaBack.GetComponent<RectTransform>().sizeDelta.x, StaminaBack.GetComponent<RectTransform>().sizeDelta.y);
         }
 
+        UI.SetActive(player.transform.Find("Main Camera").gameObject.activeSelf);
+
     }
 }

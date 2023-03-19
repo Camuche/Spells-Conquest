@@ -81,7 +81,6 @@ public class EnemyCharging : MonoBehaviour
                 Physics.Raycast(transform.position + Vector3.down * 0.1f, Quaternion.Euler(0, -45, 0) * dir, .6f) ||
                 Physics.Raycast(transform.position + Vector3.down * 0.1f, Quaternion.Euler(0, 45, 0) * dir, .6f))
             {
-                print(hit.point);
                 setTouched(true);
             }
             
