@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 4603031338490561653}
   m_Layer: 18
   m_Name: IceBall
-  m_TagString: Untagged
+  m_TagString: Iceball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

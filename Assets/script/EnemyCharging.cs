@@ -10,7 +10,7 @@ using UnityEngine.Events;
 public class EnemyCharging : MonoBehaviour
 {
     public float chargeSpeed;
-    [SerializeField]private float speed=0;
+    [SerializeField] public float speed=0;
     GameObject player;
     CharacterController controller;
 

@@ -22,18 +22,20 @@ public class IceBallTrace : MonoBehaviour
     {
 
 
-        //detect water
+        //detect water or ground
         int water_mask = LayerMask.GetMask("Water");
+        int ground_mask = LayerMask.GetMask("ground");
 
         if (
-            Physics.Raycast(transform.position + Vector3.up + Vector3.left * 2, Vector3.down, 1.1f, water_mask) ||
-            Physics.Raycast(transform.position + Vector3.up + Vector3.right * 2, Vector3.down, 1.1f, water_mask) ||
-            Physics.Raycast(transform.position + Vector3.up + Vector3.forward * 2, Vector3.down, 1.1f, water_mask) ||
-            Physics.Raycast(transform.position + Vector3.up + Vector3.back * 2, Vector3.down, 1.1f, water_mask)
+            Physics.Raycast(transform.position + Vector3.up + Vector3.left * 2, Vector3.down, 1.1f, water_mask + ground_mask) ||
+            Physics.Raycast(transform.position + Vector3.up + Vector3.right * 2, Vector3.down, 1.1f, water_mask + ground_mask) ||
+            Physics.Raycast(transform.position + Vector3.up + Vector3.forward * 2, Vector3.down, 1.1f, water_mask + ground_mask) ||
+            Physics.Raycast(transform.position + Vector3.up + Vector3.back * 2, Vector3.down, 1.1f, water_mask + ground_mask)
             )
         {
             GetComponentInChildren<MeshCollider>().enabled = true;
         }
+
         else
         {
             Destroy(gameObject);
@@ -67,5 +69,36 @@ public class IceBallTrace : MonoBehaviour
         }
     }
 
+    [SerializeField] float slowAmount;
     
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.tag == "Enemy" && other.GetComponent<EnemyFollower>() != null && !other.name.Contains("Enemi_Heavy"))
+        {
+            other.GetComponent<EnemyFollower>().speed = other.GetComponent<EnemyFollower>().speed / slowAmount;
+            
+        }
+
+        if (other.tag == "Enemy" && other.GetComponent<MovingAroundPlayer>() != null)
+        {
+            other.GetComponent<MovingAroundPlayer>().speed = other.GetComponent<MovingAroundPlayer>().speed / slowAmount;
+            
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Enemy" && other.GetComponent<EnemyFollower>() != null && !other.name.Contains("Enemi_Heavy"))
+        {
+            other.GetComponent<EnemyFollower>().speed = other.GetComponent<EnemyFollower>().speed * slowAmount;
+        }
+
+        if (other.tag == "Enemy" && other.GetComponent<MovingAroundPlayer>() != null)
+        {
+            other.GetComponent<MovingAroundPlayer>().speed = other.GetComponent<MovingAroundPlayer>().speed * slowAmount;
+            
+        }
+    }
+
 }

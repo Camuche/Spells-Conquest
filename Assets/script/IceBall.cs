@@ -195,13 +195,13 @@ public class IceBall : MonoBehaviour
     {
 
 
-        if (other.gameObject.transform.name != "Player" && !other.isTrigger)
+        /*if (other.gameObject.transform.name != "Player" && !other.isTrigger)
 
         {
-            //transform.position = new Vector3(666, -666, 666);
-            //Destroy(gameObject, 0.1f);
+            transform.position = new Vector3(666, -666, 666);
+            Destroy(gameObject, 0.1f);
 
-        }
+        }*/
 
 
     }

@@ -145,18 +145,21 @@ public class CastSpell : MonoBehaviour
         }
 
         timerFireball += Time.deltaTime;
+        timerIceball += Time.deltaTime;
     }
 
 
-    [SerializeField] float cdFireball;
+    [SerializeField] float cooldownFireball;
     float timerFireball;
+    [SerializeField] float cooldownIceball;
+    float timerIceball;
     void Cast()
     {
         animator.SetTrigger("Throw");
 
         if ((SpellL.ToString()+SpellR.ToString()=="01" || SpellL.ToString() + SpellR.ToString() == "10") && limit>-1)
         {
-            if (timerFireball >= cdFireball)
+            if (timerFireball >= cooldownFireball)
             {
             
 
@@ -208,16 +211,20 @@ public class CastSpell : MonoBehaviour
 
         if ((SpellL.ToString() + SpellR.ToString() == "13" || SpellL.ToString() + SpellR.ToString() == "31") && limit > 3)
         {
-            if (GameObject.Find("IceBall(Clone)") == null)
+
+            if (timerIceball >= cooldownIceball)
             {
 
+
                 GameObject i = Instantiate(iceBall);
-                //i.transform.rotation = transform.rotation;
                 i.transform.position = transform.position + transform.right * 1 + transform.up * -1;
                 i.GetComponent<IceBall>().player = transform.gameObject;
+                timerIceball = 0f;
 
 
             }
+
+            
         }
 
         if ((SpellL.ToString() + SpellR.ToString() == "32" || SpellL.ToString() + SpellR.ToString() == "23") && limit > 1)

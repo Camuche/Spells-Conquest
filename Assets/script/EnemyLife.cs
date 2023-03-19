@@ -61,9 +61,12 @@ public class EnemyLife : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Fireball")
+
+
+        if (other.tag == "Fireball" || other.tag == "Iceball")
         {
             life -= 10;
+            Destroy(other.gameObject);
         }
 
         if (life <= 0)

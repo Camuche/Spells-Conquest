@@ -191,7 +191,8 @@ MonoBehaviour:
   - spell_name: Glace
     spell_image: {fileID: 21300000, guid: 70799a0650dfb454889f87da92c64076, type: 3}
     id: 0
-  cdFireball: 1
+  cooldownFireball: 1
+  cooldownIceball: 4
 --- !u!1 &3870732602788733398
 GameObject:
   m_ObjectHideFlags: 0

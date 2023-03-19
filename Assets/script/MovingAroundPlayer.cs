@@ -10,7 +10,7 @@ public class MovingAroundPlayer : MonoBehaviour
     [SerializeField] float _timer;
     float timer=0;
 
-    [SerializeField] float speed;
+    [SerializeField] public float speed;
 
 
     // Start is called before the first frame update
