@@ -28,4 +28,14 @@ public class WorkshopMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Workshop_Arena");
     }
+
+    public void Level()
+    {
+        SceneManager.LoadScene("Level");
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
