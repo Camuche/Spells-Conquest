@@ -17,6 +17,7 @@ public class WorkshopMenu : MonoBehaviour
     void Update()
     {
         
+
     }
 
     public void Workshop_Environment()
@@ -37,5 +38,6 @@ public class WorkshopMenu : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene("Menu");
+        Cursor.lockState = CursorLockMode.None;
     }
 }

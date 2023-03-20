@@ -141,16 +141,19 @@ public class UIupdate : MonoBehaviour
 
             HealthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(player.GetComponent<PlayerController>().life*healthbarsize/(player.GetComponent<PlayerController>().lifeMax), HealthBar.GetComponent<RectTransform>().sizeDelta.y);
             StaminaFront.GetComponent<RectTransform>().sizeDelta = new Vector2((1.5f-player.GetComponent<PlayerController>().dashCoolDown) / 1.5f * StaminaBack.GetComponent<RectTransform>().sizeDelta.x, StaminaBack.GetComponent<RectTransform>().sizeDelta.y);
+        
+            UI.SetActive(player.transform.Find("Main Camera").gameObject.activeSelf);
+            AnimateSubSpells();
+            mat_UIPlane.SetInt("_EnableSpell", player.GetComponent<CastSpell>().limit > -1 ? 1 : 0);
         }
-
-        UI.SetActive(player.transform.Find("Main Camera").gameObject.activeSelf);
+        
 
         
 
-        AnimateSubSpells();
+        
 
 
-        mat_UIPlane.SetInt("_EnableSpell", player.GetComponent<CastSpell>().limit > -1 ? 1 : 0);
+        
 
     }
 
