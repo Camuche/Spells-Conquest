@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class CastSpell : MonoBehaviour
 {
@@ -68,7 +70,7 @@ public class CastSpell : MonoBehaviour
         isPaused = GameObject.Find("GameController").GetComponent<gameController>().isPaused;
 
         SetSelecting();
-
+        /*
         //change spell left
         if (Input.GetButtonDown("ChangeSpellL") && limit>-1)
         {
@@ -103,7 +105,7 @@ public class CastSpell : MonoBehaviour
             }
             print(SpellR);
         }
-
+        */
 
         //aim input
         if (Input.GetAxis("Aim")> 0 || Input.GetMouseButtonDown(1))
@@ -158,9 +160,27 @@ public class CastSpell : MonoBehaviour
         timerIceball += Time.deltaTime;
     }
 
+
+    Vector3 selectStartPoint;
+
     void SetSelecting()
     {
-        
+
+        float angle;
+
+        if (selecting == 0)
+        {
+            selectStartPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        if (selecting != 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        angle = Vector3.SignedAngle(Vector3.right, (Input.mousePosition - selectStartPoint), Vector3.right);
+
         if (selecting == 0 && (Input.GetButtonDown("ChangeSpellL") || Input.GetButtonDown("ChangeSpellR")))
         {
             selecting = Input.GetButtonDown("ChangeSpellL") ? -1 : 1;
@@ -169,11 +189,17 @@ public class CastSpell : MonoBehaviour
         if (selecting == -1 && Input.GetButtonUp("ChangeSpellL"))
         {
             selecting = 0;
+
+            if(selectStartPoint.y<Input.mousePosition.y)
+                SelectNewSpell(angle, -1);
         }
 
         if (selecting == 1 && Input.GetButtonUp("ChangeSpellR"))
         {
             selecting = 0;
+            if (selectStartPoint.y < Input.mousePosition.y)
+                SelectNewSpell(angle, 1);
+
         }
 
         //set time scale
@@ -198,9 +224,87 @@ public class CastSpell : MonoBehaviour
                     Time.timeScale -= Time.deltaTime * 10f;
                 }
             }
+        }
+    }
 
+    void SelectNewSpell(float angle, int hand)
+    {
+
+        print(angle);
+
+        GameObject UI = GameObject.Find("UI(Clone)");
+
+        print(UI.transform.Find("SubSpell03").GetComponent<Image>().sprite.name);
+
+        if (hand == -1)
+        {
+            if (angle > 0 && angle < 45)
+            {
+                switch (UI.transform.Find("SubSpell02").GetComponent<Image>().sprite.name) {
+                    case "Spell_Fire" : SetNewSpell(0,0);break;
+                    case "Spell_Telekinesie": SetNewSpell(0, 1); break;
+                    case "Spell_Clone": SetNewSpell(0, 2); break;
+                    case "Spell_Ice": SetNewSpell(0, 3); break;
+                }
+            }
+            if (angle >= 45 && angle < 90)
+            {
+                switch (UI.transform.Find("SubSpell01").GetComponent<Image>().sprite.name)
+                {
+                    case "Spell_Fire": SetNewSpell(0, 0); break;
+                    case "Spell_Telekinesie": SetNewSpell(0, 1); break;
+                    case "Spell_Clone": SetNewSpell(0, 2); break;
+                    case "Spell_Ice": SetNewSpell(0, 3); break;
+                }
+            }
         }
 
+        if (hand == 1)
+        {
+            if (angle > 90 && angle < 135)
+            {
+                switch (UI.transform.Find("SubSpell03").GetComponent<Image>().sprite.name)
+                {
+                    case "Spell_Fire": SetNewSpell(1, 0); break;
+                    case "Spell_Telekinesie": SetNewSpell(1, 1); break;
+                    case "Spell_Clone": SetNewSpell(1, 2); break;
+                    case "Spell_Ice": SetNewSpell(1, 3); break;
+                }
+            }
+            if (angle >= 135 && angle < 180)
+            {
+                switch (UI.transform.Find("SubSpell04").GetComponent<Image>().sprite.name)
+                {
+                    case "Spell_Fire": SetNewSpell(1, 0); break;
+                    case "Spell_Telekinesie": SetNewSpell(1, 1); break;
+                    case "Spell_Clone": SetNewSpell(1, 2); break;
+                    case "Spell_Ice": SetNewSpell(1, 3); break;
+                }
+            }
+        }
+
+        print(hand);
+    }
+
+    void SetNewSpell(int hand, int spell)
+    {
+        print(spell);
+        int iniL = SpellL;
+        int iniR = SpellR;
+
+        if (hand == 0)
+            SpellL = spell;
+        
+        if (hand == 1)
+            SpellR = spell;
+
+        
+        if (!CheckValidation())
+        {
+            SpellL = iniL;
+            SpellR = iniR;
+        }
+        
         
     }
 
