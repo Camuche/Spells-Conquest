@@ -55,7 +55,7 @@ Material:
     - _Cutoff: 0.5
     - _DebugMiddle: 0
     - _DebugMiddleOffset: 0
-    - _EnableSpell: 0
+    - _EnableSpell: 1
     - _EnableSubSpells: 1
     - _EnableUI: 1
     - _Enable_Spell: 1
@@ -77,6 +77,10 @@ Material:
     - _SpellScaleY: 3.33
     - _SpellSelection_CommunScale: 10
     - _Stamina: 1
+    - _SubSpell1Intensity: 0
+    - _SubSpell2Intensity: 0
+    - _SubSpell3Intensity: 0
+    - _SubSpell4Intensity: 0
     - _SubSpells_Scale: 5.5
     - __dirty: 0
     m_Colors:
@@ -87,10 +91,10 @@ Material:
     - _SpellSelection_Scale_Offset: {r: 1.65, g: 1, b: -7.75, a: -0.25}
     - _StaminaColor: {r: 1, g: 1, b: 0, a: 0}
     - _StaminaLostColor: {r: 0, g: 0, b: 0, a: 0}
-    - _SubSpell1_Position: {r: -6e-45, g: -6e-45, b: 0, a: 0}
-    - _SubSpell2_Position: {r: 1e-44, g: 1e-44, b: 0, a: 0}
+    - _SubSpell1_Position: {r: -5.241887e-22, g: -1.0935673e-21, b: 0, a: 0}
+    - _SubSpell2_Position: {r: 2.0925414e-20, g: 4.5830385e-20, b: 0, a: 0}
     - _SubSpell3_Position: {r: -6.255, g: 99, b: 0, a: 0}
-    - _SubSpell4_Position: {r: -8.000003, g: -1.1e-44, b: 0, a: 0}
-    - _SubSpell5_Position: {r: -7.999996, g: 1.3e-44, b: 0, a: 0}
+    - _SubSpell4_Position: {r: -8.000003, g: -9.493006e-19, b: 0, a: 0}
+    - _SubSpell5_Position: {r: -7.999996, g: 1.2955332e-17, b: 0, a: 0}
     - _SubSpell6_Position: {r: -1.81, g: 99, b: 0, a: 0}
     - _Vector0: {r: -1.29, g: -1.02, b: 0, a: 0}
