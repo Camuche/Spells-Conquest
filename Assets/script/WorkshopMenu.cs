@@ -5,19 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class WorkshopMenu : MonoBehaviour
 {
-    [SerializeField] Material UiMat;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(GameObject.Find("UI(Clone)")!=null)
+            GameObject.Find("UI(Clone)").SetActive(Cursor.lockState != CursorLockMode.None);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        GameObject.Find("UI(Clone)").SetActive(Cursor.lockState == CursorLockMode.None? false : true);
+        
 
     }
 
