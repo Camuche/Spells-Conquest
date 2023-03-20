@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 198600928}
   - component: {fileID: 198600927}
   m_Layer: 0
-  m_Name: LevelSelection
+  m_Name: Script
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -413,7 +413,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146ee7b899a5ab64ebba7668e9aa5bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UiMat: {fileID: 2100000, guid: 11640e417c416e044a4de109bd9bf2e7, type: 2}
 --- !u!4 &198600928
 Transform:
   m_ObjectHideFlags: 0

@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+
+
+
 public class UIupdate : MonoBehaviour
 {
 
@@ -39,6 +42,16 @@ public class UIupdate : MonoBehaviour
     GameObject[] SubSpell = new GameObject[4];
 
     [SerializeField] Sprite[] spellImg;
+
+    bool isPaused;
+    GameObject refSensitivity;
+    GameObject refEsc_BlackScreen;
+
+
+    private void OnLevelWasLoaded(int level)
+    {
+        //FocusManager.Instance.UpdateCanvasEventSystems();
+    }
 
 
     // Start is called before the first frame update
@@ -81,6 +94,11 @@ public class UIupdate : MonoBehaviour
         SubSpell[3] = UI.transform.Find("SubSpell04").gameObject;
 
 
+        refSensitivity = GameObject.Find("Sensitivity");
+        refSensitivity.SetActive(false);
+
+        refEsc_BlackScreen = GameObject.Find("Esc_BlackScreen");
+        refEsc_BlackScreen.SetActive(false);
 
     }
 
@@ -101,10 +119,10 @@ public class UIupdate : MonoBehaviour
         {
 
 
-            
-            
 
-            mat_Stamina.SetFloat("_Endurance",(float)(1.5f-player.GetComponent<PlayerController>().dashCoolDown)/1.5f);
+
+
+            mat_Stamina.SetFloat("_Endurance", (float)(1.5f - player.GetComponent<PlayerController>().dashCoolDown) / 1.5f);
 
             RightSpellImg.GetComponent<Image>().sprite = player.GetComponent<CastSpell>().Elements[player.GetComponent<CastSpell>().SpellR].spell_image;
             RightSpellText.GetComponent<Text>().text = player.GetComponent<CastSpell>().Elements[player.GetComponent<CastSpell>().SpellR].spell_name;
@@ -114,7 +132,7 @@ public class UIupdate : MonoBehaviour
 
             Crosshair.SetActive(Input.GetAxis("Aim") > 0 || Input.GetMouseButton(1));
 
-            
+
             if (!player.GetComponent<CastSpell>().CheckValidation())
             {
                 RightSpellImg.GetComponent<Image>().color = new Color(.2f, .2f, .2f, 1f);
@@ -139,22 +157,40 @@ public class UIupdate : MonoBehaviour
 
 
 
-            HealthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(player.GetComponent<PlayerController>().life*healthbarsize/(player.GetComponent<PlayerController>().lifeMax), HealthBar.GetComponent<RectTransform>().sizeDelta.y);
-            StaminaFront.GetComponent<RectTransform>().sizeDelta = new Vector2((1.5f-player.GetComponent<PlayerController>().dashCoolDown) / 1.5f * StaminaBack.GetComponent<RectTransform>().sizeDelta.x, StaminaBack.GetComponent<RectTransform>().sizeDelta.y);
-        
+            HealthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(player.GetComponent<PlayerController>().life * healthbarsize / (player.GetComponent<PlayerController>().lifeMax), HealthBar.GetComponent<RectTransform>().sizeDelta.y);
+            StaminaFront.GetComponent<RectTransform>().sizeDelta = new Vector2((1.5f - player.GetComponent<PlayerController>().dashCoolDown) / 1.5f * StaminaBack.GetComponent<RectTransform>().sizeDelta.x, StaminaBack.GetComponent<RectTransform>().sizeDelta.y);
+
             UI.SetActive(player.transform.Find("Main Camera").gameObject.activeSelf);
             AnimateSubSpells();
             mat_UIPlane.SetInt("_EnableSpell", player.GetComponent<CastSpell>().limit > -1 ? 1 : 0);
         }
-        
+
+
+        isPaused = GameObject.Find("GameController").GetComponent<gameController>().isPaused;
+
+
+        if (isPaused)
+        {
+            EnablePauseUI();
+        }
+        else
+        {
+            DisablePauseUI();
+        }
 
         
+    }
 
-        
 
-
-        
-
+    void EnablePauseUI()
+    {
+        refSensitivity.SetActive(true);
+        refEsc_BlackScreen.SetActive(true);
+    }
+    public void DisablePauseUI()
+    {
+        refSensitivity.SetActive(false);
+        refEsc_BlackScreen.SetActive(false);
     }
 
 

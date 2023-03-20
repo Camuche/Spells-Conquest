@@ -155,7 +155,7 @@ public class EnemyCharging : MonoBehaviour
 
     public void setTouched(bool t)
     {
-        print((new System.Diagnostics.StackTrace()).GetFrame(1).GetMethod().Name);
+        //print((new System.Diagnostics.StackTrace()).GetFrame(1).GetMethod().Name);
         touched = t;
     }
 

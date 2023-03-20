@@ -75,8 +75,8 @@ public class gameController : MonoBehaviour
                 Pause();
             }
         }
-        
 
+        //print(GameObject.Find("Sensitivity"));
     }
 
     public void setSpellsToDestroy()
@@ -127,12 +127,13 @@ public class gameController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         isPaused = true;
     }
-    void Play()
+    public void Play()
     {
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         isPaused = false;
     }
 
+    
 
 }
