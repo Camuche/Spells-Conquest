@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gameController : MonoBehaviour
 {
@@ -55,6 +56,9 @@ public class gameController : MonoBehaviour
     void Update()
     {
         destroySpells();
+
+        
+        GetSliderValue();
     }
 
     public void setSpellsToDestroy()
@@ -90,6 +94,13 @@ public class gameController : MonoBehaviour
         }
     }
 
+    public float newSensitivity;
+    public void GetSliderValue()
+    {
+        newSensitivity = GameObject.Find("Sensitivity").GetComponent<Slider>().value;
+        Debug.Log(newSensitivity);
+        player.GetComponent<PlayerController>().mouseSensitivity = newSensitivity;
+    }
 
     
 }
