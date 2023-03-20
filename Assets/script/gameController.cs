@@ -75,7 +75,7 @@ public class gameController : MonoBehaviour
                 Pause();
             }
         }
-        print(isPaused);
+        
 
     }
 
@@ -113,7 +113,7 @@ public class gameController : MonoBehaviour
     }
 
     public float newSensitivity;
-    GameObject gameObjectSensitivity;
+    
     public void GetSliderValue()
     {
         newSensitivity = GameObject.Find("Sensitivity").GetComponent<Slider>().value;
