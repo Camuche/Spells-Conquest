@@ -162,24 +162,40 @@ public class CastSpell : MonoBehaviour
 
 
     Vector3 selectStartPoint;
+    Vector3 selectPoint;
+
 
     void SetSelecting()
     {
-
-        float angle;
+        float hand=0;
+        float angle = 0;
 
         if (selecting == 0)
         {
-            selectStartPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+            selectStartPoint = new Vector3(Input.GetAxis("Mouse X"), 0, 0);
+            selectPoint = selectStartPoint;
             Cursor.lockState = CursorLockMode.Locked;
         }
 
         if (selecting != 0)
         {
             Cursor.lockState = CursorLockMode.None;
+            selectPoint = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0);
+            hand = selecting;
         }
 
-        angle = Vector3.SignedAngle(Vector3.right, (Input.mousePosition - selectStartPoint), Vector3.right);
+
+        angle = Vector3.SignedAngle(Vector3.right, (selectPoint - (selectStartPoint + selectStartPoint * hand)), Vector3.right);
+        if (Input.GetAxis("Mouse Y") == 0 && Input.GetAxis("Mouse X")==0)
+        {
+            //calcul angle souris (wtf unity)
+            angle = Vector3.SignedAngle(Vector3.right * -hand, (Input.mousePosition - (selectStartPoint + selectStartPoint )), Vector3.right);
+        }
+
+        print(angle);
+
+
+        //print(selectStartPoint + " " + selectPoint + " " + angle);
 
         if (selecting == 0 && (Input.GetButtonDown("ChangeSpellL") || Input.GetButtonDown("ChangeSpellR")))
         {
@@ -234,11 +250,10 @@ public class CastSpell : MonoBehaviour
 
         GameObject UI = GameObject.Find("UI(Clone)");
 
-        print(UI.transform.Find("SubSpell03").GetComponent<Image>().sprite.name);
 
         if (hand == -1)
         {
-            if (angle > 0 && angle < 45)
+            if (angle >= 0 && angle < 45)
             {
                 switch (UI.transform.Find("SubSpell02").GetComponent<Image>().sprite.name) {
                     case "Spell_Fire" : SetNewSpell(0,0);break;
@@ -247,7 +262,7 @@ public class CastSpell : MonoBehaviour
                     case "Spell_Ice": SetNewSpell(0, 3); break;
                 }
             }
-            if (angle >= 45 && angle < 90)
+            if (angle >= 45 && angle <= 90)
             {
                 switch (UI.transform.Find("SubSpell01").GetComponent<Image>().sprite.name)
                 {
@@ -261,7 +276,7 @@ public class CastSpell : MonoBehaviour
 
         if (hand == 1)
         {
-            if (angle > 90 && angle < 135)
+            if (angle >= 90 && angle < 135)
             {
                 switch (UI.transform.Find("SubSpell03").GetComponent<Image>().sprite.name)
                 {
@@ -271,7 +286,7 @@ public class CastSpell : MonoBehaviour
                     case "Spell_Ice": SetNewSpell(1, 3); break;
                 }
             }
-            if (angle >= 135 && angle < 180)
+            if (angle >= 135 && angle <= 180)
             {
                 switch (UI.transform.Find("SubSpell04").GetComponent<Image>().sprite.name)
                 {
