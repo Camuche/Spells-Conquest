@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class WorkshopMenu : MonoBehaviour
 {
-    
+    [SerializeField] Material UiMat;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,8 @@ public class WorkshopMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        GameObject.Find("UI(Clone)").SetActive(Cursor.lockState == CursorLockMode.None? false : true);
 
     }
 
@@ -33,11 +34,15 @@ public class WorkshopMenu : MonoBehaviour
     public void Level()
     {
         SceneManager.LoadScene("Level");
+        
     }
 
     public void Menu()
     {
         SceneManager.LoadScene("Menu");
         Cursor.lockState = CursorLockMode.None;
+        
+
+        
     }
 }
