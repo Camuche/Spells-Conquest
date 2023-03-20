@@ -189,10 +189,11 @@ public class CastSpell : MonoBehaviour
         if (Input.GetAxis("Mouse Y") == 0 && Input.GetAxis("Mouse X")==0)
         {
             //calcul angle souris (wtf unity)
-            angle = Vector3.SignedAngle(Vector3.right * -hand, (Input.mousePosition - (selectStartPoint + selectStartPoint )), Vector3.right);
+            angle = Vector3.SignedAngle(Vector3.right, new Vector3(Input.mousePosition.x-(hand==1? Screen.width : 0),Input.mousePosition.y,0), Vector3.right);
         }
 
-        print(angle);
+        //print(Input.mousePosition.x);
+        print(new Vector3(Input.mousePosition.x - (hand == 1 ? Screen.width : 0), Input.mousePosition.y, 0) + "    "+angle);
 
 
         //print(selectStartPoint + " " + selectPoint + " " + angle);
