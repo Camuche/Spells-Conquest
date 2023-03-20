@@ -214,8 +214,9 @@ public class UIupdate : MonoBehaviour
             {
                 SubSpell[i].GetComponent<Image>().enabled = (false);
             }
-            SubSpell[i].GetComponent<RectTransform>().position = mat_UIPlane.GetVector("_SubSpell"+(i+(i>1?2:1)).ToString()+"_Position") * -200;
+            SubSpell[i].GetComponent<RectTransform>().position = mat_UIPlane.GetVector("_SubSpell"+(i+(i>1?2:1)).ToString()+"_Position") * (-95* ((float)Display.main.renderingWidth/1000));
         }
+
     }
 
 
