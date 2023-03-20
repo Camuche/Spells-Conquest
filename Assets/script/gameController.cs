@@ -57,8 +57,12 @@ public class gameController : MonoBehaviour
     {
         destroySpells();
 
+        if (GameObject.Find("Sensitivity") != null)
+        {
+            GetSliderValue();
+
+        }
         
-        GetSliderValue();
 
         if (Input.GetKeyDown("p"))
         {
@@ -109,10 +113,10 @@ public class gameController : MonoBehaviour
     }
 
     public float newSensitivity;
+    GameObject gameObjectSensitivity;
     public void GetSliderValue()
     {
         newSensitivity = GameObject.Find("Sensitivity").GetComponent<Slider>().value;
-        Debug.Log(newSensitivity);
         player.GetComponent<PlayerController>().mouseSensitivity = newSensitivity;
     }
 
