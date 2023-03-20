@@ -59,6 +59,20 @@ public class gameController : MonoBehaviour
 
         
         GetSliderValue();
+
+        if (Input.GetKeyDown("p"))
+        {
+            if (isPaused)
+            {
+                Play();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+        print(isPaused);
+
     }
 
     public void setSpellsToDestroy()
@@ -102,5 +116,19 @@ public class gameController : MonoBehaviour
         player.GetComponent<PlayerController>().mouseSensitivity = newSensitivity;
     }
 
-    
+    public bool isPaused = false;
+    void Pause()
+    {
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
+        isPaused = true;
+    }
+    void Play()
+    {
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        isPaused = false;
+    }
+
+
 }

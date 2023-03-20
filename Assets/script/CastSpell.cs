@@ -28,6 +28,7 @@ public class CastSpell : MonoBehaviour
 
 
     int selecting;
+    public bool isPaused;
 
     //structure de donnée d'un element (avec le nom de l'element, son image d'ui, etc...)
     [System.Serializable]
@@ -64,6 +65,7 @@ public class CastSpell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isPaused = GameObject.Find("GameController").GetComponent<gameController>().isPaused;
 
         SetSelecting();
 
@@ -158,6 +160,7 @@ public class CastSpell : MonoBehaviour
 
     void SetSelecting()
     {
+        
         if (selecting == 0 && (Input.GetButtonDown("ChangeSpellL") || Input.GetButtonDown("ChangeSpellR")))
         {
             selecting = Input.GetButtonDown("ChangeSpellL") ? -1 : 1;
@@ -174,25 +177,31 @@ public class CastSpell : MonoBehaviour
         }
 
         //set time scale
-        if (selecting == 0)
+        if (isPaused == false)
         {
-
-            if (Time.timeScale < 1)
+            if (selecting == 0)
             {
-                Time.timeScale += Time.deltaTime * 10f;
+
+                if (Time.timeScale < 1)
+                {
+                    Time.timeScale += Time.deltaTime * 10f;
+                }
+                else
+                {
+                    Time.timeScale = 1;
+                }
             }
             else
             {
-                Time.timeScale = 1;
+                if (Time.timeScale > 0.05f)
+                {
+                    Time.timeScale -= Time.deltaTime * 10f;
+                }
             }
+
         }
-        else
-        {
-            if (Time.timeScale > 0.05f)
-            {
-                Time.timeScale -= Time.deltaTime * 10f;
-            }
-        }
+
+        
     }
 
 
