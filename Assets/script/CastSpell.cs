@@ -415,7 +415,7 @@ public class CastSpell : MonoBehaviour
             
         }
 
-        if ((SpellL.ToString() + SpellR.ToString() == "32" || SpellL.ToString() + SpellR.ToString() == "23") && limit > 1)
+        if ((SpellL.ToString() + SpellR.ToString() == "32" || SpellL.ToString() + SpellR.ToString() == "23") && limit > 4)
         {
 
             if (GameObject.Find("IceExplosion(Clone)") == null && GameObject.Find("IceClone(Clone)") == null && viseur.transform.GetComponent<MeshRenderer>().enabled)
@@ -481,7 +481,7 @@ public class CastSpell : MonoBehaviour
             return true;
         }
 
-        if ((SpellL.ToString() + SpellR.ToString() == "23" || SpellL.ToString() + SpellR.ToString() == "32") && limit > 3)
+        if ((SpellL.ToString() + SpellR.ToString() == "23" || SpellL.ToString() + SpellR.ToString() == "32") && limit > 4)
         {
             return true;
         }
