@@ -22,7 +22,12 @@ public class WorkshopMenu : MonoBehaviour
     {
 
         refgameController = GameObject.Find("GameController");
-        
+
+        if (refgameController.GetComponent<gameController>().isPaused)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+
 
     }
 
@@ -33,7 +38,7 @@ public class WorkshopMenu : MonoBehaviour
             refgameController.GetComponent<gameController>().Play();
 
         }
-                    SceneManager.LoadScene("Workshop_Environment");
+        SceneManager.LoadScene("Workshop_Environment");
 
     }
 
@@ -63,7 +68,7 @@ public class WorkshopMenu : MonoBehaviour
     {
         if(refgameController != null)
         {   
-            refgameController.GetComponent<gameController>().Play();
+            //refgameController.GetComponent<gameController>().Play();
 
 
         }
