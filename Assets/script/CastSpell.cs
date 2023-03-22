@@ -180,13 +180,36 @@ public class CastSpell : MonoBehaviour
         if (selecting != 0)
         {
             Cursor.lockState = CursorLockMode.None;
-            selectPoint = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0);
             hand = selecting;
+
+            if (hand == 1)
+            {
+                selectPoint = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0);
+                if (Input.GetAxis("Mouse Y") < 0)
+                    selectPoint = Vector3.zero;
+            }
+            if (hand == -1)
+            {
+                selectPoint = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+                if (Input.GetAxis("Vertical") < 0)
+                    selectPoint = Vector3.zero;
+            }
         }
 
 
-        angle = Vector3.SignedAngle(Vector3.right, (selectPoint - (selectStartPoint + selectStartPoint * hand)), Vector3.right);
-        if (Input.GetAxis("Mouse Y") == 0 && Input.GetAxis("Mouse X")==0)
+        if (Input.GetJoystickNames()[0]!="")
+        {
+            if (selectPoint == Vector3.zero)
+            {
+                angle = -1;
+            }
+            else
+            {
+                angle = Vector3.SignedAngle(Vector3.right, (selectPoint - (selectStartPoint + selectStartPoint * hand)), Vector3.right);
+            }
+            
+
+        }else if (Input.GetAxis("Mouse Y") == 0 && Input.GetAxis("Mouse X")==0)
         {
             //calcul angle souris (wtf unity)
             angle = Vector3.SignedAngle(Vector3.right, new Vector3(Input.mousePosition.x-(hand==1? Screen.width : 0),Input.mousePosition.y,0), Vector3.right);
@@ -245,7 +268,7 @@ public class CastSpell : MonoBehaviour
 
 
         //set highlight
-        GameObject.Find("GameController").GetComponent<UIupdate>().SetSubSpellHighLight(angle);
+        GameObject.Find("GameController").GetComponent<UIupdate>().SetSubSpellHighLight(angle, selecting);
 
     }
 

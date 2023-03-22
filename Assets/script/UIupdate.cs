@@ -305,39 +305,52 @@ public class UIupdate : MonoBehaviour
         }
     }
 
-    public void SetSubSpellHighLight(float angle)
+    public void SetSubSpellHighLight(float angle, int hand)
     {
 
-        print(angle);
+        if (hand < 0)
+        {
+            if (angle >= 0 && angle < 45)
+            {
+                mat_UIPlane.SetInt("_SubSpell1Intensity", 0);
+                mat_UIPlane.SetInt("_SubSpell2Intensity", 1);
+                mat_UIPlane.SetInt("_SubSpell3Intensity", 0);
+                mat_UIPlane.SetInt("_SubSpell4Intensity", 0);
 
-        if (angle >= 0 && angle < 45)
-        {
-            mat_UIPlane.SetInt("_SubSpell1Intensity", 0);
-            mat_UIPlane.SetInt("_SubSpell2Intensity", 1);
-            mat_UIPlane.SetInt("_SubSpell3Intensity", 0);
-            mat_UIPlane.SetInt("_SubSpell4Intensity", 0);
+            }
+            if (angle >= 45 && angle <= 90)
+            {
+                mat_UIPlane.SetInt("_SubSpell1Intensity", 1);
+                mat_UIPlane.SetInt("_SubSpell2Intensity", 0);
+                mat_UIPlane.SetInt("_SubSpell3Intensity", 0);
+                mat_UIPlane.SetInt("_SubSpell4Intensity", 0);
+            }
+        }
 
-        }
-        if (angle >= 45 && angle <= 90)
+        if (hand > 0)
         {
-            mat_UIPlane.SetInt("_SubSpell1Intensity", 1);
-            mat_UIPlane.SetInt("_SubSpell2Intensity", 0);
-            mat_UIPlane.SetInt("_SubSpell3Intensity", 0);
-            mat_UIPlane.SetInt("_SubSpell4Intensity", 0);
+            if (angle >= 90 && angle <= 135)
+            {
+                mat_UIPlane.SetInt("_SubSpell1Intensity", 0);
+                mat_UIPlane.SetInt("_SubSpell2Intensity", 0);
+                mat_UIPlane.SetInt("_SubSpell3Intensity", 1);
+                mat_UIPlane.SetInt("_SubSpell4Intensity", 0);
+            }
+            if (angle > 135 && angle <= 180)
+            {
+                mat_UIPlane.SetInt("_SubSpell1Intensity", 0);
+                mat_UIPlane.SetInt("_SubSpell2Intensity", 0);
+                mat_UIPlane.SetInt("_SubSpell3Intensity", 0);
+                mat_UIPlane.SetInt("_SubSpell4Intensity", 1);
+            }
         }
-        if (angle > 90 && angle <= 135)
+
+        if (angle < 0)
         {
             mat_UIPlane.SetInt("_SubSpell1Intensity", 0);
             mat_UIPlane.SetInt("_SubSpell2Intensity", 0);
-            mat_UIPlane.SetInt("_SubSpell3Intensity", 1);
-            mat_UIPlane.SetInt("_SubSpell4Intensity", 0);
-        }
-        if (angle > 135 && angle <= 180)
-        {
-            mat_UIPlane.SetInt("_SubSpell1Intensity", 0);
-            mat_UIPlane.SetInt("_SubSpell2Intensity", 0);
             mat_UIPlane.SetInt("_SubSpell3Intensity", 0);
-            mat_UIPlane.SetInt("_SubSpell4Intensity", 1);
+            mat_UIPlane.SetInt("_SubSpell4Intensity", 0);
         }
     }
 
