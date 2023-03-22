@@ -197,7 +197,7 @@ public class CastSpell : MonoBehaviour
         }
 
 
-        if (Input.GetJoystickNames()[0]!="")
+        if (Input.GetJoystickNames().Length>0 && Input.GetJoystickNames()[0]!="")
         {
             if (selectPoint == Vector3.zero)
             {
