@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 5166331558925147484}
   - component: {fileID: 5166331558925147485}
   - component: {fileID: 5166331558925147486}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Object
   m_TagString: CanTrigger
   m_Icon: {fileID: 0}
