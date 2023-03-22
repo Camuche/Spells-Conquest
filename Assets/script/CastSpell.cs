@@ -172,7 +172,7 @@ public class CastSpell : MonoBehaviour
 
         if (selecting == 0)
         {
-            selectStartPoint = new Vector3(Input.GetAxis("Mouse X"), 0, 0);
+            selectStartPoint = new Vector3(0, 0, 0);
             selectPoint = selectStartPoint;
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -197,6 +197,7 @@ public class CastSpell : MonoBehaviour
         }
 
 
+
         if (Input.GetJoystickNames().Length>0 && Input.GetJoystickNames()[0]!="")
         {
             if (selectPoint == Vector3.zero)
@@ -214,6 +215,8 @@ public class CastSpell : MonoBehaviour
             //calcul angle souris (wtf unity)
             angle = Vector3.SignedAngle(Vector3.right, new Vector3(Input.mousePosition.x-(hand==1? Screen.width : 0),Input.mousePosition.y,0), Vector3.right);
         }
+
+
 
         //print(Input.mousePosition.x);
         //print(new Vector3(Input.mousePosition.x - (hand == 1 ? Screen.width : 0), Input.mousePosition.y, 0) + "    "+angle);
@@ -276,8 +279,6 @@ public class CastSpell : MonoBehaviour
     void SelectNewSpell(float angle, int hand)
     {
 
-        print(angle);
-
         GameObject UI = GameObject.Find("UI(Clone)");
 
 
@@ -327,8 +328,6 @@ public class CastSpell : MonoBehaviour
                 }
             }
         }
-
-        print(hand);
     }
 
     void SetNewSpell(int hand, int spell)
