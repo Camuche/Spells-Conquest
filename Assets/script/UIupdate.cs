@@ -106,8 +106,6 @@ public class UIupdate : MonoBehaviour
     void Update()
     {
 
-
-
         if (player == null)
         {
             player = GameObject.Find("Player");
@@ -228,7 +226,7 @@ public class UIupdate : MonoBehaviour
             SubSpell[0].GetComponent<Image>().enabled = (true);
             SubSpell[1].GetComponent<Image>().enabled = (true);
 
-            SetSpellImgs(0, 1);
+            SetSpellImgs(0, 1, player.GetComponent<CastSpell>().SpellR);
 
             
         }
@@ -238,7 +236,7 @@ public class UIupdate : MonoBehaviour
             SubSpell[2].GetComponent<Image>().enabled = (true);
             SubSpell[3].GetComponent<Image>().enabled = (true);
 
-            SetSpellImgs(2, 3);
+            SetSpellImgs(2, 3, player.GetComponent<CastSpell>().SpellL);
         }
 
 
@@ -256,41 +254,95 @@ public class UIupdate : MonoBehaviour
     }
 
 
-    void SetSpellImgs(int a, int b)
+    void SetSpellImgs(int a, int b, int _spellNotChanging)
     {
+
+        string spellNotChanging = _spellNotChanging.ToString();
+
         if (player.GetComponent<CastSpell>().getCombination() == "01")
         {
-            SubSpell[a].GetComponent<Image>().sprite = spellImg[2];
-            SubSpell[b].GetComponent<Image>().sprite = spellImg[3];
+            SubSpell[a].GetComponent<Image>().sprite = player.GetComponent<CastSpell>().CheckValidationRef("2",spellNotChanging)? spellImg[2]:null;
+            SubSpell[b].GetComponent<Image>().sprite = player.GetComponent<CastSpell>().CheckValidationRef("3", spellNotChanging) ? spellImg[3] : null;
 
         }
         if (player.GetComponent<CastSpell>().getCombination() == "02")
         {
-            SubSpell[a].GetComponent<Image>().sprite = spellImg[1];
-            SubSpell[b].GetComponent<Image>().sprite = spellImg[3];
+            SubSpell[a].GetComponent<Image>().sprite = player.GetComponent<CastSpell>().CheckValidationRef("1", spellNotChanging) ? spellImg[1] : null;
+            SubSpell[b].GetComponent<Image>().sprite = player.GetComponent<CastSpell>().CheckValidationRef("3", spellNotChanging) ? spellImg[3] : null;
         }
         if (player.GetComponent<CastSpell>().getCombination() == "03")
         {
-            SubSpell[a].GetComponent<Image>().sprite = spellImg[1];
-            SubSpell[b].GetComponent<Image>().sprite = spellImg[2];
+            SubSpell[a].GetComponent<Image>().sprite = player.GetComponent<CastSpell>().CheckValidationRef("1", spellNotChanging) ? spellImg[1] : null;
+            SubSpell[b].GetComponent<Image>().sprite = player.GetComponent<CastSpell>().CheckValidationRef("2", spellNotChanging) ? spellImg[2] : null;
         }
         if (player.GetComponent<CastSpell>().getCombination() == "12")
         {
-            SubSpell[a].GetComponent<Image>().sprite = spellImg[0];
-            SubSpell[b].GetComponent<Image>().sprite = spellImg[3];
+            SubSpell[a].GetComponent<Image>().sprite = player.GetComponent<CastSpell>().CheckValidationRef("0", spellNotChanging) ? spellImg[0] : null;
+            SubSpell[b].GetComponent<Image>().sprite = player.GetComponent<CastSpell>().CheckValidationRef("3", spellNotChanging) ? spellImg[3] : null;
         }
         if (player.GetComponent<CastSpell>().getCombination() == "23")
         {
-            SubSpell[a].GetComponent<Image>().sprite = spellImg[0];
-            SubSpell[b].GetComponent<Image>().sprite = spellImg[1];
+            SubSpell[a].GetComponent<Image>().sprite = player.GetComponent<CastSpell>().CheckValidationRef("0", spellNotChanging) ? spellImg[0] : null;
+            SubSpell[b].GetComponent<Image>().sprite = player.GetComponent<CastSpell>().CheckValidationRef("1", spellNotChanging) ? spellImg[1] : null;
         }
         if (player.GetComponent<CastSpell>().getCombination() == "13")
         {
-            SubSpell[a].GetComponent<Image>().sprite = spellImg[0];
-            SubSpell[b].GetComponent<Image>().sprite = spellImg[2];
+            SubSpell[a].GetComponent<Image>().sprite = player.GetComponent<CastSpell>().CheckValidationRef("0", spellNotChanging) ? spellImg[0] : null;
+            SubSpell[b].GetComponent<Image>().sprite = player.GetComponent<CastSpell>().CheckValidationRef("2", spellNotChanging) ? spellImg[2] : null;
+        }
+
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (SubSpell[i].GetComponent<Image>().sprite == null)
+            {
+                SubSpell[i].GetComponent<Image>().color = new Color(1, 1, 1, 0);
+            }
+            else
+            {
+                SubSpell[i].GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            }
+        }
+    }
+
+    public void SetSubSpellHighLight(float angle)
+    {
+
+        print(angle);
+
+        if (angle >= 0 && angle < 45)
+        {
+            mat_UIPlane.SetInt("_SubSpell1Intensity", 0);
+            mat_UIPlane.SetInt("_SubSpell2Intensity", 1);
+            mat_UIPlane.SetInt("_SubSpell3Intensity", 0);
+            mat_UIPlane.SetInt("_SubSpell4Intensity", 0);
+
+        }
+        if (angle >= 45 && angle <= 90)
+        {
+            mat_UIPlane.SetInt("_SubSpell1Intensity", 1);
+            mat_UIPlane.SetInt("_SubSpell2Intensity", 0);
+            mat_UIPlane.SetInt("_SubSpell3Intensity", 0);
+            mat_UIPlane.SetInt("_SubSpell4Intensity", 0);
+        }
+        if (angle > 90 && angle <= 135)
+        {
+            mat_UIPlane.SetInt("_SubSpell1Intensity", 0);
+            mat_UIPlane.SetInt("_SubSpell2Intensity", 0);
+            mat_UIPlane.SetInt("_SubSpell3Intensity", 1);
+            mat_UIPlane.SetInt("_SubSpell4Intensity", 0);
+        }
+        if (angle > 135 && angle <= 180)
+        {
+            mat_UIPlane.SetInt("_SubSpell1Intensity", 0);
+            mat_UIPlane.SetInt("_SubSpell2Intensity", 0);
+            mat_UIPlane.SetInt("_SubSpell3Intensity", 0);
+            mat_UIPlane.SetInt("_SubSpell4Intensity", 1);
         }
     }
 
 
-    
+
+
+
 }

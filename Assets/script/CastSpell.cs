@@ -193,7 +193,7 @@ public class CastSpell : MonoBehaviour
         }
 
         //print(Input.mousePosition.x);
-        print(new Vector3(Input.mousePosition.x - (hand == 1 ? Screen.width : 0), Input.mousePosition.y, 0) + "    "+angle);
+        //print(new Vector3(Input.mousePosition.x - (hand == 1 ? Screen.width : 0), Input.mousePosition.y, 0) + "    "+angle);
 
 
         //print(selectStartPoint + " " + selectPoint + " " + angle);
@@ -242,7 +242,13 @@ public class CastSpell : MonoBehaviour
                 }
             }
         }
+
+
+        //set highlight
+        GameObject.Find("GameController").GetComponent<UIupdate>().SetSubSpellHighLight(angle);
+
     }
+
 
     void SelectNewSpell(float angle, int hand)
     {
@@ -488,6 +494,43 @@ public class CastSpell : MonoBehaviour
 
         return false;
     }
+
+    public bool CheckValidationRef(string s1, string s2)
+    {
+        if ((s1+s2 == "01" || s1+s2 == "10") && limit > -1)
+        {
+            return true;
+        }
+
+        if ((s1+s2 == "02" || s1 + s2 == "20") && limit > 0)
+        {
+            return true;
+        }
+
+        if ((s1 + s2 == "12" || s1 + s2 == "21") && limit > 1)
+        {
+
+            return true;
+        }
+
+        if ((s1 + s2 == "03" || s1 + s2 == "30") && limit > 2)
+        {
+            return true;
+        }
+        if ((s1 + s2 == "13" || s1 + s2 == "31") && limit > 3)
+        {
+            return true;
+        }
+
+        if ((s1 + s2 == "23" || s1 + s2 == "32") && limit > 4)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+
 
     public string getCombination()
     {
