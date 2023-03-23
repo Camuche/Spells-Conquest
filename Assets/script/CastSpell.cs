@@ -69,7 +69,10 @@ public class CastSpell : MonoBehaviour
     {
         isPaused = GameObject.Find("GameController").GetComponent<gameController>().isPaused;
 
-        SetSelecting();
+        if (limit > -1)
+        {
+            SetSelecting();
+        }
         /*
         //change spell left
         if (Input.GetButtonDown("ChangeSpellL") && limit>-1)

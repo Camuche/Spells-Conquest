@@ -73,7 +73,8 @@ public class PlayerController : MonoBehaviour
         if (!canMove)
             return;
 
-        aiming();
+        if (GetComponent<CastSpell>().limit>-1)
+            aiming();
 
         if (life > 0 && GetComponent<CastSpell>().getSelecting()==0)
         {
