@@ -35,10 +35,14 @@ public class WorkshopMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         refgameController = GameObject.Find("GameController");
 
-        if (refgameController != null && refgameController.GetComponent<gameController>().isPaused && !paused)
+        if (refgameController != null && refgameController.GetComponent<gameController>().isPaused)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+            if (refgameController != null && refgameController.GetComponent<gameController>().isPaused && !paused)
         {
             Cursor.lockState = CursorLockMode.None;
 
@@ -60,6 +64,8 @@ public class WorkshopMenu : MonoBehaviour
         {
             //paused = false;
         }
+
+        print(Cursor.lockState);
 
 
     }

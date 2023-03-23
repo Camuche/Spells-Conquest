@@ -80,7 +80,7 @@ public class gameController : MonoBehaviour
         }
         
 
-        if (Input.GetKeyDown("p"))
+        if (Input.GetButtonDown("Escape"))
         {
             if (isPaused)
             {
