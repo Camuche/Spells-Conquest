@@ -81,8 +81,6 @@ public class UIupdate : MonoBehaviour
         LeftSpellImg = UI.transform.Find("SpellLImage").gameObject;
         RightSpellImg = UI.transform.Find("SpellRImage").gameObject;
 
-        Combination = UI.transform.Find("Combination").gameObject;
-
         Crosshair = UI.transform.Find("Crosshair").gameObject;
 
         UIPlane = UI.transform.Find("CameraUI").transform.Find("UIPlane").gameObject;
@@ -135,14 +133,12 @@ public class UIupdate : MonoBehaviour
             {
                 RightSpellImg.GetComponent<Image>().color = new Color(.2f, .2f, .2f, 1f);
                 LeftSpellImg.GetComponent<Image>().color = new Color(.2f, .2f, .2f, 1f);
-                Combination.GetComponent<Image>().color = new Color(1f, 0f, 0f, 0f);
 
             }
             else
             {
                 RightSpellImg.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
                 LeftSpellImg.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
-                Combination.GetComponent<Image>().color = new Color(0f, 1f, 0f, 1f);
 
             }
 
@@ -151,7 +147,6 @@ public class UIupdate : MonoBehaviour
             LeftSpellImg.SetActive(player.GetComponent<CastSpell>().limit > -1);
             RightSpellText.SetActive(false);
             LeftSpellText.SetActive(false);
-            Combination.SetActive(player.GetComponent<CastSpell>().limit > -1);
 
 
 
