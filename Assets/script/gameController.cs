@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class gameController : MonoBehaviour
 {
@@ -49,12 +50,27 @@ public class gameController : MonoBehaviour
         CheckPoint = Vector3.zero;
         checkpointed = false;
 
+        if (SceneManager.GetActiveScene().name != "Menu")
+        {
+            Play();
+        }
+
+
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            Destroy(GameObject.Find("PersistentObject"));
+            Destroy(GameObject.Find("DontDestroy"));
+
+        }
+
         destroySpells();
 
         if (GameObject.Find("Sensitivity") != null)
@@ -117,7 +133,7 @@ public class gameController : MonoBehaviour
     public void GetSliderValue()
     {
         newSensitivity = GameObject.Find("Sensitivity").GetComponent<Slider>().value;
-        player.GetComponent<PlayerController>().mouseSensitivity = newSensitivity;
+        if (player!=null) player.GetComponent<PlayerController>().mouseSensitivity = newSensitivity;
     }
 
     public bool isPaused = false;
@@ -133,6 +149,8 @@ public class gameController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         isPaused = false;
     }
+
+    
 
     
 
