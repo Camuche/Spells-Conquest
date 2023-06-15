@@ -96,7 +96,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 3870732601873632230}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -178,6 +178,7 @@ MonoBehaviour:
   iceBall: {fileID: 7671956535631379919, guid: 8db51b43ad3e7fb4d81ded3ead91a104, type: 3}
   iceClone: {fileID: 838386325406439919, guid: cf5971ea913a16f4da90a3661daae853, type: 3}
   animator: {fileID: 4721740849922928826}
+  isPaused: 0
   Elements:
   - spell_name: Fire
     spell_image: {fileID: 21300000, guid: 8b64123dc25195d4db22894407fdb0f0, type: 3}
