@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4414794171631510142}
   - component: {fileID: 4414794171631510143}
   - component: {fileID: 4414794171631510139}
+  - component: {fileID: 7390900146155740961}
   m_Layer: 9
   m_Name: Lava
   m_TagString: Lava
@@ -110,3 +111,19 @@ MonoBehaviour:
   damage: 100
   instaKill: 1
   canDamageEnemies: 1
+--- !u!208 &7390900146155740961
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4414794171631510128}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5.25, y: 0.5, z: 5.25}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
