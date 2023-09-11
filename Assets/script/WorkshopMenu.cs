@@ -65,7 +65,7 @@ public class WorkshopMenu : MonoBehaviour
             //paused = false;
         }
 
-        print(Cursor.lockState);
+        //print(Cursor.lockState);
 
 
     }
