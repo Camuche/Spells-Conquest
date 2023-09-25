@@ -46,6 +46,8 @@ public class EnemyProjectiles : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
+        
+
         if (other.name == "Player")
         {
             other.GetComponent<PlayerController>().life -= dammage;
