@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 0.79999995, y: 0.009999999, z: 0.4}
   m_Children: []
   m_Father: {fileID: 484699292189609001}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &4975118441409456929
 MeshFilter:
@@ -94,67 +94,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!1 &3938742483950002101
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1415464157433182439}
-  - component: {fileID: 3489472006297785433}
-  - component: {fileID: 120852052043948174}
-  m_Layer: 0
-  m_Name: DamageZone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1415464157433182439
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3938742483950002101}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 484699292189609001}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3489472006297785433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3938742483950002101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ddd880bfdc20694380195e14c404feb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  continuous: 1
-  damage: 5
-  instaKill: 0
-  canDamageEnemies: 0
---- !u!135 &120852052043948174
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3938742483950002101}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4042794045697653259
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +111,7 @@ GameObject:
   - component: {fileID: 3931506438026593828}
   - component: {fileID: 5042605685589712362}
   - component: {fileID: 116146419551874056}
+  - component: {fileID: 2236390354784201246}
   m_Layer: 11
   m_Name: Enemi_Physical
   m_TagString: Enemy
@@ -190,7 +130,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1415464157433182439}
   - {fileID: 7940855143770183494}
   - {fileID: 642384388905702635}
   m_Father: {fileID: 0}
@@ -274,6 +213,10 @@ MonoBehaviour:
   ySpeed: 0
   grav: 15
   followDistance: 40
+  minDistance: 1.75
+  rotationSpeed: 10
+  attackDuration: 0.75
+  isAttacking: 0
 --- !u!143 &5387335219111035024
 CharacterController:
   m_ObjectHideFlags: 0
@@ -306,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 40
   DisplayLife: 1
-  IgnoreCol: {fileID: 120852052043948174}
+  IgnoreCol: {fileID: 0}
 --- !u!195 &5042605685589712362
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -345,6 +288,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2236390354784201246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4042794045697653259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4479bfd5a84110b4d9cf3244137579d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  attackZone: {fileID: 0}
+  attackDelay: 0.2
+  enemyRange: 3
+  damage: 10
 --- !u!1001 &2427657593493359843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -370,7 +330,7 @@ PrefabInstance:
     - target: {fileID: 5729511207861410725, guid: 1e9acd4c01b012f4f824506a833021c0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5729511207861410725, guid: 1e9acd4c01b012f4f824506a833021c0,
         type: 3}

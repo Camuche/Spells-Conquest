@@ -120,6 +120,7 @@ MonoBehaviour:
   ySpeed: 0
   grav: 15
   followDistance: 40
+  minDistance: 1
 --- !u!143 &5387335219111035024
 CharacterController:
   m_ObjectHideFlags: 0
