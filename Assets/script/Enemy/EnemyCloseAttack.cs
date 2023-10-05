@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class EnemyCloseAttack : MonoBehaviour
 {
-    public GameObject player;
+    GameObject player;
 
     bool isAttacking;
-    public GameObject attackZone;
+
+    // PREVISUALISATION TO REMOVE !!
+    public MeshRenderer attackZone;
+
     public float attackDelay;
     float timer =0;
 
     public float enemyRange ;
     public float damage;
-    //public bool attack = false;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +35,7 @@ public class EnemyCloseAttack : MonoBehaviour
 
         if(isAttacking == true)
         {
-            //attackZone.GetComponent<MeshRenderer>().enabled = true;
+            
 
             if (timer<attackDelay)
             {
@@ -46,13 +49,13 @@ public class EnemyCloseAttack : MonoBehaviour
             }
             else
             {
-                //CloseAttack();
+                
                 DoNotAttack();
             }
         }
         else
         {
-            //attackZone.GetComponent<MeshRenderer>().enabled = false;
+            
             DoNotAttack();
             timer = 0f;
 
@@ -68,20 +71,23 @@ public class EnemyCloseAttack : MonoBehaviour
 
         if(Vector3.Distance(transform.position,player.transform.position) < enemyRange)
         {
-            //Debug.Log("inrange");
+            
             player.GetComponent<PlayerController>().life -= damage;
+
+            // PREVISUALISATION TO REMOVE !!
+            attackZone.enabled = true;
         }
 
-        //attack = true;
-        //Debug.Log("Closeattack");
+        
         
 
     }
 
     void DoNotAttack()
     {
+        // PREVISUALISATION TO REMOVE !!
+        attackZone.enabled = false;
         
-        //attack = false;
     }
 
    
