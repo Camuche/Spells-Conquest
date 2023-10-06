@@ -33,6 +33,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Material shaderUI;
 
+    [HideInInspector]
+    public bool isDead;
+
 
 
 
@@ -60,6 +63,9 @@ public class PlayerController : MonoBehaviour
 
         DefaultCamDistance = CamDistance;
 
+       
+        isDead = false;
+
 
 
     }
@@ -67,8 +73,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
+
 
         if (!canMove)
             return;
@@ -431,7 +436,9 @@ public class PlayerController : MonoBehaviour
         {
             playerSpeed = 0;
             StartCoroutine(RestartLevel());
+            isDead = true;
         }
+        else isDead = false;
 
         shaderUI.SetFloat("_Life", life / 100);
     }

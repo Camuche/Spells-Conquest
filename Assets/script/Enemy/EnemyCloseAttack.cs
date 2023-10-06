@@ -16,7 +16,9 @@ public class EnemyCloseAttack : MonoBehaviour
 
     public float enemyRange ;
     public float damage;
-    
+
+    bool playerDead;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,13 +29,15 @@ public class EnemyCloseAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerDead = player.GetComponent<PlayerController>().isDead;
+
         Vector3 direction = (player.transform.position - transform.position).normalized;
         Vector3 endLine = transform.position + direction * 3;
         Debug.DrawLine(transform.position, endLine, Color.red);
 
         isAttacking = GetComponent<EnemyFollower>().isAttacking;
 
-        if(isAttacking == true)
+        if(isAttacking == true && playerDead == false)
         {
             
 

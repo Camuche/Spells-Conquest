@@ -28,7 +28,7 @@ public class EnemyFollower : MonoBehaviour
     [HideInInspector]
     public bool isAttacking = false;
 
-
+    
 
 
     // Start is called before the first frame update
@@ -51,9 +51,9 @@ public class EnemyFollower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
 
-
-        if (player != null)
+        if (player != null )
         {
             RaycastHit hit;
             bool isHit = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out hit, Mathf.Infinity, LayersToIgnore, QueryTriggerInteraction.Ignore);
@@ -86,7 +86,7 @@ public class EnemyFollower : MonoBehaviour
 
                 else
                 {
-                    if (Vector3.Distance(player.transform.position, transform.position) < followDistance && isHit && (hit.transform.gameObject == player))
+                    if (Vector3.Distance(player.transform.position, transform.position) < followDistance && isHit && (hit.transform.gameObject == player) )
                     {
                         //Debug.Log("Stop");
                         navMeshAgent.SetDestination(transform.position);

@@ -20,11 +20,24 @@ public class ShootLaser : MonoBehaviour
 
 
     GameObject shield;
+
+    public float chargingAnimationTime;
+    MeshRenderer selfMeshRenderer;
+
+    public Material matCharging;
+    public Material matNormal;
+
+    bool playerDead;
+    
+        
+
     // Start is called before the first frame update
     void Start()
     {
         shield = Instantiate(enemyShield);
         player = GameObject.Find("Player");
+        selfMeshRenderer = GetComponent<MeshRenderer>();
+        
     }
 
 
@@ -33,10 +46,11 @@ public class ShootLaser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerDead = player.GetComponent<PlayerController>().isDead;
 
         timer -= Time.deltaTime;
 
-        if (timer <= 0)
+        if (timer <= 0 )
         {
             active = !active;
 
@@ -45,7 +59,7 @@ public class ShootLaser : MonoBehaviour
                 Destroy(l);
             }
 
-            if (active)
+            if (active && playerDead == false)
             {
                 l = Instantiate(Laser);
                 SetLaser();
@@ -58,6 +72,21 @@ public class ShootLaser : MonoBehaviour
 
             timer = active ? activeTimer : cooldownTimer;
         }
+
+        // PREVISUALISATION CHARGE COLOR !!
+
+        if (timer >= 0 && timer <= chargingAnimationTime && !active &&selfMeshRenderer.material != matCharging && playerDead == false)
+        {
+            //Debug.Log("Charging");
+            selfMeshRenderer.material = matCharging;
+        }
+
+        else if (selfMeshRenderer.material != matNormal)
+        {
+            selfMeshRenderer.material = matNormal;
+        }
+
+
 
         if (active)
         {
