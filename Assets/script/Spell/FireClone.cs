@@ -5,6 +5,8 @@ using UnityEngine;
 public class FireClone : MonoBehaviour
 {
     [SerializeField] Material matLave;
+    public Material fireShieldMat;
+    
 
     public float speed;
     public float timer;
@@ -20,6 +22,8 @@ public class FireClone : MonoBehaviour
     public GameObject player;
 
     CharacterController controller;
+
+    public float breakingShieldFeedbackTime;
 
 
 
@@ -37,6 +41,10 @@ public class FireClone : MonoBehaviour
         controller.enabled = false;
         controller.transform.position = transform.position;
         controller.enabled = true;
+
+        
+        
+
     }
 
     // Update is called once per frame
@@ -48,12 +56,19 @@ public class FireClone : MonoBehaviour
 
         timer -= Time.deltaTime;
 
+        
+
         if (timer <= 0)
         {
             matLave.SetVector("_SpherePosition", new Vector4(0, 9999999999999, 0, 0));
             transform.position = new Vector3(100000, -100000, 100000);
             Destroy(gameObject,0.1f);
         }
+        else if (timer <= breakingShieldFeedbackTime)
+        {
+            fireShieldMat.SetFloat("_Opacity", 0.2f);
+        }
+        else fireShieldMat.SetFloat("_Opacity", 0.4f);
 
 
 

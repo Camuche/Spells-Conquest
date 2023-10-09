@@ -46,9 +46,24 @@ public class ShootLaser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         playerDead = player.GetComponent<PlayerController>().isDead;
 
-        timer -= Time.deltaTime;
+        if (isSeeingPlayer() && playerDead == false)
+        {
+            timer -= Time.deltaTime;
+        }
+        else
+        {
+            timer = cooldownTimer;
+            
+        }
+
+        if(playerDead == true)
+        {
+            active = false;
+            Destroy(l);
+        }
 
         if (timer <= 0 )
         {
