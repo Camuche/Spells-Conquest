@@ -81,9 +81,9 @@ Material:
     - _SubSpell1Disable: 0
     - _SubSpell1Intensity: 0
     - _SubSpell2Disable: 0
-    - _SubSpell2Intensity: 1
+    - _SubSpell2Intensity: 0
     - _SubSpell3Disable: 0
-    - _SubSpell3Intensity: 0
+    - _SubSpell3Intensity: 1
     - _SubSpell4Disable: 0
     - _SubSpell4Intensity: 0
     - _SubSpells_Scale: 5.5
@@ -96,10 +96,10 @@ Material:
     - _SpellSelection_Scale_Offset: {r: 1.65, g: 1, b: -7.75, a: -0.25}
     - _StaminaColor: {r: 1, g: 1, b: 0, a: 0}
     - _StaminaLostColor: {r: 0, g: 0, b: 0, a: 0}
-    - _SubSpell1_Position: {r: -0.0000016895295, g: -0.00000352471, b: 0, a: 0}
-    - _SubSpell2_Position: {r: 0.000014546778, g: 0.000037359852, b: 0, a: 0}
+    - _SubSpell1_Position: {r: -6e-45, g: -6e-45, b: 0, a: 0}
+    - _SubSpell2_Position: {r: 1e-44, g: 1e-44, b: 0, a: 0}
     - _SubSpell3_Position: {r: -6.255, g: 99, b: 0, a: 0}
-    - _SubSpell4_Position: {r: -8.000052, g: -0.0001883605, b: 0, a: 0}
-    - _SubSpell5_Position: {r: -7.9999113, g: 0.0005999487, b: 0, a: 0}
+    - _SubSpell4_Position: {r: -7.9999986, g: -1.3e-44, b: 0, a: 0}
+    - _SubSpell5_Position: {r: -8.000004, g: 1.4e-44, b: 0, a: 0}
     - _SubSpell6_Position: {r: -1.81, g: 99, b: 0, a: 0}
     - _Vector0: {r: -1.29, g: -1.02, b: 0, a: 0}
