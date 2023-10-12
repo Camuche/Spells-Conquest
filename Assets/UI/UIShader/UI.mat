@@ -55,7 +55,7 @@ Material:
     - _Cutoff: 0.5
     - _DebugMiddle: 0
     - _DebugMiddleOffset: 0
-    - _EnableSpell: 0
+    - _EnableSpell: 1
     - _EnableSubSpells: 1
     - _EnableUI: 1
     - _Enable_Spell: 1
@@ -87,6 +87,7 @@ Material:
     - _SubSpell4Disable: 0
     - _SubSpell4Intensity: 0
     - _SubSpells_Scale: 5.5
+    - _ToggleSwitch0: 0
     - __dirty: 0
     m_Colors:
     - _Life: {r: 0, g: 1, b: 0, a: 0}

@@ -126,7 +126,7 @@ public class UIupdate : MonoBehaviour
             LeftSpellImg.GetComponent<Image>().sprite = player.GetComponent<CastSpell>().Elements[player.GetComponent<CastSpell>().SpellL].spell_image;
             LeftSpellText.GetComponent<Text>().text = player.GetComponent<CastSpell>().Elements[player.GetComponent<CastSpell>().SpellL].spell_name;
 
-            Crosshair.SetActive((Input.GetAxis("Aim") > 0 || Input.GetMouseButton(1)) && player.GetComponent<CastSpell>().limit>-1);
+            Crosshair.SetActive(player.GetComponent<CastSpell>().limit>-1);
 
 
             if (!player.GetComponent<CastSpell>().CheckValidation())

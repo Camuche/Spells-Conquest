@@ -25,6 +25,13 @@ public class FireClone : MonoBehaviour
 
     public float breakingShieldFeedbackTime;
 
+    //float cloneDuration;
+    public float pressVsHoldTime;
+    private bool touchHold = true;
+    float holdTimer;
+
+    bool isMoving = false;
+
 
 
     // Start is called before the first frame update
@@ -52,9 +59,27 @@ public class FireClone : MonoBehaviour
     {
 
 
-        controller.Move(direction * speed *Time.deltaTime);
+        
 
         timer -= Time.deltaTime;
+        holdTimer += Time.deltaTime;
+
+        if (isMoving)
+        {
+            controller.Move(direction * speed * Time.deltaTime);
+        }
+
+        if(touchHold == true && holdTimer >= pressVsHoldTime)
+        {
+            isMoving = true;
+        }
+
+        if (Input.GetAxis("Fire") == 0 && !Input.GetMouseButton(0) && touchHold == true)
+        {
+            touchHold = false;
+        }
+
+        
 
         
 
@@ -64,7 +89,7 @@ public class FireClone : MonoBehaviour
             transform.position = new Vector3(100000, -100000, 100000);
             Destroy(gameObject,0.1f);
         }
-        else if (timer <= breakingShieldFeedbackTime)
+        else if (timer <= breakingShieldFeedbackTime)                                     //PREVISUALISATION
         {
             fireShieldMat.SetFloat("_Opacity", 0.2f);
         }

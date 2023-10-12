@@ -32,6 +32,13 @@ public class CastSpell : MonoBehaviour
     int selecting;
     public bool isPaused;
 
+    
+
+    public GameObject previsualisation_LeftArm;
+    public GameObject previsualisation_RightArm;
+
+    public Material matUI;
+
     //structure de donnée d'un element (avec le nom de l'element, son image d'ui, etc...)
     [System.Serializable]
     public struct Element
@@ -62,11 +69,13 @@ public class CastSpell : MonoBehaviour
     void Start()
     {
         viseur = Instantiate(AimPoint);
+        matUI.SetFloat("_SpellAvailable", 0);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(cooldownFireball);
         isPaused = GameObject.Find("GameController").GetComponent<gameController>().isPaused;
 
         if (limit > -1)
@@ -161,6 +170,28 @@ public class CastSpell : MonoBehaviour
 
         timerFireball += Time.deltaTime;
         timerIceball += Time.deltaTime;
+
+        // PREVISUALISATION FOREARM
+        if ((SpellL.ToString() + SpellR.ToString() == "01" || SpellL.ToString() + SpellR.ToString() == "10") && limit > -1)
+        {
+            if (timerFireball >= cooldownFireball)
+            {
+                feedbackSpellAvailable();
+            }
+            else
+            {
+                feedbackSpellNotAvailable();
+            }
+
+        }
+        else if ((SpellL.ToString() + SpellR.ToString() == "02" || SpellL.ToString() + SpellR.ToString() == "20") && limit > 0 && GameObject.Find("PrefabFireShield(Clone)") == null)
+        {
+            feedbackSpellAvailable();
+        }
+        else
+        {
+            feedbackSpellNotAvailable();
+        }
     }
 
 
@@ -362,8 +393,8 @@ public class CastSpell : MonoBehaviour
     }
 
 
-    [SerializeField] float cooldownFireball;
-    float timerFireball;
+    [HideInInspector]public float cooldownFireball;
+    [HideInInspector] public float timerFireball;
     [SerializeField] float cooldownIceball;
     float timerIceball;
     void Cast()
@@ -569,5 +600,18 @@ public class CastSpell : MonoBehaviour
         }
 
         return SpellL.ToString() + SpellR.ToString();
+    }
+
+    void feedbackSpellAvailable()
+    {
+        previsualisation_LeftArm.SetActive(true);
+        previsualisation_RightArm.SetActive(true);
+        matUI.SetFloat("_SpellAvailable", 1);
+    }
+    void feedbackSpellNotAvailable()
+    {
+        previsualisation_LeftArm.SetActive(false);
+        previsualisation_RightArm.SetActive(false);
+        matUI.SetFloat("_SpellAvailable", 0);
     }
 }

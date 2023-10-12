@@ -78,8 +78,8 @@ public class PlayerController : MonoBehaviour
         if (!canMove)
             return;
 
-        if (GetComponent<CastSpell>().limit>-1)
-            aiming();
+        /*if (GetComponent<CastSpell>().limit>-1)
+            aiming();*/
 
         if (life > 0 && GetComponent<CastSpell>().getSelecting()==0)
         {
@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
     float DefaultCamDistance;
     private bool isAiming;
 
-    void aiming()
+    /*void aiming()
     {
         if (Input.GetAxis("Aim") > 0 || Input.GetMouseButton(1))
         {
@@ -226,7 +226,7 @@ public class PlayerController : MonoBehaviour
 
             
         }
-    }
+    }*/
 
 
     float rotY=0;

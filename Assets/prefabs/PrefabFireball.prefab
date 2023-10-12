@@ -272,6 +272,7 @@ MonoBehaviour:
   speed: 20
   player: {fileID: 0}
   timer: 3
+  cooldown: 0.7
   aimingIgnore:
     serializedVersion: 2
     m_Bits: 16384

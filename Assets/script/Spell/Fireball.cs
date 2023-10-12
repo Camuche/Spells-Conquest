@@ -25,12 +25,22 @@ public class Fireball : MonoBehaviour
 
     float inispeed;
 
+    //float holdTimer;
+    //public float pressVsHoldTime;
+
+    public float cooldown;
+    //public float fastCooldown;
+    
+
     // Start is called before the first frame update
     void Start()
     {
         transform.position = player.transform.position + Vector3.up;
         previousTransform = transform.position;
         startpos = transform.position;
+        //holdTimer = 0f;
+        //cooldownFireball = player.GetComponent<CastSpell>().cooldownFireball;
+        
     }
 
     // Update is called once per frame
@@ -38,6 +48,8 @@ public class Fireball : MonoBehaviour
     [SerializeField] LayerMask aimingIgnore;
     void Update()
     {
+        //holdTimer += Time.deltaTime;
+        //Debug.Log(holdTimer);
         distance += speed / 2 * Time.deltaTime;
 
 
@@ -48,7 +60,7 @@ public class Fireball : MonoBehaviour
         if (following)
         {
             previousTransform = transform.position;
-
+            player.GetComponent<CastSpell>().timerFireball = 0f;
             //move forward
 
             //startpos = transform.position;
@@ -114,7 +126,18 @@ public class Fireball : MonoBehaviour
                 dir = (transform.position - previousTransform).normalized;
                 following = false;
 
+                player.GetComponent<CastSpell>().cooldownFireball = cooldown;
+                player.GetComponent<CastSpell>().timerFireball = 0f;
+
+                /*if (holdTimer <= pressVsHoldTime)
+                {
+                    player.GetComponent<CastSpell>().cooldownFireball = fastCooldown;
+                }
+                else player.GetComponent<CastSpell>().cooldownFireball = cooldown;*/
+
             }
+
+            
         }
 
 
