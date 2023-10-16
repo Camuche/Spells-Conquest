@@ -5014,7 +5014,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
   breakingShieldFeedbackTime: 1.5
-  pressVsHoldTime: 0.2
+  pressVsHoldTime: 0.5
 --- !u!143 &76482160417221039
 CharacterController:
   m_ObjectHideFlags: 0
