@@ -181,6 +181,10 @@ MonoBehaviour:
   ySpeed: 0
   grav: 15
   followDistance: 40
+  minDistance: 2
+  rotationSpeed: 5
+  attackDuration: 0
+  isAttacking: 0
 --- !u!143 &5387335219111035024
 CharacterController:
   m_ObjectHideFlags: 0
@@ -211,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b808c1647504114abe85e731baaa275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 40
+  life: 20
   DisplayLife: 1
   IgnoreCol: {fileID: 120852052043948174}
 --- !u!114 &2340217472438014316
