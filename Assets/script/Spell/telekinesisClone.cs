@@ -30,7 +30,7 @@ public class telekinesisClone : MonoBehaviour
     }
 
 
-    [SerializeField] private bool attracktProjectiles;
+    [SerializeField] private bool attractProjectiles;
     private void attract(float force)
     {
 
@@ -38,7 +38,7 @@ public class telekinesisClone : MonoBehaviour
         GameObject[] gos = FindObjectsOfType(typeof(GameObject)) as GameObject[]; //will return an array of all GameObjects in the scene
         foreach (GameObject go in gos)
         {
-            if (go.layer == LayerMask.NameToLayer("enemi") || (go.layer == LayerMask.NameToLayer("enemiBullet" ) && attracktProjectiles))
+            if (go.layer == LayerMask.NameToLayer("enemi") || (go.layer == LayerMask.NameToLayer("enemiBullet" ) && attractProjectiles))
             {
                 Vector3 dir = (transform.position - go.transform.position).normalized;
 
@@ -50,6 +50,11 @@ public class telekinesisClone : MonoBehaviour
                 if (go.name.Contains("Shooting"))
                 {
                     movement *= 15f;
+                }
+
+                if (go.name.Contains("Turret"))
+                {
+                    movement /= 3f;
                 }
 
                 if (exists != null && go.GetComponent<CharacterController>().enabled && go.GetComponent<IgnoreTeleClone>()==null)
