@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class gameController : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class gameController : MonoBehaviour
     List<string> spellsToDestroy = new List<string>();
     [HideInInspector] public List<string> spellsToDestroyNext = new List<string>();
 
-
+    [SerializeField] private InputActionReference escape;
 
 
 
@@ -60,6 +61,28 @@ public class gameController : MonoBehaviour
 
     }
 
+    void OnEnable()
+    {
+        escape.action.performed += PerformEscape;
+    }
+
+    void OnDisable()
+    {
+        escape.action.performed -= PerformEscape;
+    }
+
+    private void PerformEscape(InputAction.CallbackContext obj)
+    {
+        if (isPaused)
+        {
+            Play();
+        }
+        else
+        {
+            Pause();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -80,7 +103,7 @@ public class gameController : MonoBehaviour
         }
         
 
-        if (Input.GetButtonDown("Escape"))
+        /*if (escape.action.IsPressed)
         {
             if (isPaused)
             {
@@ -90,7 +113,7 @@ public class gameController : MonoBehaviour
             {
                 Pause();
             }
-        }
+        }*/
 
         //print(GameObject.Find("Sensitivity"));
     }

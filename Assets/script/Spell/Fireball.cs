@@ -25,21 +25,34 @@ public class Fireball : MonoBehaviour
 
     float inispeed;
 
+    private Animator animator;
+
     //float holdTimer;
     //public float pressVsHoldTime;
 
     public float cooldown;
+    [HideInInspector] public bool doNotFollow;
     //public float fastCooldown;
+    CastSpell castSpellScript;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = player.GetComponent<CastSpell>().animator;
+
+        /*if (player == null) 
+        {
+            Debug.LogError(this + " has no player!!!");
+        }*/
+
         transform.position = player.transform.position + Vector3.up;
         previousTransform = transform.position;
         startpos = transform.position;
         //holdTimer = 0f;
         //cooldownFireball = player.GetComponent<CastSpell>().cooldownFireball;
+        castSpellScript = player.GetComponent<CastSpell>();
+        //doNotFollow = castSpellScript.doNotFollow;
         
     }
 
@@ -48,6 +61,7 @@ public class Fireball : MonoBehaviour
     [SerializeField] LayerMask aimingIgnore;
     void Update()
     {
+        doNotFollow = castSpellScript.doNotFollow;
         //holdTimer += Time.deltaTime;
         //Debug.Log(holdTimer);
         distance += speed / 2 * Time.deltaTime;
@@ -98,10 +112,10 @@ public class Fireball : MonoBehaviour
         else
         {
 
-            if (player.GetComponent<PlayerController>().speedscale == 0.2f)
+            /*if (player.GetComponent<PlayerController>().speedscale == 0.2f)
             {
                 player.GetComponent<PlayerController>().speedscale = 1;
-            }
+            }*/
 
 
             //movement
@@ -114,11 +128,28 @@ public class Fireball : MonoBehaviour
         if (timer <= 0)
         {
             transform.position = new Vector3(666, -666, 666);
+            //animator.SetBool("HoldSpell", false);
             Destroy(gameObject, 0.1f);
         }
 
 
-        if (Input.GetAxis("Fire") == 0 && !Input.GetMouseButton(0))
+        /*if (following)
+            {
+
+                dir = (transform.position - previousTransform).normalized;
+                following = false;
+
+                player.GetComponent<CastSpell>().cooldownFireball = cooldown;
+                player.GetComponent<CastSpell>().timerFireball = 0f;
+
+                if (holdTimer <= pressVsHoldTime)
+                {
+                    player.GetComponent<CastSpell>().cooldownFireball = fastCooldown;
+                }
+                else player.GetComponent<CastSpell>().cooldownFireball = cooldown;
+
+            }*/
+        if (doNotFollow)
         {
             if (following)
             {
@@ -129,11 +160,11 @@ public class Fireball : MonoBehaviour
                 player.GetComponent<CastSpell>().cooldownFireball = cooldown;
                 player.GetComponent<CastSpell>().timerFireball = 0f;
 
-                /*if (holdTimer <= pressVsHoldTime)
+                //if (holdTimer <= pressVsHoldTime)
                 {
-                    player.GetComponent<CastSpell>().cooldownFireball = fastCooldown;
+                   // player.GetComponent<CastSpell>().cooldownFireball = fastCooldown;
                 }
-                else player.GetComponent<CastSpell>().cooldownFireball = cooldown;*/
+                //else player.GetComponent<CastSpell>().cooldownFireball = cooldown;
 
             }
 
@@ -162,6 +193,7 @@ public class Fireball : MonoBehaviour
     {
         if (player !=null && player.GetComponent<PlayerController>().speedscale == 0.2f)
         {
+            
             player.GetComponent<PlayerController>().speedscale = 1;
         }
     }

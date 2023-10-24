@@ -55,6 +55,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -79,6 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3870732601873632230
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +144,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -166,6 +169,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!136 &3870732601873632228
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -192,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4751d2aec445224cb635f7f64867148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 400
+  mouseSensitivity: 100
   playerSpeed: 10
   grav: 20
   jumpForce: 0
@@ -202,6 +206,10 @@ MonoBehaviour:
   animator: {fileID: 4721740849922928826}
   shaderUI: {fileID: 2100000, guid: 11640e417c416e044a4de109bd9bf2e7, type: 2}
   isDead: 0
+  cameraRotation: {fileID: -3354769714030775914, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+    type: 3}
+  movement: {fileID: -1215956749607882695, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+    type: 3}
   dashCoolDown: 0
   AimDistance: 1
   CamDistance: 1.5
@@ -262,6 +270,14 @@ MonoBehaviour:
   previsualisation_LeftArm: {fileID: 6150111399132889184}
   previsualisation_RightArm: {fileID: 3504513463751858510}
   matUI: {fileID: 2100000, guid: 11640e417c416e044a4de109bd9bf2e7, type: 2}
+  spell: {fileID: -4415006183407332061, guid: ce515ecc6fe77704ba2b9e7fe0281622, type: 3}
+  spellAlt: {fileID: -7734849661365291782, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+    type: 3}
+  leftSelection: {fileID: 1547977303816006111, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+    type: 3}
+  rightSelection: {fileID: 4248323056758688828, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+    type: 3}
+  doNotFollow: 0
   Elements:
   - spell_name: Fire
     spell_image: {fileID: 21300000, guid: 8b64123dc25195d4db22894407fdb0f0, type: 3}
@@ -459,6 +475,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -483,6 +500,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6580663571075640290
 GameObject:
   m_ObjectHideFlags: 0

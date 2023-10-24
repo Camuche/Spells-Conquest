@@ -69,3 +69,6 @@ MonoBehaviour:
   checkpointed: 0
   spellLimit: 0
   spellsToDestroyNext: []
+  escape: {fileID: -7336232822411727568, guid: ce515ecc6fe77704ba2b9e7fe0281622, type: 3}
+  newSensitivity: 0
+  isPaused: 0

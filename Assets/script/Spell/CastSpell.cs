@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 
 public class CastSpell : MonoBehaviour
@@ -17,6 +18,7 @@ public class CastSpell : MonoBehaviour
     public GameObject fireClone;
     public GameObject teleClone;
     public GameObject AimPoint;
+    
 
     [SerializeField] GameObject wave;
     [SerializeField] GameObject iceBall;
@@ -25,8 +27,10 @@ public class CastSpell : MonoBehaviour
 
     GameObject viseur;
 
-    [SerializeField] Animator animator;
+    public Animator animator;
 
+    
+    
 
 
     int selecting;
@@ -38,6 +42,12 @@ public class CastSpell : MonoBehaviour
     public GameObject previsualisation_RightArm;
 
     public Material matUI;
+
+    
+
+    [SerializeField] private InputActionReference spell, spellAlt, leftSelection, rightSelection;
+    
+    [HideInInspector] public bool doNotFollow;
 
     //structure de donnée d'un element (avec le nom de l'element, son image d'ui, etc...)
     [System.Serializable]
@@ -70,75 +80,64 @@ public class CastSpell : MonoBehaviour
     {
         viseur = Instantiate(AimPoint);
         matUI.SetFloat("_SpellAvailable", 0);
+        
     }
+
+
+    void OnEnable()
+    {
+        spell.action.performed += PerformSpell;
+        spellAlt.action.performed += PerformSpellAlt;
+    }
+
+    void OnDisable()
+    {
+        spell.action.performed -= PerformSpell;
+        spellAlt.action.performed -= PerformSpellAlt;
+    }
+
+    private void PerformSpell(InputAction.CallbackContext obj)
+    {
+        if (limit>-1)
+            {
+                //animator.SetBool("HoldSpell", false);
+                doNotFollow = true; //for fireball
+                Cast();
+                
+                
+            }
+    }
+
+    private void PerformSpellAlt(InputAction.CallbackContext obj)
+    {
+        if (limit>-1)
+            {
+                //animator.SetBool("HoldSpell", true);
+                doNotFollow = false; // for fireball
+                Cast();
+                
+            }
+
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(cooldownFireball);
+        //Debug.Log(leftSelection.action.ReadValue<float>());
         isPaused = GameObject.Find("GameController").GetComponent<gameController>().isPaused;
 
         if (limit > -1)
         {
             SetSelecting();
         }
-        /*
-        //change spell left
-        if (Input.GetButtonDown("ChangeSpellL") && limit>-1)
-        {
-            SpellL++;
+        
 
-            while (!CheckValidation())
-            {
-                SpellL++;
-                if (SpellL > Elements.Length - 1)
-                {
-                    SpellL = 0;
-                }
-            }
-            print(SpellL);
-        }
-
-
-        //change spell right
-        if (Input.GetButtonDown("ChangeSpellR") && limit > -1)
-        {
-
-            SpellR++;
-
-            while (!CheckValidation())
-            {
-                
-                SpellR++;
-                if (SpellR > Elements.Length - 1)
-                {
-                    SpellR = 0;
-                }
-            }
-            print(SpellR);
-        }
-        */
-
-        //aim input
-        if (Input.GetAxis("Aim")> 0 || Input.GetMouseButtonDown(1))
-        {
-            if (aimed == false)
-            {
-                aimed = true;
-            }
-            
-        }
-        else
-        {
-            if (aimed)
-            {
-                aimed = false;
-            }
-        }
+        
 
 
         //fire input
-        if (Input.GetAxis("Fire")>0 || Input.GetMouseButtonDown(0))
+        /*if (Input.GetAxis("Fire")>0 || Input.GetMouseButtonDown(0))
         {
 
             if (fired == false && limit>-1)
@@ -155,7 +154,7 @@ public class CastSpell : MonoBehaviour
             {
                 fired = false;
             }
-        }
+        }*/
 
         //aiming in case it is tele-clone
         if ((SpellL.ToString() + SpellR.ToString() == "12" || SpellL.ToString() + SpellR.ToString() == "21" || SpellL.ToString() + SpellR.ToString() == "32" || SpellL.ToString() + SpellR.ToString() == "23") && CheckValidation())
@@ -258,12 +257,12 @@ public class CastSpell : MonoBehaviour
 
         //print(selectStartPoint + " " + selectPoint + " " + angle);
 
-        if (selecting == 0 && (Input.GetButtonDown("ChangeSpellL") || Input.GetButtonDown("ChangeSpellR")))
+        if (selecting == 0 && (leftSelection.action.ReadValue<float>() ==1 || rightSelection.action.ReadValue<float>() ==1)) // Input.GetButtonDown("ChangeSpellL") || Input.GetButtonDown("ChangeSpellR")))
         {
-            selecting = Input.GetButtonDown("ChangeSpellL") ? -1 : 1;
+            selecting =  leftSelection.action.ReadValue<float>() ==1 ? -1 : 1;   //Input.GetButtonDown("ChangeSpellL") ? -1 : 1;
         }
 
-        if (selecting == -1 && Input.GetButtonUp("ChangeSpellL"))
+        if (selecting == -1 && leftSelection.action.ReadValue<float>() !=1)// Input.GetButtonUp("ChangeSpellL"))
         {
             selecting = 0;
 
@@ -271,7 +270,7 @@ public class CastSpell : MonoBehaviour
                 SelectNewSpell(angle, -1);
         }
 
-        if (selecting == 1 && Input.GetButtonUp("ChangeSpellR"))
+        if (selecting == 1 && rightSelection.action.ReadValue<float>() !=1)//Input.GetButtonUp("ChangeSpellR"))
         {
             selecting = 0;
             if (selectStartPoint.y < Input.mousePosition.y)
@@ -397,6 +396,7 @@ public class CastSpell : MonoBehaviour
     [HideInInspector] public float timerFireball;
     [SerializeField] float cooldownIceball;
     float timerIceball;
+    
     void Cast()
     {
         animator.SetTrigger("Throw");
@@ -404,12 +404,13 @@ public class CastSpell : MonoBehaviour
         if ((SpellL.ToString()+SpellR.ToString()=="01" || SpellL.ToString() + SpellR.ToString() == "10") && limit>-1)
         {
             if (timerFireball >= cooldownFireball)
-            {
-            
+            {   
+                
 
                 GameObject f = Instantiate(fireBall);
                 f.GetComponent<Fireball>().player = transform.gameObject;
                 timerFireball = 0f;
+                
 
                 
             }
@@ -492,11 +493,9 @@ public class CastSpell : MonoBehaviour
             }
         }
 
-
-        
-
-
     }
+
+    
 
     void CamRaycast()
     {

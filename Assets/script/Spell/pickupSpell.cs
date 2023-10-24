@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class pickupSpell : MonoBehaviour
 {
@@ -9,22 +10,38 @@ public class pickupSpell : MonoBehaviour
     GameObject player;
     GameObject gameController;
 
+    [SerializeField] private InputActionReference interact;
+
     // Start is called before the first frame update
     void Start()
     {
         gameController = GameObject.Find("GameController");
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+    void OnEnable()
     {
-        if (canPickUp && Input.GetButtonDown("Interact"))
+        interact.action.performed += PerformInteract;
+    }
+
+    void OnDisable()
+    {
+        interact.action.performed -= PerformInteract;
+    }
+
+    private void PerformInteract(InputAction.CallbackContext obj)
+    {
+        if (canPickUp)
         {
             player.GetComponent<CastSpell>().limit++;
             gameController.GetComponent<gameController>().spellsToDestroyNext.Add(transform.position.x.ToString() + transform.position.z.ToString());
             Destroy(gameObject);
         }
     }
+
+    
+    
 
     void OnTriggerEnter(Collider other)
     {

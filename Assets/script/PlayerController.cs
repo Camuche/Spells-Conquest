@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool isDead;
 
-
+    [SerializeField] private InputActionReference cameraRotation, movement;
 
 
     // Start is called before the first frame update
@@ -73,7 +74,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
 
         if (!canMove)
             return;
@@ -101,17 +102,17 @@ public class PlayerController : MonoBehaviour
     void AnimationControl()
     {
         animator.SetBool("IsMoving", movedir != Vector3.zero);
-        animator.SetFloat("VelocityZ", Input.GetAxis("Vertical"));
-        animator.SetFloat("VelocityX", Input.GetAxis("Horizontal"));
+        animator.SetFloat("VelocityZ", movement.action.ReadValue<Vector2>().y);
+        animator.SetFloat("VelocityX", movement.action.ReadValue<Vector2>().x);
 
-        if (Input.GetAxis("Fire") > 0 || Input.GetMouseButton(0))
+        /*if (Input.GetAxis("Fire") > 0 || Input.GetMouseButton(0))
         {
             animator.SetBool("HoldSpell", true);
         }
         else
         {
             animator.SetBool("HoldSpell", false);
-        }
+        }*/
 
         animator.SetBool("Dead", life <= 0);
 
@@ -135,7 +136,7 @@ public class PlayerController : MonoBehaviour
             dashCoolDown = 0;
 
         //dodge input
-        if (Input.GetButtonDown("Dodge"))
+        /*if (Input.GetButtonDown("Dodge"))
         {
             if (dodgespeed == 0 && dashCoolDown<=0 && grounded==true && life>0) {
                 animator.SetTrigger("Dash");
@@ -152,25 +153,25 @@ public class PlayerController : MonoBehaviour
         else
         {
             dodgespeed = 0;
-        }
+        }*/
 
 
         //set speed
 
-        if (Input.GetAxis("Vertical")==0 || Input.GetAxis("Horizontal") == 0)
+        /*if (Input.GetAxis("Vertical")==0 || Input.GetAxis("Horizontal") == 0)
         {
             speed = playerSpeed * speedscale;
         }
         else
         {
             speed = playerSpeed * Mathf.Cos(45 * Mathf.PI / 180) * speedscale;
-        }
+        }*/
 
 
         movedir = Vector3.zero;
 
-        movedir += transform.right * Input.GetAxisRaw("Vertical") * (speed + dodgespeed) * Time.deltaTime;
-        movedir += transform.forward * -Input.GetAxisRaw("Horizontal") * (speed + dodgespeed) * Time.deltaTime;
+        movedir += transform.right * movement.action.ReadValue<Vector2>().y * (speed + dodgespeed) * Time.deltaTime;
+        movedir += transform.forward * -movement.action.ReadValue<Vector2>().x * (speed + dodgespeed) * Time.deltaTime;
 
         Controller.Move(movedir);
 
@@ -247,7 +248,7 @@ public class PlayerController : MonoBehaviour
 
         //change angle
 
-        rotY += Input.GetAxis("Mouse Y") * mouseSensitivity*Time.deltaTime;
+        rotY += cameraRotation.action.ReadValue<Vector2>().y * mouseSensitivity*Time.deltaTime;
 
         rotY = Mathf.Clamp(rotY, -30f, 45f);
 
@@ -291,11 +292,7 @@ public class PlayerController : MonoBehaviour
 
     void rotatePlayer()
     {
-        transform.eulerAngles += new Vector3(
-            0,
-            Input.GetAxis("Mouse X"),
-            0
-        ) * Time.deltaTime * mouseSensitivity;
+        transform.eulerAngles += new Vector3(0,cameraRotation.action.ReadValue<Vector2>().x) * Time.deltaTime * mouseSensitivity;
     }
 
 
