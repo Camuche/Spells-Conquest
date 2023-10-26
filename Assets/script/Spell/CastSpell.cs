@@ -49,6 +49,7 @@ public class CastSpell : MonoBehaviour
     [SerializeField] private InputActionReference spell, spellAlt, leftSelection, rightSelection, movement, cameraRotation;
     
     [HideInInspector] public bool doNotFollow;
+    [HideInInspector] public bool isMoving;
 
     //structure de donnée d'un element (avec le nom de l'element, son image d'ui, etc...)
     [System.Serializable]
@@ -103,6 +104,7 @@ public class CastSpell : MonoBehaviour
             {
                 
                 doNotFollow = true; // fireball won't follow 
+                isMoving = true; //Shield will move
                 Cast();
                 
                 
@@ -115,6 +117,7 @@ public class CastSpell : MonoBehaviour
             {
                 
                 doNotFollow = false; //  fireball will follow
+                isMoving = false; //shield will stay still
                 Cast();
                 
             }
@@ -396,7 +399,7 @@ public class CastSpell : MonoBehaviour
 
     void SetNewSpell(int hand, int spell)
     {
-        print(spell);
+        //print(spell);
         int iniL = SpellL;
         int iniR = SpellR;
 

@@ -27,10 +27,11 @@ public class FireClone : MonoBehaviour
 
     //float cloneDuration;
     public float pressVsHoldTime;
-    private bool touchHold = true;
+    //private bool touchHold = true;
     float holdTimer;
 
     bool isMoving = false;
+    CastSpell castSpell;
 
 
 
@@ -49,7 +50,8 @@ public class FireClone : MonoBehaviour
         controller.transform.position = transform.position;
         controller.enabled = true;
 
-        
+        castSpell = player.GetComponent<CastSpell>();
+        isMoving = castSpell.isMoving; 
         
 
     }
@@ -58,18 +60,18 @@ public class FireClone : MonoBehaviour
     void Update()
     {
 
-
+        
         
 
         timer -= Time.deltaTime;
-        holdTimer += Time.deltaTime;
+        //holdTimer += Time.deltaTime;
 
         if (isMoving)
         {
             controller.Move(direction * speed * Time.deltaTime);
         }
-
-        if(touchHold == true && holdTimer >= pressVsHoldTime)
+        
+        /*if(touchHold == true && holdTimer >= pressVsHoldTime)
         {
             isMoving = true;
         }
@@ -77,7 +79,7 @@ public class FireClone : MonoBehaviour
         if (Input.GetAxis("Fire") == 0 && !Input.GetMouseButton(0) && touchHold == true)
         {
             touchHold = false;
-        }
+        }*/
 
         
 
