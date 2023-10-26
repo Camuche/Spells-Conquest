@@ -100,8 +100,8 @@ public class CastSpell : MonoBehaviour
     {
         if (limit>-1)
             {
-                //animator.SetBool("HoldSpell", false);
-                doNotFollow = true; //for fireball
+                
+                doNotFollow = true; // fireball won't follow 
                 Cast();
                 
                 
@@ -112,8 +112,8 @@ public class CastSpell : MonoBehaviour
     {
         if (limit>-1)
             {
-                //animator.SetBool("HoldSpell", true);
-                doNotFollow = false; // for fireball
+                
+                doNotFollow = false; //  fireball will follow
                 Cast();
                 
             }

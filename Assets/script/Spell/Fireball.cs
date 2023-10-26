@@ -52,7 +52,7 @@ public class Fireball : MonoBehaviour
         //holdTimer = 0f;
         //cooldownFireball = player.GetComponent<CastSpell>().cooldownFireball;
         castSpellScript = player.GetComponent<CastSpell>();
-        //doNotFollow = castSpellScript.doNotFollow;
+        doNotFollow = castSpellScript.doNotFollow;
         
     }
 
@@ -61,7 +61,7 @@ public class Fireball : MonoBehaviour
     [SerializeField] LayerMask aimingIgnore;
     void Update()
     {
-        doNotFollow = castSpellScript.doNotFollow;
+        //doNotFollow = castSpellScript.doNotFollow;
         //holdTimer += Time.deltaTime;
         //Debug.Log(holdTimer);
         distance += speed / 2 * Time.deltaTime;
@@ -70,6 +70,7 @@ public class Fireball : MonoBehaviour
         timer -= Time.deltaTime;
 
         Vector3 oldPos = transform.position;
+        
 
         if (following)
         {
@@ -106,7 +107,7 @@ public class Fireball : MonoBehaviour
             //movement
             transform.position = Vector3.MoveTowards(transform.position, destination, movespeed * Time.deltaTime);
 
-            player.GetComponent<PlayerController>().speedscale = 0.2f;
+            //player.GetComponent<PlayerController>().speedscale = 0.2f;
 
         }
         else
@@ -171,6 +172,13 @@ public class Fireball : MonoBehaviour
             
         }
 
+        if(!doNotFollow)
+        {
+            player.GetComponent<PlayerController>().speedscale = 0.2f;
+            animator.SetBool("HoldSpell", true);
+            //Debug.Log(player.GetComponent<PlayerController>().speedscale);
+        }
+
 
     }
 
@@ -191,10 +199,11 @@ public class Fireball : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (player !=null && player.GetComponent<PlayerController>().speedscale == 0.2f)
+        if (player !=null && player.GetComponent<PlayerController>().speedscale == 0.2f && !doNotFollow)
         {
             
             player.GetComponent<PlayerController>().speedscale = 1;
+            animator.SetBool("HoldSpell", false);
         }
     }
 

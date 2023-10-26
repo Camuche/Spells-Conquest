@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(movement.action.ReadValue<Vector2>());
 
         if (!canMove)
             return;
@@ -170,8 +170,8 @@ public class PlayerController : MonoBehaviour
 
         movedir = Vector3.zero;
 
-        movedir += transform.right * movement.action.ReadValue<Vector2>().y * (speed + dodgespeed) * Time.deltaTime;
-        movedir += transform.forward * -movement.action.ReadValue<Vector2>().x * (speed + dodgespeed) * Time.deltaTime;
+        movedir += transform.right * movement.action.ReadValue<Vector2>().y * (speed + dodgespeed) * Time.deltaTime *speedscale;
+        movedir += transform.forward * -movement.action.ReadValue<Vector2>().x * (speed + dodgespeed) * Time.deltaTime *speedscale;
 
         Controller.Move(movedir);
 
