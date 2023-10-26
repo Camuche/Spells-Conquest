@@ -277,6 +277,10 @@ MonoBehaviour:
     type: 3}
   rightSelection: {fileID: 4248323056758688828, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
+  movement: {fileID: -1215956749607882695, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+    type: 3}
+  cameraRotation: {fileID: -3354769714030775914, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+    type: 3}
   doNotFollow: 0
   Elements:
   - spell_name: Fire

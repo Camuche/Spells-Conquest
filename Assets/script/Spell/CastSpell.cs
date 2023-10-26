@@ -30,7 +30,8 @@ public class CastSpell : MonoBehaviour
     public Animator animator;
 
     
-    
+    bool leftSpellSelected;
+    bool rightSpellSelected;
 
 
     int selecting;
@@ -45,7 +46,7 @@ public class CastSpell : MonoBehaviour
 
     
 
-    [SerializeField] private InputActionReference spell, spellAlt, leftSelection, rightSelection;
+    [SerializeField] private InputActionReference spell, spellAlt, leftSelection, rightSelection, movement, cameraRotation;
     
     [HideInInspector] public bool doNotFollow;
 
@@ -229,9 +230,39 @@ public class CastSpell : MonoBehaviour
             }
         }
 
+        
+        if(hand ==-1 && movement.action.ReadValue<Vector2>().x >0 && movement.action.ReadValue<Vector2>().y >0)
+        {
+            /*if (selectPoint == Vector3.zero)
+            {
+                angle = -1;
+            }
+            else
+            {
+                angle = Vector3.SignedAngle(Vector3.right, (selectPoint - (selectStartPoint + selectStartPoint * hand)), Vector3.right);
+            }*/
+            leftSpellSelected = true;
+
+        }
+        else leftSpellSelected = false;
+
+        if(hand ==1 && cameraRotation.action.ReadValue<Vector2>().x <0 && cameraRotation.action.ReadValue<Vector2>().y >0)
+        {
+            /*if (selectPoint == Vector3.zero)
+            {
+                angle = -1;
+            }
+            else
+            {
+                angle = Vector3.SignedAngle(Vector3.right, (selectPoint - (selectStartPoint + selectStartPoint * hand)), Vector3.right);
+            }*/
+            rightSpellSelected = true;
+            Debug.Log(rightSpellSelected);
+        }
+        else rightSpellSelected = false;
 
 
-        if (Input.GetJoystickNames().Length>0 && Input.GetJoystickNames()[0]!="")
+        /*if (Input.GetJoystickNames().Length>0 && Input.GetJoystickNames()[0]!="")
         {
             if (selectPoint == Vector3.zero)
             {
@@ -247,7 +278,7 @@ public class CastSpell : MonoBehaviour
         {
             //calcul angle souris (wtf unity)
             angle = Vector3.SignedAngle(Vector3.right, new Vector3(Input.mousePosition.x-(hand==1? Screen.width : 0),Input.mousePosition.y,0), Vector3.right);
-        }
+        }*/
 
 
 
@@ -313,11 +344,11 @@ public class CastSpell : MonoBehaviour
     {
 
         GameObject UI = GameObject.Find("UI(Clone)");
-
+        //Debug.Log(angle);
 
         if (hand == -1)
         {
-            if (angle >= 0 && angle < 45)
+            /*if (angle >= 0 && angle < 45)
             {
                 switch (UI.transform.Find("SubSpell02").GetComponent<Image>().sprite.name) {
                     case "Spell_Fire" : SetNewSpell(0,0);break;
@@ -325,9 +356,9 @@ public class CastSpell : MonoBehaviour
                     case "Spell_Clone": SetNewSpell(0, 2); break;
                     case "Spell_Ice": SetNewSpell(0, 3); break;
                 }
-            }
-            if (angle >= 45 && angle <= 90)
-            {
+            }*/
+            //if (leftSpellSelected == true)//angle >= 0 && angle <= 90)
+            //{
                 switch (UI.transform.Find("SubSpell01").GetComponent<Image>().sprite.name)
                 {
                     case "Spell_Fire": SetNewSpell(0, 0); break;
@@ -335,12 +366,12 @@ public class CastSpell : MonoBehaviour
                     case "Spell_Clone": SetNewSpell(0, 2); break;
                     case "Spell_Ice": SetNewSpell(0, 3); break;
                 }
-            }
+            //}
         }
 
         if (hand == 1)
         {
-            if (angle >= 90 && angle < 135)
+            /*if (angle >= 90 && angle < 135)
             {
                 switch (UI.transform.Find("SubSpell03").GetComponent<Image>().sprite.name)
                 {
@@ -349,17 +380,17 @@ public class CastSpell : MonoBehaviour
                     case "Spell_Clone": SetNewSpell(1, 2); break;
                     case "Spell_Ice": SetNewSpell(1, 3); break;
                 }
-            }
-            if (angle >= 135 && angle <= 180)
-            {
-                switch (UI.transform.Find("SubSpell04").GetComponent<Image>().sprite.name)
+            }*/
+            //if (rightSpellSelected == true)//angle >= 135 && angle <= 180)
+            //{
+                switch (UI.transform.Find("SubSpell03").GetComponent<Image>().sprite.name)
                 {
                     case "Spell_Fire": SetNewSpell(1, 0); break;
                     case "Spell_Telekinesie": SetNewSpell(1, 1); break;
                     case "Spell_Clone": SetNewSpell(1, 2); break;
                     case "Spell_Ice": SetNewSpell(1, 3); break;
                 }
-            }
+            //}
         }
     }
 
