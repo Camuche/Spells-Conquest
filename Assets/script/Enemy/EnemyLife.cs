@@ -13,6 +13,8 @@ public class EnemyLife : MonoBehaviour
 
     public Collider IgnoreCol;
 
+    [SerializeField] private GameObject money; 
+
 
 
     // Start is called before the first frame update
@@ -71,6 +73,7 @@ public class EnemyLife : MonoBehaviour
 
         if (life <= 0)
         {
+            Instantiate(money, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
