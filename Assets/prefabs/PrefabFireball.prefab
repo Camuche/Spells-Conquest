@@ -90,6 +90,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!1 &4538056753470175090
@@ -139,6 +140,7 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -273,6 +275,9 @@ MonoBehaviour:
   player: {fileID: 0}
   timer: 3
   cooldown: 0.7
+  doNotFollow: 0
+  money: {fileID: 8151259076252225134, guid: 7ed868fa4092dba41b5b11d7eb78d99b, type: 3}
+  potMoneyNumber: 2
   aimingIgnore:
     serializedVersion: 2
     m_Bits: 16384

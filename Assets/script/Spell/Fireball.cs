@@ -192,9 +192,9 @@ public class Fireball : MonoBehaviour
             transform.position = new Vector3(666, -666, 666);
             Destroy(gameObject, 0.1f);
 
-        }
+        }  
 
-
+   
     }
 
     private void OnDestroy()

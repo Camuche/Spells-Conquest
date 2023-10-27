@@ -14,6 +14,7 @@ public class EnemyLife : MonoBehaviour
     public Collider IgnoreCol;
 
     [SerializeField] private GameObject money; 
+    [SerializeField] private int dropMoneyNumber;
 
 
 
@@ -73,7 +74,11 @@ public class EnemyLife : MonoBehaviour
 
         if (life <= 0)
         {
-            Instantiate(money, transform.position, transform.rotation);
+            for (int i=0; i<dropMoneyNumber; i++)
+            {
+                //Debug.Log("1 Piece");
+                Instantiate(money, transform.position +new Vector3(Random.Range(-1f,1f),0,Random.Range(-1f,1f)), transform.rotation * Quaternion.Euler(0,Random.Range(-180f,180f),0));
+            }
             Destroy(gameObject);
         }
     }

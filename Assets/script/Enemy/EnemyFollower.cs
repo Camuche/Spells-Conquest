@@ -23,7 +23,10 @@ public class EnemyFollower : MonoBehaviour
 
     
     public float attackDuration;
+    bool isStun = false;
+    public float stunDuration;
     float timer = 0;
+    float stunTimer = 0f;
 
     [HideInInspector]
     public bool isAttacking = false;
@@ -51,9 +54,20 @@ public class EnemyFollower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(isStun)
+        {
+            navMeshAgent.SetDestination(transform.position);
+            stunTimer += Time.deltaTime;
 
-        if (player != null )
+            if(stunTimer >= stunDuration)
+            {
+                stunTimer = 0f;
+                isStun = false;
+            }
+
+        }
+
+        if (player != null && !isStun)
         {
             RaycastHit hit;
             bool isHit = Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out hit, Mathf.Infinity, LayersToIgnore, QueryTriggerInteraction.Ignore);
@@ -86,7 +100,7 @@ public class EnemyFollower : MonoBehaviour
 
                 else
                 {
-                    if (Vector3.Distance(player.transform.position, transform.position) < followDistance && isHit && (hit.transform.gameObject == player) )
+                    if (Vector3.Distance(player.transform.position, transform.position) < followDistance && isHit && (hit.transform.gameObject == player) && ! isStun)
                     {
                         //Debug.Log("Stop");
                         navMeshAgent.SetDestination(transform.position);
@@ -138,6 +152,14 @@ public class EnemyFollower : MonoBehaviour
             {
                 ySpeed -= grav * Time.deltaTime;
             }
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Fireball")
+        {
+            isStun = true;
         }
     }
 }

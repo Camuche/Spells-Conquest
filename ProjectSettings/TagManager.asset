@@ -15,6 +15,7 @@ TagManager:
   - Lava
   - Iceball
   - Money
+  - Pot
   layers:
   - Default
   - TransparentFX
