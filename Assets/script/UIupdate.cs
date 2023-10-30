@@ -43,9 +43,10 @@ public class UIupdate : MonoBehaviour
 
     [SerializeField] Sprite[] spellImg;
 
-    bool isPaused;
-    GameObject refSensitivity;
-    GameObject refEsc_BlackScreen;
+    [HideInInspector] public bool isPaused;
+    //GameObject refSensitivity;
+    //GameObject refEsc_BlackScreen;
+    [SerializeField] private GameObject refPauseScreen;
 
 
     private void OnLevelWasLoaded(int level)
@@ -92,11 +93,14 @@ public class UIupdate : MonoBehaviour
         SubSpell[3] = UI.transform.Find("SubSpell04").gameObject;
 
 
-        refSensitivity = GameObject.Find("Sensitivity");
+        
+        /*refSensitivity = GameObject.Find("Sensitivity");
         refSensitivity.SetActive(false);
 
         refEsc_BlackScreen = GameObject.Find("Esc_BlackScreen");
-        refEsc_BlackScreen.SetActive(false);
+        refEsc_BlackScreen.SetActive(false);*/
+        refPauseScreen = GameObject.Find("PauseScreen");
+        refPauseScreen.SetActive(false);
 
     }
 
@@ -177,13 +181,16 @@ public class UIupdate : MonoBehaviour
 
     void EnablePauseUI()
     {
-        refSensitivity.SetActive(true);
-        refEsc_BlackScreen.SetActive(true);
+        //refSensitivity.SetActive(true);
+        //refEsc_BlackScreen.SetActive(true);
+        refPauseScreen.SetActive(true);
+
     }
     public void DisablePauseUI()
     {
-        refSensitivity.SetActive(false);
-        refEsc_BlackScreen.SetActive(false);
+        //refSensitivity.SetActive(false);
+        //refEsc_BlackScreen.SetActive(false);
+        refPauseScreen.SetActive(false);
     }
 
 
