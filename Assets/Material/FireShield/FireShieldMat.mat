@@ -74,3 +74,4 @@ Material:
     - _Color: {r: 1, g: 0.61524314, b: 0, a: 0}
     - _Color2: {r: 1, g: 0, b: 0, a: 0}
     - _Color3: {r: 1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
