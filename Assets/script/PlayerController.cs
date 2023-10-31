@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(movement.action.ReadValue<Vector2>());
+        Debug.Log(life + "/" + lifeMax + " HP ");
 
         if (!canMove)
             return;

@@ -79,7 +79,7 @@ public class PlayerRaycast : MonoBehaviour
         //Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, maxDistance)), out hit);
         Physics.Raycast(refCamera.ScreenPointToRay(new Vector3(mousePos.action.ReadValue<Vector2>().x, mousePos.action.ReadValue<Vector2>().y, maxDistance)), out hit);
 
-        Debug.Log(hit.collider);
+        //Debug.Log(hit.collider);
 
         if (hit.collider != null)
         {

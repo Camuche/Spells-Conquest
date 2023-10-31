@@ -160,7 +160,7 @@ public class gameController : MonoBehaviour
     }
 
     public bool isPaused = false;
-    void Pause()
+    public void Pause()
     {
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;

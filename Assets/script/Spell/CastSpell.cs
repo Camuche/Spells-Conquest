@@ -313,7 +313,7 @@ public class CastSpell : MonoBehaviour
         }
 
         //set time scale
-        if (isPaused == false)
+        if (!isPaused)
         {
             if (selecting == 0)
             {

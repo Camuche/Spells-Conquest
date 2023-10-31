@@ -5,7 +5,15 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [HideInInspector] public int money = 0;
-    public int moneyValue;
+    [SerializeField] int moneyValue;
+
+    //SPELLS
+    [HideInInspector] public bool fireballAlt = false, fireShieldAlt = false, telekinesisCloneAlt = false;
+
+    //CONSOMMABLE
+    [HideInInspector] public float hpPotionNb = 0, bonusHpPotionNb = 0;
+
+
 
     // Start is called before the first frame update
     void Start()

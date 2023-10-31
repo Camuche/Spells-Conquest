@@ -1,67 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Shop : MonoBehaviour
 {
-    bool canInteract = false;
-    bool inShop = false;
+    //SPELLS AVAILABLE
+    bool fireballAltAvailable = true, fireShieldAltAvailable = true, telekinesisCloneAltAvailable = true;
+    //STATS AVAILABLE
+    int hpAvailable=0, dpAvailable=0;
+    //CONSOMMABLE
+    int hpPotionAvailable=0, hpBonusPotionAvailable=0;
+    
+    [SerializeField] private int baseStatsAvailable, basePotionAvailable;
 
-    //public float [,] shopItems = new int [3];
-
-    [SerializeField] private InputActionReference interact;
-
-
-
-    void OnEnable()
-    {
-        interact.action.performed += PerformInteract;
-    }
-    void OnDisable()
-    {
-        interact.action.performed -= PerformInteract;
-    }
-
-    void PerformInteract(InputAction.CallbackContext obj)
-    {
-        if(canInteract == true)
-        {
-            if(inShop == false)
-            {
-                Debug.Log("enter shop");
-                inShop = true;
-            }
-            else 
-            {
-                Debug.Log("exit shop");
-                inShop = false;
-            }
-        }
-    }
-
-
+    [SerializeField] GameObject player;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        /*//ID's
-        shopItems[1,1] = 1; //AltFireball
-        shopItems[1,2] = 2;
-        shopItems[1,3] = 3;
-        
-        //Price
-        shopItems[2,1] = 0;
-        shopItems[2,2] = 0;
-        shopItems[2,3] = 0;
+        hpAvailable = baseStatsAvailable;
+        dpAvailable = baseStatsAvailable;
 
-        //Quantity
-        shopItems[3,1] = 0;
-        shopItems[3,2] = 0;
-        shopItems[3,3] = 0;*/
-
-
+        hpPotionAvailable = basePotionAvailable;
+        hpBonusPotionAvailable = basePotionAvailable;
     }
 
     // Update is called once per frame
@@ -70,18 +32,13 @@ public class Shop : MonoBehaviour
         
     }
 
-    void OnTriggerEnter (Collider other)
+    void StatHp()
     {
-        if(other.tag == "Player")
+        if(hpAvailable > 0)
         {
-            canInteract = true;
+            hpAvailable --;
+            Debug.Log("Stat HP left :" + hpAvailable);
         }
-    }
-    void OnTriggerExit (Collider other)
-    {
-        if(other.tag == "Player")
-        {
-            canInteract = false;
-        }
+        player.GetComponent<PlayerController>().lifeMax += 20;
     }
 }
