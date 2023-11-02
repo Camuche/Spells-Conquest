@@ -100,8 +100,8 @@ Material:
     - _SubSpell1_Position: {r: -6e-45, g: -6e-45, b: 0, a: 0}
     - _SubSpell2_Position: {r: 1e-44, g: 1e-44, b: 0, a: 0}
     - _SubSpell3_Position: {r: -6.255, g: 99, b: 0, a: 0}
-    - _SubSpell4_Position: {r: -8.000003, g: -1.3e-44, b: 0, a: 0}
-    - _SubSpell5_Position: {r: -7.999996, g: 1.4e-44, b: 0, a: 0}
+    - _SubSpell4_Position: {r: -8.000003, g: -1.1e-44, b: 0, a: 0}
+    - _SubSpell5_Position: {r: -7.999996, g: 1.3e-44, b: 0, a: 0}
     - _SubSpell6_Position: {r: -1.81, g: 99, b: 0, a: 0}
     - _Vector0: {r: -1.29, g: -1.02, b: 0, a: 0}
   m_BuildTextureStacks: []
