@@ -260,7 +260,7 @@ public class CastSpell : MonoBehaviour
                 angle = Vector3.SignedAngle(Vector3.right, (selectPoint - (selectStartPoint + selectStartPoint * hand)), Vector3.right);
             }*/
             rightSpellSelected = true;
-            Debug.Log(rightSpellSelected);
+            //Debug.Log(rightSpellSelected);
         }
         else rightSpellSelected = false;
 
@@ -338,7 +338,7 @@ public class CastSpell : MonoBehaviour
 
 
         //set highlight
-        GameObject.Find("GameController").GetComponent<UIupdate>().SetSubSpellHighLight(angle, selecting);
+        //GameObject.Find("GameController").GetComponent<UIupdate>().SetSubSpellHighLight(angle, selecting);
 
     }
 

@@ -52,6 +52,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b038c163d34fe1c4ea6a5548cbb9b118, type: 3}
   - {fileID: 21300000, guid: b1611245472d78e40a8034f66e6f1cff, type: 3}
   - {fileID: 21300000, guid: 70799a0650dfb454889f87da92c64076, type: 3}
+  isPaused: 0
+  refPauseScreen: {fileID: 0}
+  matFireball: {fileID: 2100000, guid: d4a90c3480214ea4eaf2764bf6dad55a, type: 2}
+  matFireClone: {fileID: 2100000, guid: 94fa965679ce96c4ca5efb18632c7eea, type: 2}
+  matTelekinesesClone: {fileID: 2100000, guid: 4234ceffddacf0d4ea9c6366ea7925a7, type: 2}
+  matWave: {fileID: 2100000, guid: 0f984e2716bb1e3438a7a5e93f55e5bb, type: 2}
+  matIceball: {fileID: 2100000, guid: 5813f221aee01fd47b8fe9a1d8ed609e, type: 2}
+  matIceClone: {fileID: 2100000, guid: b230f0cc74c19ac47b1d0065b8e25b94, type: 2}
 --- !u!114 &1744762725
 MonoBehaviour:
   m_ObjectHideFlags: 0

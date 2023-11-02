@@ -34,7 +34,7 @@ public class pickupSpell : MonoBehaviour
     {
         if (canPickUp)
         {
-            player.GetComponent<CastSpell>().limit++;
+            player.GetComponent<CastSpellNew>().limit++;
             gameController.GetComponent<gameController>().spellsToDestroyNext.Add(transform.position.x.ToString() + transform.position.z.ToString());
             Destroy(gameObject);
         }
