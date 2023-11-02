@@ -4978,6 +4978,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4603444587469742538, guid: d4bd6d604be47e8468dbd9ed58b60601,
+        type: 3}
+      propertyPath: inputPlayer.m_Id
+      value: 40c955c5-4089-4d82-85d0-e0316a7567a1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603444587469742538, guid: d4bd6d604be47e8468dbd9ed58b60601,
+        type: 3}
+      propertyPath: inputPlayer.m_Name
+      value: Input Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603444587469742538, guid: d4bd6d604be47e8468dbd9ed58b60601,
+        type: 3}
+      propertyPath: inputPlayer.m_Actions.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603444587469742538, guid: d4bd6d604be47e8468dbd9ed58b60601,
+        type: 3}
+      propertyPath: inputPlayer.m_Bindings.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603444587469742538, guid: d4bd6d604be47e8468dbd9ed58b60601,
+        type: 3}
+      propertyPath: inputPlayer.m_Actions.Array.data[0].m_Id
+      value: be31f01c-501e-4892-98d6-9efabe8d8dfe
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603444587469742538, guid: d4bd6d604be47e8468dbd9ed58b60601,
+        type: 3}
+      propertyPath: inputPlayer.m_Bindings.Array.data[0].m_Id
+      value: 89eda544-3aa0-4825-94e6-27765be8e363
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603444587469742538, guid: d4bd6d604be47e8468dbd9ed58b60601,
+        type: 3}
+      propertyPath: inputPlayer.m_Actions.Array.data[0].m_Name
+      value: New action
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603444587469742538, guid: d4bd6d604be47e8468dbd9ed58b60601,
+        type: 3}
+      propertyPath: inputPlayer.m_Actions.Array.data[0].m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603444587469742538, guid: d4bd6d604be47e8468dbd9ed58b60601,
+        type: 3}
+      propertyPath: inputPlayer.m_Bindings.Array.data[0].m_Action
+      value: New action
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603444587469742538, guid: d4bd6d604be47e8468dbd9ed58b60601,
+        type: 3}
+      propertyPath: inputPlayer.m_Actions.Array.data[0].m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4bd6d604be47e8468dbd9ed58b60601, type: 3}
 --- !u!1001 &1560940681

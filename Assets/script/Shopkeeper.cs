@@ -28,7 +28,7 @@ public class Shopkeeper : MonoBehaviour
         {
             inShop = true;
             //cameraShop.SetActive(true);
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
             Debug.Log(inShop);            
         }
     }

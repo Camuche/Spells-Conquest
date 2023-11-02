@@ -6,6 +6,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
+    //[SerializeField] GameObject inputPlayer;//, inputMenu;
+    //private NewInputSystem actionMapping;
+    //public PlayerInput playerInput;
+    
+
+
     public float mouseSensitivity;
     public float playerSpeed;
     float speed;
@@ -43,9 +50,15 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //InputActionMap.
+        //actionMapping = new NewInputSystem();
+        //Debug.Log(playerInput.currentActionMap.name);
 
-
-
+        //inputMenu = GameObject.Find("InputMenu");
+        //inputPlayer = GameObject.Find("InputPlayer");
+        //inputMenu.EnablePlayerInput
+        //inputPlayer.SetActive(true);
+        //inputPlayer.SwitchCurrentActionMap("Menu Input");
 
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -480,6 +493,15 @@ public class PlayerController : MonoBehaviour
     public void setCanMove(bool c)
     {
         canMove = c;
+    }
+
+    public void EnablePlayerInput()
+    {
+
+    }
+    public void EnableMenuInput()
+    {
+        
     }
 
 

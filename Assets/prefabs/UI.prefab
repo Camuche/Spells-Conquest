@@ -95,9 +95,9 @@ MonoBehaviour:
   refCursor: {fileID: 0}
   cursorSpeed: 0
   stopWhenPaused: 1
-  mousePos: {fileID: 3629847207854992153, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+  mousePos: {fileID: -2640914805725214107, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
-  interact: {fileID: -7976416841280926338, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+  interact: {fileID: -5033502003007823114, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
 --- !u!1 &60950066981868008
 GameObject:
@@ -317,11 +317,11 @@ MonoBehaviour:
   verticalInput: 0
   inputTimer: 0
   inputTime: 0.5
-  movement: {fileID: -1215956749607882695, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+  movement: {fileID: -4092751596608327555, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
-  interact: {fileID: -7976416841280926338, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+  interact: {fileID: -5033502003007823114, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
-  cancel: {fileID: -4991960744817907608, guid: ce515ecc6fe77704ba2b9e7fe0281622, type: 3}
+  cancel: {fileID: -3104392106652110373, guid: ce515ecc6fe77704ba2b9e7fe0281622, type: 3}
 --- !u!1 &2223249280694424142
 GameObject:
   m_ObjectHideFlags: 0
