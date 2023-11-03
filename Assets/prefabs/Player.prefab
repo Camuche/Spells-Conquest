@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 3870732601873632228}
   - component: {fileID: 3870732601873632229}
   - component: {fileID: 3870732601873632239}
-  - component: {fileID: 3870732601873632224}
   - component: {fileID: 3832778050225385478}
   - component: {fileID: 3318144498955775377}
   m_Layer: 12
@@ -243,66 +242,6 @@ CharacterController:
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3870732601873632224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3870732601873632230}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2447440be338be843bce0714bf95cd72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpellL: 0
-  SpellR: 1
-  limit: -1
-  fireBall: {fileID: 6861626685482858038, guid: 6a61a2eac223e8d4bac72a6bc4190492,
-    type: 3}
-  fireClone: {fileID: 1108065954000898894, guid: d1777b53a23a507408368fe1192facfe,
-    type: 3}
-  teleClone: {fileID: 838386325406439919, guid: 924f649d6c605e9479d895c465796552,
-    type: 3}
-  AimPoint: {fileID: 8136853320341797314, guid: 598d7544ceedcbc409f35e791b167678,
-    type: 3}
-  wave: {fileID: 7494473617347374062, guid: 5eb235b56f5e76b47b98ec011973f267, type: 3}
-  iceBall: {fileID: 7671956535631379919, guid: 8db51b43ad3e7fb4d81ded3ead91a104, type: 3}
-  iceClone: {fileID: 838386325406439919, guid: cf5971ea913a16f4da90a3661daae853, type: 3}
-  animator: {fileID: 4721740849922928826}
-  isPaused: 0
-  previsualisation_LeftArm: {fileID: 6150111399132889184}
-  previsualisation_RightArm: {fileID: 3504513463751858510}
-  matUI: {fileID: 2100000, guid: 11640e417c416e044a4de109bd9bf2e7, type: 2}
-  spell: {fileID: -4415006183407332061, guid: ce515ecc6fe77704ba2b9e7fe0281622, type: 3}
-  spellAlt: {fileID: -7734849661365291782, guid: ce515ecc6fe77704ba2b9e7fe0281622,
-    type: 3}
-  leftSelection: {fileID: 1547977303816006111, guid: ce515ecc6fe77704ba2b9e7fe0281622,
-    type: 3}
-  rightSelection: {fileID: 4248323056758688828, guid: ce515ecc6fe77704ba2b9e7fe0281622,
-    type: 3}
-  movement: {fileID: -1215956749607882695, guid: ce515ecc6fe77704ba2b9e7fe0281622,
-    type: 3}
-  cameraRotation: {fileID: -3354769714030775914, guid: ce515ecc6fe77704ba2b9e7fe0281622,
-    type: 3}
-  doNotFollow: 0
-  isMoving: 0
-  Elements:
-  - spell_name: Fire
-    spell_image: {fileID: 21300000, guid: 8b64123dc25195d4db22894407fdb0f0, type: 3}
-    id: 0
-  - spell_name: Telekinesis
-    spell_image: {fileID: 21300000, guid: b038c163d34fe1c4ea6a5548cbb9b118, type: 3}
-    id: 0
-  - spell_name: Clone
-    spell_image: {fileID: 21300000, guid: b1611245472d78e40a8034f66e6f1cff, type: 3}
-    id: 0
-  - spell_name: Glace
-    spell_image: {fileID: 21300000, guid: 70799a0650dfb454889f87da92c64076, type: 3}
-    id: 0
-  cooldownFireball: 1
-  timerFireball: 0
-  cooldownIceball: 4
 --- !u!114 &3832778050225385478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,6 +329,9 @@ MonoBehaviour:
   cooldownFireball: 0
   timerFireball: 0
   doNotFollow: 0
+  cooldownFireClone: 0
+  timerFireClone: 0
+  isMoving: 0
 --- !u!1 &3870732602788733398
 GameObject:
   m_ObjectHideFlags: 0

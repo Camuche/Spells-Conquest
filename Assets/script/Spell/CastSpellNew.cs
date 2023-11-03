@@ -14,7 +14,7 @@ public class CastSpellNew : MonoBehaviour
     [HideInInspector] public List<int> listRightSpellAvailable = new List<int>{2,3,4,5};
 
     public int limit;
-    int selecting;
+    [HideInInspector] public int selecting;
 
     [HideInInspector] public bool topSelected = false, rightSelected = false, botSelected = false, leftSelected = false;
 
@@ -33,6 +33,8 @@ public class CastSpellNew : MonoBehaviour
     }
     public structSpell[] structSpells = new structSpell[6];
 
+
+
     [SerializeField] private InputActionReference leftSelection, rightSelection, movement, cameraRotation, spellR2, spellL2;
 
     bool l2IsPressed=false, r2IsPressed=false, l2IsHold= false, r2IsHold = false;
@@ -43,22 +45,22 @@ public class CastSpellNew : MonoBehaviour
     
 
 
+
+
     // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log(leftSpellAvailable);
         refUiUpdate = GameObject.Find("GameController").GetComponent<UIupdate>();
         timerFireball = 0;
 
         feedback_RightArm.SetActive(false);
         feedback_LeftArm.SetActive(false);
-        
     }
+
+
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(timerFireball);
-
         if (limit > -1)
         {
             SetSelecting();
@@ -97,10 +99,6 @@ public class CastSpellNew : MonoBehaviour
         {
             r2IsHold = false;
         }
-        //Debug.Log(l2IsHold);
-
-        //DELAY CAST SPELL
-        //if()
 
         //TIMER    
         if (timerFireball <= cooldownFireball)
@@ -113,52 +111,27 @@ public class CastSpellNew : MonoBehaviour
         }
 
         FeedbackLeftBody();
-        FeedbackRightBody();
-
-        //Debug.Log(r2IsHold);
-        //Debug.Log(l2IsHold);
-        
+        FeedbackRightBody();       
     }
+
 
     public int hand;
 
     void SetSelecting()
     {
-        //int hand;
-        //int direction; // 0 = TOP , 1= RIGHT , 2 =BOT , 3=LEFT
-
         if (selecting == 0)
         {
-            //selectStartPoint = new Vector3(0, 0, 0);
-            //selectPoint = selectStartPoint;
             Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1f;
             refUiUpdate.DisableSelectionUi();
-            //refSelectionUi.SetActive(false);
 
             if(leftSelection.action.ReadValue<float>() ==1)
             {
                 selecting = -1;
-
-                Debug.Log("_____________________________");
-                Debug.Log("LEFT HAND");
-                Debug.Log("current selected : " + SpellL);
-                Debug.Log("spell TOP : " + listLeftSpellAvailable[0]);
-                Debug.Log("spell RIGHT : " + listLeftSpellAvailable[1]);
-                Debug.Log("spell BOT : " + listLeftSpellAvailable[2]);
-                Debug.Log("spell LEFT : " + listLeftSpellAvailable[3]);
             }
             else if (rightSelection.action.ReadValue<float>() ==1)
             {
                 selecting =1;
-
-                Debug.Log("_____________________________");
-                Debug.Log("RIGHT HAND");
-                Debug.Log("current selected : " + SpellR);
-                Debug.Log("spell TOP : " + listRightSpellAvailable[0]);
-                Debug.Log("spell RIGHT : " + listRightSpellAvailable[1]);
-                Debug.Log("spell BOT : " + listRightSpellAvailable[2]);
-                Debug.Log("spell LEFT : " + listRightSpellAvailable[3]);
             }
         }
 
@@ -168,64 +141,53 @@ public class CastSpellNew : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             hand = selecting;
-            //refUiUpdate.refHand = hand;
             Time.timeScale = 0.05f;
             refUiUpdate.EnableSelectionUi();
             refUiUpdate.UpdateUiSelection();
             CheckSelectedSpell();
-            //refSelectionUi.SetActive(true);
 
             
+            //SELECT SPELL ON RELEASE (LEFT)
             if (hand ==-1)
             {
-                // RELEASED SELECTING
                 if (leftSelection.action.ReadValue<float>() !=1)
                 {
                     selecting =0;
 
                     if(movement.action.ReadValue<Vector2>().y >0.5 && movement.action.ReadValue<Vector2>().x>-0.5 && movement.action.ReadValue<Vector2>().x < 0.5 && listLeftSpellAvailable[0] <= limit) //LEFT STICK TOP
                     {
-                        Debug.Log("TOP");
                         saveCurrentSpell = SpellL;
                         SpellL = listLeftSpellAvailable[0];
                         listLeftSpellAvailable[0] = saveCurrentSpell;
                         UpdateRightSpells();
-                        Debug.Log(SpellL);
                     }
                     if(movement.action.ReadValue<Vector2>().x >0.5 && movement.action.ReadValue<Vector2>().y >-0.5 && movement.action.ReadValue<Vector2>().y <0.5 && listLeftSpellAvailable[1] <= limit) //LEFT STICK RIGHT
                     {
-                        Debug.Log("Right");
                         saveCurrentSpell = SpellL;
                         SpellL = listLeftSpellAvailable[1];
                         listLeftSpellAvailable[1] = saveCurrentSpell;
                         UpdateRightSpells();
-                        Debug.Log(SpellL);
                     }
                     if(movement.action.ReadValue<Vector2>().y <-0.5 && movement.action.ReadValue<Vector2>().x>-0.5 && movement.action.ReadValue<Vector2>().x < 0.5 && listLeftSpellAvailable[2] <= limit) //LEFT STICK BOT
                     {
-                        Debug.Log("BOT");
                         saveCurrentSpell = SpellL;
                         SpellL = listLeftSpellAvailable[2];
                         listLeftSpellAvailable[2] = saveCurrentSpell;
                         UpdateRightSpells();
-                        Debug.Log(SpellL);
                     }
                     if(movement.action.ReadValue<Vector2>().x <-0.5 && movement.action.ReadValue<Vector2>().y >-0.5 && movement.action.ReadValue<Vector2>().y <0.5 && listLeftSpellAvailable[3] <= limit) //LEFT STICK LEFT
                     {
-                        Debug.Log("Left");
                         saveCurrentSpell = SpellL;
                         SpellL = listLeftSpellAvailable[3];
                         listLeftSpellAvailable[3] = saveCurrentSpell;
                         UpdateRightSpells();
-                        Debug.Log(SpellL);
                     }
-
-                    
-                    
-
-                    
                 }
             }
+
+
+            
+            //SELECT SPELL ON RELEASE (Right)
             if (hand == 1)
             {
                 if (rightSelection.action.ReadValue<float>() !=1)
@@ -234,42 +196,32 @@ public class CastSpellNew : MonoBehaviour
 
                     if(cameraRotation.action.ReadValue<Vector2>().y >0.5 && cameraRotation.action.ReadValue<Vector2>().x>-0.5 && cameraRotation.action.ReadValue<Vector2>().x < 0.5 && listRightSpellAvailable[0] <= limit) //RIGHT STICK TOP
                     {
-                        Debug.Log("TOP");
                         saveCurrentSpell = SpellR;
                         SpellR = listRightSpellAvailable[0];
                         listRightSpellAvailable[0] = saveCurrentSpell;
                         UpdateLeftSpells();
-                        Debug.Log(SpellR);
                     }
                     if(cameraRotation.action.ReadValue<Vector2>().x >0.5 && cameraRotation.action.ReadValue<Vector2>().y >-0.5 && cameraRotation.action.ReadValue<Vector2>().y <0.5 && listRightSpellAvailable[1] <= limit) //RIGHT STICK RIGHT
                     {
-                        Debug.Log("Right");
                         saveCurrentSpell = SpellR;
                         SpellR = listRightSpellAvailable[1];
                         listRightSpellAvailable[1] = saveCurrentSpell;
                         UpdateLeftSpells();
-                        Debug.Log(SpellR);
                     }
                     if(cameraRotation.action.ReadValue<Vector2>().y <-0.5 && cameraRotation.action.ReadValue<Vector2>().x>-0.5 && cameraRotation.action.ReadValue<Vector2>().x < 0.5 && listRightSpellAvailable[2] <= limit) //RIGHT STICK BOT
                     {
-                        Debug.Log("BOT");
                         saveCurrentSpell = SpellR;
                         SpellR = listRightSpellAvailable[2];
                         listRightSpellAvailable[2] = saveCurrentSpell;
                         UpdateLeftSpells();
-                        Debug.Log(SpellR);
                     }
                     if(cameraRotation.action.ReadValue<Vector2>().x <-0.5 && cameraRotation.action.ReadValue<Vector2>().y >-0.5 && cameraRotation.action.ReadValue<Vector2>().y <0.5 && listRightSpellAvailable[3] <= limit) //RIGHT STICK LEFT
                     {
-                        Debug.Log("Left");
                         saveCurrentSpell = SpellR;
                         SpellR = listRightSpellAvailable[3];
                         listRightSpellAvailable[3] = saveCurrentSpell;
                         UpdateLeftSpells();
-                        Debug.Log(SpellR);
-                    }
-
-                    
+                    } 
                 }
             }
         }
@@ -307,7 +259,6 @@ public class CastSpellNew : MonoBehaviour
             {
                 leftSelected = true;
             }
-
             else
             {
                 topSelected = false;
@@ -330,12 +281,10 @@ public class CastSpellNew : MonoBehaviour
             else if(cameraRotation.action.ReadValue<Vector2>().y <-0.5 && cameraRotation.action.ReadValue<Vector2>().x>-0.5 && cameraRotation.action.ReadValue<Vector2>().x < 0.5 && listRightSpellAvailable[2] <= limit)
             {
                 botSelected = true;
-
             }
             else if(cameraRotation.action.ReadValue<Vector2>().x <-0.5 && cameraRotation.action.ReadValue<Vector2>().y >-0.5 && cameraRotation.action.ReadValue<Vector2>().y <0.5 && listRightSpellAvailable[3] <= limit)
             {
                 leftSelected = true;
-
             }
             else
             {
@@ -348,12 +297,14 @@ public class CastSpellNew : MonoBehaviour
 
     }
 
+
+    //SPELL NUMBER == 0 : FIREBALL
     [HideInInspector] public float cooldownFireball, timerFireball;
     [HideInInspector] public bool doNotFollow = false;
 
+    //SPELL NUMBER == 1 : FIRECLONE
     [HideInInspector] public float cooldownFireClone, timerFireClone;
     [HideInInspector] public bool isMoving = false;
-    
     
 
     void CastSpell(int spellNb) 
@@ -364,36 +315,36 @@ public class CastSpellNew : MonoBehaviour
             Invoke("Fireball", spellAnimationTime);
         }
 
-        if (spellNb == 1 && limit >= 1 && timerFireClone >= cooldownFireClone)     //CAST FIREBALL
+        if (spellNb == 1 && limit >= 1 && timerFireClone >= cooldownFireClone)     //CAST FIRECLONE
         {
             timerFireClone = 0;
             Invoke("FireClone", spellAnimationTime);
         }
 
-        if (spellNb == 2 && limit >= 2)     //CAST FIREBALL
+        if (spellNb == 2 && limit >= 2)     //CAST TELEKINESISCLONE
         {
             Debug.Log("TelekinsesisClone");
         }
 
-        if (spellNb == 3 && limit >= 3)     //CAST FIREBALL
+        if (spellNb == 3 && limit >= 3)     //CAST WAVE
         {
             Debug.Log("Wave");
         }
 
-        if (spellNb == 4 && limit >= 4)     //CAST FIREBALL
+        if (spellNb == 4 && limit >= 4)     //CAST ICEBALL
         {
             Debug.Log("Iceball");
         }
 
-        if (spellNb == 5 && limit >= 5)     //CAST FIREBALL
+        if (spellNb == 5 && limit >= 5)     //CAST ICECLONE
         {
             Debug.Log("IceClone");
         }  
-
     }
 
 
 
+    //SPELLS
     void Fireball()
     {
         if((SpellL == 0 && l2IsHold) || (SpellR == 0 && r2IsHold))
@@ -426,8 +377,6 @@ public class CastSpellNew : MonoBehaviour
         f.transform.rotation = transform.rotation;
         f.transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y +90, transform.rotation.z));
     }
-
-
 
 
 
@@ -483,12 +432,5 @@ public class CastSpellNew : MonoBehaviour
             }
         }
         else feedback_RightArm.SetActive(false);
-
     }
-
-    
-
-    
-    
-
 }

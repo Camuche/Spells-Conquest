@@ -25,7 +25,7 @@ public class Fireball : MonoBehaviour
 
     float inispeed;
 
-    private Animator animator;
+    //private Animator animator;
 
     //float holdTimer;
     //public float pressVsHoldTime;
@@ -39,7 +39,7 @@ public class Fireball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = player.GetComponent<CastSpell>().animator;
+        //animator = player.GetComponent<CastSpell>().animator;
 
         /*if (player == null) 
         {
@@ -175,7 +175,7 @@ public class Fireball : MonoBehaviour
         if(!doNotFollow)
         {
             player.GetComponent<PlayerController>().speedscale = 0.2f;
-            animator.SetBool("HoldSpell", true);
+            //animator.SetBool("HoldSpell", true);
             //Debug.Log(player.GetComponent<PlayerController>().speedscale);
         }
 
@@ -203,7 +203,7 @@ public class Fireball : MonoBehaviour
         {
             
             player.GetComponent<PlayerController>().speedscale = 1;
-            animator.SetBool("HoldSpell", false);
+            //animator.SetBool("HoldSpell", false);
         }
     }
 

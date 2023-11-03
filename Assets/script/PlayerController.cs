@@ -95,20 +95,18 @@ public class PlayerController : MonoBehaviour
         /*if (GetComponent<CastSpell>().limit>-1)
             aiming();*/
 
-        if (life > 0 && GetComponent<CastSpell>().getSelecting()==0)
+        if (life > 0 && GetComponent<CastSpellNew>().selecting == 0)
         {
             rotateCamera();
             rotatePlayer();
+            movements();
+            AnimationControl();
         }
-        movements();
-
         updateY();
 
         gravity();
 
         CheckLife();
-
-        AnimationControl();
     }
 
 
