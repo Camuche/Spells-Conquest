@@ -5082,6 +5082,7 @@ MonoBehaviour:
   player: {fileID: 0}
   breakingShieldFeedbackTime: 1.5
   pressVsHoldTime: 0.5
+  cooldownFireClone: 11
 --- !u!143 &76482160417221039
 CharacterController:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class CastSpellNew : MonoBehaviour
     // INT 0=fireball / 1=fireClone ...
     public int SpellL;
     public int SpellR;
-    //int[] leftSpellAvailable = new int[3];
+    
     [HideInInspector] public List<int> listLeftSpellAvailable = new List<int>{2,3,4,5};
     [HideInInspector] public List<int> listRightSpellAvailable = new List<int>{2,3,4,5};
 
@@ -35,7 +35,12 @@ public class CastSpellNew : MonoBehaviour
 
     [SerializeField] private InputActionReference leftSelection, rightSelection, movement, cameraRotation, spellR2, spellL2;
 
-    bool l2IsPressed=false, r2IsPressed=false;
+    bool l2IsPressed=false, r2IsPressed=false, l2IsHold= false, r2IsHold = false;
+    [SerializeField] float spellAnimationTime;
+
+    public GameObject feedback_LeftArm;
+    public GameObject feedback_RightArm;
+    
 
 
     // Start is called before the first frame update
@@ -43,11 +48,17 @@ public class CastSpellNew : MonoBehaviour
     {
         //Debug.Log(leftSpellAvailable);
         refUiUpdate = GameObject.Find("GameController").GetComponent<UIupdate>();
+        timerFireball = 0;
+
+        feedback_RightArm.SetActive(false);
+        feedback_LeftArm.SetActive(false);
         
     }
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(timerFireball);
+
         if (limit > -1)
         {
             SetSelecting();
@@ -57,6 +68,7 @@ public class CastSpellNew : MonoBehaviour
         if(spellL2.action.ReadValue<float>() == 1 && !l2IsPressed)
         {
             l2IsPressed = true;
+            l2IsHold = true;
             CastSpell(SpellL);
         }
         else if (l2IsPressed && spellL2.action.ReadValue<float>() == 0)
@@ -68,12 +80,44 @@ public class CastSpellNew : MonoBehaviour
         if(spellR2.action.ReadValue<float>() == 1 && !r2IsPressed)
         {
             r2IsPressed = true;
+            r2IsHold = true;
             CastSpell(SpellR);
         }
         else if (r2IsPressed && spellR2.action.ReadValue<float>() == 0)
         {
             r2IsPressed = false;
         }
+
+        //CHECK RELEASE
+        if (spellL2.action.ReadValue<float>() == 0 && l2IsHold)
+        {
+            l2IsHold = false;
+        }
+        if (spellR2.action.ReadValue<float>() == 0 && r2IsHold)
+        {
+            r2IsHold = false;
+        }
+        //Debug.Log(l2IsHold);
+
+        //DELAY CAST SPELL
+        //if()
+
+        //TIMER    
+        if (timerFireball <= cooldownFireball)
+        {
+            timerFireball += Time.deltaTime;
+        }
+        if(timerFireClone <= cooldownFireClone)
+        {
+            timerFireClone += Time.deltaTime;
+        }
+
+        FeedbackLeftBody();
+        FeedbackRightBody();
+
+        //Debug.Log(r2IsHold);
+        //Debug.Log(l2IsHold);
+        
     }
 
     public int hand;
@@ -304,16 +348,26 @@ public class CastSpellNew : MonoBehaviour
 
     }
 
-    void CastSpell(int spellNb) // -1 -> Left     // 1 -> Right
+    [HideInInspector] public float cooldownFireball, timerFireball;
+    [HideInInspector] public bool doNotFollow = false;
+
+    [HideInInspector] public float cooldownFireClone, timerFireClone;
+    [HideInInspector] public bool isMoving = false;
+    
+    
+
+    void CastSpell(int spellNb) 
     {
-        if (spellNb == 0 && limit >= 0)     //CAST FIREBALL
+        if (spellNb == 0 && limit >= 0 && timerFireball >= cooldownFireball)     //CAST FIREBALL
         {
-            Debug.Log("Fireball");
+            timerFireball = 0;
+            Invoke("Fireball", spellAnimationTime);
         }
 
-        if (spellNb == 1 && limit >= 1)     //CAST FIREBALL
+        if (spellNb == 1 && limit >= 1 && timerFireClone >= cooldownFireClone)     //CAST FIREBALL
         {
-            Debug.Log("FireClone");
+            timerFireClone = 0;
+            Invoke("FireClone", spellAnimationTime);
         }
 
         if (spellNb == 2 && limit >= 2)     //CAST FIREBALL
@@ -334,25 +388,107 @@ public class CastSpellNew : MonoBehaviour
         if (spellNb == 5 && limit >= 5)     //CAST FIREBALL
         {
             Debug.Log("IceClone");
-        }
+        }  
 
-        /*if (side == -1)
-        {
-            if(SpellL == 0 && limit >=0)
-            {
-                Debug.Log("Fireball");
-            }
-            //Debug.Log("Left");
-        }
-
-        if (side == 1)
-        {
-            //if()
-            Debug.Log("Right");
-        }*/
-        
     }
 
+
+
+    void Fireball()
+    {
+        if((SpellL == 0 && l2IsHold) || (SpellR == 0 && r2IsHold))
+        {
+            doNotFollow = false;
+        }
+        else if((SpellL == 0 && !l2IsHold) || (SpellR == 0 && !r2IsHold))
+        {
+            doNotFollow = true;
+        }
+
+        GameObject f = Instantiate(fireball);
+        f.GetComponent<Fireball>().player = transform.gameObject;
+    }
+
+    void FireClone()
+    {
+         if((SpellL == 1 && l2IsHold) || (SpellR == 1 && r2IsHold))
+        {
+            isMoving = true;
+        }
+        else if((SpellL == 1 && !l2IsHold) || (SpellR == 1 && !r2IsHold))
+        {
+            isMoving = false;
+        }
+
+        GameObject f = Instantiate(fireClone);
+        f.GetComponent<FireClone>().player = transform.gameObject;
+        f.transform.position = transform.position;
+        f.transform.rotation = transform.rotation;
+        f.transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y +90, transform.rotation.z));
+    }
+
+
+
+
+
+    void FeedbackLeftBody()
+    {
+        if(SpellL == 0 && limit >=0)
+        {
+            if (timerFireball >= cooldownFireball)
+            {
+                feedback_LeftArm.SetActive(true);
+            }
+            else
+            {
+                feedback_LeftArm.SetActive(false);
+            }
+        }
+        else if (SpellL == 1 && limit >=1)
+        {
+            if (timerFireClone >= cooldownFireClone)
+            {
+                feedback_LeftArm.SetActive(true);
+            }
+            else
+            {
+                feedback_LeftArm.SetActive(false);
+            }
+        }
+        else feedback_LeftArm.SetActive(false);
+    }
+
+    void FeedbackRightBody()
+    {
+        if(SpellR == 0 && limit >=0)
+        {
+            if (timerFireball >= cooldownFireball)
+            {
+                feedback_RightArm.SetActive(true);
+            }
+            else
+            {
+                feedback_RightArm.SetActive(false);
+            }
+        }
+        else if(SpellR == 1 && limit >=1)
+        {
+            if (timerFireClone >= cooldownFireClone)
+            {
+                feedback_RightArm.SetActive(true);
+            }
+            else
+            {
+                feedback_RightArm.SetActive(false);
+            }
+        }
+        else feedback_RightArm.SetActive(false);
+
+    }
+
+    
+
+    
     
 
 }

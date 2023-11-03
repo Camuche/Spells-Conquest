@@ -31,7 +31,9 @@ public class FireClone : MonoBehaviour
     float holdTimer;
 
     bool isMoving = false;
-    CastSpell castSpell;
+    CastSpellNew castSpellNew;
+
+    [SerializeField] float cooldownFireClone;
 
 
 
@@ -50,8 +52,11 @@ public class FireClone : MonoBehaviour
         controller.transform.position = transform.position;
         controller.enabled = true;
 
-        castSpell = player.GetComponent<CastSpell>();
-        isMoving = castSpell.isMoving; 
+        castSpellNew = player.GetComponent<CastSpellNew>();
+        isMoving = castSpellNew.isMoving; 
+
+        
+        castSpellNew.cooldownFireClone = cooldownFireClone;
         
 
     }
@@ -111,6 +116,8 @@ public class FireClone : MonoBehaviour
             ySpeed -= grav * Time.deltaTime;
         }
     }
+
+    
 
     
 }

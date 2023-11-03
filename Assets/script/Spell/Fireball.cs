@@ -33,7 +33,7 @@ public class Fireball : MonoBehaviour
     public float cooldown;
     [HideInInspector] public bool doNotFollow;
     //public float fastCooldown;
-    CastSpell castSpellScript;
+    CastSpellNew castSpellNewScript;
     
 
     // Start is called before the first frame update
@@ -51,8 +51,8 @@ public class Fireball : MonoBehaviour
         startpos = transform.position;
         //holdTimer = 0f;
         //cooldownFireball = player.GetComponent<CastSpell>().cooldownFireball;
-        castSpellScript = player.GetComponent<CastSpell>();
-        doNotFollow = castSpellScript.doNotFollow;
+        castSpellNewScript = player.GetComponent<CastSpellNew>();
+        doNotFollow = castSpellNewScript.doNotFollow;
         
     }
 
@@ -75,7 +75,7 @@ public class Fireball : MonoBehaviour
         if (following)
         {
             previousTransform = transform.position;
-            player.GetComponent<CastSpell>().timerFireball = 0f;
+            player.GetComponent<CastSpellNew>().timerFireball = 0f;
             //move forward
 
             //startpos = transform.position;
@@ -158,8 +158,8 @@ public class Fireball : MonoBehaviour
                 dir = (transform.position - previousTransform).normalized;
                 following = false;
 
-                player.GetComponent<CastSpell>().cooldownFireball = cooldown;
-                player.GetComponent<CastSpell>().timerFireball = 0f;
+                player.GetComponent<CastSpellNew>().cooldownFireball = cooldown;                    //THIS DOES NOT WORK
+                player.GetComponent<CastSpellNew>().timerFireball = 0f;
 
                 //if (holdTimer <= pressVsHoldTime)
                 {
