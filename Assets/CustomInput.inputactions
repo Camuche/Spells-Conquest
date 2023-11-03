@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Spell",
+                    "name": "SpellR2",
                     "type": "Button",
                     "id": "a01b9179-c815-4455-acfe-17de6caf6e84",
                     "expectedControlType": "Button",
@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SpellAlt",
+                    "name": "SpellL2",
                     "type": "Button",
                     "id": "a3a71609-e242-4189-b0bb-d5e2193b8363",
                     "expectedControlType": "Button",
@@ -350,7 +350,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Spell",
+                    "action": "SpellR2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -361,7 +361,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Spell",
+                    "action": "SpellR2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -372,7 +372,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SpellAlt",
+                    "action": "SpellL2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -383,7 +383,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SpellAlt",
+                    "action": "SpellL2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

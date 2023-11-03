@@ -33,7 +33,9 @@ public class CastSpellNew : MonoBehaviour
     }
     public structSpell[] structSpells = new structSpell[6];
 
-    [SerializeField] private InputActionReference leftSelection, rightSelection, movement, cameraRotation;
+    [SerializeField] private InputActionReference leftSelection, rightSelection, movement, cameraRotation, spellR2, spellL2;
+
+    bool l2IsPressed=false, r2IsPressed=false;
 
 
     // Start is called before the first frame update
@@ -50,8 +52,28 @@ public class CastSpellNew : MonoBehaviour
         {
             SetSelecting();
         }
-        //SetSelecting();
-        //Debug.Log(listLeftSpellAvailable.Count);
+
+        //L2 IS PRESSED
+        if(spellL2.action.ReadValue<float>() == 1 && !l2IsPressed)
+        {
+            l2IsPressed = true;
+            CastSpell(SpellL);
+        }
+        else if (l2IsPressed && spellL2.action.ReadValue<float>() == 0)
+        {
+            l2IsPressed = false;
+        }
+        
+        //R2 IS PRESSED
+        if(spellR2.action.ReadValue<float>() == 1 && !r2IsPressed)
+        {
+            r2IsPressed = true;
+            CastSpell(SpellR);
+        }
+        else if (r2IsPressed && spellR2.action.ReadValue<float>() == 0)
+        {
+            r2IsPressed = false;
+        }
     }
 
     public int hand;
@@ -282,9 +304,55 @@ public class CastSpellNew : MonoBehaviour
 
     }
 
-    /*void HighLightSelection()
+    void CastSpell(int spellNb) // -1 -> Left     // 1 -> Right
     {
+        if (spellNb == 0 && limit >= 0)     //CAST FIREBALL
+        {
+            Debug.Log("Fireball");
+        }
 
-    }*/
+        if (spellNb == 1 && limit >= 1)     //CAST FIREBALL
+        {
+            Debug.Log("FireClone");
+        }
+
+        if (spellNb == 2 && limit >= 2)     //CAST FIREBALL
+        {
+            Debug.Log("TelekinsesisClone");
+        }
+
+        if (spellNb == 3 && limit >= 3)     //CAST FIREBALL
+        {
+            Debug.Log("Wave");
+        }
+
+        if (spellNb == 4 && limit >= 4)     //CAST FIREBALL
+        {
+            Debug.Log("Iceball");
+        }
+
+        if (spellNb == 5 && limit >= 5)     //CAST FIREBALL
+        {
+            Debug.Log("IceClone");
+        }
+
+        /*if (side == -1)
+        {
+            if(SpellL == 0 && limit >=0)
+            {
+                Debug.Log("Fireball");
+            }
+            //Debug.Log("Left");
+        }
+
+        if (side == 1)
+        {
+            //if()
+            Debug.Log("Right");
+        }*/
+        
+    }
+
+    
 
 }

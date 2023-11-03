@@ -336,7 +336,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellL: 0
   SpellR: 1
+  listLeftSpellAvailable: 02000000030000000400000005000000
+  listRightSpellAvailable: 02000000030000000400000005000000
   limit: -1
+  topSelected: 0
+  rightSelected: 0
+  botSelected: 0
+  leftSelected: 0
   fireball: {fileID: 6861626685482858038, guid: 6a61a2eac223e8d4bac72a6bc4190492,
     type: 3}
   fireClone: {fileID: 1108065954000898894, guid: d1777b53a23a507408368fe1192facfe,
@@ -373,6 +379,12 @@ MonoBehaviour:
     type: 3}
   cameraRotation: {fileID: -3354769714030775914, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
+  spellR2: {fileID: -4415006183407332061, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+    type: 3}
+  spellL2: {fileID: -7734849661365291782, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+    type: 3}
+  animationSpellTime: 0.2
+  hand: 0
 --- !u!1 &3870732602788733398
 GameObject:
   m_ObjectHideFlags: 0

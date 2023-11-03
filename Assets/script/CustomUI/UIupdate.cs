@@ -131,7 +131,7 @@ public class UIupdate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HighlightSelected();
+        
 
         if (player == null)
         {
@@ -437,6 +437,8 @@ public class UIupdate : MonoBehaviour
         {
             spellLeftUi.SetActive(true);
         }
+
+        HighlightSelected();
         
     }
 
@@ -471,16 +473,44 @@ public class UIupdate : MonoBehaviour
 
     void HighlightSelected()
     {
-        if (refCastSpellNew.topSelected == true)
+
+        currentSpellUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,1);
+
+        if (refCastSpellNew.topSelected)
         {
             spellTopUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,1);
         }
         else 
         {
-            spellTopUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,.8f);
-            //Debug.Log("camarchezjfksd");
+            spellTopUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,.5f);
         }
-        //FAIRE LA MEME AVEC LE RESTE KHVGSDU
+        
+        if (refCastSpellNew.rightSelected)
+        {
+            spellRightUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,1);
+        }
+        else 
+        {
+            spellRightUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,.5f);
+        }
+
+        if (refCastSpellNew.botSelected)
+        {
+            spellBotUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,1);
+        }
+        else 
+        {
+            spellBotUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,.5f);
+        }
+
+        if (refCastSpellNew.leftSelected)
+        {
+            spellLeftUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,1);
+        }
+        else 
+        {
+            spellLeftUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,.5f);
+        }
     }
 
 }
