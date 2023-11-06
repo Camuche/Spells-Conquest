@@ -101,24 +101,29 @@ public class PlayerController : MonoBehaviour
             rotateCamera();
             rotatePlayer();
             movements();
-            AnimationControl();
         }
-        //updateY();
+
+        AnimationControl();
 
         if(!isAttracted)
         {
             gravity();
             updateY();
         }
+        
         CheckLife();
     }
 
 
     void AnimationControl()
     {
-        animator.SetBool("IsMoving", movedir != Vector3.zero && !isAttracted);
-        animator.SetFloat("VelocityZ", movement.action.ReadValue<Vector2>().y);
-        animator.SetFloat("VelocityX", movement.action.ReadValue<Vector2>().x);
+        if (GetComponent<CastSpellNew>().selecting == 0)
+        {
+            animator.SetBool("IsMoving", movedir != Vector3.zero && !isAttracted);
+            animator.SetFloat("VelocityZ", movement.action.ReadValue<Vector2>().y);
+            animator.SetFloat("VelocityX", movement.action.ReadValue<Vector2>().x);
+        }
+        
 
         /*if (Input.GetAxis("Fire") > 0 || Input.GetMouseButton(0))
         {

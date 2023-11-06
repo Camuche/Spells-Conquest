@@ -35,8 +35,9 @@ public class gameController : MonoBehaviour
         player = GameObject.Find("Player");
         if (checkpointed)
         {
+            Debug.Log("reloaded");
             player.transform.position = CheckPoint;
-            player.GetComponent<CastSpell>().limit = spellLimit;
+            player.GetComponent<CastSpellNew>().limit = spellLimit;
         }
     }
 
@@ -86,6 +87,7 @@ public class gameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(spellLimit);
 
         if (SceneManager.GetActiveScene().name == "Menu")
         {

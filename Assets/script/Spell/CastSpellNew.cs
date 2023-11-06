@@ -391,11 +391,11 @@ public class CastSpellNew : MonoBehaviour
     {
         if((SpellL == 1 && l2IsHold) || (SpellR == 1 && r2IsHold))
         {
-            isMoving = true;
+            isMoving = false;
         }
         else if((SpellL == 1 && !l2IsHold) || (SpellR == 1 && !r2IsHold))
         {
-            isMoving = false;
+            isMoving = true;
         }
 
         GameObject f = Instantiate(fireClone);
