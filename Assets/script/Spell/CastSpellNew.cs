@@ -21,6 +21,8 @@ public class CastSpellNew : MonoBehaviour
     [SerializeField] GameObject fireball, fireClone, telekinesisClone, wave, iceball, iceClone;
 
     UIupdate refUiUpdate;
+
+    [SerializeField] GameObject aimPoint;
     
 
 
@@ -55,6 +57,8 @@ public class CastSpellNew : MonoBehaviour
 
         feedback_RightArm.SetActive(false);
         feedback_LeftArm.SetActive(false);
+
+        aimPoint = Instantiate(aimPoint);
     }
 
 
@@ -108,6 +112,21 @@ public class CastSpellNew : MonoBehaviour
         if(timerFireClone <= cooldownFireClone)
         {
             timerFireClone += Time.deltaTime;
+        }
+        if(timerTelekinesisClone <= cooldownTelekinesisClone)
+        {
+            timerTelekinesisClone += Time.deltaTime;
+        }
+
+        //Instantiate AIMPOINT
+        if ((limit>=2 && (SpellL == 2 || SpellR == 2)) || (limit>=5 && (SpellL == 5 || SpellR == 5)))      //  SpellL == 3 || SpellL == 5 || SpellR == 3 || SpellR == 5)
+        {
+            aimPoint.SetActive(true);
+            CamRaycast();
+        }
+        else
+        {
+            aimPoint.SetActive(false);
         }
 
         FeedbackLeftBody();
@@ -305,6 +324,10 @@ public class CastSpellNew : MonoBehaviour
     //SPELL NUMBER == 1 : FIRECLONE
     [HideInInspector] public float cooldownFireClone, timerFireClone;
     [HideInInspector] public bool isMoving = false;
+
+    //SPELL NUMBER == 2 : TELEKINESISCLONE
+    [HideInInspector] public float cooldownTelekinesisClone, timerTelekinesisClone;
+    [HideInInspector] public bool TelekinesisAlt = false;
     
 
     void CastSpell(int spellNb) 
@@ -321,9 +344,13 @@ public class CastSpellNew : MonoBehaviour
             Invoke("FireClone", spellAnimationTime);
         }
 
-        if (spellNb == 2 && limit >= 2)     //CAST TELEKINESISCLONE
+        if (spellNb == 2 && limit >= 2 && timerTelekinesisClone >= cooldownTelekinesisClone)     //CAST TELEKINESISCLONE
         {
-            Debug.Log("TelekinsesisClone");
+            if(aimPoint.transform.GetComponent<MeshRenderer>().enabled == true)
+            {
+            timerTelekinesisClone = 0;
+            Invoke("TelekinesisClone", spellAnimationTime);
+            }
         }
 
         if (spellNb == 3 && limit >= 3)     //CAST WAVE
@@ -362,7 +389,7 @@ public class CastSpellNew : MonoBehaviour
 
     void FireClone()
     {
-         if((SpellL == 1 && l2IsHold) || (SpellR == 1 && r2IsHold))
+        if((SpellL == 1 && l2IsHold) || (SpellR == 1 && r2IsHold))
         {
             isMoving = true;
         }
@@ -376,6 +403,25 @@ public class CastSpellNew : MonoBehaviour
         f.transform.position = transform.position;
         f.transform.rotation = transform.rotation;
         f.transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y +90, transform.rotation.z));
+    }
+
+    void TelekinesisClone()
+    {
+        if((SpellL == 2 && l2IsHold) || (SpellR == 2 && r2IsHold))
+        {
+            TelekinesisAlt = true;
+            GetComponent<PlayerController>().isAttracted = true;
+        }
+        else if((SpellL == 2 && !l2IsHold) || (SpellR == 2 && !r2IsHold))
+        {
+            TelekinesisAlt = false;
+        }
+
+        GameObject t = Instantiate(telekinesisClone);
+        t.transform.position = aimPoint.transform.position+Vector3.up;
+        t.transform.rotation = transform.rotation;
+        t.transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y - 90, transform.rotation.z));
+
     }
 
 
@@ -396,6 +442,17 @@ public class CastSpellNew : MonoBehaviour
         else if (SpellL == 1 && limit >=1)
         {
             if (timerFireClone >= cooldownFireClone)
+            {
+                feedback_LeftArm.SetActive(true);
+            }
+            else
+            {
+                feedback_LeftArm.SetActive(false);
+            }
+        }
+        else if (SpellL == 2 && limit >=2)
+        {
+            if (timerTelekinesisClone >= cooldownTelekinesisClone)
             {
                 feedback_LeftArm.SetActive(true);
             }
@@ -431,6 +488,36 @@ public class CastSpellNew : MonoBehaviour
                 feedback_RightArm.SetActive(false);
             }
         }
+        else if(SpellR == 2 && limit >=2)
+        {
+            if (timerTelekinesisClone >= cooldownTelekinesisClone)
+            {
+                feedback_RightArm.SetActive(true);
+            }
+            else
+            {
+                feedback_RightArm.SetActive(false);
+            }
+        }
         else feedback_RightArm.SetActive(false);
+    }
+
+    [SerializeField] float cloneRange;
+    void CamRaycast()
+    {
+        RaycastHit hit;
+        Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity);
+
+
+        if (hit.collider != null && hit.distance<cloneRange && hit.transform.gameObject.layer == LayerMask.NameToLayer("ground"))
+        {
+            aimPoint.transform.GetComponent<MeshRenderer>().enabled=true;
+            aimPoint.transform.position = Camera.main.transform.position + Camera.main.transform.forward * hit.distance;
+            aimPoint.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+        }
+        else
+        {
+            aimPoint.transform.GetComponent<MeshRenderer>().enabled = false;
+        }
     }
 }

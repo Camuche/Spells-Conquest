@@ -201,6 +201,7 @@ MonoBehaviour:
   playerSpeed: 7
   grav: 20
   jumpForce: 0
+  isAttracted: 0
   life: 100
   lifeMax: 0
   speedscale: 1
@@ -212,6 +213,7 @@ MonoBehaviour:
   movement: {fileID: -1215956749607882695, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
   dashCoolDown: 0
+  movedir: {x: 0, y: 0, z: 0}
   AimDistance: 1
   CamDistance: 1.5
   CamStart: {fileID: 3870732602979315408}
@@ -278,6 +280,7 @@ MonoBehaviour:
   listLeftSpellAvailable: 02000000030000000400000005000000
   listRightSpellAvailable: 02000000030000000400000005000000
   limit: -1
+  selecting: 0
   topSelected: 0
   rightSelected: 0
   botSelected: 0
@@ -291,6 +294,8 @@ MonoBehaviour:
   wave: {fileID: 7494473617347374062, guid: 5eb235b56f5e76b47b98ec011973f267, type: 3}
   iceball: {fileID: 7671956535631379919, guid: 8db51b43ad3e7fb4d81ded3ead91a104, type: 3}
   iceClone: {fileID: 838386325406439919, guid: cf5971ea913a16f4da90a3661daae853, type: 3}
+  aimPoint: {fileID: 8136853320341797314, guid: 598d7544ceedcbc409f35e791b167678,
+    type: 3}
   structSpells:
   - spell_name: Fireball
     spell_image: {fileID: 21300000, guid: 017bf44a3c0543847853bc63b6c503e8, type: 3}
@@ -332,6 +337,10 @@ MonoBehaviour:
   cooldownFireClone: 0
   timerFireClone: 0
   isMoving: 0
+  cooldownTelekinesisClone: 0
+  timerTelekinesisClone: 0
+  TelekinesisAlt: 0
+  cloneRange: 30
 --- !u!1 &3870732602788733398
 GameObject:
   m_ObjectHideFlags: 0

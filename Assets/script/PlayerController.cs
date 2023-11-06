@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public float grav = 1;
     public float jumpForce = 10;
     float ySpeed = 0;
+    [HideInInspector] public bool isAttracted = false;
 
     CharacterController Controller;
 
@@ -102,17 +103,20 @@ public class PlayerController : MonoBehaviour
             movements();
             AnimationControl();
         }
-        updateY();
+        //updateY();
 
-        gravity();
-
+        if(!isAttracted)
+        {
+            gravity();
+            updateY();
+        }
         CheckLife();
     }
 
 
     void AnimationControl()
     {
-        animator.SetBool("IsMoving", movedir != Vector3.zero);
+        animator.SetBool("IsMoving", movedir != Vector3.zero && !isAttracted);
         animator.SetFloat("VelocityZ", movement.action.ReadValue<Vector2>().y);
         animator.SetFloat("VelocityX", movement.action.ReadValue<Vector2>().x);
 
@@ -135,11 +139,11 @@ public class PlayerController : MonoBehaviour
 
 
     [HideInInspector] public float dashCoolDown = 0;
-    private Vector3 movedir;
+    [HideInInspector] public Vector3 movedir;
     void movements()
     {
         
-        shaderUI.SetFloat("_Stamina", dashCoolDown /-1.5f +1f);
+        //shaderUI.SetFloat("_Stamina", dashCoolDown /-1.5f +1f);
 
         dashCoolDown -= Time.deltaTime;
 
@@ -178,12 +182,13 @@ public class PlayerController : MonoBehaviour
             speed = playerSpeed * Mathf.Cos(45 * Mathf.PI / 180) * speedscale;
         }*/
 
+        if(!isAttracted)
+        {
+            movedir = Vector3.zero;
 
-        movedir = Vector3.zero;
-
-        movedir += transform.right * movement.action.ReadValue<Vector2>().y * (speed + dodgespeed) * Time.deltaTime *speedscale;
-        movedir += transform.forward * -movement.action.ReadValue<Vector2>().x * (speed + dodgespeed) * Time.deltaTime *speedscale;
-
+            movedir += transform.right * movement.action.ReadValue<Vector2>().y * (speed + dodgespeed) * Time.deltaTime *speedscale;
+            movedir += transform.forward * -movement.action.ReadValue<Vector2>().x * (speed + dodgespeed) * Time.deltaTime *speedscale;
+        }
         Controller.Move(movedir);
 
 
@@ -501,6 +506,8 @@ public class PlayerController : MonoBehaviour
     {
         
     }
+
+    
 
 
 }
