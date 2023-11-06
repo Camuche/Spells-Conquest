@@ -7,6 +7,8 @@ public class Fireball : MonoBehaviour
     public float speed;
     float movespeed;
 
+    GameObject shootAimPoint;
+    float rayDistance;
     float distance = 0;
 
     Vector3 destination;
@@ -45,8 +47,11 @@ public class Fireball : MonoBehaviour
         {
             Debug.LogError(this + " has no player!!!");
         }*/
+        shootAimPoint = GameObject.Find("ShootAimPoint").gameObject;
+        //Instantiate(gameObject, shootAimPoint.transform.position, shootAimPoint.transform.rotation) ;
+        
 
-        transform.position = player.transform.position + Vector3.up;
+        transform.position = player.transform.position + /*player.transform.right +*/ (Vector3.up * 0.5f) + (-player.transform.forward * 0.2f);
         previousTransform = transform.position;
         startpos = transform.position;
         //holdTimer = 0f;
@@ -63,7 +68,9 @@ public class Fireball : MonoBehaviour
     {
         //doNotFollow = castSpellScript.doNotFollow;
         //holdTimer += Time.deltaTime;
-        //Debug.Log(holdTimer);
+        Debug.Log(shootAimPoint.transform.position);
+        
+        
         distance += speed / 2 * Time.deltaTime;
 
 
@@ -106,8 +113,12 @@ public class Fireball : MonoBehaviour
 
             //movement
             transform.position = Vector3.MoveTowards(transform.position, destination, movespeed * Time.deltaTime);
+            transform.rotation = Quaternion.LookRotation((transform.position - shootAimPoint.transform.position).normalized);
 
             //player.GetComponent<PlayerController>().speedscale = 0.2f;
+
+            //transform.position = Vector3.MoveTowards(transform.position, shootAimPoint.transform.position, movespeed * Time.deltaTime);
+            //transform.position += dir * speed * Time.deltaTime;
 
         }
         else
@@ -121,9 +132,10 @@ public class Fireball : MonoBehaviour
 
             //movement
             transform.position += dir * speed * Time.deltaTime;
+            //transform.position = Vector3.MoveTowards(transform.position, shootAimPoint.transform.position, movespeed * Time.deltaTime);
         }
 
-        transform.rotation = Quaternion.LookRotation((oldPos - transform.position).normalized);
+        //transform.rotation = Quaternion.LookRotation((transform.position - shootAimPoint.transform.position).normalized);        DIRECTION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
         if (timer <= 0)
@@ -155,7 +167,8 @@ public class Fireball : MonoBehaviour
             if (following)
             {
 
-                dir = (transform.position - previousTransform).normalized;
+                dir = (shootAimPoint.transform.position - transform.position).normalized;
+                transform.rotation = Quaternion.LookRotation((transform.position - shootAimPoint.transform.position).normalized);
                 following = false;
 
                 player.GetComponent<CastSpellNew>().cooldownFireball = cooldown;                    //THIS DOES NOT WORK
