@@ -81,7 +81,7 @@ public class Fireball : MonoBehaviour
 
         if (following)
         {
-            previousTransform = transform.position;
+            /*previousTransform = transform.position;
             player.GetComponent<CastSpellNew>().timerFireball = 0f;
             //move forward
 
@@ -106,15 +106,17 @@ public class Fireball : MonoBehaviour
             if (distance<Vector3.Distance(Camera.main.transform.position,transform.position) && hit.distance!=999999 && hit.distance !=0)
             {
                 transform.position += (transform.right*Time.deltaTime*-1/(hit.distance/10))*(Vector3.Distance(Camera.main.transform.position,player.GetComponent<PlayerController>().CamStart.transform.position)/player.GetComponent<PlayerController>().CamDistance);
-            }
+            }*/
 
 
 
+            dir = (shootAimPoint.transform.position - transform.position).normalized;
 
             //movement
-            transform.position = Vector3.MoveTowards(transform.position, destination, movespeed * Time.deltaTime);
+            //transform.position = Vector3.MoveTowards(transform.position, destination, movespeed * Time.deltaTime);
+            //transform.rotation = Quaternion.LookRotation((transform.position - shootAimPoint.transform.position).normalized);
+            transform.position += dir * speed * Time.deltaTime;
             transform.rotation = Quaternion.LookRotation((transform.position - shootAimPoint.transform.position).normalized);
-
             //player.GetComponent<PlayerController>().speedscale = 0.2f;
 
             //transform.position = Vector3.MoveTowards(transform.position, shootAimPoint.transform.position, movespeed * Time.deltaTime);
