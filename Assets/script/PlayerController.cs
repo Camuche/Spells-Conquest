@@ -45,7 +45,10 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool isDead;
 
-    [SerializeField] private InputActionReference cameraRotation, movement;
+    [SerializeField] private InputActionReference cameraRotation, movement, mapInput;
+
+    [SerializeField] Camera mapCam;
+    bool showMap = false;
 
 
     // Start is called before the first frame update
@@ -80,8 +83,8 @@ public class PlayerController : MonoBehaviour
 
        
         isDead = false;
-
-
+        
+        
 
     }
 
@@ -112,6 +115,8 @@ public class PlayerController : MonoBehaviour
         }
         
         CheckLife();
+
+        MapCamera();
     }
 
 
@@ -512,7 +517,43 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    
+    bool inputMapReleased=true;
+    bool stopTime = false;
+
+    void MapCamera()
+    {
+
+        
+
+        if (showMap == false && inputMapReleased && mapInput.action.IsPressed())
+        {
+            stopTime = true;
+            showMap = true;
+            mapCam.enabled = true;
+            Debug.Log("showMap");
+        }
+
+        else if (showMap==true && inputMapReleased && mapInput.action.IsPressed())
+        {
+            stopTime = false;
+            showMap = false;
+            mapCam.enabled = false;
+            Debug.Log("DisableMap");
+
+        }
+        if(mapInput.action.ReadValue<float>()==0)
+        {
+            inputMapReleased = true;
+        }
+        else  inputMapReleased = false;
+
+        if(stopTime == true)
+        {
+            Time.timeScale = 0f;
+        }
+        else Time.timeScale = 1f;
+        
+    }
 
 
 }
