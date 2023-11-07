@@ -44,6 +44,8 @@ public class CastSpellNew : MonoBehaviour
 
     public GameObject feedback_LeftArm;
     public GameObject feedback_RightArm;
+
+    Inventory inventory;
     
 
 
@@ -59,6 +61,12 @@ public class CastSpellNew : MonoBehaviour
         feedback_LeftArm.SetActive(false);
 
         aimPoint = Instantiate(aimPoint);
+
+        inventory = GetComponent<Inventory>();
+        doNotFollow = true;
+        isMoving= true;
+        TelekinesisAlt = false;
+
     }
 
 
@@ -374,7 +382,7 @@ public class CastSpellNew : MonoBehaviour
     //SPELLS
     void Fireball()
     {
-        if((SpellL == 0 && l2IsHold) || (SpellR == 0 && r2IsHold))
+        if(((SpellL == 0 && l2IsHold) || (SpellR == 0 && r2IsHold)) && inventory.fireballAlt)
         {
             doNotFollow = false;
         }
@@ -389,7 +397,7 @@ public class CastSpellNew : MonoBehaviour
 
     void FireClone()
     {
-        if((SpellL == 1 && l2IsHold) || (SpellR == 1 && r2IsHold))
+        if(((SpellL == 1 && l2IsHold) || (SpellR == 1 && r2IsHold)) && inventory.fireCloneAlt)
         {
             isMoving = false;
         }
@@ -407,7 +415,7 @@ public class CastSpellNew : MonoBehaviour
 
     void TelekinesisClone()
     {
-        if((SpellL == 2 && l2IsHold) || (SpellR == 2 && r2IsHold))
+        if(((SpellL == 2 && l2IsHold) || (SpellR == 2 && r2IsHold)) && inventory.telekinesisCloneAlt)
         {
             TelekinesisAlt = true;
             GetComponent<PlayerController>().isAttracted = true;

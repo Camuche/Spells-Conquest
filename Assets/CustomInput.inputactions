@@ -76,6 +76,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "TemporaryNorthButton",
+                    "type": "Button",
+                    "id": "262d03e0-01b2-457f-9040-a43ae1ff2f81",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TemporaryLeftButton",
+                    "type": "Button",
+                    "id": "96683303-23ce-4ac7-b496-6efba0b17aaa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TemporaryRightButton",
+                    "type": "Button",
+                    "id": "6dbe1044-70c3-4e09-931b-5294049716c4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -428,6 +455,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "RightSelection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0f10fca0-bba5-4bf2-91ac-65063b6ab7b3",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TemporaryNorthButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4bb5ae8d-02f0-4139-b153-3ecd1f0ef43a",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TemporaryLeftButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e7f2b8d-2284-497f-8897-63244d9d2992",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TemporaryRightButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

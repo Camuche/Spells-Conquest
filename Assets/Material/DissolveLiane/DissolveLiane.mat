@@ -27,6 +27,9 @@ Material:
     - _Cutoff: 0.78
     - _Dissolve: 1
     - _Float1: 1
+    - _Metallic: 1
+    - _Smoothness: 0.748
     - __dirty: 0
     m_Colors:
-    - _Color0: {r: 0.2830189, g: 0.1287069, b: 0.038714856, a: 0}
+    - _Color0: {r: 1, g: 1, b: 1, a: 0}
+  m_BuildTextureStacks: []

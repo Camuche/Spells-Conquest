@@ -58,6 +58,7 @@ public class Fireball : MonoBehaviour
         //cooldownFireball = player.GetComponent<CastSpell>().cooldownFireball;
         castSpellNewScript = player.GetComponent<CastSpellNew>();
         doNotFollow = castSpellNewScript.doNotFollow;
+        //doNotFollow = true;
         
     }
 
@@ -115,7 +116,7 @@ public class Fireball : MonoBehaviour
             //movement
             //transform.position = Vector3.MoveTowards(transform.position, destination, movespeed * Time.deltaTime);
             //transform.rotation = Quaternion.LookRotation((transform.position - shootAimPoint.transform.position).normalized);
-            transform.position += dir * speed * Time.deltaTime;
+            transform.position += dir * (speed/2) * Time.deltaTime;
             transform.rotation = Quaternion.LookRotation((transform.position - shootAimPoint.transform.position).normalized);
             //player.GetComponent<PlayerController>().speedscale = 0.2f;
 

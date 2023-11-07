@@ -357,7 +357,7 @@ MonoBehaviour:
     type: 3}
   spellL2: {fileID: -7734849661365291782, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
-  spellAnimationTime: 0.2
+  spellAnimationTime: 0.3
   feedback_LeftArm: {fileID: 6150111399132889184}
   feedback_RightArm: {fileID: 3504513463751858510}
   hand: 0

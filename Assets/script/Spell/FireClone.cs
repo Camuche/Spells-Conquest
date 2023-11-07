@@ -30,7 +30,7 @@ public class FireClone : MonoBehaviour
     //private bool touchHold = true;
     float holdTimer;
 
-    bool isMoving = false;
+    bool isMoving = true;
     CastSpellNew castSpellNew;
 
     [SerializeField] float cooldownFireClone;
@@ -58,7 +58,7 @@ public class FireClone : MonoBehaviour
         
         castSpellNew.cooldownFireClone = cooldownFireClone;
         
-
+        //isMoving =true;
     }
 
     // Update is called once per frame
