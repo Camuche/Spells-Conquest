@@ -32,7 +32,7 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(money);
+        Debug.Log("money : " + money + "$");
         //Debug.Log(fireCloneAlt);
         //Debug.Log(moneyTMP.text.ToString());
         //GameObject.Find("UI").transform.Find("CameraUI").transform.Find("UIPlane").transform.Find("MoneyValueTMP").GetComponent<TMP_Text>().text = "test";
