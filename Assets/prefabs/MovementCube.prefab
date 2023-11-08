@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2858785271975790322}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 17.12, y: 0.546, z: -33.017}
-  m_LocalScale: {x: 1, y: 1, z: 2}
+  m_LocalScale: {x: 2, y: 0.2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,6 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,6 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &2858785271975790323
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -106,4 +108,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6cbe92b14840540ad405af1c5479cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 0.2

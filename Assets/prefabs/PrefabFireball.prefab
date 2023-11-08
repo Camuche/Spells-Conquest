@@ -273,11 +273,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   player: {fileID: 0}
-  timer: 3
+  timer: 2
   cooldown: 0.7
   doNotFollow: 0
-  money: {fileID: 8151259076252225134, guid: 7ed868fa4092dba41b5b11d7eb78d99b, type: 3}
-  potMoneyNumber: 2
   aimingIgnore:
     serializedVersion: 2
     m_Bits: 16384
