@@ -803,6 +803,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "ShopInput",
+            "id": "ac2ace74-d211-42f6-a5a2-ce49eecefe25",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "94cd6a7f-fa2d-4d98-95e3-305c46dcc6fb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "91633982-7f5a-4929-bc6b-d81e647fd0ef",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

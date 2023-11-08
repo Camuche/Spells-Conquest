@@ -91,6 +91,8 @@ public class PlayerController : MonoBehaviour
        
         isDead = false;
         refPlayerInput = GetComponent<PlayerInput>();
+
+        persistentObject = GameObject.Find("PersistentObject");
         
         
 
@@ -443,9 +445,9 @@ public class PlayerController : MonoBehaviour
     IEnumerator RestartLevel()
     {
         yield return new WaitForSeconds(5);
-        //GameObject f = Instantiate(soul,transform.position,transform.rotation);
+        GameObject f = Instantiate(soul,transform.position,transform.rotation);
         
-        //f.transform.parent = persistentObject.transform;
+        f.transform.parent = persistentObject.transform;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -455,7 +457,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Material playerMat;
     [SerializeField] Material damageMat;
     [SerializeField] GameObject playerMesh;
-    [SerializeField] GameObject soul, persistentObject;
+    [SerializeField] GameObject soul;
+    GameObject persistentObject;
 
     void CheckLife()
     {
@@ -470,8 +473,11 @@ public class PlayerController : MonoBehaviour
         if (life <= 0)
         {
             playerSpeed = 0;
-            
-            StartCoroutine(RestartLevel());
+            if(!isDead)
+            {
+                StartCoroutine(RestartLevel());
+            }
+            //StartCoroutine(RestartLevel());
             isDead = true;
         }
         else isDead = false;
