@@ -20,6 +20,7 @@ public class CastSpellNew : MonoBehaviour
 
     [SerializeField] GameObject fireball, fireClone, telekinesisClone, wave, iceball, iceClone;
 
+    gameController gameController;
     UIupdate refUiUpdate;
 
     [SerializeField] GameObject aimPoint;
@@ -54,6 +55,7 @@ public class CastSpellNew : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameController = GameObject.Find("GameController").GetComponent<gameController>();
         refUiUpdate = GameObject.Find("GameController").GetComponent<UIupdate>();
         timerFireball = 0;
 
@@ -148,8 +150,14 @@ public class CastSpellNew : MonoBehaviour
     {
         if (selecting == 0)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Time.timeScale = 1f;
+            if (!gameController.isPaused)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Time.timeScale = 1f;
+            }
+            
+            //Cursor.lockState = CursorLockMode.Locked;
+            //Time.timeScale = 1f;
             refUiUpdate.DisableSelectionUi();
 
             if(leftSelection.action.ReadValue<float>() ==1)

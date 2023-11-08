@@ -52,7 +52,7 @@ public class CustomUIManager : MonoBehaviour
             currentSelected.PerformOnCancel();
         }
 
-        Debug.Log(movement.action.ReadValue<Vector2>());
+        //Debug.Log(movement.action.ReadValue<Vector2>());
 
         inputTimer += Time.deltaTime;
         if(inputTimer >= inputTime)

@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     
 
 
-    public float mouseSensitivity;
+    public float mouseSensitivity, minSensitivity, maxSensitivity;
     public float playerSpeed;
     float speed;
     float dodgespeed = 0;
@@ -325,7 +325,7 @@ public class PlayerController : MonoBehaviour
         {
             dist = CamDistance;
             Camera.main.transform.localPosition = new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, CamzDefault + (CamDistance - dist));
-            Debug.Log(new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, CamzDefault + (CamDistance - dist)));
+            //Debug.Log(new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, CamzDefault + (CamDistance - dist)));
         }
         else
         {
@@ -580,6 +580,11 @@ public class PlayerController : MonoBehaviour
         }
         else Time.timeScale = 1f;
         
+    }
+
+    public void SetMouseSensitivity(float value)
+    {
+        mouseSensitivity = minSensitivity + (maxSensitivity - minSensitivity) * value;
     }
 
 

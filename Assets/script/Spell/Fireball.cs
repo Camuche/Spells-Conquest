@@ -69,7 +69,7 @@ public class Fireball : MonoBehaviour
     {
         //doNotFollow = castSpellScript.doNotFollow;
         //holdTimer += Time.deltaTime;
-        Debug.Log(shootAimPoint.transform.position);
+        //Debug.Log(shootAimPoint.transform.position);
         
         
         distance += speed / 2 * Time.deltaTime;

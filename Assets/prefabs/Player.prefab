@@ -405,6 +405,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
+  minSensitivity: 20
+  maxSensitivity: 400
   playerSpeed: 7
   grav: 20
   jumpForce: 0
