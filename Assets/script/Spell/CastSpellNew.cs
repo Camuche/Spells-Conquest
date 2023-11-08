@@ -340,6 +340,8 @@ public class CastSpellNew : MonoBehaviour
 
     void CastSpell(int spellNb) 
     {
+        PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
+
         if (spellNb == 0 && limit >= 0 && timerFireball >= cooldownFireball)     //CAST FIREBALL
         {
             timerFireball = 0;

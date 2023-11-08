@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
     public PlayerInput refPlayerInput;
     public static PlayerController instance ;
 
+    public Transform refModel;
+
     void Awake()
     {
         instance = this;
@@ -93,6 +95,8 @@ public class PlayerController : MonoBehaviour
         refPlayerInput = GetComponent<PlayerInput>();
 
         persistentObject = GameObject.Find("PersistentObject");
+
+        refModel.parent = null;
         
         
 
@@ -204,13 +208,22 @@ public class PlayerController : MonoBehaviour
 
         if(!isAttracted)
         {
+            Vector3 forwardCam = new Vector3 (Camera.main.transform.forward.x , 0 , Camera.main.transform.forward.z);
+            Vector3 rightCam = new Vector3 (Camera.main.transform.right.x , 0 , Camera.main.transform.right.z) *-1;
+
             movedir = Vector3.zero;
 
-            movedir += transform.right * movement.action.ReadValue<Vector2>().y * (speed + dodgespeed) * Time.deltaTime *speedscale;
-            movedir += transform.forward * -movement.action.ReadValue<Vector2>().x * (speed + dodgespeed) * Time.deltaTime *speedscale;
+            movedir += forwardCam * movement.action.ReadValue<Vector2>().y * (speed + dodgespeed) * Time.deltaTime *speedscale;
+            movedir += rightCam * -movement.action.ReadValue<Vector2>().x * (speed + dodgespeed) * Time.deltaTime *speedscale;
         }
         Controller.Move(movedir);
 
+        if(movedir != Vector3.zero)
+        {
+            refModel.forward = movedir;
+            
+        }
+        refModel.position = transform.position - Vector3.up;
 
 
         //jump
@@ -312,7 +325,7 @@ public class PlayerController : MonoBehaviour
         {
             dist = CamDistance;
             Camera.main.transform.localPosition = new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, CamzDefault + (CamDistance - dist));
-
+            Debug.Log(new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, CamzDefault + (CamDistance - dist)));
         }
         else
         {

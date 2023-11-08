@@ -422,6 +422,8 @@ MonoBehaviour:
   mapInput: {fileID: -6319053303911240850, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
   mapCam: {fileID: 8652194102310712225}
+  refPlayerInput: {fileID: 0}
+  refModel: {fileID: 1686266685543590592}
   dashCoolDown: 0
   movedir: {x: 0, y: 0, z: 0}
   AimDistance: 1
@@ -435,7 +437,6 @@ MonoBehaviour:
   damageMat: {fileID: 2100000, guid: d8cfd64c1bed43e4d98e42f78ea6da9f, type: 2}
   playerMesh: {fileID: 9063284820451186801}
   soul: {fileID: 2431897765296284799, guid: 2f959fedb678852498d40cea80014fc5, type: 3}
-  persistentObject: {fileID: 0}
 --- !u!143 &3870732601873632239
 CharacterController:
   m_ObjectHideFlags: 0
