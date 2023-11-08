@@ -128,6 +128,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -152,6 +153,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!136 &1230295528580240015
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -183,6 +185,11 @@ MonoBehaviour:
   ySpeed: 0
   grav: 15
   followDistance: 40
+  minDistance: 2
+  rotationSpeed: 5
+  attackDuration: 0
+  stunDuration: 0
+  isAttacking: 0
 --- !u!143 &5387335219111035024
 CharacterController:
   m_ObjectHideFlags: 0
@@ -216,6 +223,8 @@ MonoBehaviour:
   life: 60
   DisplayLife: 1
   IgnoreCol: {fileID: 120852052043948174}
+  money: {fileID: 0}
+  dropMoneyNumber: 0
 --- !u!195 &5042605685589712362
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -252,7 +261,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &2158736474650565186
 MonoBehaviour:
@@ -346,6 +355,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -370,6 +380,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!136 &844082263153674897
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -220,6 +220,7 @@ MonoBehaviour:
   minDistance: 2
   rotationSpeed: 5
   attackDuration: 0
+  stunDuration: 0
   isAttacking: 0
 --- !u!143 &5387335219111035024
 CharacterController:
@@ -255,6 +256,7 @@ MonoBehaviour:
   DisplayLife: 1
   IgnoreCol: {fileID: 0}
   money: {fileID: 8151259076252225134, guid: 7ed868fa4092dba41b5b11d7eb78d99b, type: 3}
+  dropMoneyNumber: 0
 --- !u!195 &5042605685589712362
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -307,7 +309,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1001 &2427657593493359843
 PrefabInstance:
