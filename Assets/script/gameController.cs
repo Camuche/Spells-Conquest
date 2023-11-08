@@ -19,7 +19,7 @@ public class gameController : MonoBehaviour
     List<string> spellsToDestroy = new List<string>();
     [HideInInspector] public List<string> spellsToDestroyNext = new List<string>();
 
-    [SerializeField] private InputActionReference escape;
+    [SerializeField] private InputActionReference escape, menuEscape;
 
 
 
@@ -65,11 +65,13 @@ public class gameController : MonoBehaviour
     void OnEnable()
     {
         escape.action.performed += PerformEscape;
+        menuEscape.action.performed += PerformEscape;
     }
 
     void OnDisable()
     {
         escape.action.performed -= PerformEscape;
+        menuEscape.action.performed -= PerformEscape;
     }
 
     private void PerformEscape(InputAction.CallbackContext obj)
@@ -83,6 +85,8 @@ public class gameController : MonoBehaviour
             Pause();
         }
     }
+
+    
 
     // Update is called once per frame
     void Update()

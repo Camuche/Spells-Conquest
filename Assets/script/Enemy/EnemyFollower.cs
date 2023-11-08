@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -31,6 +31,10 @@ public class EnemyFollower : MonoBehaviour
     [HideInInspector]
     public bool isAttacking = false;
 
+    bool isAttracted = false;
+
+    Rigidbody rb;
+
     
 
 
@@ -48,12 +52,30 @@ public class EnemyFollower : MonoBehaviour
 
     }
 
+    void Start()
+    {
+        transform.parent = EnemyManager.instance.transform;
+        rb = GetComponent<Rigidbody>();
+    }
+
     LayerMask _LayersToIgnore;
     LayerMask LayersToIgnore;
 
     // Update is called once per frame
     void Update()
     {
+        if (!navMeshAgent.enabled || !navMeshAgent.isOnNavMesh)
+        {
+            dir = (player.transform.position - transform.position).normalized;
+            gameObject.transform.forward = dir;
+
+            rb.isKinematic = false;
+            rb.useGravity = true;
+            rb.velocity= new Vector3 (rb.velocity.x , rb.velocity.y, rb.velocity.z);
+            return;
+        }
+        
+
         if(isStun)
         {
             navMeshAgent.SetDestination(transform.position);
@@ -83,6 +105,7 @@ public class EnemyFollower : MonoBehaviour
                     {
                         navMeshAgent.SetDestination(player.transform.position);
                         navMeshAgent.speed = speed;
+                        //gameObject.transform.forward = dir;
                         gameObject.transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, player.transform.position - transform.position, rotationSpeed * Time.deltaTime, 0.0f));
                     }
                 }

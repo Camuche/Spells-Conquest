@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class telekinesisClone : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class telekinesisClone : MonoBehaviour
     [SerializeField] private float force;
     bool TelekinesisAlt;
     [SerializeField] float cooldown;
-    [SerializeField] float attractSpeed;
+    [SerializeField] float attractSpeed, enemyAttarctForce, enemyAttarctDist;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class telekinesisClone : MonoBehaviour
         if (timer < 0)
         {
             player.GetComponent<PlayerController>().isAttracted = false;
+            //ResetNavMesh();
             transform.position = new Vector3(100000, -100000, 100000);
             Destroy(gameObject, 0.1f);
         }
@@ -43,11 +45,18 @@ public class telekinesisClone : MonoBehaviour
 
         if(!TelekinesisAlt)
         {
-            GameObject[] gos = FindObjectsOfType(typeof(GameObject)) as GameObject[]; //will return an array of all GameObjects in the scene
-            foreach (GameObject go in gos)
+            Transform[] gos = EnemyManager.instance.transform.GetComponentsInChildren<Transform>() as Transform[]; //will return an array of all GameObjects in the scene
+            foreach (Transform gotr in gos)
             {
-                if (go.layer == LayerMask.NameToLayer("enemi") || (go.layer == LayerMask.NameToLayer("enemiBullet" ) && attractProjectiles))
+                GameObject go = gotr.gameObject;
+                //go.GetComponent<NavMeshAgent>().enabled = false;
+                if ((go.layer == LayerMask.NameToLayer("enemi") || (go.layer == LayerMask.NameToLayer("enemiBullet" ) && attractProjectiles)) && Vector3.Distance(go.transform.position, transform.position) <= enemyAttarctDist)
                 {
+                    go.GetComponent<NavMeshAgent>().enabled = false;
+                    Rigidbody rb = go.GetComponent<Rigidbody>();
+                    rb.isKinematic = false;
+                    rb.useGravity = true;
+
                     Vector3 dir = (transform.position - go.transform.position).normalized;
 
                     CharacterController exists;
@@ -71,7 +80,8 @@ public class telekinesisClone : MonoBehaviour
                     }
                     else if(go.GetComponent<IgnoreTeleClone>() == null)
                     {
-                        go.transform.position += movement;
+                        //go.transform.position += movement;
+                        rb.velocity= new Vector3 (movement.x * enemyAttarctForce, rb.velocity.y, movement.z * enemyAttarctForce);
                     }
                 }
             }
@@ -89,5 +99,34 @@ public class telekinesisClone : MonoBehaviour
         {
             player.GetComponent<PlayerController>().isAttracted = false;
         }
+    }
+
+    void ResetNavMesh()
+    {
+        Debug.Log("1");
+        Transform[] gos = EnemyManager.instance.transform.GetComponentsInChildren<Transform>() as Transform[]; //will return an array of all GameObjects in the scene
+            foreach (Transform gotr in gos)
+            {
+                GameObject go = gotr.gameObject;
+
+                NavMeshAgent refAgent = go.GetComponent<NavMeshAgent>();
+                
+                
+
+                if (refAgent)
+                {
+                    Rigidbody rb = go.GetComponent<Rigidbody>();
+                    rb.isKinematic = true;
+                    rb.useGravity = false;
+                    refAgent.enabled = true;
+                    Debug.Log("2");
+                }
+
+            }
+    }
+
+    void OnDestroy()
+    {
+        ResetNavMesh();
     }
 }

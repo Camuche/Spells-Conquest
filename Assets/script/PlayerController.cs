@@ -50,6 +50,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Camera mapCam;
     bool showMap = false;
 
+    public PlayerInput refPlayerInput;
+    public static PlayerController instance ;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -83,6 +90,7 @@ public class PlayerController : MonoBehaviour
 
        
         isDead = false;
+        refPlayerInput = GetComponent<PlayerInput>();
         
         
 

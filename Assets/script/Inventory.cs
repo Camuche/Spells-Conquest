@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
     //CONSOMMABLE
     [HideInInspector] public float hpPotionNb = 0, bonusHpPotionNb = 0;
 
-    //TMP_Text moneyTMP;
+    TMP_Text moneyTMP;
     //GameObject moneyTMP;
     
 
@@ -23,8 +23,8 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //moneyTMP = GameObject.Find("UI").transform.Find("CameraUI").transform.Find("UIPlane").transform.Find("MoneyValueTMP").gameObject;//.GetComponent<TextMeshPro>();
-        //moneyTMP.text = "newtext";
+        moneyTMP = GameObject.Find("MoneyValueTMP").GetComponent<TMP_Text>();
+        moneyTMP.text = money + "$";
         
         
     }

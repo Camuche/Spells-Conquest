@@ -33,6 +33,8 @@ public class UIupdate : MonoBehaviour
 
     GameObject UIPlane;
 
+    gameController refGameController;
+
     [SerializeField]Material mat_Stamina;
     [SerializeField] Material mat_UIPlane;
 
@@ -94,6 +96,8 @@ public class UIupdate : MonoBehaviour
         UIPlane = UI.transform.Find("CameraUI").transform.Find("UIPlane").gameObject;
         refSelectionUi =  UI.transform.Find("CameraUI").transform.Find("Selection").gameObject;
         DisableSelectionUi();
+
+        refGameController = GameObject.Find("GameController").GetComponent<gameController>();
         
 
 
@@ -192,17 +196,25 @@ public class UIupdate : MonoBehaviour
             mat_UIPlane.SetInt("_EnableSpell", player.GetComponent<CastSpellNew>().limit > -1 ? 1 : 0);
         }
 
-
-        isPaused = GameObject.Find("GameController").GetComponent<gameController>().isPaused;
+        bool previousIsPause = isPaused;
+        isPaused = refGameController.isPaused;
 
 
         if (isPaused)
         {
+            if(!previousIsPause)
+            {
             EnablePauseUI();
+
+            }
+            //EnablePauseUI();
         }
         else
         {
-            DisablePauseUI();
+            if(previousIsPause)
+            {
+                DisablePauseUI();
+            }
         }
 
         
@@ -213,6 +225,7 @@ public class UIupdate : MonoBehaviour
     {
         //refSensitivity.SetActive(true);
         //refEsc_BlackScreen.SetActive(true);
+        PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("MenuInput");
         refPauseScreen.SetActive(true);
 
     }
@@ -220,6 +233,7 @@ public class UIupdate : MonoBehaviour
     {
         //refSensitivity.SetActive(false);
         //refEsc_BlackScreen.SetActive(false);
+        PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("PlayerInput");
         refPauseScreen.SetActive(false);
     }
 
