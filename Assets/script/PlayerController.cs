@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour
 
     public Transform refModel;
 
+    Inventory inventory;
+
     void Awake()
     {
         instance = this;
@@ -98,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
         refModel.parent = null;
         
-        
+        inventory = GetComponent<Inventory>();
 
     }
 
@@ -458,8 +460,9 @@ public class PlayerController : MonoBehaviour
     IEnumerator RestartLevel()
     {
         yield return new WaitForSeconds(5);
+
         GameObject f = Instantiate(soul,transform.position,transform.rotation);
-        
+        f.GetComponent<Soul>().soulMoney = inventory.money;
         f.transform.parent = persistentObject.transform;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

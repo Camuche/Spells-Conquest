@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
     //CONSOMMABLE
     [HideInInspector] public float hpPotionNb = 0, bonusHpPotionNb = 0;
 
-    TMP_Text moneyTMP;
+    [HideInInspector] public TMP_Text moneyTMP;
     //GameObject moneyTMP;
     
 
@@ -45,7 +45,13 @@ public class Inventory : MonoBehaviour
         {
             money += moneyValue;
             Destroy(other.gameObject);
-            Debug.Log("money : " + money + "$");
+            moneyTMP.text = money + "$";
+            //Debug.Log("money : " + money + "$");
         }
+    }
+
+    public void UpdateMoneyTMP()
+    {
+        moneyTMP.text = money + "$";
     }
 }
