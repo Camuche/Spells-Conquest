@@ -12,7 +12,8 @@ public class Shopkeeper : MonoBehaviour
     [SerializeField] int priceFireball, priceFireClone, priceTelekinesisClone;
 
 
-    [SerializeField] private InputActionReference interact;
+    [SerializeField] private InputActionReference interact, shopCancel;
+    bool interactReleased =true;
 
     private GameObject cameraShop;
     Inventory inventory;
@@ -27,19 +28,38 @@ public class Shopkeeper : MonoBehaviour
     {
         cameraShop = GameObject.Find("CameraShop");
         cameraShop.SetActive(false);
+
         inventory = GameObject.Find("Player").GetComponent<Inventory>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(interact.action.IsPressed() && canInteract == true && inShop == false)
+        if(interact.action.ReadValue<float>() == 0)
+        {
+            interactReleased = true;
+        }
+
+
+        if(interact.action.IsPressed() && canInteract == true && inShop == false && interactReleased == true)
         {
             inShop = true;
-            //cameraShop.SetActive(true);
-            //Time.timeScale = 0f;
+            interactReleased = false;
+            cameraShop.SetActive(true);
+            PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("ShopInput");
+            Time.timeScale = 0f;
             Debug.Log(inShop);            
         }
+        if(shopCancel.action.IsPressed() && canInteract == true && inShop == true && interactReleased == true)
+        {
+            inShop = false;
+            interactReleased = false;
+            cameraShop.SetActive(false);
+            PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("PlayerInput");
+            Time.timeScale = 1f;
+            Debug.Log("leaveShop");   
+        }
+        
         //Debug.Log(inventory.money);
 
         //TEMPORARY

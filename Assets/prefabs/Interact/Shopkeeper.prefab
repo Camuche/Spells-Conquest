@@ -436,6 +436,8 @@ MonoBehaviour:
   priceTelekinesisClone: 10
   interact: {fileID: 4822076624399877299, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
+  shopCancel: {fileID: 5164172851384579573, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+    type: 3}
   northButton: {fileID: -4301990564547061739, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
   leftButton: {fileID: -6366152467283925353, guid: ce515ecc6fe77704ba2b9e7fe0281622,

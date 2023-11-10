@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1275252939218452237}
   - component: {fileID: 1275252939218452236}
   - component: {fileID: 1744762725}
+  - component: {fileID: 3471115291181074837}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -82,3 +83,18 @@ MonoBehaviour:
     type: 3}
   newSensitivity: 0
   isPaused: 0
+--- !u!114 &3471115291181074837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275252939218452239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02b70d9737ea7b742be81de74b34e1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStatsAvailable: 3
+  basePotionAvailable: 5
+  player: {fileID: 0}

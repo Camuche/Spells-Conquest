@@ -13,12 +13,14 @@ public class Shop : MonoBehaviour
     
     [SerializeField] private int baseStatsAvailable, basePotionAvailable;
 
-    [SerializeField] GameObject player;
+    GameObject player;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
+
         hpAvailable = baseStatsAvailable;
         dpAvailable = baseStatsAvailable;
 

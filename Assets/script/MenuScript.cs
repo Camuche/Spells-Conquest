@@ -40,4 +40,7 @@ public class MenuScript : MonoBehaviour
         GameObject.Find("GameController").GetComponent<gameController>().isPaused = false;
         GameObject.Find("GameController").GetComponent<gameController>().Play();
     }
+
+
+    // SHOP SCRIPT
 }
