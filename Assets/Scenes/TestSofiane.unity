@@ -4451,7 +4451,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1528
+  m_Name: pb_Mesh-1532
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4862,6 +4862,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3317643481958697208, guid: 3fffc912ff8d5014c95a20db5ac6b188,
+        type: 3}
+      propertyPath: m_Name
+      value: MapLogoPlayer
+      objectReference: {fileID: 0}
     - target: {fileID: 3870732601873632224, guid: 3fffc912ff8d5014c95a20db5ac6b188,
         type: 3}
       propertyPath: player

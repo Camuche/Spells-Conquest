@@ -7,32 +7,30 @@ using UnityEngine;
 public class Soul : MonoBehaviour
 {
 
-    //GameObject player;
-    [HideInInspector] public int soulMoney;
-    Inventory inventory;
 
-    
+    [HideInInspector] public int soulMoney;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        inventory = GameObject.Find("Player").GetComponent<Inventory>();
-        Debug.Log(soulMoney);
+
+        //Debug.Log(soulMoney);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log("soul money : " + soulMoney);
     }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            //inventory.money += soulMoney;
-            //inventory.UpdateMoneyTMP();
+            Inventory.instance.money += soulMoney;
+            Inventory.instance.UpdateMoneyTMP();
             Destroy(gameObject);
         }
     }

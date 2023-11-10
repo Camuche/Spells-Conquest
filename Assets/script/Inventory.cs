@@ -15,10 +15,14 @@ public class Inventory : MonoBehaviour
     [HideInInspector] public float hpPotionNb = 0, bonusHpPotionNb = 0;
 
     [HideInInspector] public TMP_Text moneyTMP;
-    //GameObject moneyTMP;
+    
+    public static Inventory instance;
     
 
-
+    void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()

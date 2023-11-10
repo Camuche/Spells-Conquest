@@ -88,8 +88,11 @@ public class UIupdate : MonoBehaviour
         LeftSpellText = UI.transform.Find("SpellLText").gameObject;
         RightSpellText = UI.transform.Find("SpellRText").gameObject;
 
-        LeftSpellImg = UI.transform.Find("SpellLImage").gameObject;
-        RightSpellImg = UI.transform.Find("SpellRImage").gameObject;
+        LeftSpellImg = GameObject.Find("SpellLImage");
+        RightSpellImg = GameObject.Find("SpellRImage");
+
+        LeftSpellImg.SetActive(false);
+        RightSpellImg.SetActive(false);
 
         Crosshair = UI.transform.Find("Crosshair").gameObject;
 
@@ -158,11 +161,14 @@ public class UIupdate : MonoBehaviour
             LeftSpellImg.GetComponent<Image>().sprite = player.GetComponent<CastSpell>().Elements[player.GetComponent<CastSpell>().SpellL].spell_image;
             LeftSpellText.GetComponent<Text>().text = player.GetComponent<CastSpell>().Elements[player.GetComponent<CastSpell>().SpellL].spell_name;*/
 
-            RightSpellImg.GetComponent<Image>().sprite = player.GetComponent<CastSpellNew>().structSpells[player.GetComponent<CastSpellNew>().SpellR].spell_image;
-            RightSpellText.GetComponent<Text>().text = player.GetComponent<CastSpellNew>().structSpells[player.GetComponent<CastSpellNew>().SpellR].spell_name;
+            //RightSpellImg.GetComponent<Image>().sprite = player.GetComponent<CastSpellNew>().structSpells[player.GetComponent<CastSpellNew>().SpellR].spell_image;
+            //RightSpellText.GetComponent<Text>().text = player.GetComponent<CastSpellNew>().structSpells[player.GetComponent<CastSpellNew>().SpellR].spell_name;
 
-            LeftSpellImg.GetComponent<Image>().sprite = player.GetComponent<CastSpellNew>().structSpells[player.GetComponent<CastSpellNew>().SpellL].spell_image;
-            LeftSpellText.GetComponent<Text>().text = player.GetComponent<CastSpellNew>().structSpells[player.GetComponent<CastSpellNew>().SpellL].spell_name;
+            //LeftSpellImg.GetComponent<Image>().sprite = player.GetComponent<CastSpellNew>().structSpells[player.GetComponent<CastSpellNew>().SpellL].spell_image;
+            //LeftSpellText.GetComponent<Text>().text = player.GetComponent<CastSpellNew>().structSpells[player.GetComponent<CastSpellNew>().SpellL].spell_name;
+
+            SpellMaterial(LeftSpellImg, refCastSpellNew.SpellL);
+            SpellMaterial(RightSpellImg, refCastSpellNew.SpellR);
 
             Crosshair.SetActive(player.GetComponent<CastSpellNew>().limit>-1);
 
@@ -180,11 +186,20 @@ public class UIupdate : MonoBehaviour
 
             }*/
 
-
-            RightSpellImg.SetActive(player.GetComponent<CastSpellNew>().limit > 0);
+            if(player.GetComponent<CastSpellNew>().limit > 0)
+            {
+                RightSpellImg.SetActive(true);
+            }
+            if(player.GetComponent<CastSpellNew>().limit > -1)
+            {
+                LeftSpellImg.SetActive(true);
+            }
+            
+            
+            /*RightSpellImg.SetActive(player.GetComponent<CastSpellNew>().limit > 0);
             LeftSpellImg.SetActive(player.GetComponent<CastSpellNew>().limit >-1);
             RightSpellText.SetActive(false);
-            LeftSpellText.SetActive(false);
+            LeftSpellText.SetActive(false);*/
 
 
 
