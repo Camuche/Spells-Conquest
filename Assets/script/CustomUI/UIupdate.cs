@@ -132,6 +132,7 @@ public class UIupdate : MonoBehaviour
         spellBotUi.SetActive(false);
         spellLeftUi.SetActive(false);
         
+        mat_UIPlane.SetInt("_EnableSpell", 0);
 
     }
 
@@ -193,6 +194,7 @@ public class UIupdate : MonoBehaviour
             if(player.GetComponent<CastSpellNew>().limit > -1)
             {
                 LeftSpellImg.SetActive(true);
+                mat_UIPlane.SetInt("_EnableSpell", 1);
             }
             
             
@@ -208,8 +210,10 @@ public class UIupdate : MonoBehaviour
 
             UI.SetActive(player.transform.Find("Main Camera").gameObject.activeSelf);
             //AnimateSubSpells();
-            mat_UIPlane.SetInt("_EnableSpell", player.GetComponent<CastSpellNew>().limit > -1 ? 1 : 0);
+            //mat_UIPlane.SetInt("_EnableSpell", player.GetComponent<CastSpellNew>().limit > -1 ? 1 : 0);
         }
+
+        
 
         bool previousIsPause = isPaused;
         isPaused = refGameController.isPaused;

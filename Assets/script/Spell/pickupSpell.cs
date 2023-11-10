@@ -37,6 +37,8 @@ public class pickupSpell : MonoBehaviour
             player.GetComponent<CastSpellNew>().limit++;
             //gameController.GetComponent<gameController>().spellLimit++;
             gameController.GetComponent<gameController>().spellsToDestroyNext.Add(transform.position.x.ToString() + transform.position.z.ToString());
+            gameController.GetComponent<gameController>().spellLimit = player.GetComponent<CastSpellNew>().limit;
+            gameController.GetComponent<gameController>().setSpellsToDestroy();
             Destroy(gameObject);
         }
     }
