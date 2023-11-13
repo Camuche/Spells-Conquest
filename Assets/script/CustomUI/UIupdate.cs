@@ -54,7 +54,7 @@ public class UIupdate : MonoBehaviour
     CastSpellNew refCastSpellNew;
     GameObject currentSpellUi, spellTopUi, spellRightUi, spellBotUi, spellLeftUi;
     [SerializeField] Material matFireball, matFireClone, matTelekinesesClone, matWave, matIceball, matIceClone;
-
+    GameObject cameraShop;
     //public int refHand;
 
 
@@ -133,6 +133,9 @@ public class UIupdate : MonoBehaviour
         spellLeftUi.SetActive(false);
         
         mat_UIPlane.SetInt("_EnableSpell", 0);
+
+        cameraShop = GameObject.Find("CameraShop");
+        DisableShopUi();
 
     }
 
@@ -544,6 +547,15 @@ public class UIupdate : MonoBehaviour
         {
             spellLeftUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,.5f);
         }
+    }
+
+    public void EnableShopUi()
+    {
+        cameraShop.SetActive(true);
+    }
+    public void DisableShopUi()
+    {
+        cameraShop.SetActive(false);
     }
 
 }

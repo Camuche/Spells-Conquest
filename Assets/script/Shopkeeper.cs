@@ -15,8 +15,8 @@ public class Shopkeeper : MonoBehaviour
     [SerializeField] private InputActionReference interact, shopCancel;
     bool interactReleased =true;
 
-    private GameObject cameraShop;
     Inventory inventory;
+    UIupdate uiUpdate;
 
 
     //TEMPORARY
@@ -26,8 +26,7 @@ public class Shopkeeper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cameraShop = GameObject.Find("CameraShop");
-        cameraShop.SetActive(false);
+        uiUpdate = GameObject.Find("GameController").GetComponent<UIupdate>();
 
         inventory = GameObject.Find("Player").GetComponent<Inventory>();
     }
@@ -45,19 +44,19 @@ public class Shopkeeper : MonoBehaviour
         {
             inShop = true;
             interactReleased = false;
-            cameraShop.SetActive(true);
+            uiUpdate.EnableShopUi();
             PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("ShopInput");
             Time.timeScale = 0f;
-            Debug.Log(inShop);            
+            //Debug.Log(inShop);            
         }
         if(shopCancel.action.IsPressed() && canInteract == true && inShop == true && interactReleased == true)
         {
             inShop = false;
             interactReleased = false;
-            cameraShop.SetActive(false);
+            uiUpdate.DisableShopUi();
             PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("PlayerInput");
             Time.timeScale = 1f;
-            Debug.Log("leaveShop");   
+            //Debug.Log("leaveShop");   
         }
         
         //Debug.Log(inventory.money);
