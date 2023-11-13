@@ -135,7 +135,9 @@ public class UIupdate : MonoBehaviour
         mat_UIPlane.SetInt("_EnableSpell", 0);
 
         cameraShop = GameObject.Find("CameraShop");
+        Shop.instance.GetShopButton();
         DisableShopUi();
+        
 
     }
 

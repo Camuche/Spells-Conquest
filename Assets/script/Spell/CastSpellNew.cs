@@ -79,6 +79,7 @@ public class CastSpellNew : MonoBehaviour
         {
             SetSelecting();
         }
+        Debug.Log(limit);
 
         //L2 IS PRESSED
         if(spellL2.action.ReadValue<float>() == 1 && !l2IsPressed)
@@ -187,6 +188,7 @@ public class CastSpellNew : MonoBehaviour
 
         if (selecting != 0)
         {
+            
             Cursor.lockState = CursorLockMode.None;
             hand = selecting;
             Time.timeScale = 0.05f;
@@ -294,6 +296,7 @@ public class CastSpellNew : MonoBehaviour
             if(movement.action.ReadValue<Vector2>().y >0.5 && movement.action.ReadValue<Vector2>().x>-0.5 && movement.action.ReadValue<Vector2>().x < 0.5 && listLeftSpellAvailable[0] <= limit)
             {
                 topSelected = true;
+                Debug.Log("doUrJob");
             }
             else if(movement.action.ReadValue<Vector2>().x >0.5 && movement.action.ReadValue<Vector2>().y >-0.5 && movement.action.ReadValue<Vector2>().y <0.5 && listLeftSpellAvailable[1] <= limit)
             {
@@ -528,12 +531,12 @@ public class CastSpellNew : MonoBehaviour
             if (timerFireball >= cooldownFireball)
             {
                 feedback_LeftArm.SetActive(true);
-                Debug.Log("enable");
+                //Debug.Log("enable");
             }
             else
             {
                 feedback_LeftArm.SetActive(false);
-                Debug.Log("disable");
+                //Debug.Log("disable");
             }
         }
         else if (SpellL == 1 && limit >=1)

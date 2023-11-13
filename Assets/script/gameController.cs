@@ -33,11 +33,12 @@ public class gameController : MonoBehaviour
 
 
         player = GameObject.Find("Player");
+        player.GetComponent<CastSpellNew>().limit = spellLimit;
         if (checkpointed)
         {
             Debug.Log("reloaded");
             player.transform.position = CheckPoint;
-            player.GetComponent<CastSpellNew>().limit = spellLimit;
+            //player.GetComponent<CastSpellNew>().limit = spellLimit;
         }
     }
 
@@ -48,7 +49,7 @@ public class gameController : MonoBehaviour
     {
 
         player = GameObject.Find("Player");
-        //spellLimit = player.GetComponent<CastSpell>().limit;
+        //spellLimit = player.GetComponent<CastSpellNew>().limit;
         CheckPoint = Vector3.zero;
         checkpointed = false;
 

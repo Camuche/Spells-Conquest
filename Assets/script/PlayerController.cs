@@ -460,10 +460,12 @@ public class PlayerController : MonoBehaviour
     IEnumerator RestartLevel()
     {
         yield return new WaitForSeconds(5);
+        //DontDestroyOnLoad(gameObject);
 
         GameObject f = Instantiate(soul,transform.position,transform.rotation);
         f.GetComponent<Soul>().soulMoney = inventory.money;
         f.transform.parent = persistentObject.transform;
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
