@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(life + "/" + lifeMax + " HP ");
+        Debug.Log(life + "/" + lifeMax + " HP ");
 
         if (!canMove)
             return;
@@ -500,7 +500,7 @@ public class PlayerController : MonoBehaviour
         }
         else isDead = false;
 
-        shaderUI.SetFloat("_Life", life / 100);
+        shaderUI.SetFloat("_Life", life / lifeMax);
     }
 
     public bool CheckShield()

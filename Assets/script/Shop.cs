@@ -11,11 +11,12 @@ public class Shop : MonoBehaviour
     [SerializeField] int priceFireball, priceFireClone, priceTelekinesisClone, priceWave, priceIceball, priceIceClone;
 
     //STATS AVAILABLE
-    int hpAvailable=0, dpAvailable=0;
+    [SerializeField] int hpAvailable, dpAvailable;
+    [SerializeField] int priceHp, priceDp; 
     //CONSOMMABLE
     int hpPotionAvailable=0, hpBonusPotionAvailable=0;
     
-    [SerializeField] private int baseStatsAvailable, basePotionAvailable;
+    
     
 
     GameObject player;
@@ -26,6 +27,9 @@ public class Shop : MonoBehaviour
     MeshRenderer matButtonFireball, matButtonFireClone, matButtonTelekinesisCloneone, matButtonWave, matButtonIceball, matButtonIceClone;
     [SerializeField] Material greyLockedUi, greyUi, whiteUi;
 
+    float timerDelay;
+    [SerializeField] float hitDelay;
+
     void Awake()
     {
         instance = this;
@@ -35,12 +39,6 @@ public class Shop : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-
-        hpAvailable = baseStatsAvailable;
-        dpAvailable = baseStatsAvailable;
-
-        hpPotionAvailable = basePotionAvailable;
-        hpBonusPotionAvailable = basePotionAvailable;
 
         inventory = player.GetComponent<Inventory>();
         refCastSpellNew = player.GetComponent<CastSpellNew>();
@@ -86,6 +84,11 @@ public class Shop : MonoBehaviour
         {
             Debug.Log("notavailable");
         }*/
+
+        if(timerDelay <= hitDelay)
+        {
+            timerDelay += Time.deltaTime;
+        }
     }
 
 
@@ -174,15 +177,23 @@ public class Shop : MonoBehaviour
     }
 
 
-    /*void StatHp()
+    public void UpgradeHp()
     {
-        if(hpAvailable > 0)
+        if(hpAvailable > 0 && inventory.money >= priceHp && timerDelay >= hitDelay)
         {
+            timerDelay = 0f;
             hpAvailable --;
+            player.GetComponent<PlayerController>().lifeMax += 20;
+            player.GetComponent<PlayerController>().life += 20;
+            inventory.money -= priceHp;
+            inventory.UpdateMoneyTMP();
             Debug.Log("Stat HP left :" + hpAvailable);
+            
         }
-        player.GetComponent<PlayerController>().lifeMax += 20;
-    }*/
+        
+    }
+
+
 
 
 

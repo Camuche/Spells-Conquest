@@ -79,7 +79,7 @@ public class CastSpellNew : MonoBehaviour
         {
             SetSelecting();
         }
-        Debug.Log(limit);
+        //Debug.Log(limit);
 
         //L2 IS PRESSED
         if(spellL2.action.ReadValue<float>() == 1 && !l2IsPressed)
