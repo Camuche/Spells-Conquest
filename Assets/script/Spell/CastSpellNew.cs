@@ -127,6 +127,19 @@ public class CastSpellNew : MonoBehaviour
         {
             timerTelekinesisClone += Time.deltaTime;
         }
+        if (timerWave <= cooldownWave)
+        {
+            timerWave += Time.deltaTime;
+        }
+        if (timerIceball <= cooldownIceball)
+        {
+            timerIceball += Time.deltaTime;
+        }
+        if (timerIceClone <= cooldownIceClone)
+        {
+            timerIceClone += Time.deltaTime;
+        }
+        
 
         //Instantiate AIMPOINT
         if ((limit>=2 && (SpellL == 2 || SpellR == 2)) || (limit>=5 && (SpellL == 5 || SpellR == 5)))      //  SpellL == 3 || SpellL == 5 || SpellR == 3 || SpellR == 5)
@@ -335,15 +348,27 @@ public class CastSpellNew : MonoBehaviour
 
     //SPELL NUMBER == 0 : FIREBALL
     [HideInInspector] public float cooldownFireball, timerFireball;
-    [HideInInspector] public bool doNotFollow = false;
+    [HideInInspector] public bool doNotFollow = true;
 
     //SPELL NUMBER == 1 : FIRECLONE
     [HideInInspector] public float cooldownFireClone, timerFireClone;
-    [HideInInspector] public bool isMoving = false;
+    [HideInInspector] public bool isMoving = true;
 
     //SPELL NUMBER == 2 : TELEKINESISCLONE
     [HideInInspector] public float cooldownTelekinesisClone, timerTelekinesisClone;
     [HideInInspector] public bool TelekinesisAlt = false;
+
+    //SPELL NUMBER == 3 : WAVE
+    [HideInInspector] public float cooldownWave, timerWave;
+    [HideInInspector] public bool waveAlt = false;
+
+    //SPELL NUMBER == 4 : Iceball
+    [HideInInspector] public float cooldownIceball, timerIceball;
+    [HideInInspector] public bool iceballAlt = false;
+
+    //SPELL NUMBER == 3 : WAVE
+    [HideInInspector] public float cooldownIceClone, timerIceClone;
+    [HideInInspector] public bool iceCloneAlt = false;
     
 
     void CastSpell(int spellNb) 
@@ -371,21 +396,28 @@ public class CastSpellNew : MonoBehaviour
             }
         }
 
-        if (spellNb == 3 && limit >= 3)     //CAST WAVE
+        if (spellNb == 3 && limit >= 3 && timerWave >= cooldownWave)     //CAST WAVE
         {
-            Debug.Log("Wave");
+            timerWave = 0;
+            Invoke("Wave", spellAnimationTime);
         }
 
-        if (spellNb == 4 && limit >= 4)     //CAST ICEBALL
+        if (spellNb == 4 && limit >= 4 && timerIceball >= cooldownIceball)     //CAST ICEBALL
         {
-            Debug.Log("Iceball");
+            timerIceball = 0;
+            Invoke("Iceball", spellAnimationTime);
         }
 
-        if (spellNb == 5 && limit >= 5)     //CAST ICECLONE
+        if (spellNb == 5 && limit >= 5 && timerIceClone >= cooldownIceClone)     //CAST ICECLONE
         {
-            Debug.Log("IceClone");
+            if(aimPoint.transform.GetComponent<MeshRenderer>().enabled == true)
+            {
+                timerIceClone = 0;
+                Invoke("IceClone", spellAnimationTime);
+            }
         }  
     }
+
 
 
 
@@ -439,8 +471,53 @@ public class CastSpellNew : MonoBehaviour
         t.transform.position = aimPoint.transform.position+Vector3.up;
         t.transform.rotation = transform.rotation;
         t.transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y - 90, transform.rotation.z));
-
     }
+
+    void Wave()
+    {
+        if(((SpellL == 3 && l2IsHold) || (SpellR == 3 && r2IsHold)) && inventory.waveAlt)
+        {
+            waveAlt = true;
+        }
+        else if((SpellL == 3 && !l2IsHold) || (SpellR == 3 && !r2IsHold))
+        {
+            waveAlt = false;
+        }
+
+        //INSTANTIATE SPELL
+    }
+
+    void Iceball()
+    {
+        if(((SpellL == 4 && l2IsHold) || (SpellR == 4 && r2IsHold)) && inventory.iceballAlt)
+        {
+            iceballAlt = true;
+        }
+        else if((SpellL == 4 && !l2IsHold) || (SpellR == 4 && !r2IsHold))
+        {
+            iceballAlt = false;
+        }
+
+        //INSTANTIATE SPELL
+    }
+
+    void IceClone()
+    {
+        if(((SpellL == 5 && l2IsHold) || (SpellR == 5 && r2IsHold)) && inventory.iceCloneAlt)
+        {
+            iceCloneAlt = true;
+        }
+        else if((SpellL == 5 && !l2IsHold) || (SpellR == 5 && !r2IsHold))
+        {
+            iceCloneAlt = false;
+        }
+
+        //INSTANTIATE SPELL
+    }
+
+
+
+
 
 
 
@@ -451,10 +528,12 @@ public class CastSpellNew : MonoBehaviour
             if (timerFireball >= cooldownFireball)
             {
                 feedback_LeftArm.SetActive(true);
+                Debug.Log("enable");
             }
             else
             {
                 feedback_LeftArm.SetActive(false);
+                Debug.Log("disable");
             }
         }
         else if (SpellL == 1 && limit >=1)
@@ -479,8 +558,42 @@ public class CastSpellNew : MonoBehaviour
                 feedback_LeftArm.SetActive(false);
             }
         }
+        if(SpellL == 3 && limit >=3)
+        {
+            if (timerWave >= cooldownWave)
+            {
+                feedback_LeftArm.SetActive(true);
+            }
+            else
+            {
+                feedback_LeftArm.SetActive(false);
+            }
+        }
+        if(SpellL == 4 && limit >=4)
+        {
+            if (timerIceball >= cooldownIceball)
+            {
+                feedback_LeftArm.SetActive(true);
+            }
+            else
+            {
+                feedback_LeftArm.SetActive(false);
+            }
+        }
+        if(SpellL == 5 && limit >=5)
+        {
+            if (timerIceClone >= cooldownIceClone)
+            {
+                feedback_LeftArm.SetActive(true);
+            }
+            else
+            {
+                feedback_LeftArm.SetActive(false);
+            }
+        }
         else feedback_LeftArm.SetActive(false);
     }
+
 
     void FeedbackRightBody()
     {
@@ -509,6 +622,39 @@ public class CastSpellNew : MonoBehaviour
         else if(SpellR == 2 && limit >=2)
         {
             if (timerTelekinesisClone >= cooldownTelekinesisClone)
+            {
+                feedback_RightArm.SetActive(true);
+            }
+            else
+            {
+                feedback_RightArm.SetActive(false);
+            }
+        }
+        if(SpellR == 3 && limit >=3)
+        {
+            if (timerWave >= cooldownWave)
+            {
+                feedback_RightArm.SetActive(true);
+            }
+            else
+            {
+                feedback_RightArm.SetActive(false);
+            }
+        }
+        if(SpellR == 4 && limit >=4)
+        {
+            if (timerIceball >= cooldownIceball)
+            {
+                feedback_RightArm.SetActive(true);
+            }
+            else
+            {
+                feedback_RightArm.SetActive(false);
+            }
+        }
+        if(SpellR == 5 && limit >=5)
+        {
+            if (timerIceClone >= cooldownIceClone)
             {
                 feedback_RightArm.SetActive(true);
             }

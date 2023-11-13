@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] int moneyValue;
 
     //SPELLS
-    [HideInInspector] public bool fireballAlt = false, fireCloneAlt = false, telekinesisCloneAlt = false;
+    [HideInInspector] public bool fireballAlt = false, fireCloneAlt = false, telekinesisCloneAlt = false, waveAlt = false, iceballAlt = false, iceCloneAlt = false;
 
     //CONSOMMABLE
     [HideInInspector] public float hpPotionNb = 0, bonusHpPotionNb = 0;

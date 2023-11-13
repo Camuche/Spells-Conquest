@@ -15,12 +15,12 @@ public class Shopkeeper : MonoBehaviour
     [SerializeField] private InputActionReference interact, shopCancel;
     bool interactReleased =true;
 
-    Inventory inventory;
+    //Inventory inventory;
     UIupdate uiUpdate;
 
 
     //TEMPORARY
-    [SerializeField] private InputActionReference northButton, leftButton, RightButton;
+    //[SerializeField] private InputActionReference northButton, leftButton, RightButton;
     
 
     // Start is called before the first frame update
@@ -28,7 +28,7 @@ public class Shopkeeper : MonoBehaviour
     {
         uiUpdate = GameObject.Find("GameController").GetComponent<UIupdate>();
 
-        inventory = GameObject.Find("Player").GetComponent<Inventory>();
+        //inventory = GameObject.Find("Player").GetComponent<Inventory>();
     }
 
     // Update is called once per frame
@@ -62,7 +62,7 @@ public class Shopkeeper : MonoBehaviour
         //Debug.Log(inventory.money);
 
         //TEMPORARY
-        if (canInteract && leftButton.action.IsPressed() && inventory.money >= priceFireball && fireballAlt == false)
+        /*if (canInteract && leftButton.action.IsPressed() && inventory.money >= priceFireball && fireballAlt == false)
         {
             inventory.fireballAlt = true;
             fireballAlt = true;
@@ -79,7 +79,7 @@ public class Shopkeeper : MonoBehaviour
             inventory.telekinesisCloneAlt = true;
             telekinesisCloneAlt = true;
             inventory.money -= priceTelekinesisClone;
-        }
+        }*/
 
     }
 

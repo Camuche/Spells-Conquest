@@ -388,7 +388,19 @@ MonoBehaviour:
   onDown: {fileID: 0}
   OnConfirm:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1475990095594352111}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: UpgradeFireball
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnCancel:
     m_PersistentCalls:
       m_Calls: []
@@ -1200,7 +1212,19 @@ MonoBehaviour:
   onDown: {fileID: 0}
   OnConfirm:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1475990095594352111}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: UpgradeIceClone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnCancel:
     m_PersistentCalls:
       m_Calls: []
@@ -1686,7 +1710,19 @@ MonoBehaviour:
   onDown: {fileID: 0}
   OnConfirm:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1475990095594352111}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: UpgradeWave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnCancel:
     m_PersistentCalls:
       m_Calls: []
@@ -2413,6 +2449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 585541290116248209}
   - component: {fileID: 1869306073207964813}
+  - component: {fileID: 1475990095594352111}
   m_Layer: 0
   m_Name: MenuScript
   m_TagString: Untagged
@@ -2446,6 +2483,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146ee7b899a5ab64ebba7668e9aa5bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1475990095594352111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619215406935913660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02b70d9737ea7b742be81de74b34e1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priceFireball: 10
+  priceFireClone: 10
+  priceTelekinesisClone: 10
+  priceWave: 10
+  priceIceball: 10
+  priceIceClone: 10
+  baseStatsAvailable: 3
+  basePotionAvailable: 5
 --- !u!1 &4961168582607351467
 GameObject:
   m_ObjectHideFlags: 0
@@ -3249,7 +3306,19 @@ MonoBehaviour:
   onDown: {fileID: 0}
   OnConfirm:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1475990095594352111}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: UpgradeFireClone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnCancel:
     m_PersistentCalls:
       m_Calls: []
@@ -3571,7 +3640,19 @@ MonoBehaviour:
   onDown: {fileID: 0}
   OnConfirm:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1475990095594352111}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: UpgradeIceball
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnCancel:
     m_PersistentCalls:
       m_Calls: []
@@ -5012,7 +5093,19 @@ MonoBehaviour:
   onDown: {fileID: 0}
   OnConfirm:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1475990095594352111}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: UpgradeTelekinesisClone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnCancel:
     m_PersistentCalls:
       m_Calls: []

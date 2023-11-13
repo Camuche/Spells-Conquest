@@ -82,6 +82,7 @@ public class Fireball : MonoBehaviour
 
         if (following)
         {
+            player.GetComponent<CastSpellNew>().timerFireball = 0f;
             /*previousTransform = transform.position;
             player.GetComponent<CastSpellNew>().timerFireball = 0f;
             //move forward
