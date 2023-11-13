@@ -201,7 +201,7 @@ namespace AmplifyShaderEditor
 			{
 				string worldNormal = GenerateWorldNormal( ref dataCollector , uniqueId );
 				string worldTangent = GenerateWorldTangent( ref dataCollector , uniqueId );
-				dataCollector.AddToVertexLocalVariables( uniqueId , string.Format( "half tangentSign = {0}.tangent.w * unity_WorldTransformParams.w;" , Constants.VertexShaderInputStr ) );
+				dataCollector.AddToVertexLocalVariables( uniqueId , string.Format( "half tangentSign = {0}.tangent.w * ( unity_WorldTransformParams.w >= 0.0 ? 1.0 : -1.0 );", Constants.VertexShaderInputStr ) );
 				result = "cross( " + worldNormal + ", " + worldTangent + " ) * tangentSign";
 			}
 
@@ -886,7 +886,7 @@ namespace AmplifyShaderEditor
 			{
 				GenerateVertexNormal( ref dataCollector , uniqueId , precision );
 				GenerateVertexTangent( ref dataCollector , uniqueId , precision , WirePortDataType.FLOAT3 );
-				dataCollector.AddLocalVariable( uniqueId , precision , WirePortDataType.FLOAT3 , VertexBitangentStr , "cross( " + VertexNormalStr + ", " + VertexTangentStr + ") * " + Constants.VertexShaderInputStr + ".tangent.w * unity_WorldTransformParams.w" );
+				dataCollector.AddLocalVariable( uniqueId , precision , WirePortDataType.FLOAT3 , VertexBitangentStr , "cross( " + VertexNormalStr + ", " + VertexTangentStr + ") * " + Constants.VertexShaderInputStr + ".tangent.w * ( unity_WorldTransformParams.w >= 0.0 ? 1.0 : -1.0 )" );
 			}
 			return VertexBitangentStr;
 		}
@@ -1001,22 +1001,13 @@ namespace AmplifyShaderEditor
 			dataCollector.AddLocalVariable( uniqueId, "#endif //aseld" );
 			return WorldLightDirStr;
 		}
-
-		private static readonly string[] SafeNormalizeBuiltin = 
+		
+		private static readonly string[] SafeNormalize =
 		{
-			"inline float{0} ASESafeNormalize(float{0} inVec)\n",
+			"float{0} ASESafeNormalize(float{0} inVec)\n",
 			"{\n",
-			"\tfloat dp3 = max( 0.001f , dot( inVec , inVec ) );\n",
-			"\treturn inVec* rsqrt( dp3);\n",
-			"}\n"
-		};
-
-		private static readonly string[] SafeNormalizeSRP =
-		{
-			"real{0} ASESafeNormalize(float{0} inVec)\n",
-			"{\n",
-			"\treal dp3 = max(FLT_MIN, dot(inVec, inVec));\n",
-			"\treturn inVec* rsqrt( dp3);\n",
+			"\tfloat dp3 = max(1.175494351e-38, dot(inVec, inVec));\n",
+			"\treturn inVec* rsqrt(dp3);\n",
 			"}\n",
 		};
 
@@ -1038,7 +1029,7 @@ namespace AmplifyShaderEditor
 			if( safeNormalize )
 			{
 				string[] finalFunction = null;
-				string[] funcVersion = dataCollector.IsSRP ? SafeNormalizeSRP : SafeNormalizeBuiltin;
+				string[] funcVersion = SafeNormalize;
 
 				finalFunction = new string[ funcVersion.Length ];
 

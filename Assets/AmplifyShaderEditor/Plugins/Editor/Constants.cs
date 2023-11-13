@@ -9,17 +9,6 @@ namespace AmplifyShaderEditor
 
 	public struct Constants
 	{
-		public readonly static string[] FaceMacros =
-		{
-			"#if defined(SHADER_API_GLCORE) || defined(SHADER_API_GLES) || defined(SHADER_API_GLES3) || defined(SHADER_API_D3D9)",
-			"#define FRONT_FACE_SEMANTIC VFACE",
-			"#define FRONT_FACE_TYPE float",
-			"#else",
-			"#define FRONT_FACE_SEMANTIC SV_IsFrontFace",
-			"#define FRONT_FACE_TYPE bool",
-			"#endif"
-		};
-
 		/*public readonly static string[] CustomASEStandardArgsMacros =
 		{
 			"#if defined(SHADER_API_D3D11) || defined(SHADER_API_XBOXONE) || defined(UNITY_COMPILER_HLSLCC)//ASE Args Macros",
@@ -462,8 +451,8 @@ namespace AmplifyShaderEditor
 		public readonly static float PreviewExpanderWidth = 16f;
 		public readonly static float PreviewExpanderHeight = 16f;
 		public readonly static float TextFieldFontSize = 11f;
-		public readonly static float DefaultFontSize = 15f;
-		public readonly static float DefaultTitleFontSize = 13f;
+		public readonly static float DefaultFontSize = 14f;
+		public readonly static float DefaultTitleFontSize = 12f;
 		public readonly static float PropertiesTitleFontSize = 11f;
 		public readonly static float MessageFontSize = 40f;
 		public readonly static float SelectedObjectFontSize = 30f;
@@ -471,12 +460,12 @@ namespace AmplifyShaderEditor
 		public readonly static float PORT_X_ADJUST = 10;
 		public readonly static float PORT_INITIAL_X = 10;
 
-		public readonly static float PORT_INITIAL_Y = 40;
-		public readonly static float INPUT_PORT_DELTA_Y = 5;
-		public readonly static float PORT_TO_LABEL_SPACE_X = 5;
+		public readonly static float PORT_INITIAL_Y = 41;
+		public readonly static float INPUT_PORT_DELTA_Y = 7;
+		public readonly static float PORT_TO_LABEL_SPACE_X = 4;
 
-		public readonly static float NODE_HEADER_HEIGHT = 32;
-		public readonly static float NODE_HEADER_EXTRA_HEIGHT = 5;
+		public readonly static float NODE_HEADER_HEIGHT = 0;
+		public readonly static float NODE_HEADER_EXTRA_HEIGHT = 0;
 		public readonly static float NODE_HEADER_LEFTRIGHT_MARGIN = 10;
 
 		public readonly static float MULTIPLE_SELECION_BOX_ALPHA = 0.5f;
@@ -571,8 +560,9 @@ namespace AmplifyShaderEditor
 		public readonly static string IncidentVecVertStr = VertexShaderOutputStr + "." + IncidentVecNameStr;
 		public readonly static string WorldNormalLocalDecStr = "WorldNormalVector( " + Constants.InputVarStr + " , {0}( 0,0,1 ))";
 		
-		public readonly static string VFaceVariable = "ASEVFace";
-		public readonly static string VFaceInput = "half ASEVFace : VFACE";
+		public readonly static string IsFrontFacingVariable = "ASEIsFrontFacing";
+		public readonly static string IsFrontFacingInput = "half ASEIsFrontFacing : SV_IsFrontFacing";
+		public readonly static string IsFrontFacingInputVFACE = "half ASEIsFrontFacing : VFACE";
 
 		public readonly static string ColorVariable = "vertexColor";
 		public readonly static string ColorInput = "float4 vertexColor : COLOR";
@@ -581,7 +571,8 @@ namespace AmplifyShaderEditor
 		public readonly static string EmptyPortValue = "  ";
 
 		public readonly static string[] OverallInvalidChars = { "\r", "\n", "\\", " ", ".", ">", ",", "<", "\'", "\"", ";", ":", "[", "{", "]", "}","|", "=", "+", "`", "~", "/", "?", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-" };
-		public readonly static string[] ShaderInvalidChars = { "\r", "\n", "\\", "\'", "\"", };
+        public readonly static string[] RegisterInvalidChars = { "\r", "\n", "\\", ".", ">", ",", "<", "\'", "\"", ";", ":", "[", "{", "]", "}", "|", "=", "+", "`", "~", "?", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-" };
+        public readonly static string[] ShaderInvalidChars = { "\r", "\n", "\\", "\'", "\"", };
 		public readonly static string[] EnumInvalidChars = { "\r", "\n", "\\", ".", ">", ",", "<", "\'", "\"", ";", ":", "[", "{", "]", "}", "=", "+", "`", "~", "/", "?", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-" };
 		public readonly static string[] AttrInvalidChars = { "\r", "\n", "\\", ">", "<", "\'", "\"", ";", ":", "[", "{", "]", "}", "=", "+", "`", "~", "/", "?", "!", "@", "#", "$", "%", "^", "&", "*" };
 		public readonly static string[] HeaderInvalidChars = { "\r", "\n", "\\", ">", ",", "<", "\'", "\"", ";", ":", "[", "{", "]", "}", "=", "+", "`", "~", "/", "?", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-" };
@@ -649,7 +640,7 @@ namespace AmplifyShaderEditor
 		public readonly static string AvailableUVChannelLabel = "UV Channel";
 
 		public readonly static int[] AvailableUVSets = { 0, 1, 2, 3, 4, 5, 6, 7 };
-		public readonly static string[] AvailableUVSetsStr = { "1", "2", "3", "4","5", "6", "7", "8" };
+		public readonly static string[] AvailableUVSetsStr = { "0", "1", "2", "3","4", "5", "6", "7" };
 		public readonly static string AvailableUVSetsLabel = "UV Set";
 
 		public readonly static int[] AvailableUVSizes = { 2, 3, 4 };

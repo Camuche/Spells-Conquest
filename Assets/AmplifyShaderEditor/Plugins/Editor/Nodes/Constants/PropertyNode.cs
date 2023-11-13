@@ -373,9 +373,9 @@ namespace AmplifyShaderEditor
 
 		public void ChangeParameterType( PropertyType parameterType )
 		{
-			Undo.RegisterCompleteObjectUndo( m_containerGraph.ParentWindow, Constants.UndoChangePropertyTypeNodesId );
-			Undo.RegisterCompleteObjectUndo( m_containerGraph, Constants.UndoChangePropertyTypeNodesId );
-			Undo.RecordObject( this, Constants.UndoChangePropertyTypeNodesId );
+			UndoUtils.RegisterCompleteObjectUndo( m_containerGraph.ParentWindow, Constants.UndoChangePropertyTypeNodesId );
+			UndoUtils.RegisterCompleteObjectUndo( m_containerGraph, Constants.UndoChangePropertyTypeNodesId );
+			UndoUtils.RecordObject( this, Constants.UndoChangePropertyTypeNodesId );
 
 			if( m_currentParameterType == PropertyType.Constant || m_currentParameterType == PropertyType.Global )
 			{
@@ -525,7 +525,7 @@ namespace AmplifyShaderEditor
 					EditorGUI.BeginChangeCheck();
 					EditorGUILayout.BeginHorizontal();
 					m_enumNames[ i ] = EditorGUILayoutTextField( "Name", m_enumNames[ i ] );
-					m_enumValues[ i ] = EditorGUILayoutIntField( "Value", m_enumValues[ i ], GUILayout.Width( 100 ) );
+					m_enumValues[ i ] = Mathf.Max( 0, EditorGUILayoutIntField( "Value", m_enumValues[ i ], GUILayout.Width( 100 ) ) );
 					EditorGUILayout.EndHorizontal();
 					if( EditorGUI.EndChangeCheck() )
 					{

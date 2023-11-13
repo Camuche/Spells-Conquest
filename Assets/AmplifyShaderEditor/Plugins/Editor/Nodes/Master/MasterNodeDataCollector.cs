@@ -463,6 +463,18 @@ namespace AmplifyShaderEditor
 			m_vertexData += "\t\t\t" + Constants.VertexShaderInputStr + ".normal = " + value + ";\n";
 		}
 
+		public void AddToVertexTangent( string value )
+		{
+			if ( string.IsNullOrEmpty( value ) )
+				return;
+
+			if ( !m_dirtyPerVertexData )
+			{
+				OpenPerVertexHeader( true );
+			}
+
+			m_vertexData += "\t\t\t" + Constants.VertexShaderInputStr + ".tangent = " + value + ";\n";
+		}
 
 		public void AddVertexInstruction( string value, int nodeId = -1, bool addDelimiters = true )
 		{
@@ -944,13 +956,6 @@ namespace AmplifyShaderEditor
 					m_uniformsList.Add( m_uniformsDict[ value ] );
 				}
 				m_dirtyUniforms = true;
-			}
-		}
-		public void AddFaceMacros()
-		{
-			for( int i = 0 ; i < Constants.FaceMacros.Length; i++ )
-			{
-				AddToDirectives( Constants.FaceMacros[ i ] );
 			}
 		}
 
@@ -1782,7 +1787,13 @@ namespace AmplifyShaderEditor
 			get
 			{
 				if( m_dirtyPerVertexData )
+				{
 					return Constants.CustomAppDataFullBody + m_customAppDataItems + "\t\t};\n";
+				}
+				else if ( m_dirtyAppData )
+				{
+					return Constants.CustomAppDataFullBody + "\t\t};\n";
+				}
 
 				return string.Empty;
 			}
@@ -2048,7 +2059,7 @@ namespace AmplifyShaderEditor
 
 		public bool IsTemplate { get { return m_masterNodeCategory == AvailableShaderTypes.Template; } }
 
-		public bool IsSRP { get { return ( TemplateDataCollectorInstance.CurrentSRPType == TemplateSRPType.Lightweight || TemplateDataCollectorInstance.CurrentSRPType == TemplateSRPType.HD ); } }
+		public bool IsSRP { get { return ( TemplateDataCollectorInstance.CurrentSRPType == TemplateSRPType.URP || TemplateDataCollectorInstance.CurrentSRPType == TemplateSRPType.HDRP ); } }
 
 		public AvailableShaderTypes MasterNodeCategory
 		{
@@ -2304,7 +2315,7 @@ namespace AmplifyShaderEditor
 				if( IsTemplate )
 					return m_templateDataCollector.CurrentSRPType;
 
-				return TemplateSRPType.BuiltIn;
+				return TemplateSRPType.BiRP;
 			}
 		}
 
