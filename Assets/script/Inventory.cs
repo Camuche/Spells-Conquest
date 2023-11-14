@@ -28,20 +28,11 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         moneyTMP = GameObject.Find("MoneyValueTMP").GetComponent<TMP_Text>();
-        moneyTMP.text = money + "$";
+        UpdateMoneyTMP();
         
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log("money : " + money + "$");
-        //Debug.Log(fireCloneAlt);
-        //Debug.Log(moneyTMP.text.ToString());
-        //GameObject.Find("UI").transform.Find("CameraUI").transform.Find("UIPlane").transform.Find("MoneyValueTMP").GetComponent<TMP_Text>().text = "test";
-        //moneyTMP.GetComponent<TMP_Text>().text = "test";
-    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -49,7 +40,7 @@ public class Inventory : MonoBehaviour
         {
             money += moneyValue;
             Destroy(other.gameObject);
-            moneyTMP.text = money + "$";
+            UpdateMoneyTMP();
             //Debug.Log("money : " + money + "$");
         }
     }
@@ -57,5 +48,6 @@ public class Inventory : MonoBehaviour
     public void UpdateMoneyTMP()
     {
         moneyTMP.text = money + "$";
+        Shop.instance.moneyShopTMP.text = money + "$";
     }
 }

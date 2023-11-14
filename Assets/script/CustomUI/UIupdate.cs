@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 
@@ -56,6 +57,8 @@ public class UIupdate : MonoBehaviour
     [SerializeField] Material matFireball, matFireClone, matTelekinesesClone, matWave, matIceball, matIceClone;
     GameObject cameraShop;
     //public int refHand;
+
+    [SerializeField] TMP_Text lifeTMP;
 
 
     private void OnLevelWasLoaded(int level)
@@ -138,13 +141,15 @@ public class UIupdate : MonoBehaviour
         Shop.instance.GetShopButton();
         DisableShopUi();
         
+        lifeTMP = GameObject.Find("LifeTMP").GetComponent<TMP_Text>();
+        lifeTMP.text = PlayerController.instance.life + " / " + PlayerController.instance.lifeMax;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        lifeTMP.text = PlayerController.instance.life + " / " + PlayerController.instance.lifeMax;
 
         if (player == null)
         {
@@ -251,6 +256,7 @@ public class UIupdate : MonoBehaviour
         //refEsc_BlackScreen.SetActive(true);
         PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("MenuInput");
         refPauseScreen.SetActive(true);
+        lifeTMP.enabled = false;
 
     }
     public void DisablePauseUI()
@@ -259,6 +265,7 @@ public class UIupdate : MonoBehaviour
         //refEsc_BlackScreen.SetActive(false);
         PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("PlayerInput");
         refPauseScreen.SetActive(false);
+        lifeTMP.enabled = true;
     }
 
 

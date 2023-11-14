@@ -93,7 +93,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 33550198
+    m_Bits: 33550166
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -392,6 +392,9 @@ MonoBehaviour:
   fireballAlt: 0
   fireCloneAlt: 0
   telekinesisCloneAlt: 0
+  waveAlt: 0
+  iceballAlt: 0
+  iceCloneAlt: 0
   hpPotionNb: 0
   bonusHpPotionNb: 0
   moneyTMP: {fileID: 0}
@@ -472,6 +475,15 @@ MonoBehaviour:
   cooldownTelekinesisClone: 0
   timerTelekinesisClone: 0
   TelekinesisAlt: 0
+  cooldownWave: 0
+  timerWave: 0
+  waveAlt: 0
+  cooldownIceball: 0
+  timerIceball: 0
+  iceballAlt: 0
+  cooldownIceClone: 0
+  timerIceClone: 0
+  iceCloneAlt: 0
   cloneRange: 30
 --- !u!114 &6646515115025402441
 MonoBehaviour:

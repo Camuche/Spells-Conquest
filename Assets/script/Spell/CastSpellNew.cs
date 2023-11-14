@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class CastSpellNew : MonoBehaviour
 {
+    public static CastSpellNew instance;
+
     // INT 0=fireball / 1=fireClone ...
     public int SpellL;
     public int SpellR;
@@ -49,7 +51,10 @@ public class CastSpellNew : MonoBehaviour
     Inventory inventory;
     
 
-
+    void Awake()
+    {
+        instance = this;
+    }
 
 
     // Start is called before the first frame update

@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(life + "/" + lifeMax + " HP ");
+        //Debug.Log(life + "/" + lifeMax + " HP ");
 
         if (!canMove)
             return;
@@ -562,7 +562,7 @@ public class PlayerController : MonoBehaviour
             stopTime = true;
             showMap = true;
             mapCam.enabled = true;
-            Debug.Log("showMap");
+            //Debug.Log("showMap");
         }
 
         else if (showMap==true && inputMapReleased && mapInput.action.IsPressed())
@@ -570,7 +570,7 @@ public class PlayerController : MonoBehaviour
             stopTime = false;
             showMap = false;
             mapCam.enabled = false;
-            Debug.Log("DisableMap");
+            //Debug.Log("DisableMap");
 
         }
         if(mapInput.action.ReadValue<float>()==0)

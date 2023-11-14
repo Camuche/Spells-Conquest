@@ -45,7 +45,10 @@ public class Shopkeeper : MonoBehaviour
             inShop = true;
             interactReleased = false;
             uiUpdate.EnableShopUi();
+            Shop.instance.UpdateUnselectedShopButton();
+            CustomUIManager.instance.currentSelected.PerformOnSelect();
             PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("ShopInput");
+            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0f;
             //Debug.Log(inShop);            
         }
@@ -55,6 +58,7 @@ public class Shopkeeper : MonoBehaviour
             interactReleased = false;
             uiUpdate.DisableShopUi();
             PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("PlayerInput");
+            Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1f;
             //Debug.Log("leaveShop");   
         }
