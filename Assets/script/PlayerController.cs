@@ -119,9 +119,14 @@ public class PlayerController : MonoBehaviour
         {
             rotateCamera();
             rotatePlayer();
-            movements();
+            //movements();
         }
 
+        if(!isDead)
+        {
+            movements();
+        }
+        //movements();
         AnimationControl();
 
         if(!isAttracted)
@@ -560,6 +565,7 @@ public class PlayerController : MonoBehaviour
         if (showMap == false && inputMapReleased && mapInput.action.IsPressed())
         {
             stopTime = true;
+            Time.timeScale = 0f;
             showMap = true;
             mapCam.enabled = true;
             //Debug.Log("showMap");
@@ -568,6 +574,7 @@ public class PlayerController : MonoBehaviour
         else if (showMap==true && inputMapReleased && mapInput.action.IsPressed())
         {
             stopTime = false;
+            Time.timeScale = 1f;
             showMap = false;
             mapCam.enabled = false;
             //Debug.Log("DisableMap");
@@ -579,11 +586,11 @@ public class PlayerController : MonoBehaviour
         }
         else  inputMapReleased = false;
 
-        if(stopTime == true)
+        /*if(stopTime == true)
         {
             Time.timeScale = 0f;
         }
-        else Time.timeScale = 1f;
+        else Time.timeScale = 1f;*/
         
     }
 

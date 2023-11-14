@@ -272,6 +272,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  fireballBaseDamage: 10
+  fireballDamage: 10
   player: {fileID: 0}
   timer: 2
   cooldown: 0.7

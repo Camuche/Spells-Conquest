@@ -164,6 +164,7 @@ public class CastSpellNew : MonoBehaviour
 
 
     public int hand;
+    public float timeScaleSelecting;
 
     void SetSelecting()
     {
@@ -196,7 +197,7 @@ public class CastSpellNew : MonoBehaviour
             
             Cursor.lockState = CursorLockMode.None;
             hand = selecting;
-            Time.timeScale = 0.05f;
+            Time.timeScale = timeScaleSelecting;
             refUiUpdate.EnableSelectionUi();
             refUiUpdate.UpdateUiSelection();
             CheckSelectedSpell();

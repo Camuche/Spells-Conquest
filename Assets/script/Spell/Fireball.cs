@@ -6,6 +6,8 @@ public class Fireball : MonoBehaviour
 {
     public float speed;
     float movespeed;
+    public float fireballDamage;// fireballBaseDamage;
+    //[HideInInspector] public float fireballDamage;
 
     GameObject shootAimPoint;
     float rayDistance;
@@ -37,10 +39,17 @@ public class Fireball : MonoBehaviour
     //public float fastCooldown;
     CastSpellNew castSpellNewScript;
     
+    public static Fireball instance;
 
+    void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
+
+        //fireballDamage = fireballBaseDamage;
         //animator = player.GetComponent<CastSpell>().animator;
 
         /*if (player == null) 

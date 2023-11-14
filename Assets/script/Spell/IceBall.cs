@@ -6,6 +6,7 @@ public class IceBall : MonoBehaviour
 {
     public float speed;
     float movespeed;
+    public float iceballDamage;
 
     float defalutSpeed;
 
@@ -23,6 +24,12 @@ public class IceBall : MonoBehaviour
     [SerializeField] GameObject trace;
     private float spawnTimer =1;
 
+    public static IceBall instance;
+
+    void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {

@@ -466,6 +466,7 @@ MonoBehaviour:
   feedback_LeftArm: {fileID: 6150111399132889184}
   feedback_RightArm: {fileID: 3504513463751858510}
   hand: 0
+  timeScaleSelecting: 0.5
   cooldownFireball: 0
   timerFireball: 0
   doNotFollow: 0

@@ -44,18 +44,21 @@ public class Shopkeeper : MonoBehaviour
         {
             inShop = true;
             interactReleased = false;
+
+            PlayerController.instance.life = PlayerController.instance.lifeMax;
             uiUpdate.EnableShopUi();
             Shop.instance.UpdateUnselectedShopButton();
             CustomUIManager.instance.currentSelected.PerformOnSelect();
             PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("ShopInput");
             Cursor.lockState = CursorLockMode.None;
-            Time.timeScale = 0f;
+            Time.timeScale = 0.05f;
             //Debug.Log(inShop);            
         }
         if(shopCancel.action.IsPressed() && canInteract == true && inShop == true && interactReleased == true)
         {
             inShop = false;
             interactReleased = false;
+
             uiUpdate.DisableShopUi();
             PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("PlayerInput");
             Cursor.lockState = CursorLockMode.Locked;

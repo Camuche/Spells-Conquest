@@ -7,35 +7,33 @@ public class Shop : MonoBehaviour
 {
     public static Shop instance;
 
+    [SerializeField] float hpUpgradeValue, damageUpgradeMultiplierValue;
+
     //SPELLS AVAILABLE
     bool fireballAltAvailable = true, fireCloneAltAvailable = true, telekinesisCloneAltAvailable = true, waveAltAvailable = true, iceballAltAvailable = true, iceCloneAltAvailable = true;
     [SerializeField] int priceFireball, priceFireClone, priceTelekinesisClone, priceWave, priceIceball, priceIceClone;
 
     //STATS AVAILABLE
-    [SerializeField] int hpAvailable, dpAvailable;
-    [SerializeField] int priceHp, priceDp;
+    [SerializeField] int hpAvailable, damageAvailable;
+    [SerializeField] int priceHp, priceDamage; 
+    
 
-    //CONSOMMABLE
-    int hpPotionAvailable=0, hpBonusPotionAvailable=0;
-    
-    
-    
 
     GameObject player;
     CastSpellNew refCastSpellNew;
 
     Inventory inventory;
 
-    MeshRenderer matButtonFireball, matButtonFireClone, matButtonTelekinesisClone, matButtonWave, matButtonIceball, matButtonIceClone, matButtonHp;
+    MeshRenderer matButtonFireball, matButtonFireClone, matButtonTelekinesisClone, matButtonWave, matButtonIceball, matButtonIceClone, matButtonHp, matButtonDamage;
     [SerializeField] Material greyLockedUi, greyUi, whiteUi, selectedGreyLockedUi;
 
     float timerDelay;
     [SerializeField] float hitDelay;
 
     //TextMeshPro
-    [SerializeField] TMP_Text descriptionTMP, notEnoughMoneyTMP, priceFireballTMP, priceFireCloneTMP, priceTelekinesisCloneTMP, priceWaveTMP, priceIceballTMP, priceIceCloneTMP, priceHpTMP, itemLeftHpTMP;
+    [SerializeField] TMP_Text descriptionTMP, notEnoughMoneyTMP, priceFireballTMP, priceFireCloneTMP, priceTelekinesisCloneTMP, priceWaveTMP, priceIceballTMP, priceIceCloneTMP, priceHpTMP, priceDamageTMP, itemLeftHpTMP, itemLeftDamageTMP;
     [HideInInspector] public TMP_Text moneyShopTMP;
-    [SerializeField] string descriptionFireball, descriptionFireClone, descriptionTelekinesisClone, descriptionWave, descriptionIceball, descriptionIceClone, descriptionSpellLocked, descriptionHp;
+    [SerializeField] string descriptionFireball, descriptionFireClone, descriptionTelekinesisClone, descriptionWave, descriptionIceball, descriptionIceClone, descriptionSpellLocked, descriptionHp, descriptionDamage;
 
     void Awake()
     {
@@ -52,6 +50,7 @@ public class Shop : MonoBehaviour
 
         notEnoughMoneyTMP.enabled = false;
         itemLeftHpTMP.text = "Left : " + hpAvailable;
+        itemLeftDamageTMP.text = "Left : " + damageAvailable;
 
         //SET ITEM PRICE
         priceFireballTMP.text = priceFireball + "$";
@@ -61,6 +60,9 @@ public class Shop : MonoBehaviour
         priceIceballTMP.text = priceIceball + "$";
         priceIceCloneTMP.text = priceIceClone + "$";
         priceHpTMP.text = priceHp + "$";
+        priceDamageTMP.text = priceDamage + "$";
+
+        hitDelay *= 0.05f;
     }
 
     public void GetShopButton()
@@ -73,6 +75,7 @@ public class Shop : MonoBehaviour
         matButtonIceClone = GameObject.Find("UpgradeIceClone").GetComponent<MeshRenderer>();
         
         matButtonHp = GameObject.Find("UpgradeHp").GetComponent<MeshRenderer>();
+        matButtonDamage = GameObject.Find("UpgradeDamage").GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -82,6 +85,7 @@ public class Shop : MonoBehaviour
         {
             timerDelay += Time.deltaTime;
         }
+        //Debug.Log(IceBall.instance.iceballDamage);
     }
 
 
@@ -194,8 +198,8 @@ public class Shop : MonoBehaviour
         {
             timerDelay = 0f;
             hpAvailable --;
-            player.GetComponent<PlayerController>().lifeMax += 20;
-            player.GetComponent<PlayerController>().life += 20;
+            player.GetComponent<PlayerController>().lifeMax += hpUpgradeValue;
+            player.GetComponent<PlayerController>().life += hpUpgradeValue;
             inventory.money -= priceHp;
             inventory.UpdateMoneyTMP();
             HpButtonSelected();
@@ -208,7 +212,30 @@ public class Shop : MonoBehaviour
             timerDelay = 0f;
             notEnoughMoneyTMP.enabled = true;
         }
-        
+    }
+
+    //public Fireball refFireball;
+
+    public void UpgradeDamage()
+    {
+        if(damageAvailable > 0 && inventory.money >= priceDamage && timerDelay >= hitDelay)
+        {
+            timerDelay = 0f;
+            damageAvailable --;
+            //refFireball.fireballDamage *= 1.25f;
+            
+            //Debug.Log(refFireball.fireballDamage);
+            
+            inventory.money -= priceDamage;
+            inventory.UpdateMoneyTMP();
+            DamageButtonSelected();
+            itemLeftDamageTMP.text = "Left : " + damageAvailable;
+        }
+        else if (damageAvailable > 0 && inventory.money < priceDamage && timerDelay >= hitDelay)
+        {
+            timerDelay = 0f;
+            notEnoughMoneyTMP.enabled = true;
+        }
     }
 
 
@@ -289,6 +316,15 @@ public class Shop : MonoBehaviour
         else 
         {
             matButtonHp.material = greyLockedUi;
+        }
+
+        if(damageAvailable > 0)
+        {
+            matButtonDamage.material = whiteUi;
+        }
+        else
+        {
+            matButtonDamage.material = greyLockedUi;
         }
     }
 
@@ -392,6 +428,20 @@ public class Shop : MonoBehaviour
         else 
         {
             matButtonHp.material = selectedGreyLockedUi;
+            descriptionTMP.text = descriptionSpellLocked;
+        }
+    }
+
+    public void DamageButtonSelected()
+    {
+        if(damageAvailable > 0)
+        {
+            matButtonDamage.material = greyUi;
+            descriptionTMP.text = descriptionDamage;
+        }
+        else
+        {
+            matButtonDamage.material = selectedGreyLockedUi;
             descriptionTMP.text = descriptionSpellLocked;
         }
     }

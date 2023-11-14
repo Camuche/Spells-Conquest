@@ -16,6 +16,8 @@ public class EnemyLife : MonoBehaviour
     [SerializeField] private GameObject money; 
     [SerializeField] private int dropMoneyNumber;
 
+    
+
 
 
     // Start is called before the first frame update
@@ -66,9 +68,14 @@ public class EnemyLife : MonoBehaviour
     {
 
 
-        if (other.tag == "Fireball" || other.tag == "Iceball")
+        if (other.tag == "Fireball")
         {
-            life -= 10;
+            life -= Fireball.instance.fireballDamage;
+            Destroy(other.gameObject);
+        }
+        if (other.tag == "Iceball")
+        {
+            life -= IceBall.instance.iceballDamage;
             Destroy(other.gameObject);
         }
 
