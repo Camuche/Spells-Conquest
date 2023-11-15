@@ -7,7 +7,7 @@ public class Shop : MonoBehaviour
 {
     public static Shop instance;
 
-    [SerializeField] float hpUpgradeValue, damageUpgradeMultiplierValue;
+    public float hpUpgradeValue, damageMultiplierValue;
 
     //SPELLS AVAILABLE
     bool fireballAltAvailable = true, fireCloneAltAvailable = true, telekinesisCloneAltAvailable = true, waveAltAvailable = true, iceballAltAvailable = true, iceCloneAltAvailable = true;
@@ -63,6 +63,8 @@ public class Shop : MonoBehaviour
         priceDamageTMP.text = priceDamage + "$";
 
         hitDelay *= 0.05f;
+
+        damageMultiplierValue = 1f;
     }
 
     public void GetShopButton()
@@ -85,7 +87,7 @@ public class Shop : MonoBehaviour
         {
             timerDelay += Time.deltaTime;
         }
-        //Debug.Log(IceBall.instance.iceballDamage);
+        //Debug.Log(Fireball.instance.fireballDamage * Shop.instance.damageMultiplierValue);
     }
 
 
@@ -223,7 +225,8 @@ public class Shop : MonoBehaviour
             timerDelay = 0f;
             damageAvailable --;
             //refFireball.fireballDamage *= 1.25f;
-            
+            damageMultiplierValue *= 1.25f;
+            //Debug.Log(damageMultiplierValue);
             //Debug.Log(refFireball.fireballDamage);
             
             inventory.money -= priceDamage;

@@ -70,12 +70,12 @@ public class EnemyLife : MonoBehaviour
 
         if (other.tag == "Fireball")
         {
-            life -= Fireball.instance.fireballDamage;
+            life -= Fireball.instance.fireballDamage * Shop.instance.damageMultiplierValue;
             Destroy(other.gameObject);
         }
         if (other.tag == "Iceball")
         {
-            life -= IceBall.instance.iceballDamage;
+            life -= IceBall.instance.iceballDamage * Shop.instance.damageMultiplierValue;
             Destroy(other.gameObject);
         }
 
