@@ -170,11 +170,11 @@ public class CastSpellNew : MonoBehaviour
     {
         if (selecting == 0)
         {
-            if (!gameController.isPaused)
+            /*if (!gameController.isPaused)
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Time.timeScale = 1f;
-            }
+            }*/
             
             //Cursor.lockState = CursorLockMode.Locked;
             //Time.timeScale = 1f;
@@ -183,10 +183,14 @@ public class CastSpellNew : MonoBehaviour
             if(leftSelection.action.ReadValue<float>() ==1)
             {
                 selecting = -1;
+                Time.timeScale = timeScaleSelecting;
+                Cursor.lockState = CursorLockMode.None;
             }
             else if (rightSelection.action.ReadValue<float>() ==1)
             {
                 selecting =1;
+                Time.timeScale = timeScaleSelecting;
+                Cursor.lockState = CursorLockMode.None;
             }
         }
 
@@ -195,9 +199,9 @@ public class CastSpellNew : MonoBehaviour
         if (selecting != 0)
         {
             
-            Cursor.lockState = CursorLockMode.None;
+            //Cursor.lockState = CursorLockMode.None;
             hand = selecting;
-            Time.timeScale = timeScaleSelecting;
+            //Time.timeScale = timeScaleSelecting;
             refUiUpdate.EnableSelectionUi();
             refUiUpdate.UpdateUiSelection();
             CheckSelectedSpell();
@@ -209,6 +213,8 @@ public class CastSpellNew : MonoBehaviour
                 if (leftSelection.action.ReadValue<float>() !=1)
                 {
                     selecting =0;
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Time.timeScale = 1f;
 
                     if(movement.action.ReadValue<Vector2>().y >0.5 && movement.action.ReadValue<Vector2>().x>-0.5 && movement.action.ReadValue<Vector2>().x < 0.5 && listLeftSpellAvailable[0] <= limit) //LEFT STICK TOP
                     {
@@ -249,6 +255,8 @@ public class CastSpellNew : MonoBehaviour
                 if (rightSelection.action.ReadValue<float>() !=1)
                 {
                     selecting =0;
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Time.timeScale = 1f;
 
                     if(cameraRotation.action.ReadValue<Vector2>().y >0.5 && cameraRotation.action.ReadValue<Vector2>().x>-0.5 && cameraRotation.action.ReadValue<Vector2>().x < 0.5 && listRightSpellAvailable[0] <= limit) //RIGHT STICK TOP
                     {

@@ -7,7 +7,9 @@ public class Shop : MonoBehaviour
 {
     public static Shop instance;
 
-    public float hpUpgradeValue, damageMultiplierValue;
+    public float hpUpgradeValue, damageUpgradeMultiplierValue;
+    [HideInInspector] public float damageMultiplierValue;
+    int hpUpgradeNumber = 0;
 
     //SPELLS AVAILABLE
     bool fireballAltAvailable = true, fireCloneAltAvailable = true, telekinesisCloneAltAvailable = true, waveAltAvailable = true, iceballAltAvailable = true, iceCloneAltAvailable = true;
@@ -34,6 +36,7 @@ public class Shop : MonoBehaviour
     [SerializeField] TMP_Text descriptionTMP, notEnoughMoneyTMP, priceFireballTMP, priceFireCloneTMP, priceTelekinesisCloneTMP, priceWaveTMP, priceIceballTMP, priceIceCloneTMP, priceHpTMP, priceDamageTMP, itemLeftHpTMP, itemLeftDamageTMP;
     [HideInInspector] public TMP_Text moneyShopTMP;
     [SerializeField] string descriptionFireball, descriptionFireClone, descriptionTelekinesisClone, descriptionWave, descriptionIceball, descriptionIceClone, descriptionSpellLocked, descriptionHp, descriptionDamage;
+    [SerializeField] TMP_Text bonusHpTMP, bonusDamageTMP;
 
     void Awake()
     {
@@ -48,9 +51,14 @@ public class Shop : MonoBehaviour
         inventory = player.GetComponent<Inventory>();
         refCastSpellNew = player.GetComponent<CastSpellNew>();
 
+        damageMultiplierValue = 1f;
+
+        //TMP
         notEnoughMoneyTMP.enabled = false;
         itemLeftHpTMP.text = "Left : " + hpAvailable;
         itemLeftDamageTMP.text = "Left : " + damageAvailable;
+        bonusHpTMP.text = "Points de vie x" + 100 + "%";
+        bonusDamageTMP.text = "Dégâts x" + 100 + "%";
 
         //SET ITEM PRICE
         priceFireballTMP.text = priceFireball + "$";
@@ -64,7 +72,7 @@ public class Shop : MonoBehaviour
 
         hitDelay *= 0.05f;
 
-        damageMultiplierValue = 1f;
+        
     }
 
     public void GetShopButton()
@@ -200,8 +208,12 @@ public class Shop : MonoBehaviour
         {
             timerDelay = 0f;
             hpAvailable --;
+
             player.GetComponent<PlayerController>().lifeMax += hpUpgradeValue;
             player.GetComponent<PlayerController>().life += hpUpgradeValue;
+            hpUpgradeNumber ++;
+            bonusHpTMP.text = "Points de vie x" + (100 + hpUpgradeValue * hpUpgradeNumber) + "%";
+
             inventory.money -= priceHp;
             inventory.UpdateMoneyTMP();
             HpButtonSelected();
@@ -224,10 +236,9 @@ public class Shop : MonoBehaviour
         {
             timerDelay = 0f;
             damageAvailable --;
-            //refFireball.fireballDamage *= 1.25f;
-            damageMultiplierValue *= 1.25f;
-            //Debug.Log(damageMultiplierValue);
-            //Debug.Log(refFireball.fireballDamage);
+
+            damageMultiplierValue += damageUpgradeMultiplierValue;
+            bonusDamageTMP.text = "Dégâts x" + damageMultiplierValue*100 + "%";
             
             inventory.money -= priceDamage;
             inventory.UpdateMoneyTMP();
