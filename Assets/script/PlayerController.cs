@@ -488,6 +488,7 @@ public class PlayerController : MonoBehaviour
 
     void CheckLife()
     {
+        life = Mathf.Round(life*10)/10;
         damagedTimer -= Time.deltaTime;
         if (previousLife!=null && previousLife > life)
         {

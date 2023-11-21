@@ -247,7 +247,7 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
   grav: 15
-  followDistance: 40
+  followDistance: 30
   minDistance: 2
   rotationSpeed: 5
   attackDuration: 0
@@ -283,10 +283,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4b13a27f0d8234d9acd522a6a63f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
+  delay: 0.75
   Bullet: {fileID: 3856048993441989314, guid: d1a24f3734c82ca44ace6640f238fa07, type: 3}
   BulletDammage: 10
-  BulletSpeed: 20
+  BulletSpeed: 30
   spawnPos: {fileID: 3271397850573795120}
 --- !u!114 &3931506438026593828
 MonoBehaviour:
