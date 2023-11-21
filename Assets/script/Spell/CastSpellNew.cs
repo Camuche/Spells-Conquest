@@ -44,6 +44,7 @@ public class CastSpellNew : MonoBehaviour
 
     bool l2IsPressed=false, r2IsPressed=false, l2IsHold= false, r2IsHold = false;
     [SerializeField] float spellAnimationTime;
+    float timerCastAnimation = 0;
 
     public GameObject feedback_LeftArm;
     public GameObject feedback_RightArm;
@@ -157,6 +158,17 @@ public class CastSpellNew : MonoBehaviour
         {
             aimPoint.SetActive(false);
         }
+
+        //Make player move again
+        if (timerCastAnimation <= spellAnimationTime)
+        {
+            timerCastAnimation += Time.deltaTime;
+        }
+        else if(PlayerController.instance.isCasting)
+        {
+            PlayerController.instance.isCasting = false;
+        }
+
 
         FeedbackLeftBody();
         FeedbackRightBody();       
@@ -390,16 +402,26 @@ public class CastSpellNew : MonoBehaviour
 
     void CastSpell(int spellNb) 
     {
-        PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
-
         if (spellNb == 0 && limit >= 0 && timerFireball >= cooldownFireball)     //CAST FIREBALL
         {
+            //StopPlayerWhenCasting
+            timerCastAnimation = 0;
+            PlayerController.instance.isCasting = true;
+            PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
+
+
             timerFireball = 0;
             Invoke("Fireball", spellAnimationTime);
         }
 
         if (spellNb == 1 && limit >= 1 && timerFireClone >= cooldownFireClone)     //CAST FIRECLONE
         {
+            //StopPlayerWhenCasting
+            timerCastAnimation = 0;
+            PlayerController.instance.isCasting = true;
+            PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
+
+
             timerFireClone = 0;
             Invoke("FireClone", spellAnimationTime);
         }
@@ -408,6 +430,12 @@ public class CastSpellNew : MonoBehaviour
         {
             if(aimPoint.transform.GetComponent<MeshRenderer>().enabled == true)
             {
+                //StopPlayerWhenCasting
+            timerCastAnimation = 0;
+            PlayerController.instance.isCasting = true;
+            PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
+
+
             timerTelekinesisClone = 0;
             Invoke("TelekinesisClone", spellAnimationTime);
             }
@@ -415,12 +443,24 @@ public class CastSpellNew : MonoBehaviour
 
         if (spellNb == 3 && limit >= 3 && timerWave >= cooldownWave)     //CAST WAVE
         {
+            //StopPlayerWhenCasting
+            timerCastAnimation = 0;
+            PlayerController.instance.isCasting = true;
+            PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
+
+
             timerWave = 0;
             Invoke("Wave", spellAnimationTime);
         }
 
         if (spellNb == 4 && limit >= 4 && timerIceball >= cooldownIceball)     //CAST ICEBALL
         {
+            //StopPlayerWhenCasting
+            timerCastAnimation = 0;
+            PlayerController.instance.isCasting = true;
+            PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
+
+
             timerIceball = 0;
             Invoke("Iceball", spellAnimationTime);
         }
@@ -429,6 +469,12 @@ public class CastSpellNew : MonoBehaviour
         {
             if(aimPoint.transform.GetComponent<MeshRenderer>().enabled == true)
             {
+                //StopPlayerWhenCasting
+                timerCastAnimation = 0;
+                PlayerController.instance.isCasting = true;
+                PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
+
+
                 timerIceClone = 0;
                 Invoke("IceClone", spellAnimationTime);
             }

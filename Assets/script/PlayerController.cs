@@ -51,11 +51,14 @@ public class PlayerController : MonoBehaviour
     bool showMap = false;
 
     public PlayerInput refPlayerInput;
+
     public static PlayerController instance ;
 
     public Transform refModel;
 
     Inventory inventory;
+
+    [HideInInspector] public bool isCasting = false;
 
     void Awake()
     {
@@ -122,7 +125,7 @@ public class PlayerController : MonoBehaviour
             //movements();
         }
 
-        if(!isDead)
+        if(!isDead && !isCasting)
         {
             movements();
         }
