@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2321213142036859642}
   m_Layer: 0
   m_Name: IceClone
-  m_TagString: CanTrigger
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,6 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,6 +83,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!136 &838386325406439917
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -91,7 +93,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 838386325406439919}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -182,6 +184,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rigged_Mesh_Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 481ad312ea359274f91d032cce63d413,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 481ad312ea359274f91d032cce63d413, type: 3}

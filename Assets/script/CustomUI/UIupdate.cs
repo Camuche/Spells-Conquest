@@ -474,14 +474,14 @@ public class UIupdate : MonoBehaviour
         {
             spellRightUi.SetActive(true);
         }
-        if(refCastSpellNew.limit>=4 && spellBotUi !=null)
+        /*if(refCastSpellNew.limit>=4 && spellBotUi !=null)
         {
             spellBotUi.SetActive(true);
         }
         if(refCastSpellNew.limit>=5 && spellLeftUi !=null)
         {
             spellLeftUi.SetActive(true);
-        }
+        }*/
 
         HighlightSelected();
         
@@ -503,16 +503,16 @@ public class UIupdate : MonoBehaviour
         }
         if (i==3)
         {
-            f.GetComponent<MeshRenderer>().material = matWave;
+            f.GetComponent<MeshRenderer>().material = matIceClone;
         }
-        if (i==4)
+        /*if (i==4)
         {
             f.GetComponent<MeshRenderer>().material = matIceball;
         }
         if (i==5)
         {
             f.GetComponent<MeshRenderer>().material = matIceClone;
-        }
+        }*/
 
     }
 
@@ -539,7 +539,7 @@ public class UIupdate : MonoBehaviour
             spellRightUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,.5f);
         }
 
-        if (refCastSpellNew.botSelected)
+        /*if (refCastSpellNew.botSelected)
         {
             spellBotUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,1);
         }
@@ -555,7 +555,7 @@ public class UIupdate : MonoBehaviour
         else 
         {
             spellLeftUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,.5f);
-        }
+        }*/
     }
 
     public void EnableShopUi()
