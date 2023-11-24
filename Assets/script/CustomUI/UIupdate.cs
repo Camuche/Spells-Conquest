@@ -123,17 +123,17 @@ public class UIupdate : MonoBehaviour
         refPauseScreen.SetActive(false);
 
         currentSpellUi = UI.transform.Find("CameraUI").transform.Find("Selection").transform.Find("CurrentSpell").gameObject;
-        spellTopUi = UI.transform.Find("CameraUI").transform.Find("Selection").transform.Find("SpellTop").gameObject;
+        spellLeftUi = UI.transform.Find("CameraUI").transform.Find("Selection").transform.Find("SpellLeft").gameObject;
         spellRightUi = UI.transform.Find("CameraUI").transform.Find("Selection").transform.Find("SpellRight").gameObject;
         spellBotUi = UI.transform.Find("CameraUI").transform.Find("Selection").transform.Find("SpellBot").gameObject;
-        spellLeftUi = UI.transform.Find("CameraUI").transform.Find("Selection").transform.Find("SpellLeft").gameObject;
+        spellTopUi = UI.transform.Find("CameraUI").transform.Find("Selection").transform.Find("SpellTop").gameObject;
 
         refCastSpellNew = GameObject.Find("Player").GetComponent<CastSpellNew>();
 
-        spellTopUi.SetActive(false);
+        spellLeftUi.SetActive(false);
         spellRightUi.SetActive(false);
         spellBotUi.SetActive(false);
-        spellLeftUi.SetActive(false);
+        spellTopUi.SetActive(false);
         
         mat_UIPlane.SetInt("_EnableSpell", 0);
 
@@ -445,18 +445,18 @@ public class UIupdate : MonoBehaviour
         if(refCastSpellNew.hand == -1)
         {
             SpellMaterial(currentSpellUi, refCastSpellNew.SpellL);
-            SpellMaterial(spellTopUi, refCastSpellNew.listLeftSpellAvailable[0]);
+            SpellMaterial(spellLeftUi, refCastSpellNew.listLeftSpellAvailable[0]);
             SpellMaterial(spellRightUi, refCastSpellNew.listLeftSpellAvailable[1]);
-            SpellMaterial(spellBotUi, refCastSpellNew.listLeftSpellAvailable[2]);
-            SpellMaterial(spellLeftUi, refCastSpellNew.listLeftSpellAvailable[3]);
+            //SpellMaterial(spellBotUi, refCastSpellNew.listLeftSpellAvailable[2]);
+            //SpellMaterial(spellLeftUi, refCastSpellNew.listLeftSpellAvailable[3]);
         }
         if(refCastSpellNew.hand == 1)
         {
             SpellMaterial(currentSpellUi, refCastSpellNew.SpellR);
-            SpellMaterial(spellTopUi, refCastSpellNew.listRightSpellAvailable[0]);
+            SpellMaterial(spellLeftUi, refCastSpellNew.listRightSpellAvailable[0]);
             SpellMaterial(spellRightUi, refCastSpellNew.listRightSpellAvailable[1]);
-            SpellMaterial(spellBotUi, refCastSpellNew.listRightSpellAvailable[2]);
-            SpellMaterial(spellLeftUi, refCastSpellNew.listRightSpellAvailable[3]);
+            //SpellMaterial(spellBotUi, refCastSpellNew.listRightSpellAvailable[2]);
+            //SpellMaterial(spellLeftUi, refCastSpellNew.listRightSpellAvailable[3]);
         }
 
         //VISIBLE WHEN UNLOCKED ONLY
@@ -466,9 +466,9 @@ public class UIupdate : MonoBehaviour
         }
         else currentSpellUi.SetActive(true);
 
-        if(refCastSpellNew.limit>=2 && spellTopUi !=null)
+        if(refCastSpellNew.limit>=2 && spellLeftUi !=null)
         {
-            spellTopUi.SetActive(true);
+            spellLeftUi.SetActive(true);
         }
         if(refCastSpellNew.limit>=3 && spellRightUi !=null)
         {
@@ -521,13 +521,13 @@ public class UIupdate : MonoBehaviour
 
         currentSpellUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,1);
 
-        if (refCastSpellNew.topSelected)
+        if (refCastSpellNew.leftSelected)
         {
-            spellTopUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,1);
+            spellLeftUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,1);
         }
         else 
         {
-            spellTopUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,.5f);
+            spellLeftUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,.5f);
         }
         
         if (refCastSpellNew.rightSelected)

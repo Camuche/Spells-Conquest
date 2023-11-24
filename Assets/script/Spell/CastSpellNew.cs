@@ -18,7 +18,7 @@ public class CastSpellNew : MonoBehaviour
     public int limit;
     [HideInInspector] public int selecting;
 
-    [HideInInspector] public bool topSelected = false, rightSelected = false, botSelected = false, leftSelected = false;
+    [HideInInspector] public bool /*topSelected = false, */rightSelected = false,/* botSelected = false,*/ leftSelected = false;
 
     [SerializeField] GameObject fireball, fireClone, telekinesisClone, wave, iceball, iceClone;
 
@@ -149,7 +149,7 @@ public class CastSpellNew : MonoBehaviour
         
 
         //Instantiate AIMPOINT
-        if ((limit>=2 && (SpellL == 2 || SpellR == 2)) || (limit>=5 && (SpellL == 5 || SpellR == 5)))      //  SpellL == 3 || SpellL == 5 || SpellR == 3 || SpellR == 5)
+        if ((limit>=2 && (SpellL == 2 || SpellR == 2)) || (limit>=3 && (SpellL == 3 || SpellR == 3)))      //  SpellL == 3 || SpellL == 5 || SpellR == 3 || SpellR == 5)
         {
             aimPoint.SetActive(true);
             CamRaycast();
@@ -321,7 +321,7 @@ public class CastSpellNew : MonoBehaviour
         {
             if(movement.action.ReadValue<Vector2>().x<0  && listLeftSpellAvailable[0] <= limit)
             {
-                topSelected = true;
+                leftSelected = true;
                 
             }
             else if(movement.action.ReadValue<Vector2>().x>0 && listLeftSpellAvailable[1] <= limit)
@@ -338,7 +338,7 @@ public class CastSpellNew : MonoBehaviour
             }*/
             else
             {
-                topSelected = false;
+                leftSelected = false;
                 rightSelected = false;
                 /*botSelected = false;
                 leftSelected=false;*/
@@ -349,7 +349,7 @@ public class CastSpellNew : MonoBehaviour
         {
             if(cameraRotation.action.ReadValue<Vector2>().x<0 && listRightSpellAvailable[0] <= limit)
             {
-                topSelected = true;
+                leftSelected = true;
             }
             else if(cameraRotation.action.ReadValue<Vector2>().x>0 && listRightSpellAvailable[1] <= limit)
             {
@@ -365,7 +365,7 @@ public class CastSpellNew : MonoBehaviour
             }*/
             else
             {
-                topSelected = false;
+                leftSelected = false;
                 rightSelected = false;
                 /*botSelected = false;
                 leftSelected=false;*/
@@ -596,12 +596,10 @@ public class CastSpellNew : MonoBehaviour
             if (timerFireball >= cooldownFireball)
             {
                 feedback_LeftArm.SetActive(true);
-                //Debug.Log("enable");
             }
             else
             {
                 feedback_LeftArm.SetActive(false);
-                //Debug.Log("disable");
             }
         }
         else if (SpellL == 1 && limit >=1)
@@ -626,7 +624,7 @@ public class CastSpellNew : MonoBehaviour
                 feedback_LeftArm.SetActive(false);
             }
         }
-        if(SpellL == 3 && limit >=3)
+        else if(SpellL == 3 && limit >=3)
         {
             if (timerIceClone >= cooldownIceClone)
             {
@@ -698,7 +696,7 @@ public class CastSpellNew : MonoBehaviour
                 feedback_RightArm.SetActive(false);
             }
         }
-        if(SpellR == 3 && limit >=3)
+        else if(SpellR == 3 && limit >=3)
         {
             if (timerIceClone >= cooldownIceClone)
             {
