@@ -40,7 +40,7 @@ public class CastSpellNew : MonoBehaviour
 
 
 
-    [SerializeField] private InputActionReference leftSelection, rightSelection, movement, cameraRotation, spellR2, spellL2;
+    [SerializeField] private InputActionReference leftSelection, rightSelection, /*movement,*/ cameraRotation, spellR2, spellL2;
 
     bool l2IsPressed=false, r2IsPressed=false, l2IsHold= false, r2IsHold = false;
     [SerializeField] float spellAnimationTime;
@@ -228,14 +228,14 @@ public class CastSpellNew : MonoBehaviour
                     Cursor.lockState = CursorLockMode.Locked;
                     Time.timeScale = 1f;
 
-                    if(movement.action.ReadValue<Vector2>().x<0 && listLeftSpellAvailable[0] <= limit) //LEFT STICK LEFT
+                    if(cameraRotation.action.ReadValue<Vector2>().x<0 && listLeftSpellAvailable[0] <= limit) //LEFT STICK LEFT
                     {
                         saveCurrentSpell = SpellL;
                         SpellL = listLeftSpellAvailable[0];
                         listLeftSpellAvailable[0] = saveCurrentSpell;
                         UpdateRightSpells();
                     }
-                    if(movement.action.ReadValue<Vector2>().x>0 && listLeftSpellAvailable[1] <= limit) //LEFT STICK RIGHT
+                    if(cameraRotation.action.ReadValue<Vector2>().x>0 && listLeftSpellAvailable[1] <= limit) //LEFT STICK RIGHT
                     {
                         saveCurrentSpell = SpellL;
                         SpellL = listLeftSpellAvailable[1];
@@ -319,12 +319,12 @@ public class CastSpellNew : MonoBehaviour
     {
         if(hand == -1)
         {
-            if(movement.action.ReadValue<Vector2>().x<0  && listLeftSpellAvailable[0] <= limit)
+            if(cameraRotation.action.ReadValue<Vector2>().x<0  && listLeftSpellAvailable[0] <= limit)
             {
                 leftSelected = true;
                 
             }
-            else if(movement.action.ReadValue<Vector2>().x>0 && listLeftSpellAvailable[1] <= limit)
+            else if(cameraRotation.action.ReadValue<Vector2>().x>0 && listLeftSpellAvailable[1] <= limit)
             {
                 rightSelected = true;
             }
