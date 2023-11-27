@@ -8,6 +8,9 @@ public class IceExplosion : MonoBehaviour
 
     [SerializeField] float size;
     [SerializeField] float duration;
+    [SerializeField] float timeBetweenDamage, iceExplosionDamage;
+    bool hitNow = false;
+    
 
 
     private void OnValidate()
@@ -20,6 +23,8 @@ public class IceExplosion : MonoBehaviour
     void Start()
     {
         transform.localScale = Vector3.one * size;
+        timer = timeBetweenDamage;
+        //InvokeRepeating("Damage",0,timeBetweenDamage);
     }
 
     // Update is called once per frame
@@ -32,14 +37,23 @@ public class IceExplosion : MonoBehaviour
             GetComponent<SphereCollider>().radius = 0;
             Destroy(gameObject,0.1f);
         }
+
+        timer += Time.deltaTime;
+        if(timer>= timeBetweenDamage)
+        {
+            timer = 0;
+            hitNow = true;
+        }
     }
+
+    float timer = 0;
 
     private void OnTriggerStay(Collider other)
     {
 
-        print(other.name);
+        //print(other.name);
 
-
+        //ENEMIES
         NavMeshAgent navMeshAgent;
         other.gameObject.TryGetComponent<NavMeshAgent>(out navMeshAgent);
         if (navMeshAgent != null)
@@ -70,17 +84,18 @@ public class IceExplosion : MonoBehaviour
             shootingComp.enabled = false;
         }
 
-        EnemyProjectiles projComp;
+        //PROJECTILES
+        /*EnemyProjectiles projComp;
         other.gameObject.TryGetComponent<EnemyProjectiles>(out projComp);
 
         if (projComp != null)
         {
             projComp.enabled = false;
 
-        }
+        }*/
 
-
-        PlayerController playerController;
+        //PLAYER
+        /*PlayerController playerController;
         other.gameObject.TryGetComponent<PlayerController>(out playerController);
 
         if (playerController != null)
@@ -96,7 +111,7 @@ public class IceExplosion : MonoBehaviour
         {
             castSpell.enabled = false;
 
-        }
+        }*/
 
         EnemyFlying enemyFlying;
         other.gameObject.TryGetComponent<EnemyFlying>(out enemyFlying);
@@ -105,6 +120,20 @@ public class IceExplosion : MonoBehaviour
         {
             enemyFlying.enabled = false;
 
+        }
+
+        EnemyLife enemyLife;
+        other.gameObject.TryGetComponent<EnemyLife>(out enemyLife);
+
+        
+        if (enemyLife != null && hitNow)
+        {
+            
+            //other.GetComponent<EnemyLife>().life -= iceExplosionDamage;
+            Debug.Log("hit");
+            print(other.name);
+            hitNow = false;
+           
         }
     }
 
@@ -138,16 +167,18 @@ public class IceExplosion : MonoBehaviour
             shootingComp.enabled = true;
         }
 
-        EnemyProjectiles projComp;
+        //PROJECTILES
+        /*EnemyProjectiles projComp;
         other.gameObject.TryGetComponent<EnemyProjectiles>(out projComp);
 
         if (projComp != null)
         {
             projComp.enabled = true;
 
-        }
+        }*/
 
-        PlayerController playerController;
+        //PLAYER
+        /*PlayerController playerController;
         other.gameObject.TryGetComponent<PlayerController>(out playerController);
 
         if (playerController != null)
@@ -163,7 +194,7 @@ public class IceExplosion : MonoBehaviour
         {
             castSpell.enabled = true;
 
-        }
+        }*/
 
         EnemyFlying enemyFlying;
         other.gameObject.TryGetComponent<EnemyFlying>(out enemyFlying);
@@ -174,5 +205,7 @@ public class IceExplosion : MonoBehaviour
 
         }
     }
+
+    
 
 }

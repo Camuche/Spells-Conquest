@@ -56,6 +56,16 @@ public class EnemyLife : MonoBehaviour
             }
         }
 
+        if (life <= 0)
+        {
+            for (int i=0; i<dropMoneyNumber; i++)
+            {
+                //Debug.Log("1 Piece");
+                Instantiate(money, transform.position +new Vector3(Random.Range(-1f,1f),0,Random.Range(-1f,1f)), transform.rotation * Quaternion.Euler(0,Random.Range(-180f,180f),0));
+            }
+            Destroy(gameObject);
+        }
+
     }
 
 
@@ -79,15 +89,7 @@ public class EnemyLife : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if (life <= 0)
-        {
-            for (int i=0; i<dropMoneyNumber; i++)
-            {
-                //Debug.Log("1 Piece");
-                Instantiate(money, transform.position +new Vector3(Random.Range(-1f,1f),0,Random.Range(-1f,1f)), transform.rotation * Quaternion.Euler(0,Random.Range(-180f,180f),0));
-            }
-            Destroy(gameObject);
-        }
+        
     }
 
 
