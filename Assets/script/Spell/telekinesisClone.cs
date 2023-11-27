@@ -45,11 +45,11 @@ public class telekinesisClone : MonoBehaviour
 
         if(!TelekinesisAlt)
         {
-            Transform[] gos = EnemyManager.instance.transform.GetComponentsInChildren<Transform>() as Transform[]; //will return an array of all GameObjects in the scene
+            Transform[] gos = EnemyManager.instance.transform.GetComponentsInChildren<Transform>() as Transform[]; //Array of enemies
             foreach (Transform gotr in gos)
             {
                 GameObject go = gotr.gameObject;
-                //go.GetComponent<NavMeshAgent>().enabled = false;
+                
                 if ((go.layer == LayerMask.NameToLayer("enemi") || (go.layer == LayerMask.NameToLayer("enemiBullet" ) && attractProjectiles)) && Vector3.Distance(go.transform.position, transform.position) <= enemyAttarctDist)
                 {
                     go.GetComponent<NavMeshAgent>().enabled = false;
@@ -64,15 +64,12 @@ public class telekinesisClone : MonoBehaviour
 
                     Vector3 movement = dir * force * Time.deltaTime * (go.layer == LayerMask.NameToLayer("enemiBullet") ? 5 : 1);
 
-                    if (go.name.Contains("Shooting"))
+                    if (go.name.Contains("Laser") || go.name.Contains("Turret"))
                     {
-                        movement *= 15f;
+                        movement *= 0;
                     }
 
-                    if (go.name.Contains("Turret"))
-                    {
-                        movement /= 3f;
-                    }
+                    
 
                     if (exists != null && go.GetComponent<CharacterController>().enabled && go.GetComponent<IgnoreTeleClone>()==null)
                     {
@@ -80,9 +77,29 @@ public class telekinesisClone : MonoBehaviour
                     }
                     else if(go.GetComponent<IgnoreTeleClone>() == null)
                     {
-                        //go.transform.position += movement;
                         rb.velocity= new Vector3 (movement.x * enemyAttarctForce, rb.velocity.y, movement.z * enemyAttarctForce);
                     }
+                }
+            }
+
+            Transform[] aogos = AttractedObjectManager.instance.transform.GetComponentsInChildren<Transform>() as Transform[]; //Array of Movable Objects
+            foreach (Transform aogotr in aogos)
+            {
+                GameObject aogo = aogotr.gameObject;
+                
+                if (Vector3.Distance(aogo.transform.position, transform.position) <= enemyAttarctDist)
+                {
+                    Rigidbody aorb = aogo.GetComponent<Rigidbody>();
+
+                    Vector3 dir = (transform.position - aogo.transform.position).normalized;
+
+                    Vector3 movement = dir * force * Time.deltaTime ;
+
+                    if(aorb != null)
+                    {
+                        aorb.velocity= new Vector3 (movement.x * enemyAttarctForce, aorb.velocity.y, movement.z * enemyAttarctForce);
+                    }
+                    
                 }
             }
         }
