@@ -31,7 +31,7 @@ public class EnemyShooting : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (timer >= delay)
+        if (timer >= delay && PlayerController.instance.life>0)
         {
 
             if (gameObject.GetComponent<EnemyFollower>().dir != Vector3.zero && (GameObject.Find("Player").transform.position-transform.position).magnitude< gameObject.GetComponent<EnemyFollower>().followDistance)

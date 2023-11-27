@@ -387,7 +387,7 @@ MonoBehaviour:
   onRight: {fileID: 18118535745476073}
   onLeft: {fileID: 0}
   onUp: {fileID: 0}
-  onDown: {fileID: 5159164620955628097}
+  onDown: {fileID: 2104298249070857333}
   OnConfirm:
     m_PersistentCalls:
       m_Calls:
@@ -1627,9 +1627,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ab8f8b3e6c1d740947934c6c1b9af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onRight: {fileID: 8209285936475356768}
+  onRight: {fileID: 0}
   onLeft: {fileID: 3934569401235100827}
-  onUp: {fileID: 2310617818853390941}
+  onUp: {fileID: 8209285936475356768}
   onDown: {fileID: 0}
   OnConfirm:
     m_PersistentCalls:
@@ -2210,7 +2210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2588646803323195845}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10.2}
+  m_LocalPosition: {x: -3, y: 0, z: 10.2}
   m_LocalScale: {x: 2.0007, y: 1.00035, z: 2.0007}
   m_Children:
   - {fileID: 3136185967348832307}
@@ -2294,8 +2294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onRight: {fileID: 0}
-  onLeft: {fileID: 2310617818853390941}
-  onUp: {fileID: 2104298249070857333}
+  onLeft: {fileID: 2104298249070857333}
+  onUp: {fileID: 18118535745476073}
   onDown: {fileID: 6884084012911655181}
   OnConfirm:
     m_PersistentCalls:
@@ -2902,7 +2902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3160120987451310476
 Transform:
   m_ObjectHideFlags: 0
@@ -3365,7 +3365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onRight: {fileID: 6884084012911655181}
   onLeft: {fileID: 0}
-  onUp: {fileID: 5159164620955628097}
+  onUp: {fileID: 2104298249070857333}
   onDown: {fileID: 0}
   OnConfirm:
     m_PersistentCalls:
@@ -4738,6 +4738,7 @@ MonoBehaviour:
   descriptionSpellLocked: Article non disponible.
   descriptionHp: Augmente les points de vie du joueur de 25%.
   descriptionDamage: "Augmente les d\xE9g\xE2ts des sorts offensifs de 25%."
+  soldOut: "Article \xE9puis\xE9."
   bonusHpTMP: {fileID: 6351268489279147634}
   bonusDamageTMP: {fileID: 6103144241597457872}
 --- !u!1 &4961168582607351467
@@ -5539,10 +5540,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ab8f8b3e6c1d740947934c6c1b9af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onRight: {fileID: 2104298249070857333}
+  onRight: {fileID: 0}
   onLeft: {fileID: 1537084889405908747}
   onUp: {fileID: 0}
-  onDown: {fileID: 2310617818853390941}
+  onDown: {fileID: 8209285936475356768}
   OnConfirm:
     m_PersistentCalls:
       m_Calls:
@@ -5814,7 +5815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8701915548904406108
 Transform:
   m_ObjectHideFlags: 0
@@ -7991,7 +7992,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8116301703030695541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 10.2}
+  m_LocalPosition: {x: -6, y: 0, z: 10.2}
   m_LocalScale: {x: 2.0007, y: 1.00035, z: 2.0007}
   m_Children:
   - {fileID: 123402463250387645}
@@ -8074,10 +8075,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ab8f8b3e6c1d740947934c6c1b9af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onRight: {fileID: 0}
-  onLeft: {fileID: 18118535745476073}
-  onUp: {fileID: 0}
-  onDown: {fileID: 8209285936475356768}
+  onRight: {fileID: 8209285936475356768}
+  onLeft: {fileID: 0}
+  onUp: {fileID: 1537084889405908747}
+  onDown: {fileID: 3934569401235100827}
   OnConfirm:
     m_PersistentCalls:
       m_Calls:

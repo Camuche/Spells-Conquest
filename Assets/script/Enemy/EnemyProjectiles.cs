@@ -48,7 +48,7 @@ public class EnemyProjectiles : MonoBehaviour
 
         
 
-        if (other.name == "Player")
+        if (other.name == "Player" && PlayerController.instance.life > 0)
         {
             other.GetComponent<PlayerController>().life -= dammage;
         }

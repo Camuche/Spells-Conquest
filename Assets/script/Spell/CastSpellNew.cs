@@ -581,6 +581,12 @@ public class CastSpellNew : MonoBehaviour
         Debug.Log("iceclone");
 
         //INSTANTIATE SPELL
+        GameObject i = Instantiate(iceClone);
+        i.transform.position = aimPoint.transform.position + Vector3.up;
+        i.transform.rotation = transform.rotation;
+        i.transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y + 90, transform.rotation.z));
+
+    
     }
 
 

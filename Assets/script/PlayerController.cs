@@ -500,6 +500,7 @@ public class PlayerController : MonoBehaviour
         if (life <= 0)
         {
             playerSpeed = 0;
+            life = 0;
             if(!isDead)
             {
                 StartCoroutine(RestartLevel());

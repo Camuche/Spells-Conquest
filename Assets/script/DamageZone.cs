@@ -27,7 +27,7 @@ public class DamageZone : MonoBehaviour
         if (continuous)
         {
             
-            if (other.name == "Player")
+            if (other.name == "Player" && PlayerController.instance.life>0)
             {
                 if (!other.GetComponent<PlayerController>().CheckShield())
                 {

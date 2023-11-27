@@ -35,7 +35,7 @@ public class Shop : MonoBehaviour
     //TextMeshPro
     [SerializeField] TMP_Text descriptionTMP, notEnoughMoneyTMP, priceFireballTMP, priceFireCloneTMP, priceTelekinesisCloneTMP, priceWaveTMP, priceIceballTMP, priceIceCloneTMP, priceHpTMP, priceDamageTMP, itemLeftHpTMP, itemLeftDamageTMP;
     [HideInInspector] public TMP_Text moneyShopTMP;
-    [SerializeField] string descriptionFireball, descriptionFireClone, descriptionTelekinesisClone, descriptionWave, descriptionIceball, descriptionIceClone, descriptionSpellLocked, descriptionHp, descriptionDamage;
+    [SerializeField] string descriptionFireball, descriptionFireClone, descriptionTelekinesisClone, descriptionWave, descriptionIceball, descriptionIceClone, descriptionSpellLocked, descriptionHp, descriptionDamage, soldOut;
     [SerializeField] TMP_Text bonusHpTMP, bonusDamageTMP;
 
     void Awake()
@@ -80,8 +80,8 @@ public class Shop : MonoBehaviour
         matButtonFireball = GameObject.Find("UpgradeFireball").GetComponent<MeshRenderer>();
         matButtonFireClone = GameObject.Find("UpgradeFireClone").GetComponent<MeshRenderer>();
         matButtonTelekinesisClone = GameObject.Find("UpgradeTelekinesisClone").GetComponent<MeshRenderer>();
-        matButtonWave = GameObject.Find("UpgradeWave").GetComponent<MeshRenderer>();
-        matButtonIceball = GameObject.Find("UpgradeIceball").GetComponent<MeshRenderer>();
+        //matButtonWave = GameObject.Find("UpgradeWave").GetComponent<MeshRenderer>();
+        //matButtonIceball = GameObject.Find("UpgradeIceball").GetComponent<MeshRenderer>();
         matButtonIceClone = GameObject.Find("UpgradeIceClone").GetComponent<MeshRenderer>();
         
         matButtonHp = GameObject.Find("UpgradeHp").GetComponent<MeshRenderer>();
@@ -139,7 +139,7 @@ public class Shop : MonoBehaviour
         {
             telekinesisCloneAltAvailable = false;
             inventory.telekinesisCloneAlt = true;
-            inventory.money -= priceFireClone;
+            inventory.money -= priceTelekinesisClone;
             inventory.UpdateMoneyTMP();
             TelekinesisCloneButtonSelected();
             Debug.Log("UpdateTelekinesisClone");
@@ -150,7 +150,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void UpgradeWave()
+    /*public void UpgradeWave()
     {
         if(inventory.money >= priceWave && waveAltAvailable == true && refCastSpellNew.limit >= 3)
         {
@@ -182,11 +182,11 @@ public class Shop : MonoBehaviour
         {
             notEnoughMoneyTMP.enabled = true;
         }
-    }
+    }*/
 
     public void UpgradeIceClone()
     {
-        if(inventory.money >= priceIceClone && iceCloneAltAvailable == true && refCastSpellNew.limit >= 5)
+        if(inventory.money >= priceIceClone && iceCloneAltAvailable == true && refCastSpellNew.limit >= 3)
         {
             iceCloneAltAvailable = false;
             inventory.iceCloneAlt = true;
@@ -195,7 +195,7 @@ public class Shop : MonoBehaviour
             IceCloneButtonSelected();
             Debug.Log("UpdateIceClone");
         }
-        else if(inventory.money < priceIceClone && iceCloneAltAvailable == true && refCastSpellNew.limit >= 5)
+        else if(inventory.money < priceIceClone && iceCloneAltAvailable == true && refCastSpellNew.limit >= 3)
         {
             notEnoughMoneyTMP.enabled = true;
         }
@@ -294,7 +294,7 @@ public class Shop : MonoBehaviour
         }
 
 
-        if(CastSpellNew.instance.limit >= 3 && waveAltAvailable)
+        /*if(CastSpellNew.instance.limit >= 3 && waveAltAvailable)
         {
             matButtonWave.material = whiteUi;
         }
@@ -311,10 +311,10 @@ public class Shop : MonoBehaviour
         else
         {
             matButtonIceball.material = greyLockedUi;
-        }
+        }*/
 
 
-        if(CastSpellNew.instance.limit >= 5 && iceCloneAltAvailable)
+        if(CastSpellNew.instance.limit >= 3 && iceCloneAltAvailable)
         {
             matButtonIceClone.material = whiteUi;
         }
@@ -355,6 +355,11 @@ public class Shop : MonoBehaviour
             matButtonFireball.material = greyUi;
             descriptionTMP.text = descriptionFireball;
         }
+        else if (!fireballAltAvailable)
+        {
+            matButtonFireball.material = selectedGreyLockedUi;
+            descriptionTMP.text = soldOut;
+        }
         else
         {
             matButtonFireball.material = selectedGreyLockedUi;
@@ -368,6 +373,11 @@ public class Shop : MonoBehaviour
         {
             matButtonFireClone.material = greyUi;
             descriptionTMP.text = descriptionFireClone;
+        }
+        else if (!fireCloneAltAvailable)
+        {
+            matButtonFireClone.material = selectedGreyLockedUi;
+            descriptionTMP.text = soldOut;
         }
         else
         {
@@ -383,6 +393,11 @@ public class Shop : MonoBehaviour
             matButtonTelekinesisClone.material = greyUi;
             descriptionTMP.text = descriptionTelekinesisClone;
         }
+        else if (!telekinesisCloneAltAvailable)
+        {
+            matButtonTelekinesisClone.material = selectedGreyLockedUi;
+            descriptionTMP.text = soldOut;
+        }
         else
         {
             matButtonTelekinesisClone.material = selectedGreyLockedUi;
@@ -390,7 +405,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void WaveButtonSelected()
+    /*public void WaveButtonSelected()
     {
         if(CastSpellNew.instance.limit >= 3 && waveAltAvailable)
         {
@@ -416,14 +431,19 @@ public class Shop : MonoBehaviour
             matButtonIceball.material = selectedGreyLockedUi;
             descriptionTMP.text = descriptionSpellLocked;
         }
-    }
+    }*/
 
     public void IceCloneButtonSelected()
     {
-        if(CastSpellNew.instance.limit >= 5 && iceCloneAltAvailable)
+        if(CastSpellNew.instance.limit >= 3 && iceCloneAltAvailable)
         {
             matButtonIceClone.material = greyUi;
             descriptionTMP.text = descriptionIceClone;
+        }
+        else if (!telekinesisCloneAltAvailable)
+        {
+            matButtonIceClone.material = selectedGreyLockedUi;
+            descriptionTMP.text = soldOut;
         }
         else
         {
@@ -442,7 +462,7 @@ public class Shop : MonoBehaviour
         else 
         {
             matButtonHp.material = selectedGreyLockedUi;
-            descriptionTMP.text = descriptionSpellLocked;
+            descriptionTMP.text = soldOut;
         }
     }
 
@@ -456,7 +476,7 @@ public class Shop : MonoBehaviour
         else
         {
             matButtonDamage.material = selectedGreyLockedUi;
-            descriptionTMP.text = descriptionSpellLocked;
+            descriptionTMP.text = soldOut;
         }
     }
 
