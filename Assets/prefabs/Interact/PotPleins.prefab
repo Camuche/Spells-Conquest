@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: {fileID: 8151259076252225134, guid: 7ed868fa4092dba41b5b11d7eb78d99b, type: 3}
-  potMoneyNumber: 10
+  potMoneyNumber: 1
 --- !u!1 &6418870909934399402
 GameObject:
   m_ObjectHideFlags: 0
