@@ -112,7 +112,7 @@ MonoBehaviour:
   size: 8
   duration: 5
   timeBetweenDamage: 1
-  iceExplosionDamage: 5
+  iceExplosionDamage: 1
 --- !u!54 &2711905898611658263
 Rigidbody:
   m_ObjectHideFlags: 0

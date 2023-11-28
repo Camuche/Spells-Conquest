@@ -8,6 +8,7 @@ public class DamageZone : MonoBehaviour
     public float damage;
     public bool instaKill;
     [SerializeField] bool canDamageEnemies;
+    [SerializeField] bool scaleWithShop;
 
     // Start is called before the first frame update
     void Start()
@@ -44,9 +45,16 @@ public class DamageZone : MonoBehaviour
             if (other.gameObject.layer == LayerMask.NameToLayer("enemi") && canDamageEnemies && other.GetComponent<EnemyLife>()!=null)
             {
 
-                
+                if (scaleWithShop)
+                {
+                    other.GetComponent<EnemyLife>().life -= damage * Time.deltaTime * Shop.instance.damageMultiplierValue;
+                }
+                else
+                {
+                    other.GetComponent<EnemyLife>().life -= damage * Time.deltaTime;
+                }
 
-                other.GetComponent<EnemyLife>().life -= damage * Time.deltaTime;
+                
                 if (instaKill && damage > 0)
                 {
                     other.GetComponent<EnemyLife>().life = 0;

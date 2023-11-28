@@ -6,13 +6,13 @@ public class IceClone : MonoBehaviour
 {
 
     [SerializeField] GameObject iceExplosion;
-    [SerializeField] float timer;
+    [SerializeField] float timer, cooldown;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        CastSpellNew.instance.cooldownIceClone = cooldown;
     }
 
     // Update is called once per frame

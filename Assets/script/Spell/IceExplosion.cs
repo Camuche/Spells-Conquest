@@ -44,6 +44,26 @@ public class IceExplosion : MonoBehaviour
             timer = 0;
             hitNow = true;
         }
+
+        //List of all ennemies frozen
+        Transform[] gos = EnemyManager.instance.transform.GetComponentsInChildren<Transform>() as Transform[];
+        foreach (Transform gotr in gos)
+        {
+            GameObject go = gotr.gameObject;
+
+            if (go.GetComponent<EnemyFollower>() != null && Vector3.Distance(go.transform.position, transform.position) <= size && hitNow)
+            {
+                Debug.Log(go.name);
+                go.GetComponent<EnemyLife>().life -= iceExplosionDamage * Shop.instance.damageMultiplierValue;
+                //Debug.Log(Vector3.Distance(go.transform.position , transform.position));
+            }
+            
+            
+            //Debug.DrawLine(go.transform.position, transform.position, Color.red, 10f);
+            //if (Vector3.Distance(go.transform.position, transform.position) <= size)
+        }
+        hitNow = false;
+
     }
 
     float timer = 0;
@@ -122,7 +142,7 @@ public class IceExplosion : MonoBehaviour
 
         }
 
-        EnemyLife enemyLife;
+        /*EnemyLife enemyLife;
         other.gameObject.TryGetComponent<EnemyLife>(out enemyLife);
 
         
@@ -134,7 +154,7 @@ public class IceExplosion : MonoBehaviour
             print(other.name);
             hitNow = false;
            
-        }
+        }*/
     }
 
     private void OnTriggerExit(Collider other)

@@ -113,6 +113,7 @@ MonoBehaviour:
   iceExplosion: {fileID: 6534605381805008753, guid: 935b930f481ca4e4787112434d2f7711,
     type: 3}
   timer: 0.5
+  cooldown: 7
 --- !u!1001 &5009325672912275545
 PrefabInstance:
   m_ObjectHideFlags: 0

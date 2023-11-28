@@ -204,9 +204,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   continuous: 1
-  damage: 10
+  damage: 5
   instaKill: 0
   canDamageEnemies: 1
+  scaleWithShop: 1
 --- !u!1 &1108065953891251253
 GameObject:
   m_ObjectHideFlags: 0
