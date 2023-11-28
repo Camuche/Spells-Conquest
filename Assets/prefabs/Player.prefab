@@ -344,6 +344,7 @@ MonoBehaviour:
   mapCam: {fileID: 8652194102310712225}
   refPlayerInput: {fileID: 0}
   refModel: {fileID: 1686266685543590592}
+  isCasting: 0
   dashCoolDown: 0
   movedir: {x: 0, y: 0, z: 0}
   AimDistance: 1
@@ -416,9 +417,7 @@ MonoBehaviour:
   listRightSpellAvailable: 02000000030000000400000005000000
   limit: -1
   selecting: 0
-  topSelected: 0
   rightSelected: 0
-  botSelected: 0
   leftSelected: 0
   fireball: {fileID: 6861626685482858038, guid: 6a61a2eac223e8d4bac72a6bc4190492,
     type: 3}
@@ -430,6 +429,12 @@ MonoBehaviour:
   iceball: {fileID: 7671956535631379919, guid: 8db51b43ad3e7fb4d81ded3ead91a104, type: 3}
   iceClone: {fileID: 838386325406439919, guid: cf5971ea913a16f4da90a3661daae853, type: 3}
   aimPoint: {fileID: 8136853320341797314, guid: 598d7544ceedcbc409f35e791b167678,
+    type: 3}
+  aimPoint2: {fileID: 3072336753854672498, guid: ec2b603bf8ba2ce43952b80042b300e9,
+    type: 3}
+  aimPointBoth1: {fileID: 3072336753854672498, guid: 2c79eb958309c4043b7c4664e839323f,
+    type: 3}
+  aimPointBoth2: {fileID: 3072336753854672498, guid: b275f6a11496bcf4dae60cfbe35fa5e5,
     type: 3}
   structSpells:
   - spell_name: Fireball
@@ -454,8 +459,6 @@ MonoBehaviour:
     type: 3}
   rightSelection: {fileID: 4248323056758688828, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
-  movement: {fileID: -1215956749607882695, guid: ce515ecc6fe77704ba2b9e7fe0281622,
-    type: 3}
   cameraRotation: {fileID: -3354769714030775914, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
   spellR2: {fileID: -4415006183407332061, guid: ce515ecc6fe77704ba2b9e7fe0281622,
@@ -476,12 +479,6 @@ MonoBehaviour:
   cooldownTelekinesisClone: 0
   timerTelekinesisClone: 0
   TelekinesisAlt: 0
-  cooldownWave: 0
-  timerWave: 0
-  waveAlt: 0
-  cooldownIceball: 0
-  timerIceball: 0
-  iceballAlt: 0
   cooldownIceClone: 0
   timerIceClone: 0
   iceCloneAlt: 0

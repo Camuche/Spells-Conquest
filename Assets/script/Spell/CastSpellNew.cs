@@ -25,7 +25,7 @@ public class CastSpellNew : MonoBehaviour
     gameController gameController;
     UIupdate refUiUpdate;
 
-    [SerializeField] GameObject aimPoint;
+    [SerializeField] GameObject aimPoint, aimPoint2, aimPointBoth1, aimPointBoth2;
     
 
 
@@ -69,6 +69,10 @@ public class CastSpellNew : MonoBehaviour
         feedback_LeftArm.SetActive(false);
 
         aimPoint = Instantiate(aimPoint);
+        aimPoint2 = Instantiate(aimPoint2);
+        aimPointBoth1 = Instantiate(aimPointBoth1);
+        aimPointBoth2 = Instantiate(aimPointBoth2);
+        
 
         inventory = GetComponent<Inventory>();
         doNotFollow = true;
@@ -85,7 +89,6 @@ public class CastSpellNew : MonoBehaviour
         {
             SetSelecting();
         }
-        //Debug.Log(limit);
 
         //L2 IS PRESSED
         if(spellL2.action.ReadValue<float>() == 1 && !l2IsPressed)
@@ -149,14 +152,22 @@ public class CastSpellNew : MonoBehaviour
         
 
         //Instantiate AIMPOINT
-        if ((limit>=2 && (SpellL == 2 || SpellR == 2)) || (limit>=3 && (SpellL == 3 || SpellR == 3)))      //  SpellL == 3 || SpellL == 5 || SpellR == 3 || SpellR == 5)
+        if ((limit>=2 && (SpellL == 2 || SpellR == 2)))
         {
             aimPoint.SetActive(true);
-            CamRaycast();
         }
         else
         {
-            aimPoint.SetActive(false);
+            aimPoint.SetActive(false);            
+        }
+
+        if (limit>=3 && (SpellL == 3 || SpellR == 3))
+        {
+            aimPoint2.SetActive(true);
+        }
+        else
+        {
+            aimPoint2.SetActive(false);
         }
 
         //Make player move again
@@ -169,6 +180,9 @@ public class CastSpellNew : MonoBehaviour
             PlayerController.instance.isCasting = false;
         }
 
+        CamRaycast();
+        CamRaycast2();
+        AimpointSelection();
 
         FeedbackLeftBody();
         FeedbackRightBody();       
@@ -182,14 +196,7 @@ public class CastSpellNew : MonoBehaviour
     {
         if (selecting == 0)
         {
-            /*if (!gameController.isPaused)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Time.timeScale = 1f;
-            }*/
             
-            //Cursor.lockState = CursorLockMode.Locked;
-            //Time.timeScale = 1f;
             refUiUpdate.DisableSelectionUi();
 
             if(leftSelection.action.ReadValue<float>() ==1)
@@ -210,10 +217,7 @@ public class CastSpellNew : MonoBehaviour
 
         if (selecting != 0)
         {
-            
-            //Cursor.lockState = CursorLockMode.None;
             hand = selecting;
-            //Time.timeScale = timeScaleSelecting;
             refUiUpdate.EnableSelectionUi();
             refUiUpdate.UpdateUiSelection();
             CheckSelectedSpell();
@@ -432,7 +436,7 @@ public class CastSpellNew : MonoBehaviour
 
         if (spellNb == 2 && limit >= 2 && timerTelekinesisClone >= cooldownTelekinesisClone)     //CAST TELEKINESISCLONE
         {
-            if(aimPoint.transform.GetComponent<MeshRenderer>().enabled == true)
+            if(aimPoint.transform.GetComponent<MeshRenderer>().enabled == true || aimPointBoth1.transform.GetComponent<MeshRenderer>().enabled == true || aimPointBoth2.transform.GetComponent<MeshRenderer>().enabled == true)
             {
                 //StopPlayerWhenCasting
             timerCastAnimation = 0;
@@ -447,14 +451,17 @@ public class CastSpellNew : MonoBehaviour
 
         if (spellNb == 3 && limit >= 3 && timerIceClone >= cooldownIceClone)     //CAST ICECLONE
         {
-            //StopPlayerWhenCasting
-            timerCastAnimation = 0;
-            PlayerController.instance.isCasting = true;
-            PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
+            if(aimPoint2.transform.GetComponent<MeshRenderer>().enabled == true || aimPointBoth1.transform.GetComponent<MeshRenderer>().enabled == true || aimPointBoth2.transform.GetComponent<MeshRenderer>().enabled == true)
+            {
+                //StopPlayerWhenCasting
+                timerCastAnimation = 0;
+                PlayerController.instance.isCasting = true;
+                PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
 
 
-            timerIceClone = 0;
-            Invoke("IceClone", spellAnimationTime);
+                timerIceClone = 0;
+                Invoke("IceClone", spellAnimationTime);
+            }
         }
 
         /*if (spellNb == 4 && limit >= 4 && timerIceball >= cooldownIceball)     //CAST ICEBALL
@@ -533,7 +540,7 @@ public class CastSpellNew : MonoBehaviour
         {
             TelekinesisAlt = false;
         }
-
+        
         GameObject t = Instantiate(telekinesisClone);
         t.transform.position = aimPoint.transform.position+Vector3.up;
         t.transform.rotation = transform.rotation;
@@ -569,12 +576,12 @@ public class CastSpellNew : MonoBehaviour
     }*/
 
     void IceClone()
-    {
+    {   
         if(((SpellL == 3 && l2IsHold) || (SpellR == 3 && r2IsHold)) && inventory.iceCloneAlt)
         {
             iceCloneAlt = true;
         }
-        else if((SpellL == 5 && !l2IsHold) || (SpellR == 5 && !r2IsHold))
+        else if((SpellL == 3 && !l2IsHold) || (SpellR == 3 && !r2IsHold))
         {
             iceCloneAlt = false;
         }
@@ -582,7 +589,7 @@ public class CastSpellNew : MonoBehaviour
 
         //INSTANTIATE SPELL
         GameObject i = Instantiate(iceClone);
-        i.transform.position = aimPoint.transform.position + Vector3.up;
+        i.transform.position = aimPoint2.transform.position + Vector3.up;
         i.transform.rotation = transform.rotation;
         i.transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y + 90, transform.rotation.z));
 
@@ -739,21 +746,105 @@ public class CastSpellNew : MonoBehaviour
     }
 
     [SerializeField] float cloneRange;
+    bool canPlaceTelekinesisClone, canPlaceIceClone;
+    
+    RaycastHit hit;
     void CamRaycast()
     {
-        RaycastHit hit;
+           
         Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity);
+        
 
-
-        if (hit.collider != null && hit.distance<cloneRange && (hit.transform.gameObject.layer == LayerMask.NameToLayer("ground") || hit.transform.gameObject.layer == LayerMask.NameToLayer("CollideOnlyWithIceBall")))
+        if (limit>= 2 && (SpellL == 2 || SpellR == 2) && hit.collider != null && hit.distance<cloneRange && (hit.transform.gameObject.layer == LayerMask.NameToLayer("ground") || hit.transform.gameObject.layer == LayerMask.NameToLayer("Wall")))
         {
+            canPlaceTelekinesisClone = true;
+        }
+        else
+        {
+            canPlaceTelekinesisClone = false;
+        }
+    }
+
+    RaycastHit hit2;
+    void CamRaycast2()
+    {
+        
+        Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit2, Mathf.Infinity);
+
+
+        if (limit>= 3 && (SpellL == 3 || SpellR == 3) && hit2.collider != null && hit2.distance<cloneRange && (hit2.transform.gameObject.layer == LayerMask.NameToLayer("ground") || hit2.transform.gameObject.layer == LayerMask.NameToLayer("CollideOnlyWithIceBall")))
+        {
+            canPlaceIceClone = true;
+        }
+        else
+        {
+            canPlaceIceClone = false;
+        }
+    }
+
+    void AimpointSelection()
+    {
+        if(canPlaceTelekinesisClone && canPlaceIceClone)
+        {
+            aimPoint.transform.GetComponent<MeshRenderer>().enabled = false;
+            aimPoint2.transform.GetComponent<MeshRenderer>().enabled = false;
+            aimPoint.transform.position = Camera.main.transform.position + Camera.main.transform.forward * hit.distance ;
+            aimPoint2.transform.position = Camera.main.transform.position + Camera.main.transform.forward * hit2.distance - Camera.main.transform.forward * 0.1f;
+            
+
+            if (limit>=3 && SpellL == 2 || SpellR == 3)
+            {
+                aimPointBoth2.transform.GetComponent<MeshRenderer>().enabled = false;
+
+                aimPointBoth1.transform.GetComponent<MeshRenderer>().enabled = true;
+                aimPointBoth1.transform.position = Camera.main.transform.position + Camera.main.transform.forward * hit2.distance - Camera.main.transform.forward * 0.1f;
+                aimPointBoth1.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit2.normal);
+            }
+            else if (limit>=3 && SpellL == 3 || SpellR == 2)
+            {
+                aimPointBoth1.transform.GetComponent<MeshRenderer>().enabled = false;
+
+                aimPointBoth2.transform.GetComponent<MeshRenderer>().enabled = true;
+                aimPointBoth2.transform.position = Camera.main.transform.position + Camera.main.transform.forward * hit2.distance - Camera.main.transform.forward * 0.1f;
+                aimPointBoth2.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit2.normal);
+            }
+            else
+            {
+                aimPointBoth1.transform.GetComponent<MeshRenderer>().enabled = false;
+                aimPointBoth2.transform.GetComponent<MeshRenderer>().enabled = false;
+                aimPoint.transform.GetComponent<MeshRenderer>().enabled = false;
+                aimPoint2.transform.GetComponent<MeshRenderer>().enabled = false;
+            }
+        }
+        else if (canPlaceTelekinesisClone)
+        {
+            Debug.Log("TeleClone");
+            aimPoint2.transform.GetComponent<MeshRenderer>().enabled = false;
+            aimPointBoth1.transform.GetComponent<MeshRenderer>().enabled = false;
+            aimPointBoth2.transform.GetComponent<MeshRenderer>().enabled = false;
+
             aimPoint.transform.GetComponent<MeshRenderer>().enabled=true;
             aimPoint.transform.position = Camera.main.transform.position + Camera.main.transform.forward * hit.distance;
             aimPoint.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
         }
+        else if (canPlaceIceClone)
+        {
+            Debug.Log("iceClone");
+            aimPoint.transform.GetComponent<MeshRenderer>().enabled = false;
+            aimPointBoth1.transform.GetComponent<MeshRenderer>().enabled = false;
+            aimPointBoth2.transform.GetComponent<MeshRenderer>().enabled = false;
+
+            aimPoint2.transform.GetComponent<MeshRenderer>().enabled=true;
+            aimPoint2.transform.position = Camera.main.transform.position + Camera.main.transform.forward * hit2.distance - Camera.main.transform.forward * 0.1f;
+            aimPoint2.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit2.normal);
+        }
         else
         {
+            Debug.Log("nop");
+            aimPointBoth1.transform.GetComponent<MeshRenderer>().enabled = false;
+            aimPointBoth2.transform.GetComponent<MeshRenderer>().enabled = false;
             aimPoint.transform.GetComponent<MeshRenderer>().enabled = false;
+            aimPoint2.transform.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 }
