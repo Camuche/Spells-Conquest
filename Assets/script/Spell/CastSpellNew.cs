@@ -745,7 +745,7 @@ public class CastSpellNew : MonoBehaviour
         Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity);
 
 
-        if (hit.collider != null && hit.distance<cloneRange && hit.transform.gameObject.layer == LayerMask.NameToLayer("ground"))
+        if (hit.collider != null && hit.distance<cloneRange && (hit.transform.gameObject.layer == LayerMask.NameToLayer("ground") || hit.transform.gameObject.layer == LayerMask.NameToLayer("CollideOnlyWithIceBall")))
         {
             aimPoint.transform.GetComponent<MeshRenderer>().enabled=true;
             aimPoint.transform.position = Camera.main.transform.position + Camera.main.transform.forward * hit.distance;

@@ -112,6 +112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceExplosion: {fileID: 6534605381805008753, guid: 935b930f481ca4e4787112434d2f7711,
     type: 3}
+  iceTrail: {fileID: 3469900191223738168, guid: 76edc266dab19bf488c664d00780f5dd,
+    type: 3}
   timer: 0.5
   cooldown: 7
 --- !u!1001 &5009325672912275545

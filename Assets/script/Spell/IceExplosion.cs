@@ -24,7 +24,6 @@ public class IceExplosion : MonoBehaviour
     {
         transform.localScale = Vector3.one * size;
         timer = timeBetweenDamage;
-        //InvokeRepeating("Damage",0,timeBetweenDamage);
     }
 
     // Update is called once per frame
