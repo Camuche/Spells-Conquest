@@ -542,9 +542,11 @@ public class CastSpellNew : MonoBehaviour
         }
         
         GameObject t = Instantiate(telekinesisClone);
-        t.transform.position = aimPoint.transform.position+Vector3.up;
-        t.transform.rotation = transform.rotation;
-        t.transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y - 90, transform.rotation.z));
+        t.transform.rotation = aimPoint.transform.rotation;
+        t.transform.position = aimPoint.transform.position+ hit2.normal;//Vector3.up;
+        /*t.transform.rotation = transform.rotation;
+        t.transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y - 90, transform.rotation.z));*/
+        
     }
 
     /*void Wave()
