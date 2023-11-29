@@ -261,6 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8151259076252225133}
   - component: {fileID: 8151259076252225132}
+  - component: {fileID: 4881175711148701870}
   m_Layer: 0
   m_Name: Money
   m_TagString: Money
@@ -298,6 +299,21 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4881175711148701870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8151259076252225134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09d2ffecc7ae644a8e1262528babdf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  speedTowardPlayer: 5
+  timeFloating: 0
 --- !u!1 &8529576993982489684
 GameObject:
   m_ObjectHideFlags: 0
