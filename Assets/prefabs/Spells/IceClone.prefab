@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceExplosion: {fileID: 6534605381805008753, guid: 935b930f481ca4e4787112434d2f7711,
     type: 3}
-  iceBall: {fileID: 7671956535631379919, guid: 8db51b43ad3e7fb4d81ded3ead91a104, type: 3}
+  iceLine: {fileID: 1689602194795029077, guid: 4001559cafecb60458576f4de8ed0552, type: 3}
   timer: 0.5
   cooldown: 7
 --- !u!1001 &5009325672912275545

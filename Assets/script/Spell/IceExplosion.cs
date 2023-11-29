@@ -10,19 +10,26 @@ public class IceExplosion : MonoBehaviour
     [SerializeField] float duration;
     [SerializeField] float timeBetweenDamage, iceExplosionDamage;
     bool hitNow = false;
+    [SerializeField] bool changeSize = true;
     
 
 
     private void OnValidate()
     {
-        transform.localScale = Vector3.one * size;
+        if (changeSize == true)
+        {
+            transform.localScale = Vector3.one * size;
+        }
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.localScale = Vector3.one * size;
+        if (changeSize == true)
+        {
+            transform.localScale = Vector3.one * size;
+        }
         timer = timeBetweenDamage;
     }
 
@@ -33,7 +40,14 @@ public class IceExplosion : MonoBehaviour
 
         if (duration <= 0)
         {
-            GetComponent<SphereCollider>().radius = 0;
+            if (GetComponent<SphereCollider>() != null)
+            {
+                GetComponent<SphereCollider>().radius = 0;
+            }
+            if (GetComponent<BoxCollider>() != null)
+            {
+                GetComponent<BoxCollider>().size = Vector3.zero;
+            }
             Destroy(gameObject,0.1f);
         }
 
@@ -44,7 +58,21 @@ public class IceExplosion : MonoBehaviour
             hitNow = true;
         }
 
-        //List of all ennemies frozen
+        //SET DAMAGE
+        if(hitNow)
+        {
+            foreach(GameObject go in enemyFrozenList)
+            {
+                if (go != null)
+                {
+                    go.GetComponent<EnemyLife>().life -= iceExplosionDamage * Shop.instance.damageMultiplierValue;
+                }
+            }
+            
+            hitNow = false;
+        }
+
+        /*//List of all ennemies frozen
         Transform[] gos = EnemyManager.instance.transform.GetComponentsInChildren<Transform>() as Transform[];
         foreach (Transform gotr in gos)
         {
@@ -52,7 +80,7 @@ public class IceExplosion : MonoBehaviour
 
             if (go.GetComponent<EnemyFollower>() != null && Vector3.Distance(go.transform.position, transform.position) <= size && hitNow)
             {
-                Debug.Log(go.name);
+                //Debug.Log(go.name);
                 go.GetComponent<EnemyLife>().life -= iceExplosionDamage * Shop.instance.damageMultiplierValue;
                 //Debug.Log(Vector3.Distance(go.transform.position , transform.position));
             }
@@ -61,7 +89,7 @@ public class IceExplosion : MonoBehaviour
             //Debug.DrawLine(go.transform.position, transform.position, Color.red, 10f);
             //if (Vector3.Distance(go.transform.position, transform.position) <= size)
         }
-        hitNow = false;
+        hitNow = false;*/
 
     }
 
@@ -121,15 +149,6 @@ public class IceExplosion : MonoBehaviour
         {
             playerController.enabled = false;
 
-        }
-
-        CastSpell castSpell;
-        other.gameObject.TryGetComponent<CastSpell>(out castSpell);
-
-        if (castSpell != null)
-        {
-            castSpell.enabled = false;
-
         }*/
 
         EnemyFlying enemyFlying;
@@ -140,22 +159,23 @@ public class IceExplosion : MonoBehaviour
             enemyFlying.enabled = false;
 
         }
-
-        /*EnemyLife enemyLife;
-        other.gameObject.TryGetComponent<EnemyLife>(out enemyLife);
-
-        
-        if (enemyLife != null && hitNow)
-        {
-            
-            //other.GetComponent<EnemyLife>().life -= iceExplosionDamage;
-            Debug.Log("hit");
-            print(other.name);
-            hitNow = false;
-           
-        }*/
     }
 
+
+
+    List<GameObject> enemyFrozenList = new List<GameObject>();
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.GetComponent<EnemyFollower>() != null)
+        {
+            enemyFrozenList.Add(other.gameObject); 
+        }
+        
+    }
+
+    
+    
     private void OnTriggerExit(Collider other)
     {
         NavMeshAgent navMeshAgent;

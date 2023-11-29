@@ -78,7 +78,7 @@ public class CastSpellNew : MonoBehaviour
         doNotFollow = true;
         isMoving= true;
         TelekinesisAlt = false;
-
+        iceCloneAlt = false;
     }
 
 
@@ -587,7 +587,7 @@ public class CastSpellNew : MonoBehaviour
         {
             iceCloneAlt = false;
         }
-        Debug.Log("iceclone");
+        
 
         //INSTANTIATE SPELL
         GameObject i = Instantiate(iceClone);
@@ -792,6 +792,8 @@ public class CastSpellNew : MonoBehaviour
             aimPoint2.transform.GetComponent<MeshRenderer>().enabled = false;
             aimPoint.transform.position = Camera.main.transform.position + Camera.main.transform.forward * hit.distance ;
             aimPoint2.transform.position = Camera.main.transform.position + Camera.main.transform.forward * hit2.distance - Camera.main.transform.forward * 0.1f;
+            aimPoint.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+            aimPoint2.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit2.normal);
             
 
             if (limit>=3 && SpellL == 2 || SpellR == 3)
@@ -820,7 +822,7 @@ public class CastSpellNew : MonoBehaviour
         }
         else if (canPlaceTelekinesisClone)
         {
-            Debug.Log("TeleClone");
+            //Debug.Log("TeleClone");
             aimPoint2.transform.GetComponent<MeshRenderer>().enabled = false;
             aimPointBoth1.transform.GetComponent<MeshRenderer>().enabled = false;
             aimPointBoth2.transform.GetComponent<MeshRenderer>().enabled = false;
@@ -831,7 +833,7 @@ public class CastSpellNew : MonoBehaviour
         }
         else if (canPlaceIceClone)
         {
-            Debug.Log("iceClone");
+            //Debug.Log("iceClone");
             aimPoint.transform.GetComponent<MeshRenderer>().enabled = false;
             aimPointBoth1.transform.GetComponent<MeshRenderer>().enabled = false;
             aimPointBoth2.transform.GetComponent<MeshRenderer>().enabled = false;
@@ -842,7 +844,7 @@ public class CastSpellNew : MonoBehaviour
         }
         else
         {
-            Debug.Log("nop");
+            //Debug.Log("nop");
             aimPointBoth1.transform.GetComponent<MeshRenderer>().enabled = false;
             aimPointBoth2.transform.GetComponent<MeshRenderer>().enabled = false;
             aimPoint.transform.GetComponent<MeshRenderer>().enabled = false;

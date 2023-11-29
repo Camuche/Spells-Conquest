@@ -5,7 +5,7 @@ using UnityEngine;
 public class IceClone : MonoBehaviour
 {
 
-    [SerializeField] GameObject iceExplosion, iceBall;
+    [SerializeField] GameObject iceExplosion, iceLine;
     [SerializeField] float timer, cooldown;
     bool iceCloneAlt;
     GameObject player;
@@ -34,9 +34,9 @@ public class IceClone : MonoBehaviour
         else if (timer <= 0 && iceCloneAlt)
         {
             Debug.Log("alt");
-            /*GameObject j = Instantiate(iceBall);
-            j.transform.position = transform.position + transform.right * 1 + transform.up * -1;
-            j.GetComponent<IceBall>().player = transform.gameObject;*/
+            GameObject j = Instantiate(iceLine);
+            j.transform.position = transform.position;
+            j.transform.rotation = transform.rotation;
             Destroy(gameObject);
         }
     }
