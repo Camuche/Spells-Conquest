@@ -11,6 +11,7 @@ public class MovementPlate : MonoBehaviour
     float timer;
     bool boolEnable = true;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +41,11 @@ public class MovementPlate : MonoBehaviour
         {
             boolEnable = false;
         }
+
+        if (other.name == "Player")
+        {
+            other.transform.parent = transform;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -47,6 +53,11 @@ public class MovementPlate : MonoBehaviour
         if (other.tag == "IceExplosion")
         {
             boolEnable = true;
+        }
+
+        if (other.name == "Player")
+        {
+            other.transform.parent = null;
         }
     }
 }

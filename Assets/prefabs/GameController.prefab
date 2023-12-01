@@ -60,6 +60,7 @@ MonoBehaviour:
   matWave: {fileID: 2100000, guid: 0f984e2716bb1e3438a7a5e93f55e5bb, type: 2}
   matIceball: {fileID: 2100000, guid: 5813f221aee01fd47b8fe9a1d8ed609e, type: 2}
   matIceClone: {fileID: 2100000, guid: b230f0cc74c19ac47b1d0065b8e25b94, type: 2}
+  lifeTMP: {fileID: 0}
 --- !u!114 &1744762725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,7 +76,7 @@ MonoBehaviour:
   matLave: {fileID: 2100000, guid: 26f87a3133cc2534680246b3b5c9f6d9, type: 2}
   CheckPoint: {x: 5.535337, y: 1.0001, z: 1.8812282}
   checkpointed: 0
-  spellLimit: 0
+  spellLimit: -1
   spellsToDestroyNext: []
   escape: {fileID: -7336232822411727568, guid: ce515ecc6fe77704ba2b9e7fe0281622, type: 3}
   menuEscape: {fileID: -1073189049131234865, guid: ce515ecc6fe77704ba2b9e7fe0281622,

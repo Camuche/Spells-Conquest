@@ -128,7 +128,7 @@ public class UIupdate : MonoBehaviour
         spellBotUi = UI.transform.Find("CameraUI").transform.Find("Selection").transform.Find("SpellBot").gameObject;
         spellTopUi = UI.transform.Find("CameraUI").transform.Find("Selection").transform.Find("SpellTop").gameObject;
 
-        refCastSpellNew = GameObject.Find("Player").GetComponent<CastSpellNew>();
+        //refCastSpellNew = GameObject.Find("Player").GetComponent<CastSpellNew>();
 
         spellLeftUi.SetActive(false);
         spellRightUi.SetActive(false);
@@ -149,6 +149,7 @@ public class UIupdate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        refCastSpellNew = CastSpellNew.instance;
         lifeTMP.text = PlayerController.instance.life + " / " + PlayerController.instance.lifeMax;
 
         if (player == null)
@@ -489,6 +490,7 @@ public class UIupdate : MonoBehaviour
 
     void SpellMaterial(GameObject f , int i)
     {
+        //Debug.Log(i);
         if (i==0)
         {
             f.GetComponent<MeshRenderer>().material = matFireball;
@@ -518,7 +520,7 @@ public class UIupdate : MonoBehaviour
 
     void HighlightSelected()
     {
-
+        Debug.Log("highlight is called" + refCastSpellNew.leftSelected + " / " + refCastSpellNew.rightSelected);
         currentSpellUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,1);
 
         if (refCastSpellNew.leftSelected)

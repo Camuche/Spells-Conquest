@@ -9,6 +9,7 @@ public class pickupSpell : MonoBehaviour
     bool canPickUp = false;
     GameObject player;
     GameObject gameController;
+    public int spellNb;
 
     [SerializeField] private InputActionReference interact;
 
@@ -16,6 +17,10 @@ public class pickupSpell : MonoBehaviour
     void Start()
     {
         gameController = GameObject.Find("GameController");
+        if (spellNb <= gameController.GetComponent<gameController>().spellLimit)
+        {
+            Destroy(gameObject);
+        }
     }
 
 
@@ -36,9 +41,9 @@ public class pickupSpell : MonoBehaviour
         {
             player.GetComponent<CastSpellNew>().limit++;
             //gameController.GetComponent<gameController>().spellLimit++;
-            gameController.GetComponent<gameController>().spellsToDestroyNext.Add(transform.position.x.ToString() + transform.position.z.ToString());
+            //gameController.GetComponent<gameController>().spellsToDestroyNext.Add(transform.position.x.ToString() + transform.position.z.ToString());
             gameController.GetComponent<gameController>().spellLimit = player.GetComponent<CastSpellNew>().limit;
-            gameController.GetComponent<gameController>().setSpellsToDestroy();
+            //gameController.GetComponent<gameController>().setSpellsToDestroy();
             Destroy(gameObject);
         }
     }

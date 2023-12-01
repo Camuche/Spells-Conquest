@@ -31,15 +31,24 @@ public class gameController : MonoBehaviour
 
         matLave.SetVector("_SpherePosition", new Vector4(0, 9999999999999, 0, 0));
 
-
+        //Debug.Log("spellLimit : " + spellLimit);
         player = GameObject.Find("Player");
-        player.GetComponent<CastSpellNew>().limit = spellLimit;
+        Invoke("DelayedInitialisation", Time.deltaTime);
         if (checkpointed)
         {
-            Debug.Log("reloaded");
+            //Debug.Log("reloaded");
             player.transform.position = CheckPoint;
             //player.GetComponent<CastSpellNew>().limit = spellLimit;
         }
+    }
+
+    void DelayedInitialisation()
+    {
+        if(spellLimit == -1)
+        {
+            return;
+        }
+        player.GetComponent<CastSpellNew>().limit = spellLimit;
     }
 
     
@@ -101,7 +110,7 @@ public class gameController : MonoBehaviour
 
         }
 
-        destroySpells();
+        //destroySpells();
 
         if (GameObject.Find("Sensitivity") != null)
         {
@@ -130,7 +139,7 @@ public class gameController : MonoBehaviour
         spellsToDestroy = spellsToDestroyNext;
     }
 
-    void destroySpells()
+    /*void destroySpells()
     {
 
         List<GameObject> spellsToCheck = new List<GameObject>();
@@ -156,7 +165,7 @@ public class gameController : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 
     public float newSensitivity;
     
