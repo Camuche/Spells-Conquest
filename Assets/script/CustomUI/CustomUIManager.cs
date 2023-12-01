@@ -20,7 +20,7 @@ public class CustomUIManager : MonoBehaviour
     [SerializeField] private InputActionReference movement, interact, cancel;
 
     // Start is called before the first frame update
-    void Awake()
+    void OnEnable()
     {
         instance = this;
     }

@@ -181,12 +181,14 @@ public class gameController : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         isPaused = true;
+        PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("MenuInput");
     }
     public void Play()
     {
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         isPaused = false;
+        PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("PlayerInput");
     }
 
     
