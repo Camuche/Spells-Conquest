@@ -29,7 +29,12 @@ public class Inventory : MonoBehaviour
     {
         moneyTMP = GameObject.Find("MoneyValueTMP").GetComponent<TMP_Text>();
         UpdateMoneyTMP();
-        
+
+        fireballAlt = !Shop.instance.fireballAltAvailable;
+        fireCloneAlt = !Shop.instance.fireCloneAltAvailable;
+        telekinesisCloneAlt = !Shop.instance.telekinesisCloneAltAvailable;
+        iceCloneAlt = !Shop.instance.iceCloneAltAvailable;
+        Debug.Log(fireballAlt+""+fireCloneAlt+""+telekinesisCloneAlt+""+iceCloneAlt );
         
     }
 

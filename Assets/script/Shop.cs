@@ -12,7 +12,7 @@ public class Shop : MonoBehaviour
     int hpUpgradeNumber = 0;
 
     //SPELLS AVAILABLE
-    bool fireballAltAvailable = true, fireCloneAltAvailable = true, telekinesisCloneAltAvailable = true, waveAltAvailable = true, iceballAltAvailable = true, iceCloneAltAvailable = true;
+    [HideInInspector] public bool fireballAltAvailable = true, fireCloneAltAvailable = true, telekinesisCloneAltAvailable = true, waveAltAvailable = true, iceballAltAvailable = true, iceCloneAltAvailable = true;
     [SerializeField] int priceFireball, priceFireClone, priceTelekinesisClone, priceWave, priceIceball, priceIceClone;
 
     //STATS AVAILABLE
@@ -48,8 +48,8 @@ public class Shop : MonoBehaviour
     {
         player = GameObject.Find("Player");
 
-        inventory = player.GetComponent<Inventory>();
-        refCastSpellNew = player.GetComponent<CastSpellNew>();
+        inventory = Inventory.instance;
+        refCastSpellNew = CastSpellNew.instance;
 
         damageMultiplierValue = 1f;
 
@@ -209,8 +209,8 @@ public class Shop : MonoBehaviour
             timerDelay = 0f;
             hpAvailable --;
 
-            player.GetComponent<PlayerController>().lifeMax += hpUpgradeValue;
-            player.GetComponent<PlayerController>().life += hpUpgradeValue;
+            PlayerController.instance.lifeMax += hpUpgradeValue;
+            PlayerController.instance.life += hpUpgradeValue;
             hpUpgradeNumber ++;
             bonusHpTMP.text = "Points de vie x" + (100 + hpUpgradeValue * hpUpgradeNumber) + "%";
 
