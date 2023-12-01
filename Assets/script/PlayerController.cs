@@ -149,8 +149,8 @@ public class PlayerController : MonoBehaviour
         if (GetComponent<CastSpellNew>().selecting == 0)
         {
             animator.SetBool("IsMoving", movedir != Vector3.zero && !isAttracted);
-            animator.SetFloat("VelocityZ", movement.action.ReadValue<Vector2>().y);
-            animator.SetFloat("VelocityX", movement.action.ReadValue<Vector2>().x);
+            //animator.SetFloat("VelocityZ", movement.action.ReadValue<Vector2>().y);
+            //animator.SetFloat("VelocityX", movement.action.ReadValue<Vector2>().x);
         }
         
 
