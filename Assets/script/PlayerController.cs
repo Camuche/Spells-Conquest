@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         instance = this;
+        refPlayerInput = GetComponent<PlayerInput>();
     }
 
     // Start is called before the first frame update
@@ -105,7 +106,7 @@ public class PlayerController : MonoBehaviour
 
        
         isDead = false;
-        refPlayerInput = GetComponent<PlayerInput>();
+        
 
         persistentObject = GameObject.Find("PersistentObject");
 

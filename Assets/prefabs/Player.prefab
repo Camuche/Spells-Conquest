@@ -330,7 +330,6 @@ MonoBehaviour:
   jumpForce: 0
   isAttracted: 0
   life: 100
-  lifeMax: 0
   speedscale: 1
   animator: {fileID: 4721740849922928826}
   shaderUI: {fileID: 2100000, guid: 11640e417c416e044a4de109bd9bf2e7, type: 2}
@@ -459,7 +458,7 @@ MonoBehaviour:
     type: 3}
   rightSelection: {fileID: 4248323056758688828, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
-  cameraRotation: {fileID: -3354769714030775914, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+  cameraRotation: {fileID: 2144580267509379024, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
   spellR2: {fileID: -4415006183407332061, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}

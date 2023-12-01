@@ -53,13 +53,18 @@ public class UIupdate : MonoBehaviour
     GameObject refSelectionUi;
 
     CastSpellNew refCastSpellNew;
-    GameObject currentSpellUi, spellTopUi, spellRightUi, spellBotUi, spellLeftUi;
+    public GameObject currentSpellUi, spellTopUi, spellRightUi, spellBotUi, spellLeftUi;
     [SerializeField] Material matFireball, matFireClone, matTelekinesesClone, matWave, matIceball, matIceClone;
     GameObject cameraShop;
     //public int refHand;
 
     [SerializeField] TMP_Text lifeTMP;
+    public static UIupdate instance;
 
+    void Awake()
+    {
+        instance = this;
+    }
 
     private void OnLevelWasLoaded(int level)
     {
@@ -484,8 +489,12 @@ public class UIupdate : MonoBehaviour
             spellLeftUi.SetActive(true);
         }*/
 
-        HighlightSelected();
+        if (CastSpellNew.instance.cameraRotation.action.ReadValue<Vector2>() != Vector2.zero)
+        {
+            
+        }
         
+        HighlightSelected();
     }
 
     void SpellMaterial(GameObject f , int i)
@@ -518,9 +527,19 @@ public class UIupdate : MonoBehaviour
 
     }
 
+    /*public void HighlightTarget(GameObject target)
+    {
+        target.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,1);
+    }
+
+    public void UnHighlightTarget(GameObject target)
+    {
+        target.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,.5f);
+    }*/
+
     void HighlightSelected()
     {
-        Debug.Log("highlight is called" + refCastSpellNew.leftSelected + " / " + refCastSpellNew.rightSelected);
+        //Debug.Log("highlight is called" + refCastSpellNew.leftSelected + " / " + refCastSpellNew.rightSelected);
         currentSpellUi.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,1);
 
         if (refCastSpellNew.leftSelected)

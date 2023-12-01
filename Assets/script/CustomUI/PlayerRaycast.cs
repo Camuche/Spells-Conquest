@@ -112,9 +112,10 @@ public class PlayerRaycast : MonoBehaviour
 
         if (raycastable != null)
         {
-            if (interact.action.IsPressed())
+            if (interact.action.WasPressedThisFrame())
             {
                 raycastable.PerformOnInteract();
+                
             }
         }
 

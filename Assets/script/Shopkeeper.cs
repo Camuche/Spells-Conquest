@@ -34,7 +34,7 @@ public class Shopkeeper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log( PlayerController.instance.refPlayerInput.currentActionMap.name);
+        //Debug.Log( PlayerController.instance.refPlayerInput.currentActionMap.name);
         if(interact.action.ReadValue<float>() == 0)
         {
             interactReleased = true;

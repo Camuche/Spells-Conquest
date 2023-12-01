@@ -40,7 +40,7 @@ public class CastSpellNew : MonoBehaviour
 
 
 
-    [SerializeField] private InputActionReference leftSelection, rightSelection, /*movement,*/ cameraRotation, spellR2, spellL2;
+    public InputActionReference leftSelection, rightSelection, /*movement,*/ cameraRotation, spellR2, spellL2;
 
     bool l2IsPressed=false, r2IsPressed=false, l2IsHold= false, r2IsHold = false;
     [SerializeField] float spellAnimationTime;
@@ -215,7 +215,7 @@ public class CastSpellNew : MonoBehaviour
             }
         }
 
-        int saveCurrentSpell = -1;
+        
 
         if (selecting != 0)
         {
@@ -236,17 +236,11 @@ public class CastSpellNew : MonoBehaviour
 
                     if(cameraRotation.action.ReadValue<Vector2>().x<0 && listLeftSpellAvailable[0] <= limit) //LEFT STICK LEFT
                     {
-                        saveCurrentSpell = SpellL;
-                        SpellL = listLeftSpellAvailable[0];
-                        listLeftSpellAvailable[0] = saveCurrentSpell;
-                        UpdateRightSpells();
+                        SelectSpellLeft(0);
                     }
                     if(cameraRotation.action.ReadValue<Vector2>().x>0 && listLeftSpellAvailable[1] <= limit) //LEFT STICK RIGHT
                     {
-                        saveCurrentSpell = SpellL;
-                        SpellL = listLeftSpellAvailable[1];
-                        listLeftSpellAvailable[1] = saveCurrentSpell;
-                        UpdateRightSpells();
+                        SelectSpellLeft(1);
                     }
                     /*if(movement.action.ReadValue<Vector2>().y <-0.5 && movement.action.ReadValue<Vector2>().x>-0.5 && movement.action.ReadValue<Vector2>().x < 0.5 && listLeftSpellAvailable[2] <= limit) //LEFT STICK BOT
                     {
@@ -278,17 +272,11 @@ public class CastSpellNew : MonoBehaviour
 
                     if(cameraRotation.action.ReadValue<Vector2>().x<0 && listRightSpellAvailable[0] <= limit) //RIGHT STICK LEFT
                     {
-                        saveCurrentSpell = SpellR;
-                        SpellR = listRightSpellAvailable[0];
-                        listRightSpellAvailable[0] = saveCurrentSpell;
-                        UpdateLeftSpells();
+                        SelectSpellRight(0);
                     }
                     if(cameraRotation.action.ReadValue<Vector2>().x>0 && listRightSpellAvailable[1] <= limit) //RIGHT STICK RIGHT
                     {
-                        saveCurrentSpell = SpellR;
-                        SpellR = listRightSpellAvailable[1];
-                        listRightSpellAvailable[1] = saveCurrentSpell;
-                        UpdateLeftSpells();
+                        SelectSpellRight(1);
                     }
                     /*if(cameraRotation.action.ReadValue<Vector2>().y <-0.5 && cameraRotation.action.ReadValue<Vector2>().x>-0.5 && cameraRotation.action.ReadValue<Vector2>().x < 0.5 && listRightSpellAvailable[2] <= limit) //RIGHT STICK BOT
                     {
@@ -320,6 +308,27 @@ public class CastSpellNew : MonoBehaviour
         listRightSpellAvailable.Sort();
         listLeftSpellAvailable = listRightSpellAvailable;
     }
+    
+    
+    int saveCurrentSpell = -1;
+    
+    public void SelectSpellLeft(int value)
+    {
+        saveCurrentSpell = SpellL;
+        SpellL = listLeftSpellAvailable[value];
+        listLeftSpellAvailable[value] = saveCurrentSpell;
+        UpdateRightSpells();
+    }
+
+    public void SelectSpellRight(int value)
+    {
+        saveCurrentSpell = SpellR;
+        SpellR = listRightSpellAvailable[value];
+        listRightSpellAvailable[value] = saveCurrentSpell;
+        UpdateLeftSpells();
+    }
+    
+    
 
     void CheckSelectedSpell()
     {
@@ -327,11 +336,24 @@ public class CastSpellNew : MonoBehaviour
         {
             if(cameraRotation.action.ReadValue<Vector2>().x<0  && listLeftSpellAvailable[0] <= limit)
             {
+                /*if(leftSelected == false)
+                {
+                    UIupdate.instance.HighlightTarget(UIupdate.instance.spellLeftUi);
+                    UIupdate.instance.UnHighlightTarget(UIupdate.instance.spellRightUi);
+                }*/
+                //rightSelected = false;
+
                 leftSelected = true;
                 
             }
             else if(cameraRotation.action.ReadValue<Vector2>().x>0 && listLeftSpellAvailable[1] <= limit)
             {
+                /*if(rightSelected == false)
+                {
+                    UIupdate.instance.HighlightTarget(UIupdate.instance.spellRightUi);
+                }*/
+                //leftSelected = false;
+
                 rightSelected = true;
             }
             /*else if(movement.action.ReadValue<Vector2>().y <-0.5 && movement.action.ReadValue<Vector2>().x>-0.5 && movement.action.ReadValue<Vector2>().x < 0.5 && listLeftSpellAvailable[2] <= limit)

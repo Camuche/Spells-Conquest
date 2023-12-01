@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1455053037}
   - component: {fileID: 1455053039}
   - component: {fileID: 4839894399619982058}
+  - component: {fileID: 745781545154153321}
   m_Layer: 0
   m_Name: CameraUI
   m_TagString: Untagged
@@ -97,10 +98,30 @@ MonoBehaviour:
   maxDistance: 100
   refCursor: {fileID: 0}
   cursorSpeed: 0
-  stopWhenPaused: 1
+  stopWhenPaused: 0
   mousePos: {fileID: -2640914805725214107, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
   interact: {fileID: -5033502003007823114, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+    type: 3}
+--- !u!114 &745781545154153321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455053036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127db7d39ff2c6442826c802dc4d3bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 100
+  refCursor: {fileID: 0}
+  cursorSpeed: 0
+  stopWhenPaused: 1
+  mousePos: {fileID: -2924367399480249650, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+    type: 3}
+  interact: {fileID: -7734849661365291782, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
 --- !u!1 &60950066981868008
 GameObject:
@@ -4698,6 +4719,12 @@ MonoBehaviour:
   hpUpgradeValue: 25
   damageUpgradeMultiplierValue: 0.25
   damageMultiplierValue: 0
+  fireballAltAvailable: 1
+  fireCloneAltAvailable: 1
+  telekinesisCloneAltAvailable: 1
+  waveAltAvailable: 1
+  iceballAltAvailable: 1
+  iceCloneAltAvailable: 1
   priceFireball: 10
   priceFireClone: 10
   priceTelekinesisClone: 10
@@ -7797,6 +7824,8 @@ GameObject:
   - component: {fileID: 7057575814381170553}
   - component: {fileID: 5051415586234113553}
   - component: {fileID: 2529136118085030107}
+  - component: {fileID: 5912024972696655488}
+  - component: {fileID: 8385319909976469167}
   m_Layer: 5
   m_Name: SpellRight
   m_TagString: Untagged
@@ -7867,6 +7896,76 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5912024972696655488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8028470449285981184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff2cf640372f8f4cbedc135ca4e90ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventOnOver:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1869306073207964813}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: HighlightTarget
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8028470449285981184}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  eventOnOut:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1869306073207964813}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: UnHighlightTarget
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8028470449285981184}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  eventOnInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1869306073207964813}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: SelectSpellRight
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &8385319909976469167
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8028470449285981184}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 6.1232336e-17}
+  m_Center: {x: 0.000061035156, y: 0, z: 0.0000009536743}
 --- !u!1 &8032695236752204114
 GameObject:
   m_ObjectHideFlags: 0
@@ -8865,6 +8964,8 @@ GameObject:
   - component: {fileID: 223022465951696728}
   - component: {fileID: 903246684126617341}
   - component: {fileID: 1593543732828566345}
+  - component: {fileID: 8113619795956319168}
+  - component: {fileID: 2320004282004994645}
   m_Layer: 5
   m_Name: SpellLeft
   m_TagString: Untagged
@@ -8935,6 +9036,76 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8113619795956319168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8680662397026618530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff2cf640372f8f4cbedc135ca4e90ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventOnOver:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1869306073207964813}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: HighlightTarget
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8680662397026618530}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  eventOnOut:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1869306073207964813}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: UnHighlightTarget
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8680662397026618530}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  eventOnInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1869306073207964813}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: SelectSpellLeft
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &2320004282004994645
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8680662397026618530}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0.0000009536743}
 --- !u!1 &8752714513629583950
 GameObject:
   m_ObjectHideFlags: 0
