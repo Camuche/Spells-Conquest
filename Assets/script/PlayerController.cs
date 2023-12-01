@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
 
     [HideInInspector]
-    public float lifeMax;
+    public static float lifeMax;
     public float speedscale = 1;
 
 
@@ -91,7 +91,15 @@ public class PlayerController : MonoBehaviour
 
         previousTransform = transform;
 
-        lifeMax = life;
+        //lifeMax = life;
+        if (lifeMax == 0)
+        {
+            lifeMax = life;
+        }
+        else
+        {
+            life = lifeMax;
+        }
 
         DefaultCamDistance = CamDistance;
 

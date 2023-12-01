@@ -142,7 +142,7 @@ public class UIupdate : MonoBehaviour
         DisableShopUi();
         
         lifeTMP = GameObject.Find("LifeTMP").GetComponent<TMP_Text>();
-        lifeTMP.text = PlayerController.instance.life + " / " + PlayerController.instance.lifeMax;
+        lifeTMP.text = PlayerController.instance.life + " / " + PlayerController.lifeMax;
 
     }
 
@@ -150,7 +150,7 @@ public class UIupdate : MonoBehaviour
     void Update()
     {
         refCastSpellNew = CastSpellNew.instance;
-        lifeTMP.text = PlayerController.instance.life + " / " + PlayerController.instance.lifeMax;
+        lifeTMP.text = PlayerController.instance.life + " / " + PlayerController.lifeMax;
 
         if (player == null)
         {
@@ -165,7 +165,7 @@ public class UIupdate : MonoBehaviour
 
 
 
-            mat_Stamina.SetFloat("_Endurance", (float)(1.5f - player.GetComponent<PlayerController>().dashCoolDown) / 1.5f);
+            mat_Stamina.SetFloat("_Endurance", (float)(1.5f - PlayerController.instance.dashCoolDown) / 1.5f);
 
             /*RightSpellImg.GetComponent<Image>().sprite = player.GetComponent<CastSpell>().Elements[player.GetComponent<CastSpell>().SpellR].spell_image;
             RightSpellText.GetComponent<Text>().text = player.GetComponent<CastSpell>().Elements[player.GetComponent<CastSpell>().SpellR].spell_name;
@@ -216,8 +216,8 @@ public class UIupdate : MonoBehaviour
 
 
 
-            HealthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(player.GetComponent<PlayerController>().life * healthbarsize / (player.GetComponent<PlayerController>().lifeMax), HealthBar.GetComponent<RectTransform>().sizeDelta.y);
-            StaminaFront.GetComponent<RectTransform>().sizeDelta = new Vector2((1.5f - player.GetComponent<PlayerController>().dashCoolDown) / 1.5f * StaminaBack.GetComponent<RectTransform>().sizeDelta.x, StaminaBack.GetComponent<RectTransform>().sizeDelta.y);
+            HealthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(PlayerController.instance.life * healthbarsize / (PlayerController.lifeMax), HealthBar.GetComponent<RectTransform>().sizeDelta.y);
+            StaminaFront.GetComponent<RectTransform>().sizeDelta = new Vector2((1.5f - PlayerController.instance.dashCoolDown) / 1.5f * StaminaBack.GetComponent<RectTransform>().sizeDelta.x, StaminaBack.GetComponent<RectTransform>().sizeDelta.y);
 
             UI.SetActive(player.transform.Find("Main Camera").gameObject.activeSelf);
             //AnimateSubSpells();

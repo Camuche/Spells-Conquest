@@ -34,7 +34,7 @@ public class Inventory : MonoBehaviour
         fireCloneAlt = !Shop.instance.fireCloneAltAvailable;
         telekinesisCloneAlt = !Shop.instance.telekinesisCloneAltAvailable;
         iceCloneAlt = !Shop.instance.iceCloneAltAvailable;
-        Debug.Log(fireballAlt+""+fireCloneAlt+""+telekinesisCloneAlt+""+iceCloneAlt );
+        //Debug.Log(fireballAlt+""+fireCloneAlt+""+telekinesisCloneAlt+""+iceCloneAlt );
         
     }
 

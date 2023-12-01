@@ -45,7 +45,7 @@ public class Shopkeeper : MonoBehaviour
             inShop = true;
             interactReleased = false;
 
-            PlayerController.instance.life = PlayerController.instance.lifeMax;
+            PlayerController.instance.life = PlayerController.lifeMax;
             uiUpdate.EnableShopUi();
             Shop.instance.UpdateUnselectedShopButton();
             CustomUIManager.instance.currentSelected.PerformOnSelect();

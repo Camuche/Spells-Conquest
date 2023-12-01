@@ -22,9 +22,9 @@ public class Shop : MonoBehaviour
 
 
     GameObject player;
-    CastSpellNew refCastSpellNew;
+    //CastSpellNew CastSpellNew;
 
-    Inventory inventory;
+    //Inventory.instance Inventory.instance;
 
     MeshRenderer matButtonFireball, matButtonFireClone, matButtonTelekinesisClone, matButtonWave, matButtonIceball, matButtonIceClone, matButtonHp, matButtonDamage;
     [SerializeField] Material greyLockedUi, greyUi, whiteUi, selectedGreyLockedUi;
@@ -48,8 +48,8 @@ public class Shop : MonoBehaviour
     {
         player = GameObject.Find("Player");
 
-        inventory = Inventory.instance;
-        refCastSpellNew = CastSpellNew.instance;
+        //Inventory.instance = Inventory.instance.instance;
+        //CastSpellNew.instance = CastSpellNew.instance;
 
         damageMultiplierValue = 1f;
 
@@ -101,16 +101,16 @@ public class Shop : MonoBehaviour
 
     public void UpgradeFireball()
     {
-        if(inventory.money >= priceFireball && fireballAltAvailable == true && refCastSpellNew.limit >= 0)
+        if(Inventory.instance.money >= priceFireball && fireballAltAvailable == true && CastSpellNew.instance.limit >= 0)
         {
             fireballAltAvailable = false;
-            inventory.fireballAlt = true;
-            inventory.money -= priceFireball;
-            inventory.UpdateMoneyTMP();
+            Inventory.instance.fireballAlt = true;
+            Inventory.instance.money -= priceFireball;
+            Inventory.instance.UpdateMoneyTMP();
             FireballButtonSelected();
             Debug.Log("UpdateFireball");
         }
-        else if(inventory.money < priceFireball && fireballAltAvailable == true && refCastSpellNew.limit >= 0)
+        else if(Inventory.instance.money < priceFireball && fireballAltAvailable == true && CastSpellNew.instance.limit >= 0)
         {
             notEnoughMoneyTMP.enabled = true;
         }
@@ -118,16 +118,16 @@ public class Shop : MonoBehaviour
 
     public void UpgradeFireClone()
     {
-        if(inventory.money >= priceFireClone && fireCloneAltAvailable == true && refCastSpellNew.limit >= 1)
+        if(Inventory.instance.money >= priceFireClone && fireCloneAltAvailable == true && CastSpellNew.instance.limit >= 1)
         {
             fireCloneAltAvailable = false;
-            inventory.fireCloneAlt = true;
-            inventory.money -= priceFireClone;
-            inventory.UpdateMoneyTMP();
+            Inventory.instance.fireCloneAlt = true;
+            Inventory.instance.money -= priceFireClone;
+            Inventory.instance.UpdateMoneyTMP();
             FireCloneButtonSelected();
             Debug.Log("UpdateFireClone");
         }
-        else if(inventory.money < priceFireClone && fireCloneAltAvailable == true && refCastSpellNew.limit >= 1)
+        else if(Inventory.instance.money < priceFireClone && fireCloneAltAvailable == true && CastSpellNew.instance.limit >= 1)
         {
             notEnoughMoneyTMP.enabled = true;
         }
@@ -135,16 +135,16 @@ public class Shop : MonoBehaviour
 
     public void UpgradeTelekinesisClone()
     {
-        if(inventory.money >= priceTelekinesisClone && telekinesisCloneAltAvailable == true && refCastSpellNew.limit >= 2)
+        if(Inventory.instance.money >= priceTelekinesisClone && telekinesisCloneAltAvailable == true && CastSpellNew.instance.limit >= 2)
         {
             telekinesisCloneAltAvailable = false;
-            inventory.telekinesisCloneAlt = true;
-            inventory.money -= priceTelekinesisClone;
-            inventory.UpdateMoneyTMP();
+            Inventory.instance.telekinesisCloneAlt = true;
+            Inventory.instance.money -= priceTelekinesisClone;
+            Inventory.instance.UpdateMoneyTMP();
             TelekinesisCloneButtonSelected();
             Debug.Log("UpdateTelekinesisClone");
         }
-        else if(inventory.money < priceTelekinesisClone && telekinesisCloneAltAvailable == true && refCastSpellNew.limit >= 2)
+        else if(Inventory.instance.money < priceTelekinesisClone && telekinesisCloneAltAvailable == true && CastSpellNew.instance.limit >= 2)
         {
             notEnoughMoneyTMP.enabled = true;
         }
@@ -152,16 +152,16 @@ public class Shop : MonoBehaviour
 
     /*public void UpgradeWave()
     {
-        if(inventory.money >= priceWave && waveAltAvailable == true && refCastSpellNew.limit >= 3)
+        if(Inventory.instance.money >= priceWave && waveAltAvailable == true && CastSpellNew.instance.limit >= 3)
         {
             waveAltAvailable = false;
-            inventory.waveAlt = true;
-            inventory.money -= priceWave;
-            inventory.UpdateMoneyTMP();
+            Inventory.instance.waveAlt = true;
+            Inventory.instance.money -= priceWave;
+            Inventory.instance.UpdateMoneyTMP();
             WaveButtonSelected();
             Debug.Log("UpdateWave");
         }
-        else if(inventory.money < priceWave && waveAltAvailable == true && refCastSpellNew.limit >= 3)
+        else if(Inventory.instance.money < priceWave && waveAltAvailable == true && CastSpellNew.instance.limit >= 3)
         {
             notEnoughMoneyTMP.enabled = true;
         }
@@ -169,16 +169,16 @@ public class Shop : MonoBehaviour
 
     public void UpgradeIceball()
     {
-        if(inventory.money >= priceIceball && iceballAltAvailable == true && refCastSpellNew.limit >= 4)
+        if(Inventory.instance.money >= priceIceball && iceballAltAvailable == true && CastSpellNew.instance.limit >= 4)
         {
             iceballAltAvailable = false;
-            inventory.iceballAlt = true;
-            inventory.money -= priceIceball;
-            inventory.UpdateMoneyTMP();
+            Inventory.instance.iceballAlt = true;
+            Inventory.instance.money -= priceIceball;
+            Inventory.instance.UpdateMoneyTMP();
             IceballButtonSelected();
             Debug.Log("UpdateIceball");
         }
-        else if(inventory.money < priceIceball && iceballAltAvailable == true && refCastSpellNew.limit >= 4)
+        else if(Inventory.instance.money < priceIceball && iceballAltAvailable == true && CastSpellNew.instance.limit >= 4)
         {
             notEnoughMoneyTMP.enabled = true;
         }
@@ -186,16 +186,16 @@ public class Shop : MonoBehaviour
 
     public void UpgradeIceClone()
     {
-        if(inventory.money >= priceIceClone && iceCloneAltAvailable == true && refCastSpellNew.limit >= 3)
+        if(Inventory.instance.money >= priceIceClone && iceCloneAltAvailable == true && CastSpellNew.instance.limit >= 3)
         {
             iceCloneAltAvailable = false;
-            inventory.iceCloneAlt = true;
-            inventory.money -= priceIceClone;
-            inventory.UpdateMoneyTMP();
+            Inventory.instance.iceCloneAlt = true;
+            Inventory.instance.money -= priceIceClone;
+            Inventory.instance.UpdateMoneyTMP();
             IceCloneButtonSelected();
             Debug.Log("UpdateIceClone");
         }
-        else if(inventory.money < priceIceClone && iceCloneAltAvailable == true && refCastSpellNew.limit >= 3)
+        else if(Inventory.instance.money < priceIceClone && iceCloneAltAvailable == true && CastSpellNew.instance.limit >= 3)
         {
             notEnoughMoneyTMP.enabled = true;
         }
@@ -204,24 +204,24 @@ public class Shop : MonoBehaviour
 
     public void UpgradeHp()
     {
-        if(hpAvailable > 0 && inventory.money >= priceHp && timerDelay >= hitDelay)
+        if(hpAvailable > 0 && Inventory.instance.money >= priceHp && timerDelay >= hitDelay)
         {
             timerDelay = 0f;
             hpAvailable --;
 
-            PlayerController.instance.lifeMax += hpUpgradeValue;
+            PlayerController.lifeMax += hpUpgradeValue;
             PlayerController.instance.life += hpUpgradeValue;
             hpUpgradeNumber ++;
             bonusHpTMP.text = "Points de vie x" + (100 + hpUpgradeValue * hpUpgradeNumber) + "%";
 
-            inventory.money -= priceHp;
-            inventory.UpdateMoneyTMP();
+            Inventory.instance.money -= priceHp;
+            Inventory.instance.UpdateMoneyTMP();
             HpButtonSelected();
             itemLeftHpTMP.text = "Left : " + hpAvailable;
             //Debug.Log("Stat HP left :" + hpAvailable);
             
         }
-        else if(inventory.money < priceHp && hpAvailable > 0 && timerDelay >= hitDelay)
+        else if(Inventory.instance.money < priceHp && hpAvailable > 0 && timerDelay >= hitDelay)
         {
             timerDelay = 0f;
             notEnoughMoneyTMP.enabled = true;
@@ -232,7 +232,7 @@ public class Shop : MonoBehaviour
 
     public void UpgradeDamage()
     {
-        if(damageAvailable > 0 && inventory.money >= priceDamage && timerDelay >= hitDelay)
+        if(damageAvailable > 0 && Inventory.instance.money >= priceDamage && timerDelay >= hitDelay)
         {
             timerDelay = 0f;
             damageAvailable --;
@@ -240,12 +240,12 @@ public class Shop : MonoBehaviour
             damageMultiplierValue += damageUpgradeMultiplierValue;
             bonusDamageTMP.text = "Dégâts x" + damageMultiplierValue*100 + "%";
             
-            inventory.money -= priceDamage;
-            inventory.UpdateMoneyTMP();
+            Inventory.instance.money -= priceDamage;
+            Inventory.instance.UpdateMoneyTMP();
             DamageButtonSelected();
             itemLeftDamageTMP.text = "Left : " + damageAvailable;
         }
-        else if (damageAvailable > 0 && inventory.money < priceDamage && timerDelay >= hitDelay)
+        else if (damageAvailable > 0 && Inventory.instance.money < priceDamage && timerDelay >= hitDelay)
         {
             timerDelay = 0f;
             notEnoughMoneyTMP.enabled = true;

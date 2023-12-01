@@ -120,7 +120,7 @@ public class telekinesisClone : MonoBehaviour
 
     void ResetNavMesh()
     {
-        Debug.Log("1");
+        //Debug.Log("1");
         Transform[] gos = EnemyManager.instance.transform.GetComponentsInChildren<Transform>() as Transform[]; //will return an array of all GameObjects in the scene
             foreach (Transform gotr in gos)
             {
@@ -136,7 +136,7 @@ public class telekinesisClone : MonoBehaviour
                     rb.isKinematic = true;
                     rb.useGravity = false;
                     refAgent.enabled = true;
-                    Debug.Log("2");
+                    //Debug.Log("2");
                 }
 
             }
