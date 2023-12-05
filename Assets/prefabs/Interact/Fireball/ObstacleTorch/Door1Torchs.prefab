@@ -384,6 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagsAndNamesToCheck:
   - Fireball
+  - FireShield
   eventOnEnter:
     m_PersistentCalls:
       m_Calls:
