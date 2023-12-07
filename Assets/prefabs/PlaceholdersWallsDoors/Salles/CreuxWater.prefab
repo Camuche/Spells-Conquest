@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 326718361574448309}
   - component: {fileID: 326718361574448308}
   - component: {fileID: 326718361574448307}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CreuxWater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
