@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4821523662760765335}
   - component: {fileID: 4821523662760765334}
   - component: {fileID: 1207701107074999125}
+  - component: {fileID: 7161468769860562122}
   m_Layer: 0
   m_Name: UnlockableDoor
   m_TagString: Untagged
@@ -346,3 +347,24 @@ MonoBehaviour:
       m_Calls: []
   conditions: 0000
   typeDeCondition: 0
+--- !u!95 &7161468769860562122
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4821523662760765337}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8c29b4f232c3d6841a603b35b02a0b67, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
