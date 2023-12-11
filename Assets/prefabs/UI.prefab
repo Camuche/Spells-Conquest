@@ -4725,7 +4725,7 @@ MonoBehaviour:
   waveAltAvailable: 1
   iceballAltAvailable: 1
   iceCloneAltAvailable: 1
-  priceFireball: 10
+  priceFireball: 0
   priceFireClone: 10
   priceTelekinesisClone: 10
   priceWave: 10

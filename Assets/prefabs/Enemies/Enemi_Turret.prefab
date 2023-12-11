@@ -247,7 +247,7 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
   grav: 15
-  followDistance: 30
+  followDistance: 40
   minDistance: 2
   rotationSpeed: 5
   attackDuration: 0
