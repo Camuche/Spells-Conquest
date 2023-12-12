@@ -649,9 +649,15 @@ public class PlayerController : MonoBehaviour
                 }
                 if(nearestEnemy != null &&  Vector3.Distance(transform.position, go.transform.position ) <= Vector3.Distance(transform.position, nearestEnemy.transform.position))
                 {
+                    /*RaycastHit hit;
+                    Physics.Raycast(Camera.main.transform.position, go.transform.position, out hit, Mathf.Infinity);
+                    Debug.Log(hit.collider);
+                    if(hit.collider == null)
+                    {
+                        //nearestEnemy = go;
+                    }*/
                     nearestEnemy = go;
                 }
-                //Debug.Log("enemihere");
                 
             }
             
@@ -664,6 +670,43 @@ public class PlayerController : MonoBehaviour
         Camera.main.transform.LookAt(nearestEnemy.transform, Vector3.up);
         transform.LookAt(nearestEnemy.transform, Vector3.up);
         transform.eulerAngles -= new Vector3(0,90,0);   
+
+        rotY = Camera.main.transform.rotation.y;
+        rotY = Mathf.Clamp(rotY, -60f, 90f);
+        ChangeCamPos();
+        
+    }
+
+    void ChangeCamPos()
+    {
+        Vector3 campos = transform.TransformPoint(new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * CamDistance, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * CamDistance, CamzDefault));
+        Vector3 camposStart = CamStart.transform.position;
+
+        Vector3 camdir = campos - camposStart;
+
+
+        RaycastHit hit;
+
+        Physics.Raycast(camposStart, camdir,out hit,CamDistance, obstacleMask, QueryTriggerInteraction.Ignore);
+        Debug.DrawRay(camposStart, camdir);
+
+        float dist;
+
+
+        if (hit.distance > CamDistance || hit.collider==null || hit.collider.transform.name=="Player")
+        {
+            dist = CamDistance;
+            Camera.main.transform.localPosition = new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, CamzDefault + (CamDistance - dist));
+            //Debug.Log(new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, CamzDefault + (CamDistance - dist)));
+        }
+        else
+        {
+            dist = hit.distance;
+            Vector3 camdest = hit.point;
+            camdest = Vector3.MoveTowards(camdest, camposStart, 0.1f);
+            Camera.main.transform.position = camdest;
+            //Camera.main.transform.position = camposStart+((hit.point - camposStart).normalized * dist*-0.9f);
+        }
     }
 
 
