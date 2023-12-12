@@ -85,6 +85,11 @@ public class CastSpellNew : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(PlayerController.instance.isDead)
+        {
+            return;
+        }
+
         if (limit > -1)
         {
             SetSelecting();

@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool isDead;
 
-    [SerializeField] private InputActionReference cameraRotation, movement, mapInput;
+    [SerializeField] private InputActionReference cameraRotation, movement, mapInput, lockModeInput;
 
     [SerializeField] Camera mapCam;
     bool showMap = false;
@@ -59,6 +59,7 @@ public class PlayerController : MonoBehaviour
     Inventory inventory;
 
     [HideInInspector] public bool isCasting = false;
+    bool lockMode = false;
 
     void Awake()
     {
@@ -126,8 +127,24 @@ public class PlayerController : MonoBehaviour
 
         /*if (GetComponent<CastSpell>().limit>-1)
             aiming();*/
+        if(lockModeInput.action.WasPressedThisFrame())
+        {
+            if (!lockMode)
+            {
+                lockMode = true;
+            }
+            else
+            {
+                lockMode = false;
+            }
+        }
 
-        if (life > 0 && GetComponent<CastSpellNew>().selecting == 0)
+        if(lockMode)
+        {
+            LockMode();
+        }
+
+        if (life > 0 && GetComponent<CastSpellNew>().selecting == 0 && lockMode == false)
         {
             rotateCamera();
             rotatePlayer();
@@ -611,6 +628,42 @@ public class PlayerController : MonoBehaviour
     public void SetMouseSensitivity(float value)
     {
         mouseSensitivity = minSensitivity + (maxSensitivity - minSensitivity) * value;
+    }
+    
+    [SerializeField] float enemyDist;
+    GameObject nearestEnemy;
+    
+    void LockMode()
+    {
+        
+        Transform[] gos = EnemyManager.instance.transform.GetComponentsInChildren<Transform>() as Transform[]; //Array of enemies
+        foreach (Transform gotr in gos)
+        {
+            GameObject go = gotr.gameObject;
+
+            if (go.tag == "Enemy" && Vector3.Distance(transform.position, go.transform.position ) <= enemyDist)
+            {
+                if ( nearestEnemy == null)
+                {
+                    nearestEnemy = go;
+                }
+                if(nearestEnemy != null &&  Vector3.Distance(transform.position, go.transform.position ) <= Vector3.Distance(transform.position, nearestEnemy.transform.position))
+                {
+                    nearestEnemy = go;
+                }
+                //Debug.Log("enemihere");
+                
+            }
+            
+        }
+        if(nearestEnemy == null)
+        {
+            lockMode = false;
+            return;
+        }
+        Camera.main.transform.LookAt(nearestEnemy.transform, Vector3.up);
+        transform.LookAt(nearestEnemy.transform, Vector3.up);
+        transform.eulerAngles -= new Vector3(0,90,0);   
     }
 
 
