@@ -132,6 +132,7 @@ public class PlayerController : MonoBehaviour
             if (!lockMode)
             {
                 lockMode = true;
+                StartLockMode();
             }
             else
             {
@@ -631,23 +632,26 @@ public class PlayerController : MonoBehaviour
     }
     
     [SerializeField] float enemyDist;
-    GameObject nearestEnemy;
+    GameObject currentEnemy;
+    List<GameObject> nearestEnemies;
     public LayerMask lockMask;
-    void LockMode()
+    public float lockSpeed;
+    void StartLockMode()
     {
-        
+        nearestEnemies = new List<GameObject>();
+        currentEnemy = null;
         Transform[] gos = EnemyManager.instance.transform.GetComponentsInChildren<Transform>() as Transform[]; //Array of enemies
         foreach (Transform gotr in gos)
         {
             GameObject go = gotr.gameObject;
 
-            if (go.tag == "Enemy" && Vector3.Distance(transform.position, go.transform.position ) <= enemyDist)
+            if (go.tag == "Enemy" && Vector3.Distance(transform.position, go.transform.position) <= enemyDist)
             {
-                if ( nearestEnemy == null)
+                /*if (nearestEnemy == null)
                 {
                     nearestEnemy = go;
                 }
-                if(nearestEnemy != null &&  Vector3.Distance(transform.position, go.transform.position ) <= Vector3.Distance(transform.position, nearestEnemy.transform.position))
+                if (nearestEnemy != null && Vector3.Distance(transform.position, go.transform.position) <= Vector3.Distance(transform.position, nearestEnemy.transform.position))
                 {
                     RaycastHit hit;
                     Physics.Raycast(Camera.main.transform.position, go.transform.position - Camera.main.transform.position , out hit, Mathf.Infinity, lockMask);
@@ -656,19 +660,61 @@ public class PlayerController : MonoBehaviour
                     {
                         nearestEnemy = go;
                     }
-                    //nearestEnemy = go;
-                }
-                
+                    nearestEnemy = go;
+                }*/
+
+                nearestEnemies.Add(go);
+
             }
-            
+
         }
-        if(nearestEnemy == null)
+        foreach (GameObject go in nearestEnemies)
+        {
+            if (currentEnemy == null)
+                {
+                    currentEnemy = go;
+                }
+                if (currentEnemy != null && Vector3.Distance(transform.position, go.transform.position) <= Vector3.Distance(transform.position, currentEnemy.transform.position))
+                {
+                    /*RaycastHit hit;
+                    Physics.Raycast(Camera.main.transform.position, go.transform.position - Camera.main.transform.position , out hit, Mathf.Infinity, lockMask);
+                    Debug.Log(hit.collider);
+                    if(hit.collider == null)
+                    {
+                        nearestEnemy = go;
+                    }*/
+                    currentEnemy = go;
+                }
+        }
+
+        if (currentEnemy == null)
         {
             lockMode = false;
             return;
         }
-        Camera.main.transform.LookAt(nearestEnemy.transform, Vector3.up);
-        transform.LookAt(nearestEnemy.transform, Vector3.up);
+
+    }
+
+    bool canSwitchTarget = true;
+    void LockMode()
+    { 
+        /*if(cameraRotation.action.ReadValue<Vector2>().x <0 && canSwitchTarget)
+        {
+            canSwitchTarget = false;
+        }
+        else if (cameraRotation.action.ReadValue<Vector2>().x > 0)
+        {
+
+        }
+        else
+        {
+
+        }*/
+        Camera.main.transform.LookAt(currentEnemy.transform, Vector3.up);
+        //Camera.main.transform.forward = Vector3.Lerp(Camera.main.transform.forward, (currentEnemy.transform.position - Camera.main.transform.position).normalized, lockSpeed);
+
+        transform.LookAt(currentEnemy.transform, Vector3.up);
+        //transform.forward = Vector3.Lerp(transform.forward, (currentEnemy.transform.position - transform.position).normalized, lockSpeed);
         transform.eulerAngles -= new Vector3(0,90,0);   
 
         rotY = Camera.main.transform.rotation.y;
