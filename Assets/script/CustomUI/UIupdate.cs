@@ -64,6 +64,8 @@ public class UIupdate : MonoBehaviour
     void Awake()
     {
         instance = this;
+        UI = Instantiate(_UI);
+        UI.transform.SetParent(transform.parent);
     }
 
     private void OnLevelWasLoaded(int level)
@@ -84,8 +86,7 @@ public class UIupdate : MonoBehaviour
             {new Vector4(-6.72f, -0.43f,0,0), new Vector4(-8,0,0,0) }
         };*/
 
-        UI = Instantiate(_UI);
-        UI.transform.SetParent(transform.parent);
+        
 
         StaminaFront = UI.transform.Find("StaminaFront").gameObject;
         StaminaBack = UI.transform.Find("StaminaBack").gameObject;
