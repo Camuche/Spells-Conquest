@@ -632,7 +632,7 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField] float enemyDist;
     GameObject nearestEnemy;
-    
+    public LayerMask lockMask;
     void LockMode()
     {
         
@@ -649,14 +649,14 @@ public class PlayerController : MonoBehaviour
                 }
                 if(nearestEnemy != null &&  Vector3.Distance(transform.position, go.transform.position ) <= Vector3.Distance(transform.position, nearestEnemy.transform.position))
                 {
-                    /*RaycastHit hit;
-                    Physics.Raycast(Camera.main.transform.position, go.transform.position, out hit, Mathf.Infinity);
+                    RaycastHit hit;
+                    Physics.Raycast(Camera.main.transform.position, go.transform.position - Camera.main.transform.position , out hit, Mathf.Infinity, lockMask);
                     Debug.Log(hit.collider);
                     if(hit.collider == null)
                     {
-                        //nearestEnemy = go;
-                    }*/
-                    nearestEnemy = go;
+                        nearestEnemy = go;
+                    }
+                    //nearestEnemy = go;
                 }
                 
             }
