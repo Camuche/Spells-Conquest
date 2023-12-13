@@ -342,10 +342,13 @@ MonoBehaviour:
     type: 3}
   lockModeInput: {fileID: -3139139169342109730, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
+  runInput: {fileID: -3197288842736192042, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+    type: 3}
   mapCam: {fileID: 8652194102310712225}
   refPlayerInput: {fileID: 0}
   refModel: {fileID: 1686266685543590592}
   isCasting: 0
+  runSpeedMultiplier: 1.5
   dashCoolDown: 0
   movedir: {x: 0, y: 0, z: 0}
   AimDistance: 1
@@ -362,7 +365,7 @@ MonoBehaviour:
   enemyDist: 30
   lockMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4096
   lockSpeed: 0.1
 --- !u!143 &3870732601873632239
 CharacterController:

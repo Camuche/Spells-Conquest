@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool isDead;
 
-    [SerializeField] private InputActionReference cameraRotation, movement, mapInput, lockModeInput;
+    [SerializeField] private InputActionReference cameraRotation, movement, mapInput, lockModeInput, runInput;
 
     [SerializeField] Camera mapCam;
     bool showMap = false;
@@ -60,6 +60,9 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public bool isCasting = false;
     bool lockMode = false;
+
+    public float runSpeedMultiplier;
+    bool isRunning = false;
 
     void Awake()
     {
@@ -131,12 +134,15 @@ public class PlayerController : MonoBehaviour
         {
             if (!lockMode)
             {
+                //Camera.main.transform.eulerAngles = new Vector3(-2,0.8f,-0.6f);
                 lockMode = true;
                 StartLockMode();
             }
             else
             {
                 lockMode = false;
+                transform.eulerAngles = new Vector3(0,transform.eulerAngles.y, 0);
+                EndLockMode();
             }
         }
 
@@ -203,7 +209,16 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public Vector3 movedir;
     void movements()
     {
-        
+        if (!isRunning && runInput.action.WasPressedThisFrame() && movement.action.ReadValue<Vector2>() != Vector2.zero)
+        {
+            speed *= runSpeedMultiplier;
+            isRunning = true;
+        }
+        if(isRunning && movement.action.ReadValue<Vector2>() == Vector2.zero)
+        {
+            speed /= runSpeedMultiplier;
+            isRunning = false;
+        }
         //shaderUI.SetFloat("_Stamina", dashCoolDown /-1.5f +1f);
 
         dashCoolDown -= Time.deltaTime;
@@ -663,7 +678,13 @@ public class PlayerController : MonoBehaviour
                     nearestEnemy = go;
                 }*/
 
-                nearestEnemies.Add(go);
+                RaycastHit hit;
+                Physics.Raycast(Camera.main.transform.position, go.transform.position - Camera.main.transform.position , out hit, Mathf.Infinity, lockMask);
+                if (hit.collider.tag == "Enemy")
+                {
+                    nearestEnemies.Add(go);
+                }
+                
 
             }
 
@@ -673,6 +694,7 @@ public class PlayerController : MonoBehaviour
             if (currentEnemy == null)
                 {
                     currentEnemy = go;
+                    indexLock = nearestEnemies.IndexOf(go);
                 }
                 if (currentEnemy != null && Vector3.Distance(transform.position, go.transform.position) <= Vector3.Distance(transform.position, currentEnemy.transform.position))
                 {
@@ -684,43 +706,129 @@ public class PlayerController : MonoBehaviour
                         nearestEnemy = go;
                     }*/
                     currentEnemy = go;
+                    indexLock = nearestEnemies.IndexOf(go);
                 }
+        }
+
+        /*if (currentEnemy == null)
+        {
+            lockMode = false;
+            return;
+        }*/
+
+    }
+
+    bool canSwitchTarget = true;
+    int indexLock;
+    float lockTimer;
+    Vector3 lookDir ;
+    
+
+    void LockMode()
+    { 
+        /*if (currentEnemy == null)
+        {
+            foreach (GameObject go in nearestEnemies)
+            {
+                if(go != null )
+                {
+                    //currentEnemy = go;
+                    StartLockMode();
+                }
+            }
+        }*/
+
+        if (currentEnemy == null)
+        {
+            StartLockMode();
         }
 
         if (currentEnemy == null)
         {
             lockMode = false;
+            //EndLockMode();
+            transform.eulerAngles = new Vector3(0,transform.eulerAngles.y, 0);
             return;
         }
 
-    }
+        lockTimer -= Time.deltaTime;
 
-    bool canSwitchTarget = true;
-    void LockMode()
-    { 
-        /*if(cameraRotation.action.ReadValue<Vector2>().x <0 && canSwitchTarget)
+        if(cameraRotation.action.ReadValue<Vector2>().x <0 && canSwitchTarget && lockTimer <= 0)
         {
             canSwitchTarget = false;
+            indexLock ++;
+            lockTimer = 0.5f;
+            if(indexLock > nearestEnemies.Count -1)
+            {
+                indexLock = 0;
+            }
         }
-        else if (cameraRotation.action.ReadValue<Vector2>().x > 0)
+        else if (cameraRotation.action.ReadValue<Vector2>().x > 0 && canSwitchTarget && lockTimer <= 0)
         {
-
+            canSwitchTarget = false;
+            indexLock --;
+            lockTimer = 0.5f;
+            if(indexLock < 0)
+            {
+                indexLock = nearestEnemies.Count -1;
+            }
         }
-        else
+        else if(cameraRotation.action.ReadValue<Vector2>().x == 0)
         {
+            canSwitchTarget = true;
+        }
 
-        }*/
-        Camera.main.transform.LookAt(currentEnemy.transform, Vector3.up);
+        currentEnemy = nearestEnemies[indexLock];
+
+        //Camera.main.transform.LookAt(currentEnemy.transform, Vector3.up);
         //Camera.main.transform.forward = Vector3.Lerp(Camera.main.transform.forward, (currentEnemy.transform.position - Camera.main.transform.position).normalized, lockSpeed);
 
-        transform.LookAt(currentEnemy.transform, Vector3.up);
+        //transform.LookAt(currentEnemy.transform, Vector3.up);
         //transform.forward = Vector3.Lerp(transform.forward, (currentEnemy.transform.position - transform.position).normalized, lockSpeed);
-        transform.eulerAngles -= new Vector3(0,90,0);   
-
-        rotY = Camera.main.transform.rotation.y;
-        rotY = Mathf.Clamp(rotY, -60f, 90f);
-        ChangeCamPos();
+        //transform.eulerAngles -= new Vector3(0,90,0);   
+        //transform.right = (currentEnemy.transform.position - transform.position).normalized;
+        //transform.eulerAngles = new Vector3(0,transform.eulerAngles.y, 0);
+        //transform.up = Vector3.up;
+        lookDir = (currentEnemy.transform.position - transform.position).normalized;
+        transform.rotation = XLookRotation(lookDir, Vector3.up);
         
+        /*if(transform.eulerAngles.z > 90 || transform.eulerAngles.z < -60)
+        {
+            lockMode = false;
+            transform.eulerAngles = new Vector3(0,transform.eulerAngles.y, 0);
+        }*/
+
+        
+
+        Camera.main.transform.localPosition = new Vector3(-2,0.8f,-0.6f);
+        Camera.main.transform.localRotation = Quaternion.Euler (0,Camera.main.transform.localRotation.y +90 /*because player forward is right*/ ,Camera.main.transform.localRotation.z);
+        
+        //TRYING TO ROTATE THE PLAYER BUT NOT IN X 
+        /*refModel.transform.localRotation =transform.rotation *  Quaternion.Euler(-transform.rotation.x,90,0);
+        refModel.transform.localRotation = Quaternion.Euler(0, refModel.transform.localRotation.y , refModel.transform.localRotation.z);*/
+        
+        /*rotY = 0;
+        ChangeCamPos();*/
+        /*rotY = Camera.main.transform.rotation.y;
+        rotY = Mathf.Clamp(rotY, -60f, 90f);
+        ChangeCamPos();*/
+
+        foreach (GameObject go in nearestEnemies)
+        {
+            go.transform.Find("FeedbackSelectedEnemy").GetComponent<MeshRenderer>().enabled = false;
+            if(go == currentEnemy)
+            {
+                go.transform.Find("FeedbackSelectedEnemy").GetComponent<MeshRenderer>().enabled = true;
+            }
+        }
+
+        
+        if(lookDir.y < -0.75f || lookDir.y > 0.75f)
+        {
+            lockMode = false;
+            EndLockMode();
+            transform.eulerAngles = new Vector3(0,transform.eulerAngles.y, 0);
+        }
     }
 
     void ChangeCamPos()
@@ -755,5 +863,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    Quaternion XLookRotation(Vector3 right, Vector3 up = default)
+    {
+
+        if(up == default)
+
+        up = Vector3.up;
+
+        Quaternion rightToForward = Quaternion.Euler(0f, -90f, 0f);
+
+        Quaternion forwardToTarget = Quaternion.LookRotation(right, up);
+
+
+        return forwardToTarget * rightToForward;
+
+    }
+
+    void EndLockMode()
+    {
+        foreach (GameObject go in nearestEnemies)
+        {
+            go.transform.Find("FeedbackSelectedEnemy").GetComponent<MeshRenderer>().enabled = false;
+        }
+    }
 
 }

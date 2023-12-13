@@ -112,64 +112,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "8d3c7d86-18fb-484f-8816-8fcf14bc6bfe",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "MouseRotation",
-                    "id": "125f63af-c8fa-4f43-870b-e2dfe14509f4",
-                    "path": "2DVector(mode=2)",
-                    "interactions": "",
-                    "processors": "ScaleVector2(x=0.1,y=0.1)",
-                    "groups": "",
-                    "action": "CameraRotation",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "7cf030a0-3ab3-4de5-af7b-d017cee4de99",
-                    "path": "<Mouse>/delta/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraRotation",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "cd645eb0-665a-4035-b2cd-9245871ec2ec",
-                    "path": "<Mouse>/delta/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraRotation",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "8d1b964a-f167-4347-8ccc-0bf88f13452d",
-                    "path": "<Mouse>/delta/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraRotation",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "acdf5d2a-cf3a-440d-86d6-45127e550f8d",
-                    "path": "<Mouse>/delta/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraRotation",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
                 {
                     "name": "ControllerRightStick",
                     "id": "2f1c2913-a697-4c9b-bbaa-985ae7e11a78",
@@ -224,6 +178,17 @@
                     "action": "CameraRotation",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "d2f0186b-09b0-468c-8fb1-8e1dbd2e3af4",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "ScaleVector2(x=0.2,y=0.2),StickDeadzone",
+                    "groups": "",
+                    "action": "CameraRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "WASD",
@@ -574,6 +539,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "LockMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2cd2fe49-3533-4042-828d-0a791f87b995",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f3b79e2-26ae-4c18-bfa8-e5351047a2da",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
