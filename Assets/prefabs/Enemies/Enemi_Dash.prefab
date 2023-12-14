@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 2039412720227171298}
   - component: {fileID: 8849072155061820498}
   - component: {fileID: 7917515035378470156}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: FeedbackSelectedEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 3272969185809844378}
   - component: {fileID: 6127783738345214260}
   - component: {fileID: 721623660279827239}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: FeedbackSelectedEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
