@@ -186,8 +186,12 @@ public class CastSpellNew : MonoBehaviour
             PlayerController.instance.isCasting = false;
         }
 
-        CamRaycast();
-        CamRaycast2();
+        if (limit>= 2)
+        {
+            CamRaycast();
+            CamRaycast2();
+        }
+        
         AimpointSelection();
 
         FeedbackLeftBody();

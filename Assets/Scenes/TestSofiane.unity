@@ -6047,20 +6047,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3870732601873632229, guid: 3fffc912ff8d5014c95a20db5ac6b188,
-        type: 3}
-      propertyPath: lockMask.m_Bits
-      value: 33550327
-      objectReference: {fileID: 0}
     - target: {fileID: 3870732601873632230, guid: 3fffc912ff8d5014c95a20db5ac6b188,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3870732602788733396, guid: 3fffc912ff8d5014c95a20db5ac6b188,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 33554231
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fffc912ff8d5014c95a20db5ac6b188, type: 3}
@@ -7722,7 +7712,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1542
+  m_Name: pb_Mesh-138888
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

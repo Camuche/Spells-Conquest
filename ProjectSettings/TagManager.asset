@@ -38,12 +38,12 @@ TagManager:
   - Iceball
   - Wall
   - Fireball
-  - CanBePushedByWave
+  - VineObject
   - BlockEnemies
   - IgnoreNavMesh
   - PostProcessing
   - UI Dynamic
-  - 
+  - AttractedObject
   - 
   - 
   - 

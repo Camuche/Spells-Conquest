@@ -365,7 +365,7 @@ MonoBehaviour:
   enemyDist: 30
   lockMask:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 74419729
   lockSpeed: 0.1
 --- !u!143 &3870732601873632239
 CharacterController:
@@ -589,7 +589,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 33554199
+    m_Bits: 100663063
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -661,7 +661,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6673989437397350955}
   - component: {fileID: 4289317297063131964}
-  - component: {fileID: 3920049494627693243}
   m_Layer: 0
   m_Name: CameraUiDynamic
   m_TagString: Untagged
@@ -726,14 +725,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &3920049494627693243
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4688549731272712207}
-  m_Enabled: 1
 --- !u!1 &6150111399132889184
 GameObject:
   m_ObjectHideFlags: 0
