@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6558347967624173932}
   - component: {fileID: 6558347967624173923}
   - component: {fileID: 1546685930081319302}
-  m_Layer: 0
+  m_Layer: 26
   m_Name: AttractedObject
   m_TagString: CanTrigger
   m_Icon: {fileID: 0}
