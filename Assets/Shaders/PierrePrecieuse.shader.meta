@@ -3,7 +3,10 @@ guid: 45a1991c4a7a64249928b75ffd6c810c
 ShaderImporter:
   externalObjects: {}
   defaultTextures:
-  - _Albedo: {fileID: 2800000, guid: 86c5756d68f2fc943931cccfda0be742, type: 3}
+  - _Normal: {fileID: 2800000, guid: 2db1ee02c203c8340b1153a8ebc4b108, type: 3}
+  - _Albedo: {fileID: 2800000, guid: eb7bedf5cf535bd4dacc8ab5054c3a8a, type: 3}
+  - _Albedo_Noise: {fileID: 2800000, guid: 86c5756d68f2fc943931cccfda0be742, type: 3}
+  - _AO: {fileID: 2800000, guid: 4bffd572c8ea4bf4caf96d5c41c418fd, type: 3}
   nonModifiableTextures: []
   preprocessorOverride: 0
   userData: 
