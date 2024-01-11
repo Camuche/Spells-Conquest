@@ -98,7 +98,7 @@ public class Shop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(matButtonFireball);
+        //Debug.Log(matButtonFireball);
 
         if(timerDelay <= hitDelay)
         {
