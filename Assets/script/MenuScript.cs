@@ -41,7 +41,7 @@ public class MenuScript : MonoBehaviour
         GameObject.Find("GameController").GetComponent<gameController>().Play();
     }
 
-    public void SelectSpellLeft(int value)
+    /*public void SelectSpellLeft(int value)
     {
         CastSpellNew.instance.SelectSpellLeft(value);
         Debug.Log("Click");
@@ -50,15 +50,29 @@ public class MenuScript : MonoBehaviour
     public void SelectSpellRight(int value)
     {
         CastSpellNew.instance.SelectSpellRight(value);
+    }*/
+
+    public void SelectSpell(int value)
+    {
+        if(CastSpellNew.instance.hand == 1)
+        {
+            CastSpellNew.instance.SelectSpellRight(value);
+        }       
+        
+        if(CastSpellNew.instance.hand == -1)
+        {
+            CastSpellNew.instance.SelectSpellLeft(value);
+        }    
     }
 
     public void HighlightTarget(GameObject target)
     {
-        //UIupdate.instance.HighlightTarget(target);
+        Debug.Log("plop");
+        UIupdate.instance.HighlightTarget(target);
     }
     public void UnHighlightTarget(GameObject target)
     {
-        //UIupdate.instance.UnHighlightTarget(target);
+        UIupdate.instance.UnHighlightTarget(target);
     }
 
 

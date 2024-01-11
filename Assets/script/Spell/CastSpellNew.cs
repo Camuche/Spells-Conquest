@@ -81,14 +81,27 @@ public class CastSpellNew : MonoBehaviour
         iceCloneAlt = false;
     }
 
+    public bool waitForNextFrame;
+
+    void LateUpdate()
+    {
+        waitForNextFrame = false;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        if(waitForNextFrame)
+        {
+            return;
+        }
+
         if(PlayerController.instance.isDead)
         {
             return;
         }
+
+        
 
         if (limit > -1)
         {
@@ -337,7 +350,7 @@ public class CastSpellNew : MonoBehaviour
         UpdateLeftSpells();
     }
     
-    
+    bool haveBeenSelected;
 
     void CheckSelectedSpell()
     {
@@ -353,6 +366,7 @@ public class CastSpellNew : MonoBehaviour
                 //rightSelected = false;
 
                 leftSelected = true;
+                haveBeenSelected = true;
                 
             }
             else if(cameraRotation.action.ReadValue<Vector2>().x>0 && listLeftSpellAvailable[1] <= limit)
@@ -364,6 +378,7 @@ public class CastSpellNew : MonoBehaviour
                 //leftSelected = false;
 
                 rightSelected = true;
+                haveBeenSelected = true;
             }
             /*else if(movement.action.ReadValue<Vector2>().y <-0.5 && movement.action.ReadValue<Vector2>().x>-0.5 && movement.action.ReadValue<Vector2>().x < 0.5 && listLeftSpellAvailable[2] <= limit)
             {
@@ -375,8 +390,12 @@ public class CastSpellNew : MonoBehaviour
             }*/
             else
             {
-                leftSelected = false;
-                rightSelected = false;
+                if(haveBeenSelected)
+                {
+                    haveBeenSelected = false;
+                    leftSelected = false;
+                    rightSelected = false;
+                }
                 /*botSelected = false;
                 leftSelected=false;*/
             }
@@ -387,10 +406,12 @@ public class CastSpellNew : MonoBehaviour
             if(cameraRotation.action.ReadValue<Vector2>().x<0 && listRightSpellAvailable[0] <= limit)
             {
                 leftSelected = true;
+                haveBeenSelected = true;
             }
             else if(cameraRotation.action.ReadValue<Vector2>().x>0 && listRightSpellAvailable[1] <= limit)
             {
                 rightSelected = true;
+                haveBeenSelected = true;
             }
             /*else if(cameraRotation.action.ReadValue<Vector2>().y <-0.5 && cameraRotation.action.ReadValue<Vector2>().x>-0.5 && cameraRotation.action.ReadValue<Vector2>().x < 0.5 && listRightSpellAvailable[2] <= limit)
             {
@@ -402,8 +423,12 @@ public class CastSpellNew : MonoBehaviour
             }*/
             else
             {
-                leftSelected = false;
-                rightSelected = false;
+                if(haveBeenSelected)
+                {
+                    haveBeenSelected = false;
+                    leftSelected = false;
+                    rightSelected = false;
+                }
                 /*botSelected = false;
                 leftSelected=false;*/
             }
@@ -443,13 +468,18 @@ public class CastSpellNew : MonoBehaviour
 
     void CastSpell(int spellNb) 
     {
+        if(leftSelection.action.IsPressed() || rightSelection.action.IsPressed())
+        {
+            return;
+        }
+        
         if (spellNb == 0 && limit >= 0 && timerFireball >= cooldownFireball)     //CAST FIREBALL
         {
             //StopPlayerWhenCasting
             timerCastAnimation = 0;
             PlayerController.instance.isCasting = true;
-            PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
-
+            //PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
+            PlayerController.instance.refModel.forward = new Vector3(PlayerController.instance.transform.right.x, 0,PlayerController.instance.transform.right.z) ;
 
             timerFireball = 0;
             Invoke("Fireball", spellAnimationTime);
@@ -460,8 +490,8 @@ public class CastSpellNew : MonoBehaviour
             //StopPlayerWhenCasting
             timerCastAnimation = 0;
             PlayerController.instance.isCasting = true;
-            PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
-
+            //PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
+            PlayerController.instance.refModel.forward = new Vector3(PlayerController.instance.transform.right.x, 0,PlayerController.instance.transform.right.z) ;
 
             timerFireClone = 0;
             Invoke("FireClone", spellAnimationTime);
@@ -474,8 +504,8 @@ public class CastSpellNew : MonoBehaviour
                 //StopPlayerWhenCasting
             timerCastAnimation = 0;
             PlayerController.instance.isCasting = true;
-            PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
-
+            //PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
+            PlayerController.instance.refModel.forward = new Vector3(PlayerController.instance.transform.right.x, 0,PlayerController.instance.transform.right.z) ;
 
             timerTelekinesisClone = 0;
             Invoke("TelekinesisClone", spellAnimationTime);
@@ -489,8 +519,8 @@ public class CastSpellNew : MonoBehaviour
                 //StopPlayerWhenCasting
                 timerCastAnimation = 0;
                 PlayerController.instance.isCasting = true;
-                PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
-
+                //PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
+                PlayerController.instance.refModel.forward = new Vector3(PlayerController.instance.transform.right.x, 0,PlayerController.instance.transform.right.z) ;
 
                 timerIceClone = 0;
                 Invoke("IceClone", spellAnimationTime);

@@ -26,7 +26,7 @@ public class Shop : MonoBehaviour
 
     //Inventory.instance Inventory.instance;
 
-    MeshRenderer matButtonFireball, matButtonFireClone, matButtonTelekinesisClone, matButtonWave, matButtonIceball, matButtonIceClone, matButtonHp, matButtonDamage;
+    public MeshRenderer matButtonFireball, matButtonFireClone, matButtonTelekinesisClone, matButtonWave, matButtonIceball, matButtonIceClone, matButtonHp, matButtonDamage;
     [SerializeField] Material greyLockedUi, greyUi, whiteUi, selectedGreyLockedUi;
 
     float timerDelay;
@@ -40,7 +40,11 @@ public class Shop : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
+        if(instance == null)
+        {
+            instance = this;
+        }
+        
     }
 
     // Start is called before the first frame update
@@ -77,24 +81,30 @@ public class Shop : MonoBehaviour
 
     public void GetShopButton()
     {
-        matButtonFireball = GameObject.Find("UpgradeFireball").GetComponent<MeshRenderer>();
+        //Debug.Log(""+GameObject.Find("UpgradeFireball")+ " " + GameObject.Find("UpgradeFireball").GetComponent<MeshRenderer>());
+        /*matButtonFireball = GameObject.Find("UpgradeFireball").GetComponent<MeshRenderer>();
         matButtonFireClone = GameObject.Find("UpgradeFireClone").GetComponent<MeshRenderer>();
-        matButtonTelekinesisClone = GameObject.Find("UpgradeTelekinesisClone").GetComponent<MeshRenderer>();
+        matButtonTelekinesisClone = GameObject.Find("UpgradeTelekinesisClone").GetComponent<MeshRenderer>();*/
+        
         //matButtonWave = GameObject.Find("UpgradeWave").GetComponent<MeshRenderer>();
         //matButtonIceball = GameObject.Find("UpgradeIceball").GetComponent<MeshRenderer>();
-        matButtonIceClone = GameObject.Find("UpgradeIceClone").GetComponent<MeshRenderer>();
+        
+        /*matButtonIceClone = GameObject.Find("UpgradeIceClone").GetComponent<MeshRenderer>();
         
         matButtonHp = GameObject.Find("UpgradeHp").GetComponent<MeshRenderer>();
-        matButtonDamage = GameObject.Find("UpgradeDamage").GetComponent<MeshRenderer>();
+        matButtonDamage = GameObject.Find("UpgradeDamage").GetComponent<MeshRenderer>();*/
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(matButtonFireball);
+
         if(timerDelay <= hitDelay)
         {
             timerDelay += Time.deltaTime;
         }
+        //Debug.Log(matButtonFireball);
         //Debug.Log(Fireball.instance.fireballDamage * Shop.instance.damageMultiplierValue);
     }
 
@@ -262,7 +272,7 @@ public class Shop : MonoBehaviour
     public void UpdateUnselectedShopButton()
     {
         notEnoughMoneyTMP.enabled = false;
-
+        //Debug.Log(notEnoughMoneyTMP);
 
         if(CastSpellNew.instance.limit >= 0 && fireballAltAvailable)
         {

@@ -528,15 +528,31 @@ public class UIupdate : MonoBehaviour
 
     }
 
-    /*public void HighlightTarget(GameObject target)
+    public void HighlightTarget(GameObject target)
     {
-        target.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,1);
+        //target.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,1);
+        if(target == spellRightUi)
+        {
+            refCastSpellNew.rightSelected = true;
+        }
+        if(target == spellLeftUi)
+        {
+            refCastSpellNew.leftSelected = true;
+        }
     }
 
     public void UnHighlightTarget(GameObject target)
     {
-        target.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,.5f);
-    }*/
+        //target.GetComponent<MeshRenderer>().material.color = new Vector4 (1,1,1,.5f);
+        if(target == spellRightUi)
+        {
+            refCastSpellNew.rightSelected = false;
+        }
+        if(target == spellLeftUi)
+        {
+            refCastSpellNew.leftSelected = false;
+        }
+    }
 
     void HighlightSelected()
     {

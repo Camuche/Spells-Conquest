@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
     Inventory inventory;
 
     [HideInInspector] public bool isCasting = false;
-    bool lockMode = false;
+    public bool lockMode = false;
 
     public float runSpeedMultiplier;
     bool isRunning = false;
@@ -647,7 +647,7 @@ public class PlayerController : MonoBehaviour
     }
     
     [SerializeField] float enemyDist;
-    GameObject currentEnemy;
+    public GameObject currentEnemy;
     List<GameObject> nearestEnemies;
     public LayerMask lockMask;
     public float lockSpeed;

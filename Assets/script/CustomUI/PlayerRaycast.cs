@@ -112,8 +112,9 @@ public class PlayerRaycast : MonoBehaviour
 
         if (raycastable != null)
         {
-            if (interact.action.WasPressedThisFrame())
+            if (interact.action.WasReleasedThisFrame())
             {
+                CastSpellNew.instance.waitForNextFrame = true;
                 raycastable.PerformOnInteract();
                 
             }

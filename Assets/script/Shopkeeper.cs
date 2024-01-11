@@ -40,22 +40,28 @@ public class Shopkeeper : MonoBehaviour
             interactReleased = true;
         }
 
-
+        //Debug.Log(""+canInteract+" "+inShop+" "+interactReleased);
         if(interact.action.IsPressed() && canInteract == true && inShop == false && interactReleased == true)
         {
+            Debug.Log("0");
             inShop = true;
             interactReleased = false;
 
             PlayerController.instance.life = PlayerController.lifeMax;
+            Debug.Log("1"); 
             uiUpdate.EnableShopUi();
+            Debug.Log("2"); 
             Shop.instance.UpdateUnselectedShopButton();
+            Debug.Log("3"); 
             CustomUIManager.instance.currentSelected.PerformOnSelect();
+            Debug.Log("4");  
             PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("ShopInput");
+            Debug.Log("5");  
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0.05f;
             //Debug.Log(inShop);            
         }
-        if(shopCancel.action.IsPressed() && canInteract == true && inShop == true && interactReleased == true)
+        else if(shopCancel.action.IsPressed() && canInteract == true && inShop == true && interactReleased == true)
         {
             inShop = false;
             interactReleased = false;

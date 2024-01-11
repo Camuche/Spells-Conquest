@@ -121,8 +121,15 @@ public class Fireball : MonoBehaviour
 
 
 
-            dir = (shootAimPoint.transform.position - transform.position).normalized;
-
+            //dir = (shootAimPoint.transform.position - transform.position).normalized;
+            if(player.GetComponent<PlayerController>().lockMode)
+            {
+                dir = (player.GetComponent<PlayerController>().currentEnemy.transform.position - player.transform.position).normalized;
+            }
+            else
+            {
+                dir = (shootAimPoint.transform.position - transform.position).normalized;
+            }
             //movement
             //transform.position = Vector3.MoveTowards(transform.position, destination, movespeed * Time.deltaTime);
             //transform.rotation = Quaternion.LookRotation((transform.position - shootAimPoint.transform.position).normalized);
@@ -179,8 +186,15 @@ public class Fireball : MonoBehaviour
         {
             if (following)
             {
-
-                dir = (shootAimPoint.transform.position - transform.position).normalized;
+                if(player.GetComponent<PlayerController>().lockMode)
+                {
+                    dir = player.transform.right;
+                }
+                else
+                {
+                    dir = (shootAimPoint.transform.position - transform.position).normalized;
+                }
+                
                 transform.rotation = Quaternion.LookRotation((transform.position - shootAimPoint.transform.position).normalized);
                 following = false;
 

@@ -4735,6 +4735,14 @@ MonoBehaviour:
   damageAvailable: 4
   priceHp: 10
   priceDamage: 10
+  matButtonFireball: {fileID: 8207424865595655934}
+  matButtonFireClone: {fileID: 8610131776150367713}
+  matButtonTelekinesisClone: {fileID: 3943968181304766691}
+  matButtonWave: {fileID: 347664525950701756}
+  matButtonIceball: {fileID: 4444750714849534220}
+  matButtonIceClone: {fileID: 168320228355900609}
+  matButtonHp: {fileID: 4127505726431026635}
+  matButtonDamage: {fileID: 8908378464335536944}
   greyLockedUi: {fileID: 2100000, guid: d49f9944d18549a4faaee8bd97fd9d62, type: 2}
   greyUi: {fileID: 2100000, guid: 22e3d2631822ab04eb30810f111c6b9e, type: 2}
   whiteUi: {fileID: 2100000, guid: 870b76b84f2e3d54297d7e3e77e79b40, type: 2}
@@ -7943,7 +7951,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1869306073207964813}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: SelectSpellRight
+        m_MethodName: SelectSpell
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9083,7 +9091,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1869306073207964813}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: SelectSpellLeft
+        m_MethodName: SelectSpell
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
