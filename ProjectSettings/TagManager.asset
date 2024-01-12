@@ -16,6 +16,7 @@ TagManager:
   - Iceball
   - Money
   - Pot
+  - Aura
   layers:
   - Default
   - TransparentFX

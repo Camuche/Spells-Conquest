@@ -40,11 +40,15 @@ public class CastSpellNew : MonoBehaviour
 
 
 
-    public InputActionReference leftSelection, rightSelection, /*movement,*/ cameraRotation, spellR2, spellL2;
+    public InputActionReference leftSelection, rightSelection, /*movement,*/ cameraRotation, spellR2, spellL2, aura;
 
     bool l2IsPressed=false, r2IsPressed=false, l2IsHold= false, r2IsHold = false;
     [SerializeField] float spellAnimationTime;
     float timerCastAnimation = 0;
+
+    [SerializeField] GameObject auraGO;
+    float timerAura;
+    public float cooldownAura;
 
     public GameObject feedback_LeftArm;
     public GameObject feedback_RightArm;
@@ -143,6 +147,16 @@ public class CastSpellNew : MonoBehaviour
             r2IsHold = false;
         }
 
+        // AURA IS CAST
+        if (aura.action.WasPressedThisFrame() && !PlayerController.instance.isCasting && timerAura >= cooldownAura)
+        {
+            //StopPlayerWhenCasting
+            timerCastAnimation = 0;
+            timerAura = 0;
+            PlayerController.instance.isCasting = true;
+            Instantiate(auraGO,transform.position, transform.rotation);
+        }
+
         //TIMER    
         if (timerFireball <= cooldownFireball)
         {
@@ -167,6 +181,11 @@ public class CastSpellNew : MonoBehaviour
         if (timerIceClone <= cooldownIceClone)
         {
             timerIceClone += Time.deltaTime;
+        }
+
+        if(timerAura <= cooldownAura)
+        {
+            timerAura += Time.deltaTime;
         }
         
 
@@ -198,6 +217,8 @@ public class CastSpellNew : MonoBehaviour
         {
             PlayerController.instance.isCasting = false;
         }
+
+        //aura animation time
 
         if (limit>= 2)
         {
@@ -468,7 +489,7 @@ public class CastSpellNew : MonoBehaviour
 
     void CastSpell(int spellNb) 
     {
-        if(leftSelection.action.IsPressed() || rightSelection.action.IsPressed())
+        if(leftSelection.action.IsPressed() || rightSelection.action.IsPressed() || PlayerController.instance.isCasting)
         {
             return;
         }

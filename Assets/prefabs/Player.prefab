@@ -348,6 +348,7 @@ MonoBehaviour:
   refPlayerInput: {fileID: 0}
   refModel: {fileID: 1686266685543590592}
   isCasting: 0
+  lockMode: 0
   runSpeedMultiplier: 1.5
   dashCoolDown: 0
   movedir: {x: 0, y: 0, z: 0}
@@ -363,6 +364,7 @@ MonoBehaviour:
   playerMesh: {fileID: 9063284820451186801}
   soul: {fileID: 2431897765296284799, guid: 2f959fedb678852498d40cea80014fc5, type: 3}
   enemyDist: 30
+  currentEnemy: {fileID: 0}
   lockMask:
     serializedVersion: 2
     m_Bits: 74419729
@@ -474,9 +476,13 @@ MonoBehaviour:
     type: 3}
   spellL2: {fileID: -7734849661365291782, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
+  aura: {fileID: -1926743980991009158, guid: ce515ecc6fe77704ba2b9e7fe0281622, type: 3}
   spellAnimationTime: 0.3
+  auraGO: {fileID: 6538530026207656442, guid: af772c07065b89d4388decffc2d5e6d2, type: 3}
+  cooldownAura: 1
   feedback_LeftArm: {fileID: 6150111399132889184}
   feedback_RightArm: {fileID: 3504513463751858510}
+  waitForNextFrame: 0
   hand: 0
   timeScaleSelecting: 0.5
   cooldownFireball: 0
