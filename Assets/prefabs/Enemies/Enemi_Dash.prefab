@@ -165,7 +165,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 90ef193a32c1c3349baef24b50c012df, type: 2}
+  - {fileID: 2100000, guid: 7fbb12d64b50b874193829214327aac9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -268,8 +268,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 5
+  m_Acceleration: 16
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -308,6 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83dd278a281a7824cb6c302e23e16066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 8
+  dashRange: 20
   range: 40
 --- !u!1 &5026135485705010239
 GameObject:

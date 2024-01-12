@@ -101,7 +101,7 @@ public class EnemyFollower : MonoBehaviour
                 {
                     dir = (player.transform.position - transform.position).normalized;
 
-                    if (GetComponent<EnemyCharging>() == null && navMeshAgent != null)
+                    if (GetComponent<EnemyDash>() == null && navMeshAgent != null)
                     {
                         navMeshAgent.SetDestination(player.transform.position);
                         navMeshAgent.speed = speed;
