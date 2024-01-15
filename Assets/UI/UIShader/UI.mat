@@ -55,7 +55,7 @@ Material:
     - _Cutoff: 0.5
     - _DebugMiddle: 0
     - _DebugMiddleOffset: 0
-    - _EnableSpell: 1
+    - _EnableSpell: 0
     - _EnableSubSpells: 1
     - _EnableUI: 1
     - _Enable_Spell: 1
@@ -64,7 +64,7 @@ Material:
     - _Keyword0: 0
     - _LB_SpellOffsetX: 0
     - _LB_SpellOffsetY: 0.15
-    - _Life: 0.8
+    - _Life: 1
     - _LifeBarOffsetX: -0.04
     - _LifeBarOffsetY: -4.9
     - _LifeBarScaleX: 3.11
