@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 28f89cebb17433347bdfcbc8cab73950
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _Foliagelow_Normal: {fileID: 2800000, guid: ac61aa8ffc4cd7a4db361f4e2245a06d,
+      type: 3}
+  - _Foliagelow_Albedo: {fileID: 2800000, guid: 37dfecf8ebbca544ab95e48d75dd7741,
+      type: 3}
+  - _Foliagelow_Metallic: {fileID: 2800000, guid: c3ed1cf8c557869469464fbe76a47fcc,
+      type: 3}
+  - _Foliagelow_AO: {fileID: 2800000, guid: 07c39a96080050447a8e3fba5c8f04a7, type: 3}
+  - _Masquedopacite: {fileID: 2800000, guid: 342e2220d0cabf142bb78e120bce5ae9, type: 3}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

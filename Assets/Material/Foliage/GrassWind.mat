@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GrassWind
+  m_Shader: {fileID: 4800000, guid: 28f89cebb17433347bdfcbc8cab73950, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Foliagelow_AO:
+        m_Texture: {fileID: 2800000, guid: 07c39a96080050447a8e3fba5c8f04a7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Foliagelow_Albedo:
+        m_Texture: {fileID: 2800000, guid: 37dfecf8ebbca544ab95e48d75dd7741, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Foliagelow_Metallic:
+        m_Texture: {fileID: 2800000, guid: c3ed1cf8c557869469464fbe76a47fcc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Foliagelow_Normal:
+        m_Texture: {fileID: 2800000, guid: ac61aa8ffc4cd7a4db361f4e2245a06d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Masquedopacite:
+        m_Texture: {fileID: 2800000, guid: 342e2220d0cabf142bb78e120bce5ae9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Cutoff: 0.5
+    - _Tesselation: 4.42
+    - __dirty: 0
+    - _intensity: 0.2
+    m_Colors: []
+  m_BuildTextureStacks: []
