@@ -15,6 +15,9 @@ public class EnemyDash : MonoBehaviour
 
     [SerializeField] float range;
     bool rotate;
+    Material  baseMat;
+    public Material orange;
+    public GameObject feedback;
 
 
     // Start is called before the first frame update
@@ -23,6 +26,7 @@ public class EnemyDash : MonoBehaviour
         player = GameObject.Find("Player");
         enemyFollower = GetComponent<EnemyFollower>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        baseMat = GetComponent<Renderer>().material;
     }
 
     // Update is called once per frame
@@ -39,7 +43,6 @@ public class EnemyDash : MonoBehaviour
             Physics.Raycast(player.transform.position,(transform.position - player.transform.position).normalized, out hit,range);
             if(hit.collider == gameObject.GetComponent<Collider>() && navMeshAgent != null)
             {
-                Debug.Log("Walk");
                 // DOIT AVANCER JUSQU'A UNE CERTAINE RANGE , EN DESSOUS, CHARGE
                 navMeshAgent.SetDestination(player.transform.position);
                 navMeshAgent.speed = speed;
@@ -52,50 +55,37 @@ public class EnemyDash : MonoBehaviour
             navMeshAgent.SetDestination(transform.position);
             isCharging = true;
             gameObject.transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, player.transform.position - transform.position, GetComponent<EnemyFollower>().rotationSpeed * Time.deltaTime, 0.0f));
+            GetComponent<Renderer>().material = orange;
+            feedback.GetComponent<MeshRenderer>().enabled = true;
 
-            //Make animations
-            /*for (int i=0; i < raycastIterations; i++)
-            {
-                RaycastHit hit;
-                Physics.Raycast(transform.position + raycastDist * i * Vector3.forward, Vector3.down, out hit, Mathf.Infinity);
-                //Instantiate(cylinder, hit.point.transform);
-                navMeshAgent.SetDestination(hit.point);
-            }*/
             Invoke("Dash", chargeAnimationTime);
         }  
     }
 
-    public float dashspeedMultiplication;
+    public float dashspeedMultiplication, dashAccelerationMultiplication;
 
     Vector3 dashDest;
     void Dash()
     {
-        Debug.Log("CHAARGE");
         navMeshAgent.speed *= dashspeedMultiplication;
-        //navMeshAgent.acceleration = 100;
+        navMeshAgent.acceleration *= dashAccelerationMultiplication;
         gameObject.transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, player.transform.position - transform.position, GetComponent<EnemyFollower>().rotationSpeed * Time.deltaTime, 0.0f));
+        GetComponent<Renderer>().material = baseMat;
+        feedback.GetComponent<MeshRenderer>().enabled = false;
+
+
         for (int i=0; i < raycastIterations; i++)
         {
             RaycastHit hit;
             Physics.Raycast(transform.position + raycastDist * (i+1) * transform.forward, Vector3.down, out hit, Mathf.Infinity);
-            //Instantiate(cylinder, hit.transform);
-            //Debug.Log(hit.collider);
-            //Debug.Log(hit.transform.gameObject.layer);
-            //Debug.Log(LayerMask.NameToLayer("ground"));
-            
 
             if(hit.collider == null || hit.transform.gameObject.layer != LayerMask.NameToLayer("ground"))
             {
                 return;
             }
             dashDest = hit.point;
-            //Debug.Log(i);
-            //Debug.Log(hit.point);
-            //Debug.Log(dashDest);
         }
-        navMeshAgent.SetDestination(dashDest);//+Vector3.up);
-        //navMeshAgent.speed *= dashspeedMultiplication;
-        //Invoke("Decelerate", 0.2f);
+        navMeshAgent.SetDestination(dashDest);
         Invoke("Rotate", timeStuck);
     }
 
@@ -108,14 +98,9 @@ public class EnemyDash : MonoBehaviour
     }
     void StopBeingStuck()
     {
-        //navMeshAgent.acceleration = 16;
-        //gameObject.transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, player.transform.position - transform.position, GetComponent<EnemyFollower>().rotationSpeed * Time.deltaTime, 0.0f));
+        navMeshAgent.speed = speed;
+        navMeshAgent.acceleration /= dashAccelerationMultiplication;
         rotate = false;
         isCharging = false;
     }
-
-    /*void Decelerate()
-    {
-        navMeshAgent.acceleration = 16;
-    }*/
 }
