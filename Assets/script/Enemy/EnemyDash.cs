@@ -9,7 +9,7 @@ public class EnemyDash : MonoBehaviour
     EnemyFollower enemyFollower;
     NavMeshAgent navMeshAgent;
     public float speed, dashRange;
-    bool isCharging;
+    [HideInInspector] public bool isCharging;
     public float chargeAnimationTime;
     public int raycastIterations, raycastDist;
 
@@ -29,16 +29,40 @@ public class EnemyDash : MonoBehaviour
         baseMat = GetComponent<Renderer>().material;
     }
 
+    IEnumerator DebugDash()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Debug.Log(navMeshAgent.destination);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (!navMeshAgent.isOnNavMesh)
+        {
+            if(GetComponent<CapsuleCollider>().isTrigger)
+            {
+                GetComponent<CapsuleCollider>().isTrigger = false;
+            }
+            return;
+        }
+        else if (!GetComponent<CapsuleCollider>().isTrigger)
+        {
+            GetComponent<CapsuleCollider>().isTrigger = true;
+        }
+
         if (rotate == true)
         {
             gameObject.transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, player.transform.position - transform.position, GetComponent<EnemyFollower>().rotationSpeed * Time.deltaTime, 0.0f));
         }
 
+        /*if (navMeshAgent == null)
+        {
+            return;
+        }*/ 
+
         if (Vector3.Distance(player.transform.position, transform.position) <= range && Vector3.Distance(player.transform.position, transform.position) >= dashRange && !isCharging)// && hit.GameObject.tag == "Player")
-        {   
+        {
             RaycastHit hit;
             Physics.Raycast(player.transform.position,(transform.position - player.transform.position).normalized, out hit,range);
             if(hit.collider == gameObject.GetComponent<Collider>() && navMeshAgent != null)
@@ -48,10 +72,10 @@ public class EnemyDash : MonoBehaviour
                 navMeshAgent.speed = speed;
                 gameObject.transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, player.transform.position - transform.position, GetComponent<EnemyFollower>().rotationSpeed * Time.deltaTime, 0.0f));
             }
-            //Debug.DrawLine(Vector3.Distance(player.transform.position, transform.position) <= range && Physics.Raycast(transform.position,(player.transform.position - transform.position).normalized, out hit, range));
         }
         else if(Vector3.Distance(player.transform.position, transform.position) <= dashRange && !isCharging)
-        { //DO ONCE
+        { 
+            //DO ONCE
             navMeshAgent.SetDestination(transform.position);
             isCharging = true;
             gameObject.transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, player.transform.position - transform.position, GetComponent<EnemyFollower>().rotationSpeed * Time.deltaTime, 0.0f));
@@ -66,12 +90,17 @@ public class EnemyDash : MonoBehaviour
 
     Vector3 dashDest;
     void Dash()
-    {
-        navMeshAgent.speed *= dashspeedMultiplication;
+    {   //TEST TO AVAID ERROR WITHOUT BREALING VALUES?  
+        /*if (!navMeshAgent.isOnNavMesh)
+        {
+            return;
+        }*/
+            navMeshAgent.speed *= dashspeedMultiplication;
         navMeshAgent.acceleration *= dashAccelerationMultiplication;
         gameObject.transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, player.transform.position - transform.position, GetComponent<EnemyFollower>().rotationSpeed * Time.deltaTime, 0.0f));
         GetComponent<Renderer>().material = baseMat;
         feedback.GetComponent<MeshRenderer>().enabled = false;
+        //GetComponent<CapsuleCollider>().isTrigger = true;
 
 
         for (int i=0; i < raycastIterations; i++)
@@ -79,21 +108,24 @@ public class EnemyDash : MonoBehaviour
             RaycastHit hit;
             Physics.Raycast(transform.position + raycastDist * (i+1) * transform.forward, Vector3.down, out hit, Mathf.Infinity);
 
-            if(hit.collider == null || hit.transform.gameObject.layer != LayerMask.NameToLayer("ground"))
+            if (hit.collider == null || hit.transform.gameObject.layer != LayerMask.NameToLayer("ground"))
             {
-                return;
+                break;
             }
             dashDest = hit.point;
         }
+
         navMeshAgent.SetDestination(dashDest);
         Invoke("Rotate", timeStuck);
     }
 
+    public GameObject truc;
     public float timeStuck;
 
     void Rotate()
     {
         rotate = true;
+        //GetComponent<CapsuleCollider>().isTrigger = false;
         Invoke("StopBeingStuck", 1);
     }
     void StopBeingStuck()
@@ -102,5 +134,16 @@ public class EnemyDash : MonoBehaviour
         navMeshAgent.acceleration /= dashAccelerationMultiplication;
         rotate = false;
         isCharging = false;
+    }
+
+
+    public float damage;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            player.GetComponent<PlayerController>().life -= damage;
+        }
     }
 }

@@ -126,8 +126,13 @@ public class EnemyFollower : MonoBehaviour
                     if (Vector3.Distance(player.transform.position, transform.position) < followDistance && isHit && (hit.transform.gameObject == player) && ! isStun)
                     {
                         //Debug.Log("Stop");
-                        navMeshAgent.SetDestination(transform.position);
-                        gameObject.transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, player.transform.position - transform.position, rotationSpeed * Time.deltaTime, 0.0f));
+                        if (GetComponent<EnemyDash>() == null && navMeshAgent != null)
+                        {
+                            navMeshAgent.SetDestination(transform.position);
+                            gameObject.transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, player.transform.position - transform.position, rotationSpeed * Time.deltaTime, 0.0f));
+
+                        }
+
 
                         timer += Time.deltaTime;
                         if (timer >= attackDuration)

@@ -50,7 +50,7 @@ public class telekinesisClone : MonoBehaviour
             {
                 GameObject go = gotr.gameObject;
                 
-                if ((go.layer == LayerMask.NameToLayer("enemi") || (go.layer == LayerMask.NameToLayer("enemiBullet" ) && attractProjectiles)) && Vector3.Distance(go.transform.position, transform.position) <= enemyAttarctDist)
+                if (((go.layer == LayerMask.NameToLayer("enemi") || (go.layer == LayerMask.NameToLayer("enemiBullet" ) && attractProjectiles)) && Vector3.Distance(go.transform.position, transform.position) <= enemyAttarctDist) && go.name != "WeakPoint")
                 {
                     go.GetComponent<NavMeshAgent>().enabled = false;
                     Rigidbody rb = go.GetComponent<Rigidbody>();
