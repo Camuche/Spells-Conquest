@@ -140,7 +140,6 @@ GameObject:
   - component: {fileID: 2418446816440907095}
   - component: {fileID: 2418446816440907092}
   - component: {fileID: 2418446816440907093}
-  - component: {fileID: 2418446816440907082}
   - component: {fileID: 7480623660391396756}
   - component: {fileID: 4570819939600535129}
   m_Layer: 0
@@ -226,38 +225,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2418446816440907082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2418446816440907083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9067b1419faadab42831c8a10cabeba6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventOnTrue:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2418446816440907083}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  eventOnFalse:
-    m_PersistentCalls:
-      m_Calls: []
-  conditions: 00
-  typeDeCondition: 0
 --- !u!208 &7480623660391396756
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -435,22 +402,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2418446816440907082}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: SetConditionTrue
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2418446816440907082}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: CheckConditions
-        m_Mode: 1
+      - m_Target: {fileID: 4570819939600535129}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -461,19 +416,7 @@ MonoBehaviour:
         m_CallState: 2
   eventOnExit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2418446816440907082}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: CheckConditions
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   numberInTrigger: 0
 --- !u!1 &7561471336067370847
 GameObject:
