@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4230887087829893486}
   - component: {fileID: 2113268126194054564}
   - component: {fileID: 8794933410678553494}
+  - component: {fileID: 8368856664709497914}
+  - component: {fileID: 8835509117362093098}
   m_Layer: 0
   m_Name: Prefab_W1_Grand_Mur_Baie
   m_TagString: Untagged
@@ -93,5 +95,31 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2108786, y: 6.5000014, z: 7.500002}
-  m_Center: {x: 0, y: 0, z: -0.00000011920932}
+  m_Size: {x: 1.2108786, y: 1.7866193, z: 7.5000014}
+  m_Center: {x: 0, y: -2.3566918, z: -1.7159014e-14}
+--- !u!65 &8368856664709497914
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455754554376197233}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2108792, y: 1.8317299, z: 7.5000024}
+  m_Center: {x: 0, y: 2.334138, z: 1.7383371e-14}
+--- !u!65 &8835509117362093098
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455754554376197233}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2108792, y: 6.500003, z: 1.7630079}
+  m_Center: {x: 0, y: 1.206777e-14, z: 2.8684983}
