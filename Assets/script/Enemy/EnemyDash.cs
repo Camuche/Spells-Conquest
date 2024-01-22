@@ -115,7 +115,11 @@ public class EnemyDash : MonoBehaviour
             dashDest = hit.point;
         }
 
-        navMeshAgent.SetDestination(dashDest);
+        if (navMeshAgent.isOnNavMesh)
+        {
+            navMeshAgent.SetDestination(dashDest);
+        }
+        //navMeshAgent.SetDestination(dashDest);
         Invoke("Rotate", timeStuck);
     }
 

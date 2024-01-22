@@ -67,14 +67,11 @@ public class MenuScript : MonoBehaviour
 
     public void HighlightTarget(GameObject target)
     {
-        Debug.Log("plop");
+        Debug.Log("HighlightTarget");
         UIupdate.instance.HighlightTarget(target);
     }
     public void UnHighlightTarget(GameObject target)
     {
         UIupdate.instance.UnHighlightTarget(target);
     }
-
-
-    // SHOP SCRIPT
 }
