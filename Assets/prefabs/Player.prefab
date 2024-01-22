@@ -363,7 +363,7 @@ MonoBehaviour:
   damageMat: {fileID: 2100000, guid: d8cfd64c1bed43e4d98e42f78ea6da9f, type: 2}
   playerMesh: {fileID: 9063284820451186801}
   soul: {fileID: 2431897765296284799, guid: 2f959fedb678852498d40cea80014fc5, type: 3}
-  enemyDist: 30
+  enemyDist: 40
   currentEnemy: {fileID: 0}
   lockMask:
     serializedVersion: 2
