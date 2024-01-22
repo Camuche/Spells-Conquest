@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class pickupSpell : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class pickupSpell : MonoBehaviour
     public int spellNb;
 
     [SerializeField] private InputActionReference interact;
+
+    public UnityEvent unityEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +47,7 @@ public class pickupSpell : MonoBehaviour
             //gameController.GetComponent<gameController>().spellsToDestroyNext.Add(transform.position.x.ToString() + transform.position.z.ToString());
             gameController.GetComponent<gameController>().spellLimit = player.GetComponent<CastSpellNew>().limit;
             //gameController.GetComponent<gameController>().setSpellsToDestroy();
+            unityEvent.Invoke();
             Destroy(gameObject);
         }
     }
