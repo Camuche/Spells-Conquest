@@ -4733,8 +4733,8 @@ MonoBehaviour:
   priceIceClone: 10
   hpAvailable: 4
   damageAvailable: 4
-  priceHp: 10
-  priceDamage: 10
+  priceHp: 30
+  priceDamage: 30
   matButtonFireball: {fileID: 8207424865595655934}
   matButtonFireClone: {fileID: 8610131776150367713}
   matButtonTelekinesisClone: {fileID: 3943968181304766691}
