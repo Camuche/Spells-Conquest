@@ -4726,11 +4726,11 @@ MonoBehaviour:
   iceballAltAvailable: 1
   iceCloneAltAvailable: 1
   priceFireball: 0
-  priceFireClone: 10
-  priceTelekinesisClone: 10
-  priceWave: 10
-  priceIceball: 10
-  priceIceClone: 10
+  priceFireClone: 20
+  priceTelekinesisClone: 20
+  priceWave: 20
+  priceIceball: 20
+  priceIceClone: 20
   hpAvailable: 4
   damageAvailable: 4
   priceHp: 30
