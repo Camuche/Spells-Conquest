@@ -497,6 +497,8 @@ MonoBehaviour:
   cooldownIceClone: 0
   timerIceClone: 0
   iceCloneAlt: 0
+  fireballInvocation: {fileID: 5564289264024421107, guid: 667c250e6650d6a45a98ab21334497df,
+    type: 3}
   cloneRange: 30
 --- !u!114 &6646515115025402441
 MonoBehaviour:

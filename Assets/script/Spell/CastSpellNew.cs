@@ -485,7 +485,7 @@ public class CastSpellNew : MonoBehaviour
     [HideInInspector] public bool iceballAlt = false;*/
 
     
-    
+    public GameObject fireballInvocation;
 
     void CastSpell(int spellNb) 
     {
@@ -499,10 +499,10 @@ public class CastSpellNew : MonoBehaviour
             //StopPlayerWhenCasting
             timerCastAnimation = 0;
             PlayerController.instance.isCasting = true;
-            //PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
             PlayerController.instance.refModel.forward = new Vector3(PlayerController.instance.transform.right.x, 0,PlayerController.instance.transform.right.z) ;
 
             timerFireball = 0;
+            //Instantiate(fireballInvocation, transform.position, transform.rotation);
             Invoke("Fireball", spellAnimationTime);
         }
 
@@ -511,7 +511,6 @@ public class CastSpellNew : MonoBehaviour
             //StopPlayerWhenCasting
             timerCastAnimation = 0;
             PlayerController.instance.isCasting = true;
-            //PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
             PlayerController.instance.refModel.forward = new Vector3(PlayerController.instance.transform.right.x, 0,PlayerController.instance.transform.right.z) ;
 
             timerFireClone = 0;
@@ -525,7 +524,6 @@ public class CastSpellNew : MonoBehaviour
                 //StopPlayerWhenCasting
             timerCastAnimation = 0;
             PlayerController.instance.isCasting = true;
-            //PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
             PlayerController.instance.refModel.forward = new Vector3(PlayerController.instance.transform.right.x, 0,PlayerController.instance.transform.right.z) ;
 
             timerTelekinesisClone = 0;
@@ -540,7 +538,6 @@ public class CastSpellNew : MonoBehaviour
                 //StopPlayerWhenCasting
                 timerCastAnimation = 0;
                 PlayerController.instance.isCasting = true;
-                //PlayerController.instance.refModel.forward = PlayerController.instance.transform.right;
                 PlayerController.instance.refModel.forward = new Vector3(PlayerController.instance.transform.right.x, 0,PlayerController.instance.transform.right.z) ;
 
                 timerIceClone = 0;
