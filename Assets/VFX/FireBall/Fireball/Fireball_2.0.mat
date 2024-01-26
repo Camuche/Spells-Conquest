@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FireballPreform
-  m_Shader: {fileID: 4800000, guid: 39af6383a0e2f4e488dfacdb50847d87, type: 3}
+  m_Name: Fireball_2.0
+  m_Shader: {fileID: 4800000, guid: 263a62fd88d0a19488c070c099ae5163, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -24,17 +24,20 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Center_Power: 0.42
-    - _Center_Scale: 2.72
-    - _Fresnel_power: 0.65
-    - _Fresnel_scale: 1.32
-    - _Noise_Scale: 6.4
-    - _Vertex_Offset_Intnsity: 0.02
-    - _Voronoi_Scale: 37.07
-    - _Vrtx_Offset_Intnsity: 0.1
+    - _Float2: 3
+    - _Float3: 0.00001
+    - _Fresnel_Power: 1.37
+    - _Fresnel_Scale: 2.25
+    - _Max: 1
+    - _Min: 0
+    - _NoiseScale: 14.05
+    - _SmoothStep: 0.29
+    - _SmoothStepWave: 0.74
+    - _Tess: 10
+    - _Time_Speed: 0.24
+    - _VertexOffset_Intensity: 0.05
+    - _VoronoisScale: 7.02
+    - _WaveIntensity: 0.1
     - __dirty: 0
-    m_Colors:
-    - _Color0: {r: 1, g: 0, b: 0, a: 0}
-    - _Color1: {r: 1, g: 1, b: 0, a: 0}
-    - _Voronoi_Scale: {r: 1, g: 1, b: 0, a: 0}
+    m_Colors: []
   m_BuildTextureStacks: []

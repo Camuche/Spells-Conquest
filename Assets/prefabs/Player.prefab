@@ -430,7 +430,7 @@ MonoBehaviour:
   selecting: 0
   rightSelected: 0
   leftSelected: 0
-  fireball: {fileID: 6861626685482858038, guid: 6a61a2eac223e8d4bac72a6bc4190492,
+  fireball: {fileID: 1280581938448408209, guid: a60ecc4bc233edf4c82a8807bc5fa4e1,
     type: 3}
   fireClone: {fileID: 1108065954000898894, guid: d1777b53a23a507408368fe1192facfe,
     type: 3}
@@ -497,7 +497,7 @@ MonoBehaviour:
   cooldownIceClone: 0
   timerIceClone: 0
   iceCloneAlt: 0
-  fireballInvocation: {fileID: 5564289264024421107, guid: 667c250e6650d6a45a98ab21334497df,
+  psFireballInvocation: {fileID: 4527782406204352203, guid: f5bf34ed9793d5c41873d3ec70d9b1c4,
     type: 3}
   cloneRange: 30
 --- !u!114 &6646515115025402441

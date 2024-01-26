@@ -134,7 +134,7 @@ public class Fireball : MonoBehaviour
             //transform.position = Vector3.MoveTowards(transform.position, destination, movespeed * Time.deltaTime);
             //transform.rotation = Quaternion.LookRotation((transform.position - shootAimPoint.transform.position).normalized);
             transform.position += dir * (speed/2) * Time.deltaTime;
-            transform.rotation = Quaternion.LookRotation((transform.position - shootAimPoint.transform.position).normalized);
+            transform.rotation = Quaternion.LookRotation((transform.position - shootAimPoint.transform.position).normalized );// * Quaternion.EulerAngles(0,0,90);
             //player.GetComponent<PlayerController>().speedscale = 0.2f;
 
             //transform.position = Vector3.MoveTowards(transform.position, shootAimPoint.transform.position, movespeed * Time.deltaTime);
@@ -195,7 +195,7 @@ public class Fireball : MonoBehaviour
                     dir = (shootAimPoint.transform.position - transform.position).normalized;
                 }
                 
-                transform.rotation = Quaternion.LookRotation((transform.position - shootAimPoint.transform.position).normalized);
+                transform.rotation = Quaternion.LookRotation((transform.position - shootAimPoint.transform.position).normalized);// * Quaternion.EulerAngles(0,0,90);
                 following = false;
 
                 player.GetComponent<CastSpellNew>().cooldownFireball = cooldown;                    //THIS DOES NOT WORK
