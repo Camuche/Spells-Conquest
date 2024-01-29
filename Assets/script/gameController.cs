@@ -108,6 +108,7 @@ public class gameController : MonoBehaviour
         {
             xWasPressed = true;
             PlayerController.instance.canMove = true;
+            GetComponent<UIupdate>().bottomMessageGO.SetActive(false);
         }
 
         //Debug.Log(spellLimit);

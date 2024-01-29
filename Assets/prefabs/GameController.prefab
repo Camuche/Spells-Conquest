@@ -54,6 +54,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 70799a0650dfb454889f87da92c64076, type: 3}
   isPaused: 0
   refPauseScreen: {fileID: 0}
+  currentSpellUi: {fileID: 0}
+  spellTopUi: {fileID: 0}
+  spellRightUi: {fileID: 0}
+  spellBotUi: {fileID: 0}
+  spellLeftUi: {fileID: 0}
   matFireball: {fileID: 2100000, guid: d4a90c3480214ea4eaf2764bf6dad55a, type: 2}
   matFireClone: {fileID: 2100000, guid: 94fa965679ce96c4ca5efb18632c7eea, type: 2}
   matTelekinesesClone: {fileID: 2100000, guid: 4234ceffddacf0d4ea9c6366ea7925a7, type: 2}
@@ -81,5 +86,7 @@ MonoBehaviour:
   escape: {fileID: -7336232822411727568, guid: ce515ecc6fe77704ba2b9e7fe0281622, type: 3}
   menuEscape: {fileID: -1073189049131234865, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
+  aura: {fileID: -1926743980991009158, guid: ce515ecc6fe77704ba2b9e7fe0281622, type: 3}
+  xWasPressed: 0
   newSensitivity: 0
   isPaused: 0

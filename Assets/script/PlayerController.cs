@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // PRESS X BEFORE PLAYING
-        Debug.Log(canMove);
+        //Debug.Log(canMove);
 
         //Debug.Log(life + "/" + lifeMax + " HP ");
 
