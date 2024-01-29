@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PierrePrecieuse
+  m_Name: AuraPierrePrecieuse
   m_Shader: {fileID: 4800000, guid: 45a1991c4a7a64249928b75ffd6c810c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
@@ -69,8 +69,8 @@ Material:
     - _Smoothness: 0.506
     - _TextureScale: 2.77
     - __dirty: 0
-    - _isEnlighted: 1
-    - _isEnlightened: 1
+    - _isEnlighted: 0.2
+    - _isEnlightened: 0.2
     m_Colors:
     - _Color0: {r: 0, g: 0.6603774, b: 0.5873883, a: 0}
     - _Emissive_Color: {r: 0, g: 1, b: 0.8893785, a: 0}

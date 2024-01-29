@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     public float speedscale = 1;
 
 
-    bool canMove = true;
+    [HideInInspector] public bool canMove = true;
 
     [SerializeField] Animator animator;
 
@@ -64,6 +64,9 @@ public class PlayerController : MonoBehaviour
     public float runSpeedMultiplier;
     bool isRunning = false;
 
+    bool canControlCamera;
+    gameController refGameController;
+
     void Awake()
     {
         instance = this;
@@ -83,6 +86,17 @@ public class PlayerController : MonoBehaviour
         //inputPlayer.SetActive(true);
         //inputPlayer.SwitchCurrentActionMap("Menu Input");
 
+        //canControlCamera = false;
+        refGameController = GameObject.Find("GameController").GetComponent<gameController>();
+        if (!refGameController.xWasPressed)
+        {
+            GetComponent<PlayerInput>().enabled = false;
+            Invoke("CantMoveAtStart", 0.5f);
+        }
+        
+        canMove = true;
+        
+        
 
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -120,13 +134,28 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    
+    void CantMoveAtStart()
+    {
+        canMove = false;
+        GetComponent<PlayerInput>().enabled = true;
+        //canControlCamera = true;
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
+        // PRESS X BEFORE PLAYING
+        Debug.Log(canMove);
+
         //Debug.Log(life + "/" + lifeMax + " HP ");
 
         if (!canMove)
+        {
             return;
+        }
+        
 
         /*if (GetComponent<CastSpell>().limit>-1)
             aiming();*/
@@ -151,7 +180,7 @@ public class PlayerController : MonoBehaviour
             LockMode();
         }
 
-        if (life > 0 && GetComponent<CastSpellNew>().selecting == 0 && lockMode == false)
+        if (life > 0 && GetComponent<CastSpellNew>().selecting == 0 && lockMode == false)//) && canControlCamera)
         {
             rotateCamera();
             rotatePlayer();

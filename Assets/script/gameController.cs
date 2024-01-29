@@ -19,7 +19,7 @@ public class gameController : MonoBehaviour
     List<string> spellsToDestroy = new List<string>();
     [HideInInspector] public List<string> spellsToDestroyNext = new List<string>();
 
-    [SerializeField] private InputActionReference escape, menuEscape;
+    [SerializeField] private InputActionReference escape, menuEscape, aura;
 
 
 
@@ -33,6 +33,7 @@ public class gameController : MonoBehaviour
 
         //Debug.Log("spellLimit : " + spellLimit);
         player = GameObject.Find("Player");
+        //PlayerController.instance.canMove = true;
         Invoke("DelayedInitialisation", Time.deltaTime);
         if (checkpointed)
         {
@@ -96,11 +97,19 @@ public class gameController : MonoBehaviour
         }
     }
 
-    
+    [HideInInspector] public bool xWasPressed;
 
+
+    
     // Update is called once per frame
     void Update()
     {
+        if(!xWasPressed && aura.action.WasPressedThisFrame() && player.GetComponent<PlayerInput>().enabled == true)
+        {
+            xWasPressed = true;
+            PlayerController.instance.canMove = true;
+        }
+
         //Debug.Log(spellLimit);
 
         if (SceneManager.GetActiveScene().name == "Menu")

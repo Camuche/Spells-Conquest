@@ -438,7 +438,7 @@ MonoBehaviour:
   priceFireball: 10
   priceFireClone: 10
   priceTelekinesisClone: 10
-  interact: {fileID: 4822076624399877299, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+  interact: {fileID: -1926743980991009158, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
   shopCancel: {fileID: 5164172851384579573, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}

@@ -42,15 +42,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "7ea29967-e32f-4d4a-961e-2a5005fc2ab9",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "SpellR2",
                     "type": "Button",
                     "id": "a01b9179-c815-4455-acfe-17de6caf6e84",
@@ -333,28 +324,6 @@
                 },
                 {
                     "name": "",
-                    "id": "59c0678d-2745-44bd-b4d0-2c23ede77d34",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c692fbed-7c77-47f3-8d44-29c90d1df3d9",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "afb59480-e8b7-4092-8edd-c66de7f1b10d",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -576,7 +545,7 @@
                 {
                     "name": "",
                     "id": "9bb5ee93-db1b-4284-a727-0bd5be483b2b",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -587,7 +556,7 @@
                 {
                     "name": "",
                     "id": "49f202d8-8e60-4a81-9771-7ef336912035",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
