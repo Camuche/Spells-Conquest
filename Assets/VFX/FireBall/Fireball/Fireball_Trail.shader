@@ -10,7 +10,7 @@ Shader "Fireball_Trail"
 		_VertexOffset_Intensity("VertexOffset_Intensity", Float) = 1
 		_NoiseScale("NoiseScale", Float) = 0
 		_Speed("Speed", Float) = 0
-		_Offset_Higher("Offset_Higher", Float) = 0
+		_Offset_Higher("Offset_Higher", Float) = 1
 		_Offsett_Lower("Offsett_Lower", Float) = 0
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
@@ -166,7 +166,7 @@ Node;AmplifyShaderEditor.RangedFloatNode;28;-1033.719,282.9326;Inherit;False;Pro
 Node;AmplifyShaderEditor.Vector3Node;26;-971.1395,351.8703;Inherit;False;Constant;_Vector1;Vector 1;2;0;Create;True;0;0;0;False;0;False;0,1,0;0,0,0;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.TFHCRemapNode;41;-965.3967,493.06;Inherit;False;5;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;-0.5;False;4;FLOAT;0.5;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;43;-1229.641,563.6366;Inherit;False;Property;_Offsett_Lower;Offsett_Lower;7;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;42;-1225.214,636.3511;Inherit;False;Property;_Offset_Higher;Offset_Higher;6;0;Create;True;0;0;0;False;0;False;0;0.84;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;42;-1225.214,636.3511;Inherit;False;Property;_Offset_Higher;Offset_Higher;6;0;Create;True;0;0;0;False;0;False;1;0.84;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.NoiseGeneratorNode;22;-1486.105,491.4344;Inherit;True;Simplex2D;True;False;2;0;FLOAT2;0,0;False;1;FLOAT;10;False;1;FLOAT;0
 Node;AmplifyShaderEditor.TextureCoordinatesNode;17;-1745.603,442.0479;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.RangedFloatNode;29;-1715.22,564.8918;Inherit;False;Property;_NoiseScale;NoiseScale;4;0;Create;True;0;0;0;False;0;False;0;0.77;0;0;0;1;FLOAT;0
@@ -209,4 +209,4 @@ WireConnection;45;1;47;0
 WireConnection;47;0;44;0
 WireConnection;44;0;37;2
 ASEEND*/
-//CHKSM=51889BC922DF5D0A16FC894B9B30105C433EF2DD
+//CHKSM=55540A2B23866AA7F690AA573BBB4FE05D812E8B
