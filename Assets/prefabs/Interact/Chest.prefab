@@ -159,8 +159,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 8151259076252225134, guid: 7ed868fa4092dba41b5b11d7eb78d99b, type: 3}
   chestMoneyNumber: 20
-  interact: {fileID: 4822076624399877299, guid: ce515ecc6fe77704ba2b9e7fe0281622,
-    type: 3}
 --- !u!1 &5365154023726094665
 GameObject:
   m_ObjectHideFlags: 0
