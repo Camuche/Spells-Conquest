@@ -71,6 +71,8 @@ public class Fireball : MonoBehaviour
         
     }
 
+    public GameObject noImpactPS;
+
     // Update is called once per frame
 
     [SerializeField] LayerMask aimingIgnore;
@@ -157,9 +159,11 @@ public class Fireball : MonoBehaviour
 
         //transform.rotation = Quaternion.LookRotation((transform.position - shootAimPoint.transform.position).normalized);        DIRECTION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+        
 
         if (timer <= 0)
         {
+            Instantiate(noImpactPS, transform.position, transform.rotation);
             transform.position = new Vector3(666, -666, 666);
             //animator.SetBool("HoldSpell", false);
             Destroy(gameObject, 0.1f);

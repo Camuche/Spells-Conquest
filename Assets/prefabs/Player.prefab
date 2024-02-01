@@ -331,6 +331,7 @@ MonoBehaviour:
   isAttracted: 0
   life: 100
   speedscale: 1
+  canMove: 1
   animator: {fileID: 4721740849922928826}
   shaderUI: {fileID: 2100000, guid: 11640e417c416e044a4de109bd9bf2e7, type: 2}
   isDead: 0
@@ -498,6 +499,8 @@ MonoBehaviour:
   timerIceClone: 0
   iceCloneAlt: 0
   psFireballInvocation: {fileID: 4527782406204352203, guid: f5bf34ed9793d5c41873d3ec70d9b1c4,
+    type: 3}
+  psFireshieldInvocation: {fileID: 4527782406204352203, guid: 88684c58294a78a45a7b06672d26e1bb,
     type: 3}
   cloneRange: 30
 --- !u!114 &6646515115025402441
