@@ -222,6 +222,7 @@ public class Fireball : MonoBehaviour
 
     }
 
+    public GameObject impactGO;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -229,6 +230,7 @@ public class Fireball : MonoBehaviour
         if (other.gameObject.transform.name != "Player" && other.tag != "FireballTrigger" && !other.isTrigger)
 
         {
+            Instantiate(impactGO, transform.position, transform.rotation);
             transform.position = new Vector3(666, -666, 666);
             Destroy(gameObject, 0.1f);
 

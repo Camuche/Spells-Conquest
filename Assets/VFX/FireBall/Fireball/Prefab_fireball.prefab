@@ -119,6 +119,8 @@ MonoBehaviour:
   aimingIgnore:
     serializedVersion: 2
     m_Bits: 16384
+  impactGO: {fileID: 7880856390207958360, guid: becfbada894f8824bb4e0cf45812a873,
+    type: 3}
 --- !u!54 &-3742069660940006850
 Rigidbody:
   m_ObjectHideFlags: 0
