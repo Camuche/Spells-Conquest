@@ -239,8 +239,6 @@ public class Fireball : MonoBehaviour
             Destroy(gameObject, 0.1f);
 
         }  
-
-   
     }
 
     private void OnDestroy()
@@ -251,6 +249,13 @@ public class Fireball : MonoBehaviour
             player.GetComponent<PlayerController>().speedscale = 1;
             //animator.SetBool("HoldSpell", false);
         }
+    }
+    
+    public void ImpactFireball()
+    {
+        Instantiate(impactGO, transform.position, transform.rotation);
+        transform.position = new Vector3(666, -666, 666);
+        Destroy(gameObject, 0.1f);
     }
 
 }

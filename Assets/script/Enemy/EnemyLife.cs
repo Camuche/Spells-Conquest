@@ -81,12 +81,13 @@ public class EnemyLife : MonoBehaviour
         if (other.tag == "Fireball")
         {
             life -= Fireball.instance.fireballDamage * Shop.instance.damageMultiplierValue;
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
+            other.GetComponent<Fireball>().ImpactFireball();
         }
         if (other.tag == "Iceball")
         {
             life -= IceBall.instance.iceballDamage * Shop.instance.damageMultiplierValue;
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
         }
 
         
