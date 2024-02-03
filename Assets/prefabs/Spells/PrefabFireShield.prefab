@@ -5138,14 +5138,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   matLave: {fileID: 2100000, guid: 26f87a3133cc2534680246b3b5c9f6d9, type: 2}
   fireShieldMat: {fileID: 2100000, guid: 17676ec38998f944a92ce7369849562b, type: 2}
-  speed: 2
-  timer: 10
+  speed: 6
+  timer: 4
   grav: 10
   direction: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
   breakingShieldFeedbackTime: 1.5
   pressVsHoldTime: 0.5
-  cooldownFireClone: 11
+  cooldownFireClone: 4
 --- !u!143 &76482160417221039
 CharacterController:
   m_ObjectHideFlags: 0
