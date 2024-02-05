@@ -34,7 +34,7 @@ public class Money : MonoBehaviour
 
         if (followPlayer)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 0.01f * speedTowardPlayer );
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speedTowardPlayer * Time.deltaTime);
         }
     }
 }

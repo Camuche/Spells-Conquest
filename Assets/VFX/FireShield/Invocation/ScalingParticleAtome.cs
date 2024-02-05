@@ -8,6 +8,7 @@ public class ScalingParticleAtome : MonoBehaviour
     float time, scaling, t;
     bool scalingUp = true;
     public float speed, timerBeforeDestroy;
+    public float maxScale;
 
     void Start()
     {
@@ -18,7 +19,7 @@ public class ScalingParticleAtome : MonoBehaviour
     {
         time += Time.deltaTime * speed;
         t = Mathf.Sin(time) /2 + 0.5f;
-        scaling = Mathf.Lerp(0,1, t);
+        scaling = Mathf.Lerp(0, maxScale, t);
         transform.localScale = new Vector3 (scaling,scaling,scaling);
     }
 

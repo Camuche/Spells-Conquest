@@ -101,6 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IngoreCol: {fileID: 4493283673439028313}
+  timeBeforeScaling: 0.3
+  speed: 0.25
 --- !u!135 &4493283673439028313
 SphereCollider:
   m_ObjectHideFlags: 0
