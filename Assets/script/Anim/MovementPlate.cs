@@ -5,46 +5,69 @@ using UnityEngine;
 
 public class MovementPlate : MonoBehaviour
 {
-    float sinMove;
-    float posInitX;
-    public float speed;
-    float timer;
-    bool boolEnable = true;
+    //float sinMove;
+    Vector3 posInit;//, posTarget;
+    public float speed, waitingTime;
+    //float timer;
+    bool canMove = true;
+    public Transform target;
+    bool goForward = true , isWaiting;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        posInitX = transform.position.x;
+        posInit = transform.position;
+        //posTarget = target.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        if(boolEnable == true)
+        if(canMove && goForward && !isWaiting)
         {
-            timer += Time.deltaTime *speed;
+            transform.position = Vector3.MoveTowards(transform.position, target.position , 0.01f * speed);
+
+            if(transform.position == target.position)
+            {
+                isWaiting = true;
+                Invoke("StopWaiting", waitingTime);
+            }
         }
-        
-        
-        sinMove = posInitX + Mathf.Sin(timer) *7f;
-        
-        
-        transform.position = new Vector3(sinMove, transform.position.y, transform.position.z);
-        
+        else if (canMove && !goForward && !isWaiting)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, posInit , 0.01f * speed);
+
+            if(transform.position == posInit)
+            {
+                isWaiting = true;
+                Invoke("StopWaiting", waitingTime);
+            }
+        }
     }
+
+    void StopWaiting()
+    {
+        isWaiting = false;
+
+        if(goForward)
+        {
+            goForward = false;
+        }
+        else
+        {
+            goForward = true;
+        }
+    }
+
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "IceExplosion")
         {
-            boolEnable = false;
-        }
-
-        if (other.name == "Player")
-        {
-            other.transform.parent = transform;
+            canMove = false;
         }
     }
 
@@ -52,12 +75,8 @@ public class MovementPlate : MonoBehaviour
     {
         if (other.tag == "IceExplosion")
         {
-            boolEnable = true;
-        }
-
-        if (other.name == "Player")
-        {
-            other.transform.parent = null;
+            canMove = true;
         }
     }
+    
 }

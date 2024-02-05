@@ -20,7 +20,6 @@ public class ScalingParticleAtome : MonoBehaviour
         t = Mathf.Sin(time) /2 + 0.5f;
         scaling = Mathf.Lerp(0,1, t);
         transform.localScale = new Vector3 (scaling,scaling,scaling);
-        Debug.Log(t);
     }
 
     void DestroyAtome()
