@@ -30,13 +30,13 @@ MonoBehaviour:
     value: 8
   maximumMarchDistance:
     overrideState: 1
-    value: 100
+    value: 99.2
   distanceFade:
     overrideState: 1
-    value: 0.5
+    value: 0
   vignette:
     overrideState: 1
-    value: 0.5
+    value: 0.064
 --- !u!114 &-7281512538765838153
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1554,18 +1554,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   mode:
-    overrideState: 0
+    overrideState: 1
     value: 1
   intensity:
     overrideState: 1
-    value: 0.72
+    value: 0.5
   color:
-    overrideState: 0
+    overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
   ambientOnly:
     overrideState: 0
@@ -1586,8 +1586,8 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   radius:
-    overrideState: 0
-    value: 0.25
+    overrideState: 1
+    value: 0.28
   quality:
     overrideState: 0
     value: 2
