@@ -7,7 +7,8 @@ public class MapCamera : MonoBehaviour
 {
     [SerializeField] float positionY;
     GameObject player;
-    [SerializeField] float zoomSpeed, zoomMax, zoomMin;
+    public GameObject mapMarker;
+    [SerializeField] float zoomSpeed, zoomMax, zoomMin, mapMarkerSize;
 
     [SerializeField] private InputActionReference l2, r2;
     
@@ -27,6 +28,10 @@ public class MapCamera : MonoBehaviour
 
         transform.position = new Vector3(player.transform.position.x , positionY , player.transform.position.z);
         transform.rotation = Quaternion.Euler(90,0,0);
+
+        mapMarker.transform.position = transform.position - new Vector3(0,mapMarkerSize,0);
+        mapMarker.transform.rotation = player.transform.rotation * Quaternion.Euler(90,0,0);
+        //mapMarker.transform.rotation *= Quaternion.Euler(90,0,0);
 
         if (l2.action.ReadValue<float>() >0)
         {
