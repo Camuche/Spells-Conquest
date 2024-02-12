@@ -35,6 +35,8 @@ public class FireClone : MonoBehaviour
 
     [SerializeField] float cooldownFireClone;
 
+    public float delay;
+
 
 
     // Start is called before the first frame update
@@ -58,14 +60,17 @@ public class FireClone : MonoBehaviour
         
         castSpellNew.cooldownFireClone = cooldownFireClone;
         
-        //isMoving =true;
+        Invoke("Delay", delay);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        
+        if(!delayDone)
+        {
+            return;
+        }
         
 
         timer -= Time.deltaTime;
@@ -117,7 +122,12 @@ public class FireClone : MonoBehaviour
         }
     }
 
+    bool delayDone;
     
+    void Delay()
+    {
+        delayDone = true;
+    }
 
     
 }
