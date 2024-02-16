@@ -72,6 +72,6 @@ Material:
     - _isEnlighted: 0.2
     - _isEnlightened: 0.2
     m_Colors:
-    - _Color0: {r: 0, g: 0.6603774, b: 0.5873883, a: 0}
-    - _Emissive_Color: {r: 0, g: 1, b: 0.8893785, a: 0}
+    - _Color0: {r: 0, g: 0.65882355, b: 0.5882353, a: 0}
+    - _Emissive_Color: {r: 0, g: 1, b: 0.8901961, a: 0}
   m_BuildTextureStacks: []

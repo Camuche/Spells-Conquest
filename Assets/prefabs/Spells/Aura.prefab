@@ -110,9 +110,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initScale: 0
-  endScale: 4
-  scalingTime: 0.4
-  timeBeforeDestroy: 0.4
+  endScale: 8
+  scalingTime: 0.8
+  timeBeforeDestroy: 0.8
 --- !u!54 &699386450717894354
 Rigidbody:
   m_ObjectHideFlags: 0
