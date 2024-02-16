@@ -5,7 +5,6 @@ using UnityEngine;
 public class FireClone : MonoBehaviour
 {
     [SerializeField] Material matLave;
-    public Material fireShieldMat;
     
 
     public float speed;
@@ -101,12 +100,6 @@ public class FireClone : MonoBehaviour
             transform.position = new Vector3(100000, -100000, 100000);
             Destroy(gameObject,0.1f);
         }
-        else if (timer <= breakingShieldFeedbackTime)                                     //PREVISUALISATION
-        {
-            fireShieldMat.SetFloat("_Opacity", 0.2f);
-        }
-        else fireShieldMat.SetFloat("_Opacity", 0.4f);
-
 
 
         //gravity

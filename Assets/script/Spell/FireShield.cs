@@ -6,15 +6,21 @@ public class FireShield : MonoBehaviour
 {
 
     [SerializeField] Collider IngoreCol;
-    public float timeBeforeScaling, speed;
-    bool isScaling;
+    public float timeBeforeScaling, timeBeforeUnscale, speed, dissolveSpeed;
+    bool isScaling, isUnscaling;
     float time, currentScale;
+    public Material material, particleSystemMat;
+    float particleSystemAlpha;
 
     // Start is called before the first frame update
     void Start()
     {
         transform.localScale = new Vector3 (0,0,0);
         Invoke("ScaleGO", timeBeforeScaling);
+        Invoke("Unscale", timeBeforeUnscale);
+        material.SetFloat("_Dissolve", 1);
+        particleSystemAlpha = 1;
+        particleSystemMat.color = new Vector4 (1,1,1,particleSystemAlpha);
     }
 
     // Update is called once per frame
@@ -38,6 +44,28 @@ public class FireShield : MonoBehaviour
             currentScale += 0.01f * speed;
             transform.localScale = new Vector3(currentScale,currentScale,currentScale);
         }
+        else if (isScaling && currentScale > 0.18f)
+        {
+            isScaling = false;
+        }
+
+        if (isUnscaling)
+        {
+            material.SetFloat("_Dissolve", material.GetFloat("_Dissolve")- 0.01f * dissolveSpeed);
+            
+            
+            if(particleSystemAlpha > 0)
+            {
+                particleSystemAlpha -= 0.01f * dissolveSpeed;
+            }
+            else if (particleSystemAlpha <= 0)
+            {
+                particleSystemAlpha = 0;
+            }
+            
+            particleSystemMat.color = new Vector4(1,1,1,particleSystemAlpha);
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,6 +80,11 @@ public class FireShield : MonoBehaviour
     void ScaleGO()
     {
         isScaling = true;
+    }
+
+    void Unscale()
+    {
+        isUnscaling = true;
     }
 
     
