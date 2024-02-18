@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6167621532142900407}
   - component: {fileID: 6398277304041107801}
   - component: {fileID: 1329883966285825214}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PenteLave 3x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4385282283732303787}
   - component: {fileID: 4385282283732303786}
   - component: {fileID: 4385282283732303785}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Stairs 5x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

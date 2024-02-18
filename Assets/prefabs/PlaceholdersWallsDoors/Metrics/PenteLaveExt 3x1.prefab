@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1410082451229352207}
   - component: {fileID: 2663081800564017032}
   - component: {fileID: 2708858000485029787}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PenteLaveExt 3x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

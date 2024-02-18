@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5424781179201294310}
   - component: {fileID: 5424781179201294305}
   - component: {fileID: 5424781179201294304}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StairsD 5x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
