@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool isDead;
 
-    [SerializeField] private InputActionReference cameraRotation, movement, mapInput, lockModeInput, runInput;
+    [SerializeField] private InputActionReference cameraRotation, movement, mapInput, lockModeInput, runInput, startInput;
 
     [SerializeField] Camera mapCam;
     bool showMap = false;
@@ -667,7 +667,7 @@ public class PlayerController : MonoBehaviour
     void MapCamera()
     {
 
-        
+        //Debug.Log(canMove);
 
         if (showMap == false && inputMapReleased && mapInput.action.IsPressed() && canMove)
         {
@@ -678,7 +678,7 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("showMap");
         }
 
-        else if (showMap==true && inputMapReleased && mapInput.action.IsPressed() && canMove)
+        else if (showMap==true && inputMapReleased && (mapInput.action.IsPressed() || startInput.action.WasPressedThisFrame()) && canMove)
         {
             stopTime = false;
             Time.timeScale = 1f;

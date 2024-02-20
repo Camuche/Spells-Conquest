@@ -527,6 +527,8 @@ MonoBehaviour:
     type: 3}
   runInput: {fileID: -3197288842736192042, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
+  startInput: {fileID: -7336232822411727568, guid: ce515ecc6fe77704ba2b9e7fe0281622,
+    type: 3}
   mapCam: {fileID: 8652194102310712225}
   refPlayerInput: {fileID: 0}
   refModel: {fileID: 1686266685543590592}

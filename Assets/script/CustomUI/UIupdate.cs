@@ -537,8 +537,10 @@ public class UIupdate : MonoBehaviour
         {
             refCastSpellNew.rightSelected = true;
         }
+        Debug.Log("name" + spellLeftUi.name);
         if(target == spellLeftUi)
         {
+            Debug.Log("UIHighlightTarget");
             refCastSpellNew.leftSelected = true;
         }
     }

@@ -68,6 +68,7 @@ public class MenuScript : MonoBehaviour
     public void HighlightTarget(GameObject target)
     {
         Debug.Log("HighlightTarget");
+        Debug.Log(target.name);
         UIupdate.instance.HighlightTarget(target);
     }
     public void UnHighlightTarget(GameObject target)
