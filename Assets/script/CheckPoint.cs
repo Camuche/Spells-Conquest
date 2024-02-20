@@ -9,18 +9,27 @@ public class CheckPoint : MonoBehaviour
     GameObject player;
 
     
-
+    bool startContentDone;
     
     // Start is called before the first frame update
     void Start()
     {
+        Invoke("StartContent", Time.deltaTime);
+    }
+
+    void StartContent()
+    {
+        startContentDone = true;
         gameController = GameObject.Find("GameController");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(!startContentDone)
+        {
+            return;
+        }
 
         if (canSave)
         {

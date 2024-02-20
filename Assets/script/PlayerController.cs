@@ -67,6 +67,8 @@ public class PlayerController : MonoBehaviour
     bool canControlCamera;
     gameController refGameController;
 
+    public static bool tutoDone;
+
     void Awake()
     {
         instance = this;
@@ -88,21 +90,38 @@ public class PlayerController : MonoBehaviour
 
         //canControlCamera = false;
         refGameController = GameObject.Find("GameController").GetComponent<gameController>();
-        if (!refGameController.xWasPressed)
+        /*if (!refGameController.xWasPressed)
         {
             GetComponent<PlayerInput>().enabled = false;
             Invoke("CantMoveAtStart", 0.5f);
+        }*/
+        Controller = GetComponent<CharacterController>();
+        
+        /*rotateCamera();
+        if(!isAttracted)
+        {
+            gravity();
+            updateY();
+        }
+        movements();*/
+        GetComponent<PlayerInput>().enabled = true;
+        if(!tutoDone)
+        {
+            canMove = false;
+        }
+        else
+        {
+            canMove=true;
         }
         
-        canMove = true;
-        
+        //Invoke("CantMoveAtStart", 0.5f);
         
 
         Cursor.lockState = CursorLockMode.Locked;
 
         speed = playerSpeed;
 
-        Controller = GetComponent<CharacterController>();
+        //Controller = GetComponent<CharacterController>();
 
         Controller.enabled = false;
         Controller.transform.position = transform.position;
@@ -137,8 +156,8 @@ public class PlayerController : MonoBehaviour
     
     void CantMoveAtStart()
     {
-        canMove = false;
-        GetComponent<PlayerInput>().enabled = true;
+        canMove = true;
+        //GetComponent<PlayerInput>().enabled = true;
         //canControlCamera = true;
         
     }
@@ -150,16 +169,21 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(canMove);
 
         //Debug.Log(life + "/" + lifeMax + " HP ");
+        if(!isAttracted)
+        {
+            gravity();
+            updateY();
+        }
 
-        if (!canMove)
+        /*if (!canMove)
         {
             return;
-        }
+        }*/
         
 
         /*if (GetComponent<CastSpell>().limit>-1)
             aiming();*/
-        if(lockModeInput.action.WasPressedThisFrame())
+        if(lockModeInput.action.WasPressedThisFrame() && canMove)
         {
             if (!lockMode)
             {
@@ -194,11 +218,11 @@ public class PlayerController : MonoBehaviour
         //movements();
         AnimationControl();
 
-        if(!isAttracted)
+        /*if(!isAttracted)
         {
             gravity();
             updateY();
-        }
+        }*/
         
         CheckLife();
 
@@ -238,12 +262,12 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public Vector3 movedir;
     void movements()
     {
-        if (!isRunning && runInput.action.WasPressedThisFrame() && movement.action.ReadValue<Vector2>() != Vector2.zero)
+        if (!isRunning && runInput.action.WasPressedThisFrame() && movement.action.ReadValue<Vector2>() != Vector2.zero && canMove)
         {
             speed *= runSpeedMultiplier;
             isRunning = true;
         }
-        if(isRunning && movement.action.ReadValue<Vector2>() == Vector2.zero)
+        if(isRunning && movement.action.ReadValue<Vector2>() == Vector2.zero && canMove)
         {
             speed /= runSpeedMultiplier;
             isRunning = false;
@@ -293,9 +317,11 @@ public class PlayerController : MonoBehaviour
             Vector3 rightCam = new Vector3 (Camera.main.transform.right.x , 0 , Camera.main.transform.right.z) *-1;
 
             movedir = Vector3.zero;
-
-            movedir += forwardCam * movement.action.ReadValue<Vector2>().y * (speed + dodgespeed) * Time.deltaTime *speedscale;
-            movedir += rightCam * -movement.action.ReadValue<Vector2>().x * (speed + dodgespeed) * Time.deltaTime *speedscale;
+            if(canMove)
+            {
+                movedir += forwardCam * movement.action.ReadValue<Vector2>().y * (speed + dodgespeed) * Time.deltaTime *speedscale;
+                movedir += rightCam * -movement.action.ReadValue<Vector2>().x * (speed + dodgespeed) * Time.deltaTime *speedscale;
+            }
         }
         Controller.Move(movedir);
 
@@ -377,8 +403,10 @@ public class PlayerController : MonoBehaviour
         }
 
         //change angle
-
-        rotY += cameraRotation.action.ReadValue<Vector2>().y * mouseSensitivity*Time.deltaTime;
+        if(canMove)
+        {
+            rotY += cameraRotation.action.ReadValue<Vector2>().y * mouseSensitivity*Time.deltaTime;
+        }
 
         rotY = Mathf.Clamp(rotY, -60f, 90f);
 
@@ -422,7 +450,10 @@ public class PlayerController : MonoBehaviour
 
     void rotatePlayer()
     {
-        transform.eulerAngles += new Vector3(0,cameraRotation.action.ReadValue<Vector2>().x) * Time.deltaTime * mouseSensitivity;
+        if(canMove)
+        {
+            transform.eulerAngles += new Vector3(0,cameraRotation.action.ReadValue<Vector2>().x) * Time.deltaTime * mouseSensitivity;
+        }
     }
 
 
@@ -638,7 +669,7 @@ public class PlayerController : MonoBehaviour
 
         
 
-        if (showMap == false && inputMapReleased && mapInput.action.IsPressed())
+        if (showMap == false && inputMapReleased && mapInput.action.IsPressed() && canMove)
         {
             stopTime = true;
             Time.timeScale = 0f;
@@ -647,7 +678,7 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("showMap");
         }
 
-        else if (showMap==true && inputMapReleased && mapInput.action.IsPressed())
+        else if (showMap==true && inputMapReleased && mapInput.action.IsPressed() && canMove)
         {
             stopTime = false;
             Time.timeScale = 1f;
@@ -656,7 +687,7 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("DisableMap");
 
         }
-        if(mapInput.action.ReadValue<float>()==0)
+        if(mapInput.action.ReadValue<float>()==0 && canMove)
         {
             inputMapReleased = true;
         }
@@ -782,7 +813,7 @@ public class PlayerController : MonoBehaviour
 
         lockTimer -= Time.deltaTime;
 
-        if(cameraRotation.action.ReadValue<Vector2>().x <0 && canSwitchTarget && lockTimer <= 0)
+        if(cameraRotation.action.ReadValue<Vector2>().x <0 && canSwitchTarget && lockTimer <= 0 && canMove)
         {
             canSwitchTarget = false;
             indexLock ++;
@@ -792,7 +823,7 @@ public class PlayerController : MonoBehaviour
                 indexLock = 0;
             }
         }
-        else if (cameraRotation.action.ReadValue<Vector2>().x > 0 && canSwitchTarget && lockTimer <= 0)
+        else if (cameraRotation.action.ReadValue<Vector2>().x > 0 && canSwitchTarget && lockTimer <= 0 && canMove)
         {
             canSwitchTarget = false;
             indexLock --;
@@ -802,7 +833,7 @@ public class PlayerController : MonoBehaviour
                 indexLock = nearestEnemies.Count -1;
             }
         }
-        else if(cameraRotation.action.ReadValue<Vector2>().x == 0)
+        else if(cameraRotation.action.ReadValue<Vector2>().x == 0 && canMove)
         {
             canSwitchTarget = true;
         }

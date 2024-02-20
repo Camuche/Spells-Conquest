@@ -83,6 +83,8 @@ public class CastSpellNew : MonoBehaviour
         isMoving= true;
         TelekinesisAlt = false;
         iceCloneAlt = false;
+
+        timerAura = cooldownAura;
     }
 
     public bool waitForNextFrame;

@@ -94,21 +94,26 @@ public class telekinesisClone : MonoBehaviour
                 
                 if (Vector3.Distance(aogo.transform.position, transform.position) <= enemyAttarctDist)
                 {
-                    CharacterController exists;
-                    aogo.TryGetComponent<CharacterController>(out exists);
-
-                    AttractedObject aorb = aogo.GetComponent<AttractedObject>();
-                    //aorb.isKinematic = false;
-                    aorb.useGravity = false;
-                   
-
-                    Vector3 dir = (transform.position - exists.transform.position).normalized;
-
-                    Vector3 movement = dir * force * Time.deltaTime ;
-
-                    if(exists != null)
+                    if (aogo != AttractedObjectManager.instance.gameObject)
                     {
-                        exists.Move(new Vector3(movement.x * enemyAttarctForce * Time.deltaTime, movement.y * enemyAttarctForce * Time.deltaTime, movement.z * enemyAttarctForce * Time.deltaTime));
+                        CharacterController exists;
+                        aogo.TryGetComponent<CharacterController>(out exists);
+
+                        
+                            AttractedObject aorb = aogo.GetComponent<AttractedObject>();
+                            //aorb.isKinematic = false;
+                            aorb.useGravity = false;
+                        
+                    
+
+                        Vector3 dir = (transform.position - exists.transform.position).normalized;
+
+                        Vector3 movement = dir * force * Time.deltaTime ;
+
+                        if(exists != null)
+                        {
+                            exists.Move(new Vector3(movement.x * enemyAttarctForce * Time.deltaTime, movement.y * enemyAttarctForce * Time.deltaTime, movement.z * enemyAttarctForce * Time.deltaTime));
+                        }
                     }
                     
                 }

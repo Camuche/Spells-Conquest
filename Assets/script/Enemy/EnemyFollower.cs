@@ -37,6 +37,7 @@ public class EnemyFollower : MonoBehaviour
 	CharacterController refCC;
     public bool useGravity = true;
 
+    public float navMeshDetectionDist = 2;
     
 
 
@@ -81,7 +82,7 @@ public class EnemyFollower : MonoBehaviour
                 result = hit.position;
             }
 
-			if((transform.position - result).magnitude < 2f)
+			if((transform.position - result).magnitude < navMeshDetectionDist)
 			{
 				navMeshAgent.enabled = true;
 			}

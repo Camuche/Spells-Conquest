@@ -350,6 +350,8 @@ MonoBehaviour:
   attackDuration: 0
   stunDuration: 0
   isAttacking: 0
+  useGravity: 1
+  navMeshDetectiondist: 2
 --- !u!143 &5387335219111035024
 CharacterController:
   m_ObjectHideFlags: 0

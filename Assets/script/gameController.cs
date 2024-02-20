@@ -63,14 +63,23 @@ public class gameController : MonoBehaviour
         CheckPoint = Vector3.zero;
         checkpointed = false;
 
+        Invoke("StartContent",Time.deltaTime);
+
+        
+
+
+    }
+
+    void StartContent()
+    {
         if (SceneManager.GetActiveScene().name != "Menu")
         {
             Play();
         }
-
-
-
-
+        if(PlayerController.tutoDone)
+        {
+            GetComponent<UIupdate>().bottomMessageGO.SetActive(false);
+        }
     }
 
     void OnEnable()
@@ -104,10 +113,11 @@ public class gameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!xWasPressed && aura.action.WasPressedThisFrame() && player.GetComponent<PlayerInput>().enabled == true)
+        if(!xWasPressed && aura.action.WasPressedThisFrame() && player.GetComponent<PlayerInput>().enabled == true && !PlayerController.tutoDone)
         {
             xWasPressed = true;
             PlayerController.instance.canMove = true;
+            PlayerController.tutoDone = true;
             GetComponent<UIupdate>().bottomMessageGO.SetActive(false);
         }
 
