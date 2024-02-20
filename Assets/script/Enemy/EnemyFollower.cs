@@ -34,6 +34,8 @@ public class EnemyFollower : MonoBehaviour
     bool isAttracted = false;
 
     Rigidbody rb;
+	CharacterController refCC;
+    public bool useGravity = true;
 
     
 
@@ -56,6 +58,7 @@ public class EnemyFollower : MonoBehaviour
     {
         transform.parent = EnemyManager.instance.transform;
         rb = GetComponent<Rigidbody>();
+		refCC = GetComponent<CharacterController>();
     }
 
     LayerMask _LayersToIgnore;
@@ -71,8 +74,22 @@ public class EnemyFollower : MonoBehaviour
 
             GetComponent<CharacterController>().enabled = true;
 
-            //Vector3 closestPointOnMesh = 
+            NavMeshHit hit;
+			Vector3 result = Vector3.zero;
+            if (NavMesh.SamplePosition(transform.position, out hit, 100.0f, NavMesh.AllAreas))
+            {
+                result = hit.position;
+            }
 
+			if((transform.position - result).magnitude < 2f)
+			{
+				navMeshAgent.enabled = true;
+			}
+			
+			if(refCC != null && useGravity)
+			{
+				refCC.Move(Physics.gravity * Time.deltaTime);
+			}
             /*rb.isKinematic = false;
             rb.useGravity = true;
             rb.velocity= new Vector3 (rb.velocity.x , rb.velocity.y, rb.velocity.z);*/

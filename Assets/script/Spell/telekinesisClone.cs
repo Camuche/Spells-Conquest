@@ -58,6 +58,9 @@ public class telekinesisClone : MonoBehaviour
                     Rigidbody rb = go.GetComponent<Rigidbody>();
                     //rb.isKinematic = false;
                     //rb.useGravity = true;
+					EnemyFollower ef = go.GetComponent<EnemyFollower>();
+					//aorb.isKinematic = false;
+					ef.useGravity = false;
 
                     Vector3 dir = (transform.position - go.transform.position).normalized;
 
@@ -146,10 +149,14 @@ public class telekinesisClone : MonoBehaviour
 
                 if (refAgent)
                 {
-                    Rigidbody rb = go.GetComponent<Rigidbody>();
-                    rb.isKinematic = true;
-                    rb.useGravity = false;
-                    refAgent.enabled = true;
+					EnemyFollower ef = go.GetComponent<EnemyFollower>();
+					//aorb.isKinematic = false;
+					ef.useGravity = true;
+					
+                    //Rigidbody rb = go.GetComponent<Rigidbody>();
+                    //rb.isKinematic = true;
+                    //rb.useGravity = false;
+                    //refAgent.enabled = true;
                     //Debug.Log("2");
                 }
 
@@ -163,9 +170,9 @@ public class telekinesisClone : MonoBehaviour
             if (aogo != AttractedObjectManager.instance.gameObject)
             {
 
-                AttractedObject aorb = aogo.GetComponent<AttractedObject>();
+                AttractedObject ao = aogo.GetComponent<AttractedObject>();
                 //aorb.isKinematic = false;
-                aorb.useGravity = true;
+                ao.useGravity = true;
             }
         }
     }
