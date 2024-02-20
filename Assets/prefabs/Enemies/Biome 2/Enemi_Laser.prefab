@@ -122,14 +122,14 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
   grav: 15
-  followDistance: 30
+  followDistance: 15
   minDistance: 2
   rotationSpeed: 5
   attackDuration: 0
   stunDuration: 0
   isAttacking: 0
   useGravity: 1
-  navMeshDetectiondist: 2
+  navMeshDetectionDist: 2
 --- !u!143 &5387335219111035024
 CharacterController:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b808c1647504114abe85e731baaa275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 30
+  life: 20
   DisplayLife: 1
   IgnoreCol: {fileID: 0}
   money: {fileID: 8151259076252225134, guid: 7ed868fa4092dba41b5b11d7eb78d99b, type: 3}
@@ -218,8 +218,8 @@ MonoBehaviour:
   Laser: {fileID: 2941706858298650370, guid: d0787c7befe9ae54cb8dadd90ceb3cee, type: 3}
   enemyShield: {fileID: 337749727935250985, guid: e8ea05cceb08d594ca8f934a22a45199,
     type: 3}
-  activeTimer: 3
-  cooldownTimer: 3
+  activeTimer: 2
+  cooldownTimer: 4
   _laserStart: {x: 0, y: 0, z: 0}
   chargingAnimationTime: 1
   matCharging: {fileID: 2100000, guid: d8cfd64c1bed43e4d98e42f78ea6da9f, type: 2}
@@ -442,7 +442,7 @@ Transform:
   m_GameObject: {fileID: 7617076521132675618}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 60, y: 60, z: 60}
+  m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children: []
   m_Father: {fileID: 484699292189609001}
   m_RootOrder: 2
