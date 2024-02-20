@@ -69,10 +69,18 @@ public class EnemyFollower : MonoBehaviour
             dir = (player.transform.position - transform.position).normalized;
             gameObject.transform.forward = dir;
 
-            rb.isKinematic = false;
+            GetComponent<CharacterController>().enabled = true;
+
+            //Vector3 closestPointOnMesh = 
+
+            /*rb.isKinematic = false;
             rb.useGravity = true;
-            rb.velocity= new Vector3 (rb.velocity.x , rb.velocity.y, rb.velocity.z);
+            rb.velocity= new Vector3 (rb.velocity.x , rb.velocity.y, rb.velocity.z);*/
             return;
+        }
+        else
+        {
+            GetComponent<CharacterController>().enabled = false;
         }
         
 

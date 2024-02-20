@@ -11,6 +11,8 @@ public class telekinesisClone : MonoBehaviour
     bool TelekinesisAlt;
     [SerializeField] float cooldown;
     [SerializeField] float attractSpeed, enemyAttarctForce, enemyAttarctDist;
+    [SerializeField] float playerStopDistance = 1.5f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -54,8 +56,8 @@ public class telekinesisClone : MonoBehaviour
                 {
                     go.GetComponent<NavMeshAgent>().enabled = false;
                     Rigidbody rb = go.GetComponent<Rigidbody>();
-                    rb.isKinematic = false;
-                    rb.useGravity = true;
+                    //rb.isKinematic = false;
+                    //rb.useGravity = true;
 
                     Vector3 dir = (transform.position - go.transform.position).normalized;
 
@@ -89,15 +91,21 @@ public class telekinesisClone : MonoBehaviour
                 
                 if (Vector3.Distance(aogo.transform.position, transform.position) <= enemyAttarctDist)
                 {
-                    Rigidbody aorb = aogo.GetComponent<Rigidbody>();
+                    CharacterController exists;
+                    aogo.TryGetComponent<CharacterController>(out exists);
 
-                    Vector3 dir = (transform.position - aogo.transform.position).normalized;
+                    AttractedObject aorb = aogo.GetComponent<AttractedObject>();
+                    //aorb.isKinematic = false;
+                    aorb.useGravity = false;
+                   
+
+                    Vector3 dir = (transform.position - exists.transform.position).normalized;
 
                     Vector3 movement = dir * force * Time.deltaTime ;
 
-                    if(aorb != null)
+                    if(exists != null)
                     {
-                        aorb.velocity= new Vector3 (movement.x * enemyAttarctForce, aorb.velocity.y, movement.z * enemyAttarctForce);
+                        exists.Move(new Vector3(movement.x * enemyAttarctForce * Time.deltaTime, movement.y * enemyAttarctForce * Time.deltaTime, movement.z * enemyAttarctForce * Time.deltaTime));
                     }
                     
                 }
@@ -107,6 +115,12 @@ public class telekinesisClone : MonoBehaviour
         else if(transform.position != player.transform.position && gameObject != null && player.GetComponent<PlayerController>().isAttracted == true)
         {
             player.GetComponent<PlayerController>().movedir = (transform.position - player.transform.position) * attractSpeed;
+
+            //Ajout Bruno/Clement
+            if((transform.position - player.transform.position).magnitude < playerStopDistance)
+            {
+                player.GetComponent<PlayerController>().isAttracted = false;
+            }
         }
     }
 
@@ -118,7 +132,7 @@ public class telekinesisClone : MonoBehaviour
         }
     }
 
-    void ResetNavMesh()
+    void ResetTargets()
     {
         //Debug.Log("1");
         Transform[] gos = EnemyManager.instance.transform.GetComponentsInChildren<Transform>() as Transform[]; //will return an array of all GameObjects in the scene
@@ -140,10 +154,24 @@ public class telekinesisClone : MonoBehaviour
                 }
 
             }
+
+        Transform[] aogos = AttractedObjectManager.instance.transform.GetComponentsInChildren<Transform>() as Transform[]; //Array of Movable Objects
+        foreach (Transform aogotr in aogos)
+        {
+            GameObject aogo = aogotr.gameObject;
+
+            if (aogo != AttractedObjectManager.instance.gameObject)
+            {
+
+                AttractedObject aorb = aogo.GetComponent<AttractedObject>();
+                //aorb.isKinematic = false;
+                aorb.useGravity = true;
+            }
+        }
     }
 
     void OnDestroy()
     {
-        ResetNavMesh();
+        ResetTargets();
     }
 }
