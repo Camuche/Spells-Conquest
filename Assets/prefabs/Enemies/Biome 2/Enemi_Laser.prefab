@@ -219,7 +219,7 @@ MonoBehaviour:
   enemyShield: {fileID: 337749727935250985, guid: e8ea05cceb08d594ca8f934a22a45199,
     type: 3}
   activeTimer: 2
-  cooldownTimer: 4
+  cooldownTimer: 1
   _laserStart: {x: 0, y: 0, z: 0}
   chargingAnimationTime: 1
   matCharging: {fileID: 2100000, guid: d8cfd64c1bed43e4d98e42f78ea6da9f, type: 2}
@@ -505,7 +505,7 @@ SphereCollider:
   m_GameObject: {fileID: 7617076521132675618}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
