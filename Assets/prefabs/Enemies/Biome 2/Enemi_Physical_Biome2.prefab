@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d1a6e1b7bd4c44eb9397d6a1b0507e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 6
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
   grav: 15
@@ -309,7 +309,7 @@ MonoBehaviour:
   stunDuration: 0.1
   isAttacking: 0
   useGravity: 1
-  navMeshDetectiondist: 2
+  navMeshDetectionDist: 2
 --- !u!143 &5387335219111035024
 CharacterController:
   m_ObjectHideFlags: 0
