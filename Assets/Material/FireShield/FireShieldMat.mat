@@ -50,7 +50,7 @@ Material:
     m_Floats:
     - _DepthFade: 2
     - _DepthFadeOpacity: 1
-    - _Dissolve: 0.21900082
+    - _Dissolve: -0.5069995
     - _Disto: 1.25
     - _DistoNoiseScale: 6.75
     - _DistoScale: 12

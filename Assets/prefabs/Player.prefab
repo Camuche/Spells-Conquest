@@ -686,7 +686,7 @@ MonoBehaviour:
     type: 3}
   psFireshieldInvocation: {fileID: 4527782406204352203, guid: 88684c58294a78a45a7b06672d26e1bb,
     type: 3}
-  cloneRange: 30
+  cloneRange: 15
 --- !u!114 &6646515115025402441
 MonoBehaviour:
   m_ObjectHideFlags: 0
