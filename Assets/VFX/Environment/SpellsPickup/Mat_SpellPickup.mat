@@ -32,7 +32,7 @@ Material:
     - _Float1: 0.19
     - _Float2: 0.06
     - _Fresnel_Bias: 0
-    - _Fresnel_Power: 1.26
+    - _Fresnel_Power: 1.95
     - _Fresnel_Scale: 0.015
     - _Logo_Tiling: 4
     - _Scale: -2.07
@@ -40,8 +40,9 @@ Material:
     - _WhirlSpeed: 1
     - _Whirl_Fade: 4.5
     - __dirty: 0
+    - _hdr: 1.21
     m_Colors:
-    - _Color: {r: 1, g: 0.63763845, b: 0, a: 0}
+    - _Color: {r: 1, g: 0.6392157, b: 0, a: 0}
     - _Logo_Offset: {r: -0.55, g: -1.52, b: 0, a: 0}
     - _Offset_Image: {r: 0.26, g: 0.04, b: 0, a: 0}
     - _Vector0: {r: -0.21, g: 0, b: 0, a: 0}

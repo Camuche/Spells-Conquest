@@ -17,6 +17,7 @@ Shader "SpellPickup"
 		_Whirl_Color("Whirl_Color", Color) = (1,0,0,0)
 		_WhirlSpeed("WhirlSpeed", Float) = 0
 		_WhirlRotationIntensity("WhirlRotationIntensity", Float) = 0
+		_hdr("hdr", Float) = 0
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
 	}
@@ -37,6 +38,7 @@ Shader "SpellPickup"
 		};
 
 		uniform float4 _Color;
+		uniform float _hdr;
 		uniform float4 _Whirl_Color;
 		uniform float _Whirl_Fade;
 		uniform float2 _Whirl_Offset;
@@ -70,7 +72,7 @@ Shader "SpellPickup"
 			float temp_output_20_0_g2 = ( abs( ( temp_output_15_0_g2 - round( temp_output_15_0_g2 ) ) ) * 2.0 );
 			float smoothstepResult22_g2 = smoothstep( 0.45 , 0.55 , temp_output_20_0_g2);
 			float smoothstepResult89 = smoothstep( 0.0 , _Whirl_Fade , ( ( 1.0 - appendResult23_g1.x ) * smoothstepResult22_g2 ));
-			float4 lerpResult75 = lerp( _Color , _Whirl_Color , smoothstepResult89);
+			float4 lerpResult75 = lerp( ( _Color * _hdr ) , ( _Whirl_Color * _hdr ) , smoothstepResult89);
 			float2 temp_cast_0 = (_Logo_Tiling).xx;
 			float2 uv_TexCoord23 = i.uv_texcoord * temp_cast_0 + _Logo_Offset;
 			float4 tex2DNode22 = tex2D( _TextureSample1, uv_TexCoord23 );
@@ -114,17 +116,20 @@ Node;AmplifyShaderEditor.SimpleMultiplyOpNode;99;-2085.329,-602.1913;Inherit;Fal
 Node;AmplifyShaderEditor.SmoothstepOpNode;89;-1279.628,-853.8911;Inherit;True;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;90;-1492.228,-631.991;Inherit;False;Property;_Whirl_Fade;Whirl_Fade;9;0;Create;True;0;0;0;False;0;False;0;4.5;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.LerpOp;75;-927.8585,-461.821;Inherit;True;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.ColorNode;2;-1275.929,-621.7101;Inherit;False;Property;_Color;Color;0;0;Create;True;0;0;0;False;0;False;1,0.7882353,0,0;1,0.6376384,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;78;-1283.969,-450.4481;Inherit;False;Property;_Whirl_Color;Whirl_Color;10;0;Create;True;0;0;0;False;0;False;1,0,0,0;1,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.RangedFloatNode;7;-1037.863,144.6658;Inherit;False;Property;_Fresnel_Bias;Fresnel_Bias;1;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;10;-1037.863,211.6657;Inherit;False;Property;_Fresnel_Scale;Fresnel_Scale;2;0;Create;True;0;0;0;False;0;False;1;0.015;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;11;-1040.863,278.6658;Inherit;False;Property;_Fresnel_Power;Fresnel_Power;3;0;Create;True;0;0;0;False;0;False;5;1.26;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;11;-1040.863,278.6658;Inherit;False;Property;_Fresnel_Power;Fresnel_Power;3;0;Create;True;0;0;0;False;0;False;5;1.95;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.FresnelNode;3;-726.865,96.66575;Inherit;True;Standard;WorldNormal;ViewDir;False;False;5;0;FLOAT3;0,0,1;False;4;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;5;False;1;FLOAT;0
 Node;AmplifyShaderEditor.ClampOpNode;5;-381.0927,97.10204;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.LerpOp;4;-125.1036,47.80294;Inherit;True;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.RangedFloatNode;12;-384.8886,18.08771;Inherit;False;Property;_Bloom;Bloom;5;0;Create;True;0;0;0;False;0;False;1;65.33;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.FunctionNode;109;-2128.47,-855.8256;Inherit;False;Polar Coordinates;-1;;1;7dab8e02884cf104ebefaa2e788e4162;0;4;1;FLOAT2;0,0;False;2;FLOAT2;0.5,0.5;False;3;FLOAT;1;False;4;FLOAT;0;False;1;FLOAT2;0
 Node;AmplifyShaderEditor.FunctionNode;110;-1844.47,-733.8256;Inherit;False;Whirl;-1;;2;7d75aee9e4d352a4299928ac98404afc;2,26,0,25,1;6;27;FLOAT2;0,0;False;1;FLOAT2;1,1;False;7;FLOAT2;0.5,0.5;False;16;FLOAT;8;False;21;FLOAT;2;False;10;FLOAT;1;False;1;FLOAT;0
+Node;AmplifyShaderEditor.ColorNode;2;-1792.929,-553.7101;Inherit;False;Property;_Color;Color;0;0;Create;True;0;0;0;False;0;False;1,0.7882353,0,0;1,0.6392157,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;78;-1800.969,-382.4481;Inherit;False;Property;_Whirl_Color;Whirl_Color;10;0;Create;True;0;0;0;False;0;False;1,0,0,0;1,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.RangedFloatNode;112;-1542.092,-428.8684;Inherit;False;Property;_hdr;hdr;13;0;Create;True;0;0;0;False;0;False;0;1.54;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;111;-1260.092,-554.8684;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;113;-1201.092,-383.8684;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
 WireConnection;0;2;4;0
 WireConnection;21;0;75;0
 WireConnection;21;1;22;0
@@ -145,8 +150,8 @@ WireConnection;99;0;97;0
 WireConnection;99;1;100;0
 WireConnection;89;0;69;0
 WireConnection;89;2;90;0
-WireConnection;75;0;2;0
-WireConnection;75;1;78;0
+WireConnection;75;0;111;0
+WireConnection;75;1;113;0
 WireConnection;75;2;89;0
 WireConnection;3;1;7;0
 WireConnection;3;2;10;0
@@ -158,5 +163,9 @@ WireConnection;4;2;5;0
 WireConnection;109;1;84;0
 WireConnection;110;7;88;0
 WireConnection;110;10;99;0
+WireConnection;111;0;2;0
+WireConnection;111;1;112;0
+WireConnection;113;0;78;0
+WireConnection;113;1;112;0
 ASEEND*/
-//CHKSM=CB46749A36E55293BD0AB91AA15B6827A50F6926
+//CHKSM=8109E47BAE6BEE3C5BC6598DD90C90824F6B7DB1
