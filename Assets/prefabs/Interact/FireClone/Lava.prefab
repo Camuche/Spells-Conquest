@@ -110,9 +110,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   continuous: 1
-  damage: 100
-  instaKill: 1
+  damage: 25
+  instaKill: 0
   canDamageEnemies: 1
+  scaleWithShop: 0
 --- !u!208 &7390900146155740961
 NavMeshObstacle:
   m_ObjectHideFlags: 0

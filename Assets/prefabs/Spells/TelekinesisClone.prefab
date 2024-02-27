@@ -119,7 +119,7 @@ MonoBehaviour:
   cooldown: 5
   attractSpeed: 0.008
   enemyAttarctForce: 50
-  enemyAttarctDist: 20
+  enemyAttarctDist: 15
   playerStopDistance: 1.5
   attractProjectiles: 0
 --- !u!54 &6608447528960613345
@@ -165,7 +165,7 @@ Transform:
   m_GameObject: {fileID: 8697500818013409408}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.004625082, y: -0.052410364, z: 0}
-  m_LocalScale: {x: 35, y: 35, z: 35}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 838386325406439888}
   m_RootOrder: 1
