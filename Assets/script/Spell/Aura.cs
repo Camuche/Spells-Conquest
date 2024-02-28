@@ -20,4 +20,9 @@ public class Aura : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public void AuraInstantiate(Transform objectTransform)
+    {
+        Instantiate(gameObject, objectTransform.position, Quaternion.identity);
+    }
 }

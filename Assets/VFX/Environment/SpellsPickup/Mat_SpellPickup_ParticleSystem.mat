@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fireball_Impact
-  m_Shader: {fileID: 4800000, guid: 3a8d968e8715bae42b85823689a8639d, type: 3}
+  m_Name: Mat_SpellPickup_ParticleSystem
+  m_Shader: {fileID: 4800000, guid: 588de23f1c6fdad4abb6f2933875240c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -19,8 +19,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Impact_Star:
-        m_Texture: {fileID: 2800000, guid: f8d708ba0178fe243becac3ff3e34a36, type: 3}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: 9a7aaac80d61f084ea9c5e139650da27, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -28,17 +28,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _ASEOutlineWidth: 0
-    - _Cutoff: 0.5
-    - _Float0: 100
-    - _Float1: 33.5
-    - _Fresnel_Power: 0.52
-    - _Fresnel_Scale: 1.18
-    - _HDR: 1.4
-    - _Opacity: 1
-    - _Outline_Width: 0.01
+    - _Ellipse_Size: 0.03
+    - _Float5: 0
+    - _HDRParticle: 1000
     - __dirty: 0
-    m_Colors:
-    - _Offset_Image: {r: 0.26, g: 0.04, b: 0, a: 0}
-    - _Vector0: {r: 0.26, g: 0.05, b: 0, a: 0}
+    m_Colors: []
   m_BuildTextureStacks: []

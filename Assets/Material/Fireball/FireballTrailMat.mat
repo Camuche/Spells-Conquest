@@ -33,12 +33,13 @@ Material:
     - _EdgeLength: 15
     - _FADE: 1.61
     - _Float0: 0.12
+    - _HDR: 3
     - _MovementSize: 4.22
     - _Opacity: 0.4
     - _Speed: 1
     - _TrailLength: 0.1
     - __dirty: 0
     m_Colors:
-    - _Color: {r: 1, g: 0.68235296, b: 0, a: 0}
-    - _ColorFade: {r: 1, g: 0.2, b: 0, a: 0}
+    - _Color: {r: 1, g: 0.6117801, b: 0, a: 0}
+    - _ColorFade: {r: 1, g: 0.15851615, b: 0, a: 0}
   m_BuildTextureStacks: []

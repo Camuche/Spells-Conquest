@@ -27,6 +27,7 @@ Material:
     - _EdgeLength: 15
     - _Float0: 0.56
     - _Float2: 0.5
+    - _HDR: 1.4
     - _NoiseScale: 0.77
     - _Offset_Higher: 0.84
     - _Offsett_Lower: 0

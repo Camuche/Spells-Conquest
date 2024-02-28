@@ -38,7 +38,7 @@ Material:
     - _TessMin: 10
     - _TessValue: 15
     - _TimeScale: 0.42
-    - _VertexOffset_Intensity: 1.32
+    - _VertexOffset_Intensity: 1.5
     - __dirty: 0
     m_Colors:
     - _Color0: {r: 0.10636133, g: 0.6415094, b: 0, a: 0}

@@ -6,6 +6,7 @@ public class Pot : MonoBehaviour
 {
     [SerializeField] private GameObject money;
     [SerializeField] private int potMoneyNumber;
+
     float isEnlightened;
     GameObject cristal;
     float lerpTime;
@@ -36,7 +37,8 @@ public class Pot : MonoBehaviour
             {
                 Instantiate(money, transform.position +new Vector3(Random.Range(-1f,1f),0,Random.Range(-1f,1f)), transform.rotation * Quaternion.Euler(0,Random.Range(-180f,180f),0));
             }
-            //change color
+
+            //do once
             changeColor = true;
         }
     }

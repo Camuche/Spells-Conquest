@@ -27,9 +27,10 @@ Material:
     - _Float0: 1
     - _Float1: 0
     - _Float2: 3
-    - _Float3: 1.23
-    - _Fresnel_Power: 1.37
-    - _Fresnel_Scale: 2.25
+    - _Float3: 9970.39
+    - _Float4: 3.82
+    - _Fresnel_Power: 18.28
+    - _Fresnel_Scale: 4
     - _Max: 1
     - _Min: 0
     - _NoiseScale: 14.05
@@ -41,7 +42,7 @@ Material:
     - _VoronoisScale: 7.02
     - _WaveIntensity: 0.1
     - __dirty: 0
-    - _hdr: 1.24
+    - _hdr: 1.7
     m_Colors:
     - _Color0: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

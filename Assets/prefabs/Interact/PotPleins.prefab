@@ -4869,6 +4869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 8151259076252225134, guid: 7ed868fa4092dba41b5b11d7eb78d99b, type: 3}
   potMoneyNumber: 1
+  auraGo: {fileID: 6538530026207656442, guid: af772c07065b89d4388decffc2d5e6d2, type: 3}
   lerpSpeed: 1
 --- !u!114 &6922900922690880806
 MonoBehaviour:

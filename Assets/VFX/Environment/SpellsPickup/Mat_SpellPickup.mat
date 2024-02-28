@@ -40,7 +40,7 @@ Material:
     - _WhirlSpeed: 1
     - _Whirl_Fade: 4.5
     - __dirty: 0
-    - _hdr: 1.21
+    - _hdr: 1.3
     m_Colors:
     - _Color: {r: 1, g: 0.6392157, b: 0, a: 0}
     - _Logo_Offset: {r: -0.55, g: -1.52, b: 0, a: 0}
