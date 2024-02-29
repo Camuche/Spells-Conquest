@@ -122,7 +122,7 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
   grav: 15
-  followDistance: 15
+  followDistance: 30
   minDistance: 2
   rotationSpeed: 5
   attackDuration: 0
@@ -218,10 +218,10 @@ MonoBehaviour:
   Laser: {fileID: 2941706858298650370, guid: d0787c7befe9ae54cb8dadd90ceb3cee, type: 3}
   enemyShield: {fileID: 337749727935250985, guid: e8ea05cceb08d594ca8f934a22a45199,
     type: 3}
-  activeTimer: 2
-  cooldownTimer: 1
+  activeTimer: 3
+  cooldownTimer: 3
   _laserStart: {x: 0, y: 0, z: 0}
-  chargingAnimationTime: 1
+  chargingAnimationTime: 2
   matCharging: {fileID: 2100000, guid: d8cfd64c1bed43e4d98e42f78ea6da9f, type: 2}
   matNormal: {fileID: 2100000, guid: c274618fcc4e4264aa0e5c6614191a13, type: 2}
 --- !u!1 &4171055391408100206
@@ -442,7 +442,7 @@ Transform:
   m_GameObject: {fileID: 7617076521132675618}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 30, y: 30, z: 30}
+  m_LocalScale: {x: 60, y: 60, z: 60}
   m_Children: []
   m_Father: {fileID: 484699292189609001}
   m_RootOrder: 2

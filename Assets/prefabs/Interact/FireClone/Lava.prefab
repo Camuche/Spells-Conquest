@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   continuous: 1
-  damage: 25
+  damage: 100
   instaKill: 0
   canDamageEnemies: 1
   scaleWithShop: 0
