@@ -9,12 +9,11 @@ Shader "SpellPickupFlame"
 		_Fresnel_Scale("Fresnel_Scale", Float) = 1
 		_Float4("Float 4", Float) = 0.06
 		_Float5("Float 5", Float) = 1
-		_HDR("HDR", Float) = 0
-		_ColorFresnel("ColorFresnel", Color) = (0,0,0,0)
+		[HDR]_ColorFresnel("ColorFresnel", Color) = (0,0,0,0)
 		_Color_Fresnel_Scale("Color_Fresnel_Scale", Float) = 0
 		_Color_Fresnel_Power("Color_Fresnel_Power", Float) = 0
 		_Fresnel_Power("Fresnel_Power", Float) = 5
-		_Color("Color", Color) = (0,0,0,0)
+		[HDR]_Color("Color", Color) = (0,0,0,0)
 		_VertexOffsetIntensity("VertexOffsetIntensity", Float) = 0.2
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
@@ -43,7 +42,6 @@ Shader "SpellPickupFlame"
 		uniform float _Float5;
 		uniform float _VertexOffsetIntensity;
 		uniform float4 _Color;
-		uniform float _HDR;
 		uniform float4 _ColorFresnel;
 		uniform float _Color_Fresnel_Scale;
 		uniform float _Color_Fresnel_Power;
@@ -159,7 +157,7 @@ Shader "SpellPickupFlame"
 			float fresnelNdotV74 = dot( ase_worldNormal, ase_worldViewDir );
 			float fresnelNode74 = ( 0.0 + _Color_Fresnel_Scale * pow( 1.0 - fresnelNdotV74, _Color_Fresnel_Power ) );
 			float clampResult81 = clamp( fresnelNode74 , 0.0 , 1.0 );
-			float4 lerpResult77 = lerp( ( _Color * _HDR ) , ( _ColorFresnel * _HDR ) , clampResult81);
+			float4 lerpResult77 = lerp( _Color , _ColorFresnel , clampResult81);
 			o.Emission = lerpResult77.rgb;
 			float fresnelNdotV5 = dot( ase_worldNormal, ase_worldViewDir );
 			float fresnelNode5 = ( _Fresnel_Bias + _Fresnel_Scale * pow( 1.0 - fresnelNdotV5, _Fresnel_Power ) );
@@ -193,9 +191,9 @@ Node;AmplifyShaderEditor.TextureCoordinatesNode;32;-1228.731,807.1288;Inherit;Fa
 Node;AmplifyShaderEditor.TFHCRemapNode;38;-1004.229,857.3288;Inherit;True;5;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;0;False;4;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;36;-1172.831,928.9295;Inherit;False;Property;_Float4;Float 4;7;0;Create;True;0;0;0;False;0;False;0.06;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;37;-1171.831,998.9301;Inherit;False;Property;_Float5;Float 5;8;0;Create;True;0;0;0;False;0;False;1;1.2;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;24;-751.8147,423.1644;Inherit;False;Property;_VertexOffsetIntensity;VertexOffsetIntensity;15;0;Create;True;0;0;0;False;0;False;0.2;0.3;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;24;-751.8147,423.1644;Inherit;False;Property;_VertexOffsetIntensity;VertexOffsetIntensity;14;0;Create;True;0;0;0;False;0;False;0.2;0.3;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;7;-1341.462,42.22228;Inherit;False;Property;_Fresnel_Scale;Fresnel_Scale;6;0;Create;True;0;0;0;False;0;False;1;52.03;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;8;-1342.462,111.2222;Inherit;False;Property;_Fresnel_Power;Fresnel_Power;13;0;Create;True;0;0;0;False;0;False;5;5;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;8;-1342.462,111.2222;Inherit;False;Property;_Fresnel_Power;Fresnel_Power;12;0;Create;True;0;0;0;False;0;False;5;5;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;6;-1341.462,-24.77776;Inherit;False;Property;_Fresnel_Bias;Fresnel_Bias;5;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.ClampOpNode;10;-786.4622,-70.7778;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.FresnelNode;5;-1083.462,-70.7778;Inherit;True;Standard;WorldNormal;ViewDir;False;False;5;0;FLOAT3;0,0,1;False;4;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;5;False;1;FLOAT;0
@@ -215,17 +213,14 @@ Node;AmplifyShaderEditor.Vector2Node;18;-1512.994,357.6047;Inherit;False;Constan
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;19;-1341.994,358.6047;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0
 Node;AmplifyShaderEditor.SimpleTimeNode;20;-1540.994,476.6049;Inherit;False;1;0;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.TextureCoordinatesNode;17;-1186.994,311.6051;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;78;-884.0132,-908.611;Inherit;False;Property;_ColorFresnel;ColorFresnel;10;0;Create;True;0;0;0;False;0;False;0,0,0,0;1,0.4486697,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.FresnelNode;74;-682.1664,-1126.88;Inherit;True;Standard;WorldNormal;ViewDir;False;False;5;0;FLOAT3;0,0,1;False;4;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;5;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;82;-964.465,-1117.521;Inherit;False;Property;_Color_Fresnel_Scale;Color_Fresnel_Scale;11;0;Create;True;0;0;0;False;0;False;0;3.85;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;84;-958.2515,-1035.598;Inherit;False;Property;_Color_Fresnel_Power;Color_Fresnel_Power;12;0;Create;True;0;0;0;False;0;False;0;5.2;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;82;-964.465,-1117.521;Inherit;False;Property;_Color_Fresnel_Scale;Color_Fresnel_Scale;10;0;Create;True;0;0;0;False;0;False;0;3.85;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;84;-958.2515,-1035.598;Inherit;False;Property;_Color_Fresnel_Power;Color_Fresnel_Power;11;0;Create;True;0;0;0;False;0;False;0;5.2;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.ClampOpNode;81;-364.6369,-1128.941;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;75;-466.8438,-717.5648;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;79;-476.8963,-909.4611;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.RangedFloatNode;76;-672.6173,-813.0604;Inherit;False;Property;_HDR;HDR;9;0;Create;True;0;0;0;False;0;False;0;1.2;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.ColorNode;11;-886.5328,-715.5692;Inherit;False;Property;_Color;Color;14;0;Create;True;0;0;0;False;0;False;0,0,0,0;1,0.6641017,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.LerpOp;77;-160.7353,-934.8171;Inherit;True;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;216.3947,-49.08405;Float;False;True;-1;6;ASEMaterialInspector;0;0;Unlit;SpellPickupFlame;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;False;False;False;False;False;False;Back;0;False;;0;False;;False;0;False;;0;False;;False;0;Transparent;0.5;True;False;0;False;Transparent;;Transparent;All;12;all;True;True;True;True;0;False;;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;True;2;2;10;25;False;0.5;False;2;5;False;;10;False;;0;0;False;;0;False;;0;False;;0;False;;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;True;Relative;0;;-1;-1;-1;0;0;False;0;0;False;;-1;0;False;;0;0;0;False;0.1;False;;0;False;;False;16;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;16;FLOAT4;0,0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
+Node;AmplifyShaderEditor.ColorNode;11;-896,-896;Inherit;False;Property;_Color;Color;13;1;[HDR];Create;True;0;0;0;False;0;False;0,0,0,0;0.9811321,0.7996426,0.4026344,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;78;-896,-704;Inherit;False;Property;_ColorFresnel;ColorFresnel;9;1;[HDR];Create;True;0;0;0;False;0;False;0,0,0,0;1,0.5723677,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 WireConnection;21;0;10;0
 WireConnection;21;1;3;0
 WireConnection;21;2;31;0
@@ -259,15 +254,11 @@ WireConnection;17;1;19;0
 WireConnection;74;2;82;0
 WireConnection;74;3;84;0
 WireConnection;81;0;74;0
-WireConnection;75;0;11;0
-WireConnection;75;1;76;0
-WireConnection;79;0;78;0
-WireConnection;79;1;76;0
-WireConnection;77;0;75;0
-WireConnection;77;1;79;0
+WireConnection;77;0;11;0
+WireConnection;77;1;78;0
 WireConnection;77;2;81;0
 WireConnection;0;2;77;0
 WireConnection;0;9;44;0
 WireConnection;0;11;21;0
 ASEEND*/
-//CHKSM=AEAF916E5B851750E71CDA410D26D338755721B9
+//CHKSM=ABE1F52B7A9596F822D43A6630C975922F9F18F0
