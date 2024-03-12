@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4350249003128149887}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &4350249001498059558
 SphereCollider:
@@ -73,7 +73,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4350249003128149887}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &4350249001605195358
 Light:
@@ -264,7 +264,7 @@ Transform:
   m_LocalScale: {x: 1.4352003, y: 1.4352001, z: 1.4352005}
   m_Children: []
   m_Father: {fileID: 4350249003128149887}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -72.214, y: -41.116, z: 39.731}
 --- !u!33 &4350249002611618909
 MeshFilter:
@@ -293,7 +293,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c9ab19bff6e7f2d4abee2df315ddbe17, type: 2}
+  - {fileID: 2100000, guid: 22da26005d744b5469f264f86587def4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -360,7 +360,7 @@ Transform:
   m_LocalScale: {x: 0.54279006, y: 0.54279006, z: 0.54279}
   m_Children: []
   m_Father: {fileID: 4350249003128149887}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -76.447, y: 0, z: 51.406}
 --- !u!33 &4350249002639640043
 MeshFilter:
@@ -389,7 +389,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c9ab19bff6e7f2d4abee2df315ddbe17, type: 2}
+  - {fileID: 2100000, guid: 22da26005d744b5469f264f86587def4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -456,7 +456,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4350249003128149887}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -70.372, y: 39.134, z: -38.578}
 --- !u!33 &4350249002925898426
 MeshFilter:
@@ -485,7 +485,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c9ab19bff6e7f2d4abee2df315ddbe17, type: 2}
+  - {fileID: 2100000, guid: 22da26005d744b5469f264f86587def4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -548,12 +548,12 @@ Transform:
   m_LocalPosition: {x: 18.600454, y: -0.002, z: -14.139976}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4350249001498059559}
   - {fileID: 4350249002639640046}
   - {fileID: 4350249002611618848}
-  - {fileID: 4350249002492381997}
   - {fileID: 4350249002925898425}
+  - {fileID: 4350249002492381997}
   - {fileID: 4350249001605195359}
+  - {fileID: 4350249001498059559}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
