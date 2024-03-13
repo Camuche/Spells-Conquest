@@ -218,10 +218,10 @@ MonoBehaviour:
   Laser: {fileID: 2941706858298650370, guid: d0787c7befe9ae54cb8dadd90ceb3cee, type: 3}
   enemyShield: {fileID: 337749727935250985, guid: e8ea05cceb08d594ca8f934a22a45199,
     type: 3}
-  activeTimer: 3
-  cooldownTimer: 3
+  activeTimer: 2
+  cooldownTimer: 2
   _laserStart: {x: 0, y: 0, z: 0}
-  chargingAnimationTime: 2
+  chargingAnimationTime: 1.5
   matCharging: {fileID: 2100000, guid: d8cfd64c1bed43e4d98e42f78ea6da9f, type: 2}
   matNormal: {fileID: 2100000, guid: c274618fcc4e4264aa0e5c6614191a13, type: 2}
 --- !u!1 &4171055391408100206
