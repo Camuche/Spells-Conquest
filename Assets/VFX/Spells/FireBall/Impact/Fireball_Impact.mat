@@ -39,6 +39,9 @@ Material:
     - _Outline_Width: 0.01
     - __dirty: 0
     m_Colors:
+    - _Color0: {r: 2.1185474, g: 2.1185474, b: 0, a: 0}
+    - _Color1: {r: 0.7490196, g: 0.42352942, b: 0, a: 0}
+    - _Color3: {r: 1.7207954, g: 1.7207954, b: 1.7207954, a: 0}
     - _Offset_Image: {r: 0.26, g: 0.04, b: 0, a: 0}
     - _Vector0: {r: 0.26, g: 0.05, b: 0, a: 0}
   m_BuildTextureStacks: []

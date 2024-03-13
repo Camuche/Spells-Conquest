@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fireball_Trail
-  m_Shader: {fileID: 4800000, guid: fc40ef7ab32938b4fb452bfc3b6f8c7b, type: 3}
+  m_Name: Ember
+  m_Shader: {fileID: 4800000, guid: 44da47f585128a142a5cbbc967b34c43, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -24,20 +24,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _EdgeLength: 15
-    - _Float0: 0.56
-    - _Float2: 0.5
-    - _HDR: 1.4
-    - _NoiseScale: 0.77
-    - _Offset_Higher: 0.84
-    - _Offsett_Lower: 0
-    - _Speed: 2
-    - _Tess: 6.07
-    - _VertexOffset_Intensity: 1
-    - _VoronoisScale: 6.05
+    - _Cutoff: 0.5
+    - _EllipseSize: 0.5
     - __dirty: 0
     m_Colors:
-    - _Color0: {r: 3.9533494, g: 2.6493652, b: 0, a: 0}
-    - _Color1: {r: 766.9961, g: 0, b: 0, a: 0}
-    - _Vector2: {r: 53.3, g: 1.22, b: 0, a: 0}
+    - _Color0: {r: 31.999996, g: 31.999996, b: 0, a: 0}
+    - _Color1: {r: 15.999998, g: 15.999998, b: 15.999998, a: 0}
   m_BuildTextureStacks: []
