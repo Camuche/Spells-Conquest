@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
   m_Name: ColorGrading
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -134,7 +134,7 @@ MonoBehaviour:
     defaultState: 1
   tonemapper:
     overrideState: 1
-    value: 0
+    value: 2
   toneCurveToeStrength:
     overrideState: 0
     value: 0
@@ -162,13 +162,13 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: 20
+    value: 0
   tint:
     overrideState: 1
     value: 10
   colorFilter:
-    overrideState: 0
-    value: {r: 1, g: 1, b: 1, a: 1}
+    overrideState: 1
+    value: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
   hueShift:
     overrideState: 0
     value: 6
@@ -182,8 +182,8 @@ MonoBehaviour:
     overrideState: 1
     value: 0.1
   contrast:
-    overrideState: 0
-    value: 5
+    overrideState: 1
+    value: 2
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -1438,7 +1438,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 2
+    value: 6
   threshold:
     overrideState: 0
     value: 1
@@ -1449,7 +1449,7 @@ MonoBehaviour:
     overrideState: 0
     value: 65472
   diffusion:
-    overrideState: 0
+    overrideState: 1
     value: 7
   anamorphicRatio:
     overrideState: 0
@@ -1510,7 +1510,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.05
+    value: 0.1
   fastMode:
     overrideState: 0
     value: 0
@@ -1580,8 +1580,8 @@ MonoBehaviour:
     overrideState: 0
     value: -12
   thicknessModifier:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 2
   directLightingStrength:
     overrideState: 0
     value: 0

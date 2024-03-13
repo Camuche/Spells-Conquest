@@ -16,6 +16,16 @@ namespace AmplifyShaderEditor
 		{
 			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "32120270d1b3a8746af2aca8bc749736" );
 		}
+		[MenuItem( "Assets/Create/Amplify Shader/Impostors/Baking/Bake", false, 85 )]
+		public static void ApplyTemplateImpostorsBakingBake()
+		{
+			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "f53051a8190f7044fa936bd7fbe116c1" );
+		}
+		[MenuItem( "Assets/Create/Amplify Shader/Impostors/Lit", false, 85 )]
+		public static void ApplyTemplateImpostorsLit()
+		{
+			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "30a8e337ed84177439ca24b6a5c97cd1" );
+		}
 		[MenuItem( "Assets/Create/Amplify Shader/Legacy/Default Sprites", false, 85 )]
 		public static void ApplyTemplateLegacyDefaultSprites()
 		{
@@ -55,6 +65,11 @@ namespace AmplifyShaderEditor
 		public static void ApplyTemplateLegacyUnlitLightmap()
 		{
 			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "899e609c083c74c4ca567477c39edef0" );
+		}
+		[MenuItem( "Assets/Create/Amplify Shader/Templates/Decal", false, 85 )]
+		public static void ApplyTemplateTemplatesDecal()
+		{
+			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "99f74bfe1fdf4764b936db37f1d97333" );
 		}
 		[MenuItem( "Assets/Create/Amplify Shader/Templates/UI-Default", false, 85 )]
 		public static void ApplyTemplateTemplatesUIDefault()
