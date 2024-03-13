@@ -58,3 +58,339 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+Assets/Knife/Decal Master/Samples/Materials/Wall.mat
+Assets/Knife/Decal Master/Samples/Materials/Wall.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/WallBrickDecal 1.mat
+Assets/Knife/Decal Master/Samples/Materials/WallBrickDecal 1.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/WallBrickDecal 2.mat
+Assets/Knife/Decal Master/Samples/Materials/WallBrickDecal 2.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/WallDamage Decal 1.mat
+Assets/Knife/Decal Master/Samples/Materials/WallDamage Decal 1.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/WallDamage Decal 2.mat
+Assets/Knife/Decal Master/Samples/Materials/WallDamage Decal 2.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/WallDamage Decal 3.mat
+Assets/Knife/Decal Master/Samples/Materials/WallDamage Decal 3.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/WallDamage Decal 4.mat
+Assets/Knife/Decal Master/Samples/Materials/WallDamage Decal 4.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/WallDamage Decal 5.mat
+Assets/Knife/Decal Master/Samples/Materials/WallDamage Decal 5.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/WallDamage Decal 6.mat
+Assets/Knife/Decal Master/Samples/Materials/WallDamage Decal 6.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/WallDamage Decal 7.mat
+Assets/Knife/Decal Master/Samples/Materials/WallDamage Decal 7.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/WallDamage Decal 8.mat
+Assets/Knife/Decal Master/Samples/Materials/WallDamage Decal 8.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/WallDamageBullet Decal.mat
+Assets/Knife/Decal Master/Samples/Materials/WallDamageBullet Decal.mat.meta
+Assets/Knife/Decal Master/Samples/Animation.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples.meta
+Assets/Knife/Decal Master/Samples/Materials.meta
+Assets/Knife/Decal Master/Samples/Models.meta
+Assets/Knife/Decal Master/Samples/Prefabs.meta
+Assets/Knife/Decal Master/Samples/Scenes.meta
+Assets/Knife/Decal Master/Samples/Scripts.meta
+Assets/Knife/Decal Master/Samples/Templates.meta
+Assets/Knife/Decal Master/Samples/Textures.meta
+Assets/Knife/Decal Master/Samples/Animation/SimpleMove.controller
+Assets/Knife/Decal Master/Samples/Animation/SimpleMove.controller.meta
+Assets/Knife/Decal Master/Samples/Animation/SimpleMoveLoop.anim
+Assets/Knife/Decal Master/Samples/Animation/SimpleMoveLoop.anim.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/Scenes.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/Scenes/FPSController Implementation Example.unity
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Animation.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Materials.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Prefabs.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Scripts.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Animation/Idle.anim
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Animation/Idle.anim.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Animation/Pistol.controller
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Animation/Pistol.controller.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Animation/Shot.anim
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Animation/Shot.anim.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Materials/MetalBulletHole.mat
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Materials/MetalBulletHole.mat.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Materials/PaintBallDecal.mat
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Materials/PaintBallDecal.mat.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Materials/Pistol.mat
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Materials/Pistol.mat.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Materials/WoodBulletHole.mat
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Materials/WoodBulletHole.mat.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Prefabs/Player.prefab
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Prefabs/Player.prefab.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Scripts/Hands.cs
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Scripts/Hands.cs.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Scripts/Hittable.cs
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Scripts/Hittable.cs.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Scripts/PlayerController.cs
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Scripts/PlayerController.cs.meta
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Scripts/Weapon.cs
+Assets/Knife/Decal Master/Samples/ImplementationExamples/SimpleController/Scripts/Weapon.cs.meta
+Assets/Knife/Decal Master/Samples/Materials/Black.mat
+Assets/Knife/Decal Master/Samples/Materials/Black.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/BloodTrail.mat
+Assets/Knife/Decal Master/Samples/Materials/BloodTrail.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Checker.mat
+Assets/Knife/Decal Master/Samples/Materials/Checker.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Decal Line Long 1.mat
+Assets/Knife/Decal Master/Samples/Materials/Decal Line Long 1.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Decal Line Long 2.mat
+Assets/Knife/Decal Master/Samples/Materials/Decal Line Long 2.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Decal Line Small 1.mat
+Assets/Knife/Decal Master/Samples/Materials/Decal Line Small 1.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Decal Line Small 2.mat
+Assets/Knife/Decal Master/Samples/Materials/Decal Line Small 2.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Decal Line Small 3.mat
+Assets/Knife/Decal Master/Samples/Materials/Decal Line Small 3.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Decal Line Small 4.mat
+Assets/Knife/Decal Master/Samples/Materials/Decal Line Small 4.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Decal White.mat
+Assets/Knife/Decal Master/Samples/Materials/Decal White.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/garage asphalt.mat
+Assets/Knife/Decal Master/Samples/Materials/garage asphalt.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/garage door 1.mat
+Assets/Knife/Decal Master/Samples/Materials/garage door 1.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/garage frame 1.mat
+Assets/Knife/Decal Master/Samples/Materials/garage frame 1.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/GPURaycastRuntimeSample.meta
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal 1.mat
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal 1.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal 2.mat
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal 2.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal 3.mat
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal 3.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal 4.mat
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal 4.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal 5.mat
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal 5.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal 6.mat
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal 6.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal 7.mat
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal 7.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal 8.mat
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal 8.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal Atlas.mat
+Assets/Knife/Decal Master/Samples/Materials/Graffiti Decal Atlas.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Knife logo 1.mat
+Assets/Knife/Decal Master/Samples/Materials/Knife logo 1.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/mechanism 1.mat
+Assets/Knife/Decal Master/Samples/Materials/mechanism 1.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/mechanism.mat
+Assets/Knife/Decal Master/Samples/Materials/mechanism.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI.meta
+Assets/Knife/Decal Master/Samples/Materials/Stuff Sample 1.meta
+Assets/Knife/Decal Master/Samples/Materials/TargetTest.mat
+Assets/Knife/Decal Master/Samples/Materials/TargetTest.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/TerrainDecalExample.mat
+Assets/Knife/Decal Master/Samples/Materials/TerrainDecalExample.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Tile.mat
+Assets/Knife/Decal Master/Samples/Materials/Tile.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/WallGraffitiDecal.mat
+Assets/Knife/Decal Master/Samples/Materials/WallGraffitiDecal.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/GPURaycastRuntimeSample/Decal.mat
+Assets/Knife/Decal Master/Samples/Materials/GPURaycastRuntimeSample/Decal.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/GPURaycastRuntimeSample/Target 1.mat
+Assets/Knife/Decal Master/Samples/Materials/GPURaycastRuntimeSample/Target 1.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/GPURaycastRuntimeSample/Target 2.mat
+Assets/Knife/Decal Master/Samples/Materials/GPURaycastRuntimeSample/Target 2.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/GPURaycastRuntimeSample/Target 3.mat
+Assets/Knife/Decal Master/Samples/Materials/GPURaycastRuntimeSample/Target 3.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Decal Number 2.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Decal Number 2.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Decal Number 3.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Decal Number 3.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Decal Number 7.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Decal Number 7.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Decal Number 8.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Decal Number 8.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 1.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 1.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 10.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 10.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 11.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 11.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 12.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 12.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 13.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 13.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 14.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 14.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 15.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 15.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 16.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 16.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 17.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 17.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 2.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 2.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 3.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 3.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 4.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 4.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 5.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 5.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 6.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 6.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 7.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 7.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 8.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 8.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 9.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/Scifi Decal 9.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/wall.mat
+Assets/Knife/Decal Master/Samples/Materials/SCIFI/wall.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Stuff Sample 1/Stuff Sample 1 Decal 1.mat
+Assets/Knife/Decal Master/Samples/Materials/Stuff Sample 1/Stuff Sample 1 Decal 1.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Stuff Sample 1/Stuff Sample 1 Decal 2.mat
+Assets/Knife/Decal Master/Samples/Materials/Stuff Sample 1/Stuff Sample 1 Decal 2.mat.meta
+Assets/Knife/Decal Master/Samples/Materials/Stuff Sample 1/Stuff Sample 1 Ground.mat
+Assets/Knife/Decal Master/Samples/Materials/Stuff Sample 1/Stuff Sample 1 Ground.mat.meta
+Assets/Knife/Decal Master/Samples/Models/GARAGE DOOR.FBX
+Assets/Knife/Decal Master/Samples/Models/GARAGE DOOR.FBX.meta
+Assets/Knife/Decal Master/Samples/Models/Knife LOGO 1.FBX
+Assets/Knife/Decal Master/Samples/Models/Knife LOGO 1.FBX.meta
+Assets/Knife/Decal Master/Samples/Models/wall SCIFI.FBX
+Assets/Knife/Decal Master/Samples/Models/wall SCIFI.FBX.meta
+Assets/Knife/Decal Master/Samples/Prefabs/Floor tile.prefab
+Assets/Knife/Decal Master/Samples/Prefabs/Floor tile.prefab.meta
+Assets/Knife/Decal Master/Samples/Prefabs/Knife LOGO 1.prefab
+Assets/Knife/Decal Master/Samples/Prefabs/Knife LOGO 1.prefab.meta
+Assets/Knife/Decal Master/Samples/Prefabs/parebrik.prefab
+Assets/Knife/Decal Master/Samples/Prefabs/parebrik.prefab.meta
+Assets/Knife/Decal Master/Samples/Prefabs/wall HAI-FI.prefab
+Assets/Knife/Decal Master/Samples/Prefabs/wall HAI-FI.prefab.meta
+Assets/Knife/Decal Master/Samples/Scenes/GPURaycastRealtime.unity
+Assets/Knife/Decal Master/Samples/Scenes/ParticleDecalSpawner.unity
+Assets/Knife/Decal Master/Samples/Scenes/Pools.unity
+Assets/Knife/Decal Master/Samples/Scenes/Pools.unity.meta
+Assets/Knife/Decal Master/Samples/Scenes/Samples.unity
+Assets/Knife/Decal Master/Samples/Scenes/Samples.unity.meta
+Assets/Knife/Decal Master/Samples/Scripts/ParticleBurstByMouse.cs
+Assets/Knife/Decal Master/Samples/Scripts/ParticleBurstByMouse.cs.meta
+Assets/Knife/Decal Master/Samples/Scripts/SimpleProjectile.cs
+Assets/Knife/Decal Master/Samples/Scripts/SimpleProjectile.cs.meta
+Assets/Knife/Decal Master/Samples/Templates/12345.asset
+Assets/Knife/Decal Master/Samples/Templates/12345.asset.meta
+Assets/Knife/Decal Master/Samples/Templates/Graffiti Kit.asset
+Assets/Knife/Decal Master/Samples/Templates/Graffiti Kit.asset.meta
+Assets/Knife/Decal Master/Samples/Textures/02.meta
+Assets/Knife/Decal Master/Samples/Textures/03.meta
+Assets/Knife/Decal Master/Samples/Textures/04.meta
+Assets/Knife/Decal Master/Samples/Textures/2_parebrik low_AlbedoTransparency.png
+Assets/Knife/Decal Master/Samples/Textures/2_parebrik low_AlbedoTransparency.png.meta
+Assets/Knife/Decal Master/Samples/Textures/2_parebrik low_Normal.png
+Assets/Knife/Decal Master/Samples/Textures/2_parebrik low_Normal.png.meta
+Assets/Knife/Decal Master/Samples/Textures/2_parebrik low_SpecularSmoothness.png
+Assets/Knife/Decal Master/Samples/Textures/2_parebrik low_SpecularSmoothness.png.meta
+Assets/Knife/Decal Master/Samples/Textures/4_garage door_AlbedoTransparency.png
+Assets/Knife/Decal Master/Samples/Textures/4_garage door_AlbedoTransparency.png.meta
+Assets/Knife/Decal Master/Samples/Textures/4_garage door_Normal.png
+Assets/Knife/Decal Master/Samples/Textures/4_garage door_Normal.png.meta
+Assets/Knife/Decal Master/Samples/Textures/4_garage door_SpecularSmoothness.png
+Assets/Knife/Decal Master/Samples/Textures/4_garage door_SpecularSmoothness.png.meta
+Assets/Knife/Decal Master/Samples/Textures/4_garage frame_AlbedoTransparency.png
+Assets/Knife/Decal Master/Samples/Textures/4_garage frame_AlbedoTransparency.png.meta
+Assets/Knife/Decal Master/Samples/Textures/4_garage frame_Normal.png
+Assets/Knife/Decal Master/Samples/Textures/4_garage frame_Normal.png.meta
+Assets/Knife/Decal Master/Samples/Textures/4_garage frame_SpecularSmoothness.png
+Assets/Knife/Decal Master/Samples/Textures/4_garage frame_SpecularSmoothness.png.meta
+Assets/Knife/Decal Master/Samples/Textures/4_mechanism_AlbedoTransparency.png
+Assets/Knife/Decal Master/Samples/Textures/4_mechanism_AlbedoTransparency.png.meta
+Assets/Knife/Decal Master/Samples/Textures/4_mechanism_Normal.png
+Assets/Knife/Decal Master/Samples/Textures/4_mechanism_Normal.png.meta
+Assets/Knife/Decal Master/Samples/Textures/4_mechanism_SpecularSmoothness.png
+Assets/Knife/Decal Master/Samples/Textures/4_mechanism_SpecularSmoothness.png.meta
+Assets/Knife/Decal Master/Samples/Textures/black.png
+Assets/Knife/Decal Master/Samples/Textures/black.png.meta
+Assets/Knife/Decal Master/Samples/Textures/blood_trail_AlbedoTransparency.png
+Assets/Knife/Decal Master/Samples/Textures/blood_trail_AlbedoTransparency.png.meta
+Assets/Knife/Decal Master/Samples/Textures/blood_trail_normal.png
+Assets/Knife/Decal Master/Samples/Textures/blood_trail_normal.png.meta
+Assets/Knife/Decal Master/Samples/Textures/Checkers.png
+Assets/Knife/Decal Master/Samples/Textures/Checkers.png.meta
+Assets/Knife/Decal Master/Samples/Textures/Graf.meta
+Assets/Knife/Decal Master/Samples/Textures/Knife LOGO 1_Knife logo 1_AlbedoTransparency.png
+Assets/Knife/Decal Master/Samples/Textures/Knife LOGO 1_Knife logo 1_AlbedoTransparency.png.meta
+Assets/Knife/Decal Master/Samples/Textures/Knife LOGO 1_Knife logo 1_Normal.png
+Assets/Knife/Decal Master/Samples/Textures/Knife LOGO 1_Knife logo 1_Normal.png.meta
+Assets/Knife/Decal Master/Samples/Textures/Knife LOGO 1_Knife logo 1_SpecularSmoothness.png
+Assets/Knife/Decal Master/Samples/Textures/Knife LOGO 1_Knife logo 1_SpecularSmoothness.png.meta
+Assets/Knife/Decal Master/Samples/Textures/lines 1.tga
+Assets/Knife/Decal Master/Samples/Textures/lines 1.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/lines2.tga
+Assets/Knife/Decal Master/Samples/Textures/lines2.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/MetalBulletHole.meta
+Assets/Knife/Decal Master/Samples/Textures/PaintBall.meta
+Assets/Knife/Decal Master/Samples/Textures/SCIFI.meta
+Assets/Knife/Decal Master/Samples/Textures/WhitePixel.png
+Assets/Knife/Decal Master/Samples/Textures/WhitePixel.png.meta
+Assets/Knife/Decal Master/Samples/Textures/WoodDecal.meta
+Assets/Knife/Decal Master/Samples/Textures/02/DECAL.meta
+Assets/Knife/Decal Master/Samples/Textures/02/MATERIAL.meta
+Assets/Knife/Decal Master/Samples/Textures/02/DECAL/decal meash1_decal_AlbedoTransparency.tga
+Assets/Knife/Decal Master/Samples/Textures/02/DECAL/decal meash1_decal_AlbedoTransparency.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/02/DECAL/decal meash1_decal_Normal.tga
+Assets/Knife/Decal Master/Samples/Textures/02/DECAL/decal meash1_decal_Normal.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/02/DECAL/decal meash1_decal_SpecularSmoothness.tga
+Assets/Knife/Decal Master/Samples/Textures/02/DECAL/decal meash1_decal_SpecularSmoothness.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/02/MATERIAL/decal meash1_base_AlbedoTransparency.tga
+Assets/Knife/Decal Master/Samples/Textures/02/MATERIAL/decal meash1_base_AlbedoTransparency.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/02/MATERIAL/decal meash1_base_Normal.tga
+Assets/Knife/Decal Master/Samples/Textures/02/MATERIAL/decal meash1_base_Normal.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/02/MATERIAL/decal meash1_base_SpecularSmoothness.tga
+Assets/Knife/Decal Master/Samples/Textures/02/MATERIAL/decal meash1_base_SpecularSmoothness.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/03/DECAL.meta
+Assets/Knife/Decal Master/Samples/Textures/03/DECAL/decal meash1_decal_AlbedoTransparency.tga
+Assets/Knife/Decal Master/Samples/Textures/03/DECAL/decal meash1_decal_AlbedoTransparency.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/03/DECAL/decal meash1_decal_Normal.tga
+Assets/Knife/Decal Master/Samples/Textures/03/DECAL/decal meash1_decal_Normal.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/03/DECAL/decal meash1_decal_SpecularSmoothness.tga
+Assets/Knife/Decal Master/Samples/Textures/03/DECAL/decal meash1_decal_SpecularSmoothness.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/04/Tile_Albedo.tga
+Assets/Knife/Decal Master/Samples/Textures/04/Tile_Albedo.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/04/Tile_Normal.tga
+Assets/Knife/Decal Master/Samples/Textures/04/Tile_Normal.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/04/Tile_SpecularSmoothness.tga
+Assets/Knife/Decal Master/Samples/Textures/04/Tile_SpecularSmoothness.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/Graf/graffiti_tags.tga
+Assets/Knife/Decal Master/Samples/Textures/Graf/graffiti_tags.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/MetalBulletHole/BulletHoleMetalThroughAlbedo.tif
+Assets/Knife/Decal Master/Samples/Textures/MetalBulletHole/BulletHoleMetalThroughAlbedo.tif.meta
+Assets/Knife/Decal Master/Samples/Textures/MetalBulletHole/BulletHoleMetalThroughNormals.tif
+Assets/Knife/Decal Master/Samples/Textures/MetalBulletHole/BulletHoleMetalThroughNormals.tif.meta
+Assets/Knife/Decal Master/Samples/Textures/MetalBulletHole/BulletHoleMetalThroughSpecular.tif
+Assets/Knife/Decal Master/Samples/Textures/MetalBulletHole/BulletHoleMetalThroughSpecular.tif.meta
+Assets/Knife/Decal Master/Samples/Textures/PaintBall/paint_splashes.tga
+Assets/Knife/Decal Master/Samples/Textures/PaintBall/paint_splashes.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/PaintBall/paint_splashes_nm.tga
+Assets/Knife/Decal Master/Samples/Textures/PaintBall/paint_splashes_nm.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/Numbers.tga
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/Numbers.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane two_Sci-Fi 1_AlbedoTransparency.tga
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane two_Sci-Fi 1_AlbedoTransparency.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane two_Sci-Fi 1_Emission.tga
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane two_Sci-Fi 1_Emission.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane two_Sci-Fi 1_Normal.tga
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane two_Sci-Fi 1_Normal.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane two_Sci-Fi 1_SpecularSmoothness.tga
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane two_Sci-Fi 1_SpecularSmoothness.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane two_Sci-Fi 2_AlbedoTransparency.tga
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane two_Sci-Fi 2_AlbedoTransparency.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane two_Sci-Fi 2_Normal.tga
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane two_Sci-Fi 2_Normal.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane two_Sci-Fi 2_SpecularSmoothness.tga
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane two_Sci-Fi 2_SpecularSmoothness.tga.meta
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane_two_Sci-Fi_1_Mask.png
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane_two_Sci-Fi_1_Mask.png.meta
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane_two_Sci-Fi_1_Normal.png
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/plane_two_Sci-Fi_1_Normal.png.meta
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/wall IST_wall_AlbedoTransparency.png
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/wall IST_wall_AlbedoTransparency.png.meta
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/wall IST_wall_Normal.png
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/wall IST_wall_Normal.png.meta
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/wall IST_wall_SpecularSmoothness.png
+Assets/Knife/Decal Master/Samples/Textures/SCIFI/wall IST_wall_SpecularSmoothness.png.meta
+Assets/Knife/Decal Master/Samples/Textures/WoodDecal/WoodBulletHoleAlbedo.tif
+Assets/Knife/Decal Master/Samples/Textures/WoodDecal/WoodBulletHoleAlbedo.tif.meta
+Assets/Knife/Decal Master/Samples/Textures/WoodDecal/WoodBulletHoleNormals.tif
+Assets/Knife/Decal Master/Samples/Textures/WoodDecal/WoodBulletHoleNormals.tif.meta
