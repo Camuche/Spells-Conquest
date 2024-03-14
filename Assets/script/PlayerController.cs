@@ -211,7 +211,7 @@ public class PlayerController : MonoBehaviour
             //movements();
         }
 
-        if(!isDead && !isCasting)
+        if(!isDead)// && !isCasting)
         {
             movements();
         }
@@ -319,8 +319,9 @@ public class PlayerController : MonoBehaviour
             movedir = Vector3.zero;
             if(canMove)
             {
-                movedir += forwardCam * movement.action.ReadValue<Vector2>().y * (speed + dodgespeed) * Time.deltaTime *speedscale;
-                movedir += rightCam * -movement.action.ReadValue<Vector2>().x * (speed + dodgespeed) * Time.deltaTime *speedscale;
+                movedir += forwardCam * movement.action.ReadValue<Vector2>().y ;
+                movedir += rightCam * -movement.action.ReadValue<Vector2>().x ;
+                movedir = movedir.normalized * (speed + dodgespeed) * Time.deltaTime *speedscale;
             }
         }
         Controller.Move(movedir);
