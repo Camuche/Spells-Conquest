@@ -49,11 +49,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _CameraDepthFade_Distance: 1
-    - _CameraDepthFade_FallOff: 3
+    - _CameraDepthFade_FallOff: 0.1
     - _Cutoff: 0.5
     - _DepthFade: 2.5
     - _DepthFadeOpacity: 1
-    - _Dissolve: -0.3859994
+    - _Dissolve: 1
     - _Disto: 1.25
     - _DistoNoiseScale: 6.75
     - _DistoScale: 12
@@ -62,7 +62,7 @@ Material:
     - _Float0: 1
     - _Float1: 2
     - _Float2: 0.43
-    - _Opacity: 1
+    - _Opacity: 0.37
     - _OpacityRotation: 1
     - _OpacityScale: 0.93
     - _OpacitySpeed: 1

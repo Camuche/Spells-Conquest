@@ -147,7 +147,8 @@ Shader "FireShield2"
 			float temp_output_55_0 = (0.0 + (tex2D( _Texture, rotator53 ).a - 0.0) * (0.93 - 0.0) / (1.0 - 0.0));
 			float temp_output_3_0_g5 = ( _Dissolve - temp_output_55_0 );
 			float cameraDepthFade99 = (( i.eyeDepth -_ProjectionParams.y - _CameraDepthFade_Distance ) / _CameraDepthFade_FallOff);
-			float clampResult94 = clamp( ( (( _DepthFadeOpacity )?( clampResult18 ):( 1.0 )) * _Opacity * (0.0 + (temp_output_55_0 - 0.0) * (2.0 - 0.0) / (1.0 - 0.0)) * saturate( ( temp_output_3_0_g5 / fwidth( temp_output_3_0_g5 ) ) ) * cameraDepthFade99 ) , 0.0 , 1.0 );
+			float clampResult102 = clamp( cameraDepthFade99 , 0.0 , 1.0 );
+			float clampResult94 = clamp( ( (( _DepthFadeOpacity )?( clampResult18 ):( 1.0 )) * _Opacity * (0.0 + (temp_output_55_0 - 0.0) * (2.0 - 0.0) / (1.0 - 0.0)) * saturate( ( temp_output_3_0_g5 / fwidth( temp_output_3_0_g5 ) ) ) * clampResult102 ) , 0.0 , 1.0 );
 			clip( clampResult94 - _Cutoff );
 		}
 
@@ -168,7 +169,7 @@ Node;AmplifyShaderEditor.SimpleMultiplyOpNode;75;-2452.623,112.6011;Inherit;Fals
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;12;-2268.207,-336.4783;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.TexturePropertyNode;65;-3128.841,-559.0149;Inherit;True;Property;_Texture;Texture;1;0;Create;True;0;0;0;False;0;False;13615781fccb69d439454c6e912d1376;13615781fccb69d439454c6e912d1376;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
 Node;AmplifyShaderEditor.TextureCoordinatesNode;76;-2495.836,-26.78173;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.CommentaryNode;83;-2348.787,930.2614;Inherit;False;2053.342;628.951;;15;101;100;99;2;92;91;20;46;55;54;53;52;51;49;50;Opacity;1,1,1,1;0;0
+Node;AmplifyShaderEditor.CommentaryNode;83;-2348.787,930.2614;Inherit;False;2053.342;628.951;;16;101;100;99;2;92;91;20;46;55;54;53;52;51;49;50;102;Opacity;1,1,1,1;0;0
 Node;AmplifyShaderEditor.RotatorNode;10;-2089.635,-479.2167;Inherit;False;3;0;FLOAT2;0,0;False;1;FLOAT2;0.5,0.5;False;2;FLOAT;1;False;1;FLOAT2;0
 Node;AmplifyShaderEditor.RotatorNode;77;-2222.007,-26.06362;Inherit;False;3;0;FLOAT2;0,0;False;1;FLOAT2;0.5,0.5;False;2;FLOAT;1;False;1;FLOAT2;0
 Node;AmplifyShaderEditor.WireNode;79;-2519.87,-183.3885;Inherit;False;1;0;SAMPLER2D;;False;1;SAMPLER2D;0
@@ -220,12 +221,13 @@ Node;AmplifyShaderEditor.RangedFloatNode;92;-1119.408,1306.199;Inherit;False;Pro
 Node;AmplifyShaderEditor.ColorNode;5;-756.8391,-839.8478;Inherit;False;Property;_Color;Color;2;1;[HDR];Create;True;0;0;0;False;0;False;1,0.5235949,0,0;2.996078,0.445736,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.ColorNode;6;-755.4951,-656.6379;Inherit;False;Property;_Color2;Color2;3;1;[HDR];Create;True;0;0;0;False;0;False;1,0,0,0;5.992157,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.ColorNode;64;-355.3116,-322.7242;Inherit;False;Property;_Color3;Color3;4;1;[HDR];Create;True;0;0;0;False;0;False;0,0,0,0;5.992157,5.992157,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.RangedFloatNode;2;-755.8521,1002.142;Inherit;False;Property;_Opacity;Opacity;9;0;Create;True;0;0;0;False;0;False;0;1;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;2;-755.8521,1002.142;Inherit;False;Property;_Opacity;Opacity;9;0;Create;True;0;0;0;False;0;False;0;0.001;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.ClampOpNode;94;-4.098877,980.4158;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;1347.773,483.4068;Float;False;True;-1;6;ASEMaterialInspector;0;0;Standard;FireShield2;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;False;False;False;False;False;False;Off;0;False;;0;False;;False;0;False;;0;False;;False;0;Custom;0.5;True;True;0;True;Overlay;;Overlay;All;12;all;True;True;True;True;0;False;;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;2;15;10;25;False;0.5;True;2;5;False;;10;False;;0;0;False;;0;False;;0;False;;0;False;;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;True;Relative;0;;0;-1;-1;-1;0;False;0;0;False;;-1;0;False;;0;0;0;False;0.1;False;;0;False;;False;17;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;16;FLOAT4;0,0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
 Node;AmplifyShaderEditor.CameraDepthFade;99;-806.4601,1380.98;Inherit;False;3;2;FLOAT3;0,0,0;False;0;FLOAT;1;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;100;-1084.198,1403.814;Inherit;False;Property;_CameraDepthFade_FallOff;CameraDepthFade_FallOff;18;0;Create;True;0;0;0;False;0;False;0;3;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;100;-1084.198,1403.814;Inherit;False;Property;_CameraDepthFade_FallOff;CameraDepthFade_FallOff;18;0;Create;True;0;0;0;False;0;False;0;0.1;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;101;-1114.198,1474.814;Inherit;False;Property;_CameraDepthFade_Distance;CameraDepthFade_Distance;19;0;Create;True;0;0;0;False;0;False;10;1;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.ClampOpNode;102;-519.3403,1421.975;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;1;FLOAT;0
 WireConnection;75;0;74;0
 WireConnection;75;1;73;0
 WireConnection;12;0;13;0
@@ -278,7 +280,7 @@ WireConnection;20;0;87;0
 WireConnection;20;1;2;0
 WireConnection;20;2;46;0
 WireConnection;20;3;91;0
-WireConnection;20;4;99;0
+WireConnection;20;4;102;0
 WireConnection;40;0;41;0
 WireConnection;40;1;44;0
 WireConnection;30;0;31;0
@@ -295,5 +297,6 @@ WireConnection;0;10;94;0
 WireConnection;0;11;30;0
 WireConnection;99;0;100;0
 WireConnection;99;1;101;0
+WireConnection;102;0;99;0
 ASEEND*/
-//CHKSM=F33EE705D11CED63100DBCEA36508EA1E11F4462
+//CHKSM=DE0FCD16F7410D96A79784EB066AA734EDD87920
