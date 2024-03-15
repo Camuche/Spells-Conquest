@@ -20,7 +20,7 @@ MonoBehaviour:
   LowRes: 1
   HeightFog: 1
   HeightFogOff: 1
-  Noise: 0
+  Noise: 1
   NoiseOff: 1
   Transparency: 0
   TransparencyOff: 1
@@ -34,7 +34,7 @@ MonoBehaviour:
   LowResLast: 1
   HeightFogLast: 1
   HeightFogOffLast: 1
-  NoiseLast: 0
+  NoiseLast: 1
   NoiseOffLast: 1
   TransparencyLast: 0
   TransparencyOffLast: 1
