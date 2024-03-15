@@ -786,8 +786,8 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 234880791
-  m_RenderingPath: -1
+    m_Bits: 503316247
+  m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
@@ -1211,7 +1211,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0, g: 0.73947906, b: 1, a: 1}
+  m_Color: {r: 0.9963658, g: 1, b: 0.7490566, a: 1}
   m_Intensity: 1
   m_Range: 4
   m_SpotAngle: 30
