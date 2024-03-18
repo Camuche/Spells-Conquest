@@ -423,6 +423,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_SpellPickup
       objectReference: {fileID: 0}
+    - target: {fileID: 2473308340826400369, guid: 989aa62f982f4e44584c5cb9469ad292,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2473308340826400381, guid: 989aa62f982f4e44584c5cb9469ad292,
         type: 3}
       propertyPath: m_RootOrder
@@ -477,6 +482,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473308340848903671, guid: 989aa62f982f4e44584c5cb9469ad292,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 989aa62f982f4e44584c5cb9469ad292, type: 3}

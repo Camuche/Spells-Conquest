@@ -3,7 +3,7 @@ guid: 1152ea360d0ffce4588819941f60e5b4
 ShaderImporter:
   externalObjects: {}
   defaultTextures:
-  - _TextureSample1: {fileID: 2800000, guid: e884b778de9e6244c964bd0092b20791, type: 3}
+  - _Logo: {fileID: 2800000, guid: e884b778de9e6244c964bd0092b20791, type: 3}
   nonModifiableTextures: []
   preprocessorOverride: 0
   userData: 

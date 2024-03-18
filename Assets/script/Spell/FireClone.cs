@@ -43,7 +43,7 @@ public class FireClone : MonoBehaviour
     {
         direction = player.transform.right;
 
-        transform.position = player.transform.position+player.transform.right;
+        //transform.position = player.transform.position+player.transform.right;
 
 
 

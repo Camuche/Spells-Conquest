@@ -107,8 +107,6 @@ public class CastSpellNew : MonoBehaviour
             return;
         }
 
-        
-
         if (limit > -1)
         {
             SetSelecting();
@@ -505,7 +503,7 @@ public class CastSpellNew : MonoBehaviour
             PlayerController.instance.refModel.forward = new Vector3(PlayerController.instance.transform.right.x, 0,PlayerController.instance.transform.right.z) ;
 
             timerFireball = 0;
-            Instantiate(psFireballInvocation, PlayerController.instance.refModel.transform.position + PlayerController.instance.refModel.forward *1.5f + PlayerController.instance.refModel.up , PlayerController.instance.refModel.transform.rotation);
+            Instantiate(psFireballInvocation, PlayerController.instance.refModel.transform.position + PlayerController.instance.refModel.forward * 1.5f + PlayerController.instance.refModel.up , PlayerController.instance.refModel.transform.rotation);
             Invoke("Fireball", spellAnimationTime);
         }
 
@@ -517,7 +515,7 @@ public class CastSpellNew : MonoBehaviour
             PlayerController.instance.refModel.forward = new Vector3(PlayerController.instance.transform.right.x, 0,PlayerController.instance.transform.right.z) ;
 
             timerFireClone = 0;
-            Instantiate(psFireshieldInvocation, PlayerController.instance.refModel.transform.position + PlayerController.instance.refModel.forward - PlayerController.instance.refModel.up + PlayerController.instance.refModel.up , PlayerController.instance.refModel.transform.rotation);
+            Instantiate(psFireshieldInvocation, PlayerController.instance.refModel.transform.position + PlayerController.instance.refModel.forward * 2 , PlayerController.instance.refModel.transform.rotation);
             Invoke("FireClone", spellAnimationTime);
         }
 
@@ -609,11 +607,11 @@ public class CastSpellNew : MonoBehaviour
 
         GameObject f = Instantiate(fireClone);
         f.GetComponent<FireClone>().player = transform.gameObject;
-        f.transform.position = transform.position;
-        f.transform.rotation = transform.rotation;
+        f.transform.position = GameObject.Find("PS_Fireshield_Invocation(Clone)").transform.position + Vector3.up;
+        f.transform.rotation = GameObject.Find("PS_Fireshield_Invocation(Clone)").transform.rotation;
         //f.transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y +90, transform.rotation.z));
         GameObject.Find("PS_Fireshield_Invocation(Clone)").transform.parent = f.transform;
-        GameObject.Find("PS_Fireshield_Invocation(Clone)").transform.localPosition = new Vector3 (0,-1,0);
+        GameObject.Find("PS_Fireshield_Invocation(Clone)").transform.localPosition = new Vector3 (0, -1 ,0);
     }
 
     void TelekinesisClone()

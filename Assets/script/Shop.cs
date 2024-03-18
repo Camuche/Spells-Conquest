@@ -276,7 +276,7 @@ public class Shop : MonoBehaviour
 
         if(CastSpellNew.instance.limit >= 0 && fireballAltAvailable)
         {
-            matButtonFireball.material = whiteUi;
+            matButtonFireball.material = greyUi;
         }
         else
         {
@@ -286,7 +286,7 @@ public class Shop : MonoBehaviour
 
         if(CastSpellNew.instance.limit >= 1 && fireCloneAltAvailable)
         {
-            matButtonFireClone.material = whiteUi;
+            matButtonFireClone.material = greyUi;
         }
         else
         {
@@ -296,7 +296,7 @@ public class Shop : MonoBehaviour
 
         if(CastSpellNew.instance.limit >= 2 && telekinesisCloneAltAvailable)
         {
-            matButtonTelekinesisClone.material = whiteUi;
+            matButtonTelekinesisClone.material = greyUi;
         }
         else
         {
@@ -326,7 +326,7 @@ public class Shop : MonoBehaviour
 
         if(CastSpellNew.instance.limit >= 3 && iceCloneAltAvailable)
         {
-            matButtonIceClone.material = whiteUi;
+            matButtonIceClone.material = greyUi;
         }
         else
         {
@@ -335,7 +335,7 @@ public class Shop : MonoBehaviour
 
         if(hpAvailable > 0)
         {
-            matButtonHp.material = whiteUi;
+            matButtonHp.material = greyUi;
         }
         else 
         {
@@ -344,7 +344,7 @@ public class Shop : MonoBehaviour
 
         if(damageAvailable > 0)
         {
-            matButtonDamage.material = whiteUi;
+            matButtonDamage.material = greyUi;
         }
         else
         {
@@ -362,7 +362,7 @@ public class Shop : MonoBehaviour
     {
         if(CastSpellNew.instance.limit >= 0 && fireballAltAvailable)
         {
-            matButtonFireball.material = greyUi;
+            matButtonFireball.material = whiteUi;
             descriptionTMP.text = descriptionFireball;
         }
         else if (!fireballAltAvailable)
@@ -381,7 +381,7 @@ public class Shop : MonoBehaviour
     {
         if(CastSpellNew.instance.limit >= 1 && fireCloneAltAvailable)
         {
-            matButtonFireClone.material = greyUi;
+            matButtonFireClone.material = whiteUi;
             descriptionTMP.text = descriptionFireClone;
         }
         else if (!fireCloneAltAvailable)
@@ -400,7 +400,7 @@ public class Shop : MonoBehaviour
     {
         if(CastSpellNew.instance.limit >= 2 && telekinesisCloneAltAvailable)
         {
-            matButtonTelekinesisClone.material = greyUi;
+            matButtonTelekinesisClone.material = whiteUi;
             descriptionTMP.text = descriptionTelekinesisClone;
         }
         else if (!telekinesisCloneAltAvailable)
@@ -447,7 +447,7 @@ public class Shop : MonoBehaviour
     {
         if(CastSpellNew.instance.limit >= 3 && iceCloneAltAvailable)
         {
-            matButtonIceClone.material = greyUi;
+            matButtonIceClone.material = whiteUi;
             descriptionTMP.text = descriptionIceClone;
         }
         else if (!telekinesisCloneAltAvailable)
@@ -466,7 +466,7 @@ public class Shop : MonoBehaviour
     {
         if(hpAvailable > 0)
         {
-            matButtonHp.material = greyUi;
+            matButtonHp.material = whiteUi;
             descriptionTMP.text = descriptionHp;
         }
         else 
@@ -480,7 +480,7 @@ public class Shop : MonoBehaviour
     {
         if(damageAvailable > 0)
         {
-            matButtonDamage.material = greyUi;
+            matButtonDamage.material = whiteUi;
             descriptionTMP.text = descriptionDamage;
         }
         else

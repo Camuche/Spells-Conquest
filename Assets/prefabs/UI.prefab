@@ -4744,10 +4744,10 @@ MonoBehaviour:
   matButtonIceClone: {fileID: 168320228355900609}
   matButtonHp: {fileID: 4127505726431026635}
   matButtonDamage: {fileID: 8908378464335536944}
-  greyLockedUi: {fileID: 2100000, guid: d49f9944d18549a4faaee8bd97fd9d62, type: 2}
+  greyLockedUi: {fileID: 2100000, guid: 723f9234d2c0b6746b189ca64c1cbd51, type: 2}
   greyUi: {fileID: 2100000, guid: 22e3d2631822ab04eb30810f111c6b9e, type: 2}
   whiteUi: {fileID: 2100000, guid: 870b76b84f2e3d54297d7e3e77e79b40, type: 2}
-  selectedGreyLockedUi: {fileID: 2100000, guid: 723f9234d2c0b6746b189ca64c1cbd51,
+  selectedGreyLockedUi: {fileID: 2100000, guid: d49f9944d18549a4faaee8bd97fd9d62,
     type: 2}
   hitDelay: 0.3
   descriptionTMP: {fileID: 4664196926870739726}
