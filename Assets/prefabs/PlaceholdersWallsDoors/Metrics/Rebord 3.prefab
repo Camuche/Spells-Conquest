@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8980992080923821344}
   - component: {fileID: 1749469979671582950}
   - component: {fileID: 64183394915104204}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rebord 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
