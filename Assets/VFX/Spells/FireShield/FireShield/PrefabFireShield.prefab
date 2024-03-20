@@ -105,7 +105,7 @@ MonoBehaviour:
   IngoreCol: {fileID: 4493283673439028313}
   timeBeforeScaling: 0.3
   timeBeforeUnscale: 3.3
-  speed: 0.25
+  speed: 0.5
   dissolveSpeed: 1.1
   material: {fileID: 2100000, guid: 17676ec38998f944a92ce7369849562b, type: 2}
   particleSystemMat: {fileID: 2100000, guid: 42f570378c246b64fb65bf5baa43f1d9, type: 2}

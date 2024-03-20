@@ -54,6 +54,6 @@ Material:
     - _Color1: {r: 1, g: 0.27789748, b: 0, a: 0}
     - _Color2: {r: 1, g: 0.17090294, b: 0, a: 0}
     - _Color3: {r: 1, g: 0, b: 0, a: 0}
-    - _SpherePosition: {r: -82.71257, g: -0.9999001, b: -10.547559, a: 0}
+    - _SpherePosition: {r: -91.4781, g: -0.9999001, b: -11.498019, a: 0}
     - _SpherePosition1: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
