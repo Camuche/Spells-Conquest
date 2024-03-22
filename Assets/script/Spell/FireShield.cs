@@ -6,11 +6,12 @@ public class FireShield : MonoBehaviour
 {
 
     [SerializeField] Collider IngoreCol;
-    public float timeBeforeScaling, timeBeforeUnscale, speed, dissolveSpeed;
+    public float timeBeforeScaling, timeBeforeUnscale, speed, dissolveSpeed, delayDecalTrail;
     bool isScaling, isUnscaling;
     float time, currentScale;
     public Material material, particleSystemMat;
     float particleSystemAlpha;
+    public GameObject decalTrailGO;
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +66,17 @@ public class FireShield : MonoBehaviour
             
             particleSystemMat.color = new Vector4(1,1,1,particleSystemAlpha);
         }
+
+        if (timeStart == true)
+        {
+            time += Time.deltaTime;
+        }
+
+        if (time >= delayDecalTrail)
+        {
+            Instantiate(decalTrailGO, transform.position, Quaternion.Euler(transform.rotation.x, Random.Range(0,360), transform.rotation.z) , null);
+            time = 0;
+        }
         
     }
 
@@ -77,9 +89,11 @@ public class FireShield : MonoBehaviour
         }
     }
 
+    bool timeStart;
     void ScaleGO()
     {
         isScaling = true;
+        timeStart = true;
     }
 
     void Unscale()

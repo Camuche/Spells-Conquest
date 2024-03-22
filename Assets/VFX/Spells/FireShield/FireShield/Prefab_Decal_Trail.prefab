@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2290639586861826167}
   - component: {fileID: 2290639586861826166}
   - component: {fileID: 2290639586861826161}
+  - component: {fileID: 8383145742710043095}
   m_Layer: 0
   m_Name: Prefab_Decal_Trail
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2290639586861826163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 6373323312664571796}
   m_Father: {fileID: 0}
@@ -82,6 +83,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8383145742710043095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2290639586861826163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc8205792f494944a87d58b27890359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  speed2: 0.1
+  timeBeforeUnscale: 4
 --- !u!1 &5862720405978921161
 GameObject:
   m_ObjectHideFlags: 0
