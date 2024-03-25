@@ -167,7 +167,7 @@ Shader "Amplify Streams 2/Omni"
 				#endif
 				
 				
-				finalColor = ( tex2DNode57 * pow( tex2DNode57.a , 10.0 ) * staticSwitch77 * _Color * _Fade );
+				finalColor = ( tex2DNode57 * pow( tex2DNode57.a , 10.0 ) * staticSwitch77 * _Color * (0.0 + (_Fade - 0.0) * (0.5 - 0.0) / (1.0 - 0.0)) );
 				return finalColor;
 			}
 			ENDCG
@@ -196,17 +196,18 @@ Node;AmplifyShaderEditor.DynamicAppendNode;58;-2512,272;Inherit;False;FLOAT2;4;0
 Node;AmplifyShaderEditor.StepOpNode;75;-2480,368;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.TransformPositionNode;52;-2848,240;Inherit;False;World;Object;False;Fast;True;1;0;FLOAT3;0,0,0;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.FunctionNode;4;-3200,240;Inherit;False;Reconstruct World Position From Depth;-1;;11;e7094bcbcc80eb140b2a3dbe6a861de8;0;0;1;FLOAT4;0
-Node;AmplifyShaderEditor.ColorNode;86;-786.5348,38.11108;Inherit;False;Property;_Color;Color;3;1;[HDR];Create;True;0;0;0;False;0;False;0,0,0,0;5.992157,2.854902,0,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;86;-786.5348,38.11108;Inherit;False;Property;_Color;Color;3;1;[HDR];Create;True;0;0;0;False;0;False;0,0,0,0;4.237095,2.018721,0,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.VertexColorNode;87;-2542,666;Inherit;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.ClampOpNode;88;-2336,768;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0.95;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;84;-2384,576;Inherit;False;Property;_Fade_From_Center_Value;Fade_From_Center_Value;2;0;Create;True;0;0;0;False;0;False;1;0.945;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TFHCRemapNode;83;-2096,576;Inherit;False;5;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;20;False;4;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;89;-880,560;Inherit;False;Property;_Fade;Fade;4;0;Create;True;0;0;0;False;0;False;1;0;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;89;-880,560;Inherit;False;Property;_Fade;Fade;4;0;Create;True;0;0;0;False;0;False;1;1;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.TFHCRemapNode;90;-543.3309,606.0991;Inherit;False;5;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;0;False;4;FLOAT;0.5;False;1;FLOAT;0
 WireConnection;59;0;57;0
 WireConnection;59;1;61;0
 WireConnection;59;2;77;0
 WireConnection;59;3;86;0
-WireConnection;59;4;89;0
+WireConnection;59;4;90;0
 WireConnection;0;0;59;0
 WireConnection;82;0;81;0
 WireConnection;81;0;80;0
@@ -227,5 +228,6 @@ WireConnection;75;0;52;2
 WireConnection;52;0;4;0
 WireConnection;88;0;87;4
 WireConnection;83;0;84;0
+WireConnection;90;0;89;0
 ASEEND*/
-//CHKSM=5E45582DB729DDF7BBBEE629EEC60BA176116CEA
+//CHKSM=6E2AA8F679B52FEEAA2D7C129B7E7C0C78C1D4EB

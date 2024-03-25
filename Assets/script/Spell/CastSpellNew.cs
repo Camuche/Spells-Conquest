@@ -503,7 +503,7 @@ public class CastSpellNew : MonoBehaviour
             PlayerController.instance.refModel.forward = new Vector3(PlayerController.instance.transform.right.x, 0,PlayerController.instance.transform.right.z) ;
 
             timerFireball = 0;
-            Instantiate(psFireballInvocation, PlayerController.instance.refModel.transform.position + PlayerController.instance.refModel.forward * 1.5f + PlayerController.instance.refModel.up , PlayerController.instance.refModel.transform.rotation);
+            Instantiate(psFireballInvocation, PlayerController.instance.refModel.transform.position + PlayerController.instance.refModel.forward * 1.5f + PlayerController.instance.refModel.up , PlayerController.instance.refModel.transform.rotation, transform);
             Invoke("Fireball", spellAnimationTime);
         }
 

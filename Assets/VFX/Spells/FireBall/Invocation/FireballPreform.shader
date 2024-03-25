@@ -5,8 +5,8 @@ Shader "FireballPreform"
 	Properties
 	{
 		_Fresnel_power("Fresnel_power", Float) = 1.21
-		_Color0("Color 0", Color) = (1,0,0,0)
-		_Color1("Color 1", Color) = (1,1,0,0)
+		[HDR]_Color0("Color 0", Color) = (1,0,0,0)
+		[HDR]_Color1("Color 1", Color) = (1,1,0,0)
 		_Fresnel_scale("Fresnel_scale", Float) = 1
 		_Voronoi_Scale("Voronoi_Scale", Float) = 10
 		_Center_Scale("Center_Scale", Float) = 1.41
@@ -141,7 +141,8 @@ Shader "FireballPreform"
 			float3 ase_worldNormal = i.worldNormal;
 			float fresnelNdotV2 = dot( ase_worldNormal, ase_worldViewDir );
 			float fresnelNode2 = ( 0.0 + _Fresnel_scale * pow( 1.0 - fresnelNdotV2, _Fresnel_power ) );
-			float4 lerpResult5 = lerp( _Color1 , lerpResult20 , fresnelNode2);
+			float clampResult35 = clamp( fresnelNode2 , 0.0 , 1.5 );
+			float4 lerpResult5 = lerp( _Color1 , lerpResult20 , clampResult35);
 			float fresnelNdotV8 = dot( ase_worldNormal, ase_worldViewDir );
 			float fresnelNode8 = ( 0.0 + _Center_Scale * pow( 1.0 - fresnelNdotV8, _Center_Power ) );
 			float4 lerpResult24 = lerp( lerpResult5 , _Color0 , ( 1.0 - fresnelNode8 ));
@@ -168,8 +169,6 @@ Node;AmplifyShaderEditor.FresnelNode;8;-741.0234,350.1517;Inherit;True;Standard;
 Node;AmplifyShaderEditor.OneMinusNode;21;-323.9727,277.0432;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;22;-953.7635,412.3814;Inherit;False;Property;_Center_Scale;Center_Scale;5;0;Create;True;0;0;0;False;0;False;1.41;2.72;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;23;-946.7634,505.3813;Inherit;False;Property;_Center_Power;Center_Power;6;0;Create;True;0;0;0;False;0;False;0.18;0.42;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.ColorNode;6;-1691.219,-544.5256;Inherit;False;Property;_Color1;Color 1;2;0;Create;True;0;0;0;False;0;False;1,1,0,0;1,1,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;4;-1683.342,-366.5866;Inherit;False;Property;_Color0;Color 0;1;0;Create;True;0;0;0;False;0;False;1,0,0,0;1,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.NoiseGeneratorNode;25;-67.20142,573.0732;Inherit;True;Simplex2D;True;False;2;0;FLOAT2;0,0;False;1;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.TextureCoordinatesNode;27;-493.988,597.4764;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleTimeNode;28;-1017.988,695.1767;Inherit;False;1;0;FLOAT;1;False;1;FLOAT;0
@@ -179,6 +178,9 @@ Node;AmplifyShaderEditor.SimpleMultiplyOpNode;31;244.6279,487.0779;Inherit;False
 Node;AmplifyShaderEditor.WorldNormalVector;34;-450.7723,823.8779;Inherit;False;False;1;0;FLOAT3;0,0,1;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.RangedFloatNode;32;91.22784,438.9779;Inherit;False;Property;_Vertex_Offset_Intnsity;Vertex_Offset_Intnsity;7;0;Create;True;0;0;0;False;0;False;0.1;0.05;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;26;-241.988,650.4764;Inherit;False;Property;_Noise_Scale;Noise_Scale;8;0;Create;True;0;0;0;False;0;False;4.29;6.4;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.ColorNode;6;-1691.219,-544.5256;Inherit;False;Property;_Color1;Color 1;2;1;[HDR];Create;True;0;0;0;False;0;False;1,1,0,0;2.996078,2.996078,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;4;-1683.342,-366.5866;Inherit;False;Property;_Color0;Color 0;1;1;[HDR];Create;True;0;0;0;False;0;False;1,0,0,0;1.059274,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ClampOpNode;35;-960,128;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1.5;False;1;FLOAT;0
 WireConnection;0;2;24;0
 WireConnection;0;11;31;0
 WireConnection;24;0;5;0
@@ -186,7 +188,7 @@ WireConnection;24;1;4;0
 WireConnection;24;2;21;0
 WireConnection;5;0;6;0
 WireConnection;5;1;20;0
-WireConnection;5;2;2;0
+WireConnection;5;2;35;0
 WireConnection;20;0;4;0
 WireConnection;20;1;6;0
 WireConnection;20;2;12;0
@@ -204,5 +206,6 @@ WireConnection;29;1;30;0
 WireConnection;31;0;32;0
 WireConnection;31;1;25;0
 WireConnection;31;2;34;0
+WireConnection;35;0;2;0
 ASEEND*/
-//CHKSM=FDC4BCC5E0AEB92C1C29EEE7F3E1146306B7A0B2
+//CHKSM=538EE6ACBE825A76481A18DFF349B69A56F8F29A

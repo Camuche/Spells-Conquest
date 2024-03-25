@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  speed2: 0.1
-  timeBeforeUnscale: 4
+  speed2: 0.5
+  timeBeforeUnscale: 2
 --- !u!1 &5862720405978921161
 GameObject:
   m_ObjectHideFlags: 0
