@@ -53,7 +53,7 @@ Material:
     - _Cutoff: 0.5
     - _DepthFade: 2.5
     - _DepthFadeOpacity: 1
-    - _Dissolve: -0.33099937
+    - _Dissolve: -2.256
     - _Disto: 1.25
     - _DistoNoiseScale: 6.75
     - _DistoScale: 12
