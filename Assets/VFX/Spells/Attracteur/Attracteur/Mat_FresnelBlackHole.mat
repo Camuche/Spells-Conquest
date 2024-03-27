@@ -20,13 +20,14 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _Bloom: 2.5
+    - _Bloom: 1
     - _EdgeLength: 15
-    - _GreenZoneScale: 20
+    - _GreenZoneScale: -0.5
     - _NoiseScale: 1.23
     - _NoiseSpeed: 1
     - _Tesseltaion: 1
     - _VertexOffset_Intensity: 0.1
     - __dirty: 0
-    m_Colors: []
+    m_Colors:
+    - _Color0: {r: 0.3137255, g: 11.984314, b: 0, a: 0}
   m_BuildTextureStacks: []
