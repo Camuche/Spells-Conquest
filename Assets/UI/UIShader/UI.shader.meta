@@ -10,6 +10,7 @@ ShaderImporter:
   - _Spell_LB: {fileID: 2800000, guid: 9550229004d2a5649a26bb8a904e1022, type: 3}
   - _Spell_RB: {fileID: 2800000, guid: d540565bd16c8d14e82bd637a9a40e6d, type: 3}
   nonModifiableTextures: []
+  preprocessorOverride: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
