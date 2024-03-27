@@ -10018,7 +10018,7 @@ MonoBehaviour:
   player: {fileID: 0}
   breakingShieldFeedbackTime: 1.5
   pressVsHoldTime: 0.5
-  cooldownFireClone: 4.3
+  cooldownFireClone: 4.4
   delay: 0.3
 --- !u!143 &76482160417221039
 CharacterController:

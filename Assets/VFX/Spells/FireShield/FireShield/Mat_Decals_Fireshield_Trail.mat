@@ -72,9 +72,12 @@ Material:
     - _Fade: 1
     - _Fade_From_Center: 1
     - _Fade_From_Center_Value: 0.945
+    - _Float1: 1.47
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _Level_Black: 0.5
+    - _Level_White: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -85,6 +88,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 4.237095, g: 2.0187206, b: 0, a: 1}
+    - _Color: {r: 5.992157, g: 2.854902, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
