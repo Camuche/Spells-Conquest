@@ -26,6 +26,8 @@ public class CastSpellNew : MonoBehaviour
     UIupdate refUiUpdate;
 
     [SerializeField] GameObject aimPoint, aimPoint2, aimPointBoth1, aimPointBoth2;
+
+
     
 
 
@@ -158,7 +160,7 @@ public class CastSpellNew : MonoBehaviour
         }
 
         //TIMER    
-        if (timerFireball <= cooldownFireball)
+        if (timerFireball <= cooldownFireball && startFireballCooldown)
         {
             timerFireball += Time.deltaTime;
         }
@@ -488,6 +490,8 @@ public class CastSpellNew : MonoBehaviour
     public GameObject psFireballInvocation;
     public GameObject psFireshieldInvocation;
 
+    bool startFireballCooldown = true;
+
     void CastSpell(int spellNb) 
     {
         if(leftSelection.action.IsPressed() || rightSelection.action.IsPressed() || PlayerController.instance.isCasting)
@@ -502,6 +506,7 @@ public class CastSpellNew : MonoBehaviour
             PlayerController.instance.isCasting = true;
             PlayerController.instance.refModel.forward = new Vector3(PlayerController.instance.transform.right.x, 0,PlayerController.instance.transform.right.z) ;
 
+            startFireballCooldown = false;
             timerFireball = 0;
             Instantiate(psFireballInvocation, PlayerController.instance.refModel.transform.position + PlayerController.instance.refModel.forward * 1.5f + PlayerController.instance.refModel.up , PlayerController.instance.refModel.transform.rotation, transform);
             Invoke("Fireball", spellAnimationTime);
@@ -590,6 +595,7 @@ public class CastSpellNew : MonoBehaviour
             doNotFollow = true;
         }
 
+        startFireballCooldown = true;
         GameObject f = Instantiate(fireball);
         f.GetComponent<Fireball>().player = transform.gameObject;
     }
@@ -936,4 +942,6 @@ public class CastSpellNew : MonoBehaviour
             aimPoint2.transform.GetComponent<MeshRenderer>().enabled = false;
         }
     }
+
+    
 }

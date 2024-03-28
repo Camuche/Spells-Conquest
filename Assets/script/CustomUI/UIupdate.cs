@@ -230,6 +230,8 @@ public class UIupdate : MonoBehaviour
             UI.SetActive(player.transform.Find("Main Camera").gameObject.activeSelf);
             //AnimateSubSpells();
             //mat_UIPlane.SetInt("_EnableSpell", player.GetComponent<CastSpellNew>().limit > -1 ? 1 : 0);
+
+            UpdateCooldown();
         }
 
         
@@ -607,6 +609,38 @@ public class UIupdate : MonoBehaviour
     public void DisableShopUi()
     {
         cameraShop.SetActive(false);
+    }
+
+
+    void UpdateCooldown()
+    {
+        if (refCastSpellNew.SpellL == 0)
+        {
+            mat_UIPlane.SetFloat("_LeftSpellCooldown" , refCastSpellNew.timerFireball / refCastSpellNew.cooldownFireball);
+        }
+        else if (refCastSpellNew.SpellL == 1)
+        {
+            mat_UIPlane.SetFloat("_LeftSpellCooldown" , refCastSpellNew.timerFireClone / refCastSpellNew.cooldownFireClone);
+        }
+        else if (refCastSpellNew.SpellL == 2)
+        {
+            mat_UIPlane.SetFloat("_LeftSpellCooldown" , refCastSpellNew.timerTelekinesisClone / refCastSpellNew.cooldownTelekinesisClone);
+        }
+
+        if (refCastSpellNew.SpellR == 0)
+        {
+            mat_UIPlane.SetFloat("_RightSpellCooldown" , refCastSpellNew.timerFireball / refCastSpellNew.cooldownFireball);
+        }
+        else if (refCastSpellNew.SpellR == 1)
+        {
+            mat_UIPlane.SetFloat("_RightSpellCooldown" , refCastSpellNew.timerFireClone / refCastSpellNew.cooldownFireClone);
+        }
+        else if (refCastSpellNew.SpellR == 2)
+        {
+            mat_UIPlane.SetFloat("_RightSpellCooldown" , refCastSpellNew.timerTelekinesisClone / refCastSpellNew.cooldownTelekinesisClone);
+        }
+
+
     }
 
 }
