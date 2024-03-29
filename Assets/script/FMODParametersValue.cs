@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class FMODParametersValue : MonoBehaviour
 {
-    //private FMOD.Studio.EventInstance instance;
+    //USE IT TO ACCESS FMOD STUDIO EVENT EMITTER AND CHANGE VALUES
+    private FMOD.Studio.EventInstance instance;
 
-    /*[FMODUnity.EventRef] public string fmodEvent;
+    public FMODUnity.EventReference fmodEvent;
+    
 
-    [SerializeField] [Range(0,100)] private float playerLife;
-    [SerializeField] *//*[Range(0,100)]*//* private float value2;
-    [SerializeField] *//*[Range(0,100)]*//* private float value3;
+    [SerializeField] [Range(0,100)] private float intensity;
+    [SerializeField] [Range(0,100)] private float health;
+    [SerializeField] [Range(0,1)] private float combat;
 
 
     void Start()
@@ -19,11 +21,10 @@ public class FMODParametersValue : MonoBehaviour
         instance.start();
     }
 
-
     void Update()
     {
-        instance.setParameterByName("playerLife FMODname", playerLife);
-        instance.setParameterByName("value2 FMODname", value2);
-        instance.setParameterByName("value3 FMODname", value3);
-    }*/
+        instance.setParameterByName("Intensity", intensity);
+        instance.setParameterByName("Health", health);
+        instance.setParameterByName("Combat", combat);
+    }
 }
