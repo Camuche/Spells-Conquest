@@ -56,7 +56,7 @@ Material:
     - _Cutoff: 0.5
     - _DebugMiddle: 0
     - _DebugMiddleOffset: 0
-    - _EnableSpell: 0
+    - _EnableSpell: 1
     - _EnableSubSpells: 1
     - _EnableUI: 1
     - _Enable_Spell: 1
