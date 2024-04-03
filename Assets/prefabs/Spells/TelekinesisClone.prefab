@@ -117,7 +117,7 @@ MonoBehaviour:
   timer: 5
   force: 17.5
   cooldown: 5
-  attractSpeed: 0.008
+  attractSpeed: 1
   enemyAttarctForce: 50
   enemyAttarctDist: 15
   playerStopDistance: 1.5

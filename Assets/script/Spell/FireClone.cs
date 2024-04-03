@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FireClone : MonoBehaviour
 {
-    [SerializeField] Material matLave;
+    [SerializeField] Material matLave, matLavafall;
     
 
     public float speed;
@@ -97,6 +97,7 @@ public class FireClone : MonoBehaviour
         if (timer <= 0)
         {
             matLave.SetVector("_SpherePosition", new Vector4(0, 9999999999999, 0, 0));
+            matLavafall.SetVector("_SpherePosition", new Vector4(0, 9999999999999, 0, 0));
             transform.position = new Vector3(100000, -100000, 100000);
             Destroy(gameObject,0.1f);
         }

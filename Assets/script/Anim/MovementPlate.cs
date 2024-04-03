@@ -27,7 +27,7 @@ public class MovementPlate : MonoBehaviour
         
         if(canMove && goForward && !isWaiting)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.position , 0.01f * speed);
+            transform.position = Vector3.MoveTowards(transform.position, target.position , 0.01f * Time.deltaTime * speed);
 
             if(transform.position == target.position)
             {
@@ -37,7 +37,7 @@ public class MovementPlate : MonoBehaviour
         }
         else if (canMove && !goForward && !isWaiting)
         {
-            transform.position = Vector3.MoveTowards(transform.position, posInit , 0.01f * speed);
+            transform.position = Vector3.MoveTowards(transform.position, posInit , 0.01f * Time.deltaTime * speed);
 
             if(transform.position == posInit)
             {

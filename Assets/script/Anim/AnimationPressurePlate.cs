@@ -40,13 +40,13 @@ public class AnimationPressurePlate : MonoBehaviour
             
             if (isTrigger == true)
             {
-                obstacle.transform.position = Vector3.MoveTowards(obstacle.transform.position, target.position, 0.01f * speed);
-                rendererGameObject.transform.position = Vector3.MoveTowards(rendererGameObject.transform.position, targetRenderer , 0.01f* speedRenderer);
+                obstacle.transform.position = Vector3.MoveTowards(obstacle.transform.position, target.position, 0.01f * Time.deltaTime * speed);
+                rendererGameObject.transform.position = Vector3.MoveTowards(rendererGameObject.transform.position, targetRenderer , 0.01f* Time.deltaTime * speedRenderer);
             }
             else
             {
-                obstacle.transform.position = Vector3.MoveTowards(obstacle.transform.position, posInit, 0.01f * speed);
-                rendererGameObject.transform.position = Vector3.MoveTowards(rendererGameObject.transform.position, posInitRenderer, 0.01f * speedRenderer);
+                obstacle.transform.position = Vector3.MoveTowards(obstacle.transform.position, posInit, 0.01f * Time.deltaTime * speed);
+                rendererGameObject.transform.position = Vector3.MoveTowards(rendererGameObject.transform.position, posInitRenderer, 0.01f * Time.deltaTime * speedRenderer);
             }
 
 

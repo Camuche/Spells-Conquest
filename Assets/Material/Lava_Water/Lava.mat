@@ -34,26 +34,48 @@ Material:
     - _DeapthFade: 0.93
     - _Disto: 0.761
     - _EdgeLength: 15
-    - _Float0: 8.13
+    - _Float0: 0.3
     - _FlowMapTile: 10.36
+    - _Lavafall: 0
+    - _Lavafall2: 0
+    - _LavafallOffsetStrength: 0.64
+    - _LavafallSpeed: 0.3
+    - _LavafallTilingX: 1.2
+    - _LavafallTilingY: 0.05
     - _OffsetStrength: 0.64
+    - _OffsetStrengthbis: 0.64
     - _Smoothness: 0
     - _SpeedAngle: 0.2
     - _SpeedDisto: 0.05
     - _Step: 0.05
     - _Step0: 0.03
+    - _Step0bis: 0.03
     - _Step1: 0.01
+    - _Step1bis: 0.01
     - _Step2: 0.05
+    - _Step2bis: 0.05
     - _Step3: 0.13
+    - _Step3bis: 0.13
+    - _Step4: 0.03
+    - _Step5: 0.01
+    - _Step6: 0.05
+    - _Step7: 0.13
     - _Tess: 15
     - _Tiling: 4.64
+    - _WaterfallSpeed: 0.3
     - __dirty: 0
+    - _a: 0.64
     m_Colors:
     - _Color0: {r: 1.8443027, g: 1.2649406, b: 0.6083302, a: 0}
     - _Color05: {r: 4.867144, g: 1.0447795, b: 0, a: 0}
     - _Color1: {r: 1, g: 0.27789748, b: 0, a: 0}
     - _Color2: {r: 1, g: 0.17090294, b: 0, a: 0}
     - _Color3: {r: 1, g: 0, b: 0, a: 0}
+    - _Color4: {r: 1, g: 0.1709029, b: 0, a: 0}
+    - _Color5: {r: 1, g: 0, b: 0, a: 0}
+    - _Color6: {r: 4.867144, g: 1.04478, b: 0, a: 0}
+    - _Color7: {r: 1, g: 0.2778975, b: 0, a: 0}
+    - _Color8: {r: 1.844303, g: 1.264941, b: 0.6083302, a: 0}
     - _SpherePosition: {r: 0, g: 1e+13, b: 0, a: 0}
     - _SpherePosition1: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

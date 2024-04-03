@@ -6,7 +6,7 @@ public class LavaDisappear : MonoBehaviour
 {
     [SerializeField] GameObject Shield;
     Vector3 shieldPos;
-    [SerializeField] Material lava;
+    [SerializeField] Material lava, lavafall;
    
 
 
@@ -27,6 +27,7 @@ public class LavaDisappear : MonoBehaviour
             shieldPos = Shield.transform.Find("shield").transform.position;
 
             lava.SetVector("_SpherePosition", shieldPos);
+            lavafall.SetVector("_SpherePosition", shieldPos);
 
         }
       

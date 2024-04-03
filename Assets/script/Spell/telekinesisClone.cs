@@ -122,7 +122,7 @@ public class telekinesisClone : MonoBehaviour
         //ATTRACT PLAYER
         else if(transform.position != player.transform.position && gameObject != null && player.GetComponent<PlayerController>().isAttracted == true)
         {
-            player.GetComponent<PlayerController>().movedir = (transform.position - player.transform.position) * attractSpeed;
+            player.GetComponent<PlayerController>().movedir = (transform.position - player.transform.position) * attractSpeed * Time.deltaTime;
 
             //Ajout Bruno/Clement
             if((transform.position - player.transform.position).magnitude < playerStopDistance)

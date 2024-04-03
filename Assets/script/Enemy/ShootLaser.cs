@@ -34,7 +34,7 @@ public class ShootLaser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shield = Instantiate(enemyShield);
+        shield = Instantiate(enemyShield, transform);
         player = GameObject.Find("Player");
         selfMeshRenderer = GetComponent<MeshRenderer>();
         
