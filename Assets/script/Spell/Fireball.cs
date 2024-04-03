@@ -60,7 +60,9 @@ public class Fireball : MonoBehaviour
         //Instantiate(gameObject, shootAimPoint.transform.position, shootAimPoint.transform.rotation) ;
         
 
-        transform.position = player.transform.position + /*player.transform.right +*/ (Vector3.up * 0.5f) + (-player.transform.forward * 0.2f);
+        //transform.position = player.transform.position + /*player.transform.right +*/ (Vector3.up * 0.5f) + (-player.transform.forward * 0.2f);
+        //transform.position = PlayerController.instance.refModel.transform.position + PlayerController.instance.refModel.forward * 1.5f + PlayerController.instance.refModel.up ;
+        transform.position = player.transform.Find("PS_Fireball_Invocation(Clone)").transform.position;
         previousTransform = transform.position;
         startpos = transform.position;
         //holdTimer = 0f;

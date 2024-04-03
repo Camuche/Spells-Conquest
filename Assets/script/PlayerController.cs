@@ -394,10 +394,12 @@ public class PlayerController : MonoBehaviour
 
 
     float CamzDefault=999;
+    bool invertAxisX, invertAxisY;
+
 
     void rotateCamera()
     {
-
+        //invertAxisY = true;
         if (CamzDefault == 999)
         {
             CamzDefault = Camera.main.transform.localPosition.z;
@@ -406,7 +408,14 @@ public class PlayerController : MonoBehaviour
         //change angle
         if(canMove)
         {
-            rotY += cameraRotation.action.ReadValue<Vector2>().y * mouseSensitivity*Time.deltaTime;
+            if (!invertAxisY)
+            {
+                rotY += cameraRotation.action.ReadValue<Vector2>().y * mouseSensitivity*Time.deltaTime;
+            }
+            else
+            {
+                rotY -= cameraRotation.action.ReadValue<Vector2>().y * mouseSensitivity*Time.deltaTime;
+            }
         }
 
         rotY = Mathf.Clamp(rotY, -60f, 89.9f);
@@ -451,9 +460,14 @@ public class PlayerController : MonoBehaviour
 
     void rotatePlayer()
     {
-        if(canMove)
+        //invertAxisX = true;
+        if(canMove && !invertAxisX)
         {
             transform.eulerAngles += new Vector3(0,cameraRotation.action.ReadValue<Vector2>().x) * Time.deltaTime * mouseSensitivity;
+        }
+        else if (canMove && invertAxisX)
+        {
+            transform.eulerAngles -= new Vector3(0,cameraRotation.action.ReadValue<Vector2>().x) * Time.deltaTime * mouseSensitivity;
         }
     }
 
@@ -947,5 +961,4 @@ public class PlayerController : MonoBehaviour
             go.transform.Find("FeedbackSelectedEnemy").GetComponent<MeshRenderer>().enabled = false;
         }
     }
-
 }
