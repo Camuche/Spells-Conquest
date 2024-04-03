@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6111567337654155141}
   - component: {fileID: 2605660218300934814}
   - component: {fileID: 1441174295832376376}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4816,7 +4816,7 @@ GameObject:
   - component: {fileID: 6418870908469518248}
   - component: {fileID: 6418870908469518254}
   - component: {fileID: 6922900922690880806}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: PotPleins
   m_TagString: Pot
   m_Icon: {fileID: 0}
@@ -4869,7 +4869,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 8151259076252225134, guid: 7ed868fa4092dba41b5b11d7eb78d99b, type: 3}
   potMoneyNumber: 1
-  auraGo: {fileID: 6538530026207656442, guid: af772c07065b89d4388decffc2d5e6d2, type: 3}
   lerpSpeed: 1
 --- !u!114 &6922900922690880806
 MonoBehaviour:
@@ -4915,7 +4914,7 @@ GameObject:
   - component: {fileID: 6418870909934399403}
   - component: {fileID: 6418870909934399401}
   - component: {fileID: 6418870909934399400}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4996,7 +4995,7 @@ GameObject:
   - component: {fileID: 7485454765243058920}
   - component: {fileID: 1987551637622650412}
   - component: {fileID: 9177997174055246020}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5152,6 +5151,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Placeholer_Pierre_Precieuse_low
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 473c78a50b948674a8c6c513147686f3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 473c78a50b948674a8c6c513147686f3, type: 3}

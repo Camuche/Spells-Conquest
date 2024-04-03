@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 2832719325627390342}
   - component: {fileID: 5283137709277940431}
   - component: {fileID: 419987089394961053}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 976077203898116534}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -351,7 +351,7 @@ MonoBehaviour:
   stunDuration: 0
   isAttacking: 0
   useGravity: 1
-  navMeshDetectiondist: 2
+  navMeshDetectionDist: 2
 --- !u!143 &5387335219111035024
 CharacterController:
   m_ObjectHideFlags: 0
@@ -600,15 +600,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4674587361378646264, guid: d71f06c9e2bb29f49af80bcfa77d71be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: -2262443475460362357, guid: d71f06c9e2bb29f49af80bcfa77d71be,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2075ed21494e2644fa013f80cfec8910, type: 2}
+    - target: {fileID: -988490591750611334, guid: d71f06c9e2bb29f49af80bcfa77d71be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d71f06c9e2bb29f49af80bcfa77d71be,
         type: 3}
       propertyPath: m_Name
       value: C_Turret_BaseMesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d71f06c9e2bb29f49af80bcfa77d71be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1372507528978234662, guid: d71f06c9e2bb29f49af80bcfa77d71be,
         type: 3}
@@ -620,11 +635,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2075ed21494e2644fa013f80cfec8910, type: 2}
+    - target: {fileID: 3316999520036165430, guid: d71f06c9e2bb29f49af80bcfa77d71be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067361218472095110, guid: d71f06c9e2bb29f49af80bcfa77d71be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4231529783402790464, guid: d71f06c9e2bb29f49af80bcfa77d71be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4967584137335982892, guid: d71f06c9e2bb29f49af80bcfa77d71be,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2075ed21494e2644fa013f80cfec8910, type: 2}
+    - target: {fileID: 6045086708244537161, guid: d71f06c9e2bb29f49af80bcfa77d71be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225423047929989335, guid: d71f06c9e2bb29f49af80bcfa77d71be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8047808729007719680, guid: d71f06c9e2bb29f49af80bcfa77d71be,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

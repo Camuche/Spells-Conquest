@@ -4718,7 +4718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpUpgradeValue: 25
-  damageUpgradeMultiplierValue: 0.25
+  damageUpgradeMultiplierValue: 1
   damageMultiplierValue: 0
   fireballAltAvailable: 1
   fireCloneAltAvailable: 1
