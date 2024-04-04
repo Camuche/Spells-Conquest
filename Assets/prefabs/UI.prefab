@@ -4733,7 +4733,7 @@ MonoBehaviour:
   priceIceball: 20
   priceIceClone: 20
   hpAvailable: 4
-  damageAvailable: 4
+  damageAvailable: 3
   priceHp: 50
   priceDamage: 50
   matButtonFireball: {fileID: 8207424865595655934}
