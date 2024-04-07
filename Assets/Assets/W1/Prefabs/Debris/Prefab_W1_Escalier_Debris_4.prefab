@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4395392140857926319}
   - component: {fileID: 1953267652163114597}
   - component: {fileID: 926320084431080163}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Escalier_Debris_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

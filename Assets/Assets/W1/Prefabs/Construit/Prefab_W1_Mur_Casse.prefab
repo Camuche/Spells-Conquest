@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1858249170785740698}
   - component: {fileID: 4480277402694046544}
   - component: {fileID: 3020984264279412698}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Mur_Casse
   m_TagString: Untagged
   m_Icon: {fileID: 0}

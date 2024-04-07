@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3399645509153199437}
   - component: {fileID: 3180521077396369394}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Colonne_3_4m
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,6 +122,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 090d7c271d0595b488b59ea599342bd1,
         type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 090d7c271d0595b488b59ea599342bd1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -204,6 +209,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: W1_Colonne_3_Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c5216173af52d4748ba95db22844a547,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c5216173af52d4748ba95db22844a547,
         type: 3}
@@ -292,6 +302,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7dc47dd9156ceeb41a8427153f49d94e,
         type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7dc47dd9156ceeb41a8427153f49d94e,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -374,6 +389,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: W1_Colonne_3_Fut
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7dc47dd9156ceeb41a8427153f49d94e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7dc47dd9156ceeb41a8427153f49d94e,
         type: 3}

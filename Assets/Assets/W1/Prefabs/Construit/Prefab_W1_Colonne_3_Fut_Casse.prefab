@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3723809837763104012}
   - component: {fileID: 1461794218172840390}
   - component: {fileID: 254668579999049052}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Colonne_3_Fut_Casse
   m_TagString: Untagged
   m_Icon: {fileID: 0}

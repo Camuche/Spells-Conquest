@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3701331613202015771}
   - component: {fileID: 1493279950550373073}
   - component: {fileID: 250134041341595219}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Colonne_3_Chapiteau
   m_TagString: Untagged
   m_Icon: {fileID: 0}

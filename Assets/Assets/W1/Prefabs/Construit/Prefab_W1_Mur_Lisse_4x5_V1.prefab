@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5244564273816479564}
   - component: {fileID: 8010945110669382534}
   - component: {fileID: 8713635713380994820}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Mur_Lisse_4x5_V1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

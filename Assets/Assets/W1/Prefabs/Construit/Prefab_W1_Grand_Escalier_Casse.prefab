@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 55335898445340181}
   - component: {fileID: 6733582606788264562}
   - component: {fileID: 4550849743464794655}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: W1_Grand_Escalier_Casse_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 6475919185511202326}
   - component: {fileID: 6517790909857424272}
   - component: {fileID: 190560947025368}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: W1_Grand_Escalier_Casse_Cote_Droit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 66846165625092431}
   - component: {fileID: 2454454017217113642}
   - component: {fileID: 777949381217263934}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: W1_Grand_Escalier_Casse_Marches
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 4419303208880514865}
   - component: {fileID: 2447143270575382307}
   - component: {fileID: 3604270321638554353}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: W1_Grand_Escalier_Casse_Briques
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5903649685731306805}
   - component: {fileID: 6226019094875933403}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Grand_Escalier_Casse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 2784894818095059100}
   - component: {fileID: 2659864412803290285}
   - component: {fileID: 926590558381383002}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: W1_Grand_Escalier_Casse_Cote_Gauche
   m_TagString: Untagged
   m_Icon: {fileID: 0}

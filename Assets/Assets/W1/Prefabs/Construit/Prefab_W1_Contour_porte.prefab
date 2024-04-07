@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2418956951296208982}
   - component: {fileID: 465326300717384860}
   - component: {fileID: 1275853981763672090}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Contour_porte
   m_TagString: Untagged
   m_Icon: {fileID: 0}

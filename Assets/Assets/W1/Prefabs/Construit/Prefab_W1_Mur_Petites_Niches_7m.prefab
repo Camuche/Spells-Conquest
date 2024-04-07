@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7277754021889069336}
   - component: {fileID: 4835513534715438546}
   - component: {fileID: 6991136345580002784}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Mur_Petites_Niches_7m
   m_TagString: Untagged
   m_Icon: {fileID: 0}
