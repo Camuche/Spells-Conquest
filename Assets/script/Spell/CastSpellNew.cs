@@ -279,13 +279,15 @@ public class CastSpellNew : MonoBehaviour
                     Cursor.lockState = CursorLockMode.Locked;
                     Time.timeScale = 1f;
 
-                    if(cameraRotation.action.ReadValue<Vector2>().x<0 && listLeftSpellAvailable[0] <= limit) //LEFT STICK LEFT
+                    if(cameraRotation.action.ReadValue<Vector2>().x<0 && listLeftSpellAvailable[0] <= limit) // STICK LEFT
                     {
                         SelectSpellLeft(0);
+                        PlaySpellSelectionClip();
                     }
-                    if(cameraRotation.action.ReadValue<Vector2>().x>0 && listLeftSpellAvailable[1] <= limit) //LEFT STICK RIGHT
+                    if(cameraRotation.action.ReadValue<Vector2>().x>0 && listLeftSpellAvailable[1] <= limit) // STICK RIGHT
                     {
                         SelectSpellLeft(1);
+                        PlaySpellSelectionClip();
                     }
                     /*if(movement.action.ReadValue<Vector2>().y <-0.5 && movement.action.ReadValue<Vector2>().x>-0.5 && movement.action.ReadValue<Vector2>().x < 0.5 && listLeftSpellAvailable[2] <= limit) //LEFT STICK BOT
                     {
@@ -318,10 +320,12 @@ public class CastSpellNew : MonoBehaviour
                     if(cameraRotation.action.ReadValue<Vector2>().x<0 && listRightSpellAvailable[0] <= limit) //RIGHT STICK LEFT
                     {
                         SelectSpellRight(0);
+                        PlaySpellSelectionClip();
                     }
                     if(cameraRotation.action.ReadValue<Vector2>().x>0 && listRightSpellAvailable[1] <= limit) //RIGHT STICK RIGHT
                     {
                         SelectSpellRight(1);
+                        PlaySpellSelectionClip();
                     }
                     /*if(cameraRotation.action.ReadValue<Vector2>().y <-0.5 && cameraRotation.action.ReadValue<Vector2>().x>-0.5 && cameraRotation.action.ReadValue<Vector2>().x < 0.5 && listRightSpellAvailable[2] <= limit) //RIGHT STICK BOT
                     {
@@ -387,10 +391,12 @@ public class CastSpellNew : MonoBehaviour
                     UIupdate.instance.UnHighlightTarget(UIupdate.instance.spellRightUi);
                 }*/
                 //rightSelected = false;
-
+                if(!leftSelected)
+                {
+                    PlaySelectedIconClip();
+                }
                 leftSelected = true;
                 haveBeenSelected = true;
-                
             }
             else if(cameraRotation.action.ReadValue<Vector2>().x>0 && listLeftSpellAvailable[1] <= limit)
             {
@@ -399,7 +405,10 @@ public class CastSpellNew : MonoBehaviour
                     UIupdate.instance.HighlightTarget(UIupdate.instance.spellRightUi);
                 }*/
                 //leftSelected = false;
-
+                if(!rightSelected)
+                {
+                    PlaySelectedIconClip();
+                }
                 rightSelected = true;
                 haveBeenSelected = true;
             }
@@ -428,6 +437,10 @@ public class CastSpellNew : MonoBehaviour
         {
             if(cameraRotation.action.ReadValue<Vector2>().x<0 && listRightSpellAvailable[0] <= limit)
             {
+                if(!leftSelected)
+                {
+                    PlaySelectedIconClip();
+                }
                 leftSelected = true;
                 haveBeenSelected = true;
             }
@@ -943,5 +956,20 @@ public class CastSpellNew : MonoBehaviour
         }
     }
 
+    public AudioSource audioSource;
+    public AudioClip selectedIconClip;
+    public AudioClip spellSelectionClip;
+
+    public void PlaySelectedIconClip()
+    {
+        audioSource.clip = selectedIconClip;
+        audioSource.Play();
+    }
+
+    public void PlaySpellSelectionClip()
+    {
+        audioSource.clip = spellSelectionClip;
+        audioSource.Play();
+    }
     
 }

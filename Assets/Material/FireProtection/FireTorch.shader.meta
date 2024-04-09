@@ -6,6 +6,7 @@ ShaderImporter:
   - _FireProtectionText: {fileID: 2800000, guid: 8cee8893963379a4aba100198d766a13,
       type: 3}
   nonModifiableTextures: []
+  preprocessorOverride: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

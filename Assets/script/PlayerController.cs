@@ -603,6 +603,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject soul;
     GameObject persistentObject;
 
+    public AudioSource audioSource;
+    public AudioClip takeDamageAudioClip;
+    public AudioClip deathAudioClip;
+
     void CheckLife()
     {
         life = Mathf.Round(life*10)/10;
@@ -610,6 +614,8 @@ public class PlayerController : MonoBehaviour
         if (previousLife!=null && previousLife > life)
         {
             damagedTimer = .05f;
+            audioSource.clip = takeDamageAudioClip;
+            audioSource.Play();
         }
         playerMesh.GetComponent<SkinnedMeshRenderer>().material = damagedTimer > 0 ? damageMat : playerMat;
         previousLife = life;
@@ -620,6 +626,8 @@ public class PlayerController : MonoBehaviour
             life = 0;
             if(!isDead)
             {
+                audioSource.clip = deathAudioClip;
+                audioSource.Play();
                 StartCoroutine(RestartLevel());
             }
             //StartCoroutine(RestartLevel());

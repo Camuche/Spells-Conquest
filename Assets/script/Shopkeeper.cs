@@ -15,6 +15,9 @@ public class Shopkeeper : MonoBehaviour
     [SerializeField] private InputActionReference interact, shopCancel;
     bool interactReleased =true;
 
+    public GameObject healPS;
+    GameObject player;
+
     //Inventory inventory;
     UIupdate uiUpdate;
 
@@ -27,6 +30,7 @@ public class Shopkeeper : MonoBehaviour
     void Start()
     {
         uiUpdate = GameObject.Find("GameController").GetComponent<UIupdate>();
+        player = GameObject.Find("Player");
 
         //inventory = GameObject.Find("Player").GetComponent<Inventory>();
     }
@@ -43,58 +47,43 @@ public class Shopkeeper : MonoBehaviour
         //Debug.Log(""+canInteract+" "+inShop+" "+interactReleased);
         if(interact.action.IsPressed() && canInteract == true && inShop == false && interactReleased == true)
         {
-            Debug.Log("0");
+            Time.timeScale = 0.05f;
             inShop = true;
             interactReleased = false;
-
             PlayerController.instance.life = PlayerController.lifeMax;
-            Debug.Log("1"); 
-            uiUpdate.EnableShopUi();
-            Debug.Log("2"); 
-            Shop.instance.UpdateUnselectedShopButton();
-            Debug.Log("3"); 
-            CustomUIManager.instance.currentSelected.PerformOnSelect();
-            Debug.Log("4");  
-            PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("ShopInput");
-            Debug.Log("5");  
-            Cursor.lockState = CursorLockMode.None;
-            Time.timeScale = 0.05f;
-            //Debug.Log(inShop);            
+            Instantiate(healPS, player.transform.position, Quaternion.identity);
+            PlayHealClip();
+            Invoke("EnterShop", 2f*0.05f);
         }
         else if(shopCancel.action.IsPressed() && canInteract == true && inShop == true && interactReleased == true)
         {
+            Time.timeScale = 1f;
             inShop = false;
             interactReleased = false;
 
             uiUpdate.DisableShopUi();
             PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("PlayerInput");
             Cursor.lockState = CursorLockMode.Locked;
-            Time.timeScale = 1f;
-            //Debug.Log("leaveShop");   
         }
-        
-        //Debug.Log(inventory.money);
+    }
 
-        //TEMPORARY
-        /*if (canInteract && leftButton.action.IsPressed() && inventory.money >= priceFireball && fireballAlt == false)
-        {
-            inventory.fireballAlt = true;
-            fireballAlt = true;
-            inventory.money -= priceFireball;
-        }
-        if (canInteract && northButton.action.IsPressed() && inventory.money >= priceFireClone && fireCloneAlt == false)
-        {
-            inventory.fireCloneAlt = true;
-            fireCloneAlt = true;
-            inventory.money -= priceFireClone;
-        }
-        if (canInteract && RightButton.action.IsPressed() && inventory.money >= priceTelekinesisClone && telekinesisCloneAlt == false)
-        {
-            inventory.telekinesisCloneAlt = true;
-            telekinesisCloneAlt = true;
-            inventory.money -= priceTelekinesisClone;
-        }*/
+    void EnterShop()
+    {
+        uiUpdate.EnableShopUi();
+        Shop.instance.UpdateUnselectedShopButton();
+        CustomUIManager.instance.currentSelected.PerformOnSelect();
+        PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("ShopInput");
+        Cursor.lockState = CursorLockMode.None;
+    }
 
+
+    public AudioSource audioSource;
+    public AudioClip healClip;
+
+    void PlayHealClip()
+    {
+        audioSource.clip = healClip;
+        audioSource.Play();
     }
 
     void OnTriggerEnter (Collider other)

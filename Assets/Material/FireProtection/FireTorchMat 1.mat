@@ -39,7 +39,7 @@ Material:
     - _NoiseScale: 1.5
     - _NoiseSpeed: 1.5
     - _NoiseVoronoi: 1
-    - _Opacity: 0.216
+    - _Opacity: 1
     - _Remap: 0.039
     - _STEP: 0.58
     - _Smoothstep: 1.026
@@ -58,10 +58,11 @@ Material:
     - _VoronoiSpeed: 1.76
     - __dirty: 0
     m_Colors:
-    - _Color0: {r: 1, g: 0.48650506, b: 0, a: 0}
-    - _Color1: {r: 1, g: 0.7528503, b: 0, a: 0}
-    - _Color2: {r: 1, g: 1, b: 0, a: 0}
+    - _Color0: {r: 33.89676, g: 1.7746994, b: 0, a: 0}
+    - _Color1: {r: 2.9960785, g: 0.34509805, b: 0, a: 0}
+    - _Color2: {r: 5.992157, g: 2.101961, b: 0, a: 0}
     - _TilingText: {r: 1, g: 1, b: 0, a: 0}
     - _VOffset: {r: -8.97, g: 5, b: 0, a: 0}
     - _VOffsetIntensity: {r: -5, g: 5, b: -0.45, a: 0}
-    - _Vector1: {r: 0.92, g: 3.9, b: 0, a: 0}
+    - _Vector1: {r: 0, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
