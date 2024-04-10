@@ -65,15 +65,15 @@ Material:
     - _Keyword0: 0
     - _LB_SpellOffsetX: 0
     - _LB_SpellOffsetY: 0.15
-    - _LeftSpellCooldown: 1.006166
-    - _Life: 1
+    - _LeftSpellCooldown: 1.0012064
+    - _Life: 0.82
     - _LifeBarOffsetX: -0.04
     - _LifeBarOffsetY: -4.9
     - _LifeBarScaleX: 3.11
     - _LifeBarScaleY: 6.02
     - _RB_SpellOffsetX: -5.03
     - _RB_SpellOffsetY: 0.15
-    - _RightSpellCooldown: Infinity
+    - _RightSpellCooldown: 1.0009747
     - _SpellAvailable: 1
     - _SpellOffsetX: 0.04
     - _SpellOffsetY: 0
