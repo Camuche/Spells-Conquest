@@ -521,7 +521,7 @@ public class CastSpellNew : MonoBehaviour
 
             startFireballCooldown = false;
             timerFireball = 0;
-            Instantiate(psFireballInvocation, PlayerController.instance.refModel.transform.position + PlayerController.instance.refModel.forward * 1.5f + PlayerController.instance.refModel.up , PlayerController.instance.refModel.transform.rotation, transform);
+            Instantiate(psFireballInvocation, PlayerController.instance.refModel.transform.position + PlayerController.instance.refModel.forward * 1.5f + PlayerController.instance.refModel.up * 1.5f , PlayerController.instance.refModel.transform.rotation, transform);
             Invoke("Fireball", spellAnimationTime);
         }
 
