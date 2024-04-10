@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fa8465ac15b88f6419e6797bdbb75fe7, type: 2}
+  - {fileID: 2100000, guid: d3c750f2728792648b7af912dd0a6588, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -136,8 +136,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6431625816186112011}
-  - component: {fileID: 9059038746644993216}
   - component: {fileID: 1161850342666861475}
+  - component: {fileID: 395739799813488680}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -159,40 +159,6 @@ Transform:
   m_Father: {fileID: 1028686009731950305}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9059038746644993216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4307712031026071422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 832ab2a24a0478e4aa3ea263e43d25cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagsAndNamesToCheck:
-  - Fireball
-  - FireShield
-  eventOnEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1033012515571504886}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  eventOnExit:
-    m_PersistentCalls:
-      m_Calls: []
-  numberInTrigger: 0
 --- !u!65 &1161850342666861475
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -204,5 +170,24 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 4, z: 3}
+  m_Size: {x: 0.3, y: 4.1, z: 3.1}
   m_Center: {x: 0, y: 3.5, z: 0}
+--- !u!114 &395739799813488680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4307712031026071422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f36751ac1f17fc48b4e4cff5fd71e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialGameObject: {fileID: 1033012515571504886}
+  shaderValueName: _Dissolve
+  startValue: 0
+  endValue: 1
+  speed: 1
+  destroyGameObjectAtEnd: 1
+  destroyGameObject: {fileID: 2056524090819545276}
