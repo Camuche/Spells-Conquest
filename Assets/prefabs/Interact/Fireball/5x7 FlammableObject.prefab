@@ -191,3 +191,6 @@ MonoBehaviour:
   speed: 1
   destroyGameObjectAtEnd: 1
   destroyGameObject: {fileID: 2056524090819545276}
+  instantiateOnTrigger: 1
+  instantiateGameObject: {fileID: 323812842951331602, guid: 95c63582035fefe49bc85362270e22dd,
+    type: 3}

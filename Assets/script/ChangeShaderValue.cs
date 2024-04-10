@@ -10,6 +10,9 @@ public class ChangeShaderValue : MonoBehaviour
     public bool destroyGameObjectAtEnd;
     public GameObject destroyGameObject;
 
+    public bool instantiateOnTrigger;
+    public GameObject instantiateGameObject;
+
     float shaderValue;
     bool changeValue;
 
@@ -37,6 +40,10 @@ public class ChangeShaderValue : MonoBehaviour
     {
         if (other.tag == "Fireball" || other.tag == "FireShield")
         {
+            if (instantiateOnTrigger)
+            {
+                Instantiate(instantiateGameObject, transform.position, Quaternion.identity);
+            }
             changeValue = true;
         }
     }
