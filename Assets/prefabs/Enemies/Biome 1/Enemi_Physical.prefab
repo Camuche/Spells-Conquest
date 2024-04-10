@@ -302,7 +302,7 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   ySpeed: 0
   grav: 15
-  followDistance: 40
+  followDistance: 30
   minDistance: 2
   rotationSpeed: 10
   attackDuration: 0.75
@@ -601,7 +601,7 @@ Transform:
   m_GameObject: {fileID: 8039242925593655098}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 80, y: 80, z: 80}
+  m_LocalScale: {x: 60, y: 60, z: 60}
   m_Children: []
   m_Father: {fileID: 484699292189609001}
   m_RootOrder: 4

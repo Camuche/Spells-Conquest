@@ -271,15 +271,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcca907bbb06fa24f890cfd73afacaee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 15
   fireballDamage: 10
   player: {fileID: 0}
   timer: 2
   cooldown: 0.7
   doNotFollow: 0
+  noImpactPS: {fileID: 0}
   aimingIgnore:
     serializedVersion: 2
     m_Bits: 16384
+  impactGO: {fileID: 0}
 --- !u!54 &976263845659192678
 Rigidbody:
   m_ObjectHideFlags: 0

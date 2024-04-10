@@ -117,10 +117,10 @@ MonoBehaviour:
   timer: 5
   force: 17.5
   cooldown: 5
-  attractSpeed: 1
+  attractSpeed: 2
   enemyAttarctForce: 50
   enemyAttarctDist: 15
-  playerStopDistance: 1.5
+  playerStopDistance: 0.5
   attractProjectiles: 0
 --- !u!54 &6608447528960613345
 Rigidbody:
