@@ -308,7 +308,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 0
   sourceProjectPath: ../../../../../../Downloads/Spells Conquest/Spells Conquest.fspro
-  sourceBankPath: ../../../../../../Downloads/Spells Conquest/Build/Desktop
+  sourceBankPath: Assets/Sound/FMOD/Desktop
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1

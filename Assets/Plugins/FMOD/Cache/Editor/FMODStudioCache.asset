@@ -1,25 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8773030365300780459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: ../../../../../../Downloads/Spells Conquest/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638473185468758661
-  FileSizes:
-  - Name: Desktop
-    Value: 902
-  Exists: 1
 --- !u!114 &-8524121738935662245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,7 +39,7 @@ MonoBehaviour:
     Data3: -654711118
     Data4: 906589510
   Banks:
-  - {fileID: -1061089160099935959}
+  - {fileID: 7349366575696208851}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -192,26 +172,6 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &-1061089160099935959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ../../../../../../Downloads/Spells Conquest/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638473185468729051
-  FileSizes:
-  - Name: Desktop
-    Value: 15245664
-  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,16 +185,16 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -8773030365300780459}
-  - {fileID: -1061089160099935959}
+  - {fileID: 5747973252613532652}
+  - {fileID: 7349366575696208851}
   EditorEvents:
   - {fileID: -5234531725775206892}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -1061089160099935959}
+  - {fileID: 7349366575696208851}
   StringsBanks:
-  - {fileID: -8773030365300780459}
-  cacheTime: 638473185468758661
+  - {fileID: 5747973252613532652}
+  cacheTime: 638484275721962693
   cacheVersion: 131617
 --- !u!114 &1977674893767655289
 MonoBehaviour:
@@ -284,6 +244,26 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &5747973252613532652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound/FMOD/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638484275721962693
+  FileSizes:
+  - Name: 
+    Value: 902
+  Exists: 1
 --- !u!114 &5956487404372881362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,4 +287,22 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 0
   Labels: []
+  Exists: 1
+--- !u!114 &7349366575696208851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound/FMOD/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638484275721929623
+  FileSizes: []
   Exists: 1
