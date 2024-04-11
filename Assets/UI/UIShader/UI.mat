@@ -56,7 +56,7 @@ Material:
     - _Cutoff: 0.5
     - _DebugMiddle: 0
     - _DebugMiddleOffset: 0
-    - _EnableSpell: 1
+    - _EnableSpell: 0
     - _EnableSubSpells: 1
     - _EnableUI: 1
     - _Enable_Spell: 1
@@ -65,7 +65,7 @@ Material:
     - _Keyword0: 0
     - _LB_SpellOffsetX: 0
     - _LB_SpellOffsetY: 0.15
-    - _LeftSpellCooldown: 1.0092895
+    - _LeftSpellCooldown: Infinity
     - _Life: 1
     - _LifeBarOffsetX: -0.04
     - _LifeBarOffsetY: -4.9
@@ -73,7 +73,7 @@ Material:
     - _LifeBarScaleY: 6.02
     - _RB_SpellOffsetX: -5.03
     - _RB_SpellOffsetY: 0.15
-    - _RightSpellCooldown: 1.00122
+    - _RightSpellCooldown: Infinity
     - _SpellAvailable: 1
     - _SpellOffsetX: 0.04
     - _SpellOffsetY: 0
