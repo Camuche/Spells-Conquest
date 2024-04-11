@@ -23,6 +23,17 @@ public class FMODParametersValue : MonoBehaviour
 
     void Update()
     {
+        if(PlayerController.instance.enemyTriggered > 0)
+        {
+            combat = 1;
+        }
+        else
+        {
+            combat = 0;
+        }
+
+        health = PlayerController.instance.life;
+
         instance.setParameterByName("Intensity", intensity);
         instance.setParameterByName("Health", health);
         instance.setParameterByName("Combat", combat);

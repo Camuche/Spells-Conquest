@@ -69,6 +69,8 @@ public class PlayerController : MonoBehaviour
 
     public static bool tutoDone;
 
+    public int enemyTriggered;
+
     void Awake()
     {
         instance = this;
@@ -616,6 +618,7 @@ public class PlayerController : MonoBehaviour
             damagedTimer = .05f;
             audioSource.clip = takeDamageAudioClip;
             audioSource.Play();
+            //audioSource.PlayOneShot(takeDamageAudioClip);
         }
         playerMesh.GetComponent<SkinnedMeshRenderer>().material = damagedTimer > 0 ? damageMat : playerMat;
         previousLife = life;

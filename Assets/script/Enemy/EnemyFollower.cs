@@ -38,6 +38,8 @@ public class EnemyFollower : MonoBehaviour
     public bool useGravity = true;
 
     public float navMeshDetectionDist = 2;
+
+    bool isDetected;
     
 
 
@@ -207,6 +209,25 @@ public class EnemyFollower : MonoBehaviour
                 ySpeed -= grav * Time.deltaTime;
             }
         }
+
+        float distancePlayer = Vector3.Distance(transform.position, player.transform.position);
+        
+        if (!isDetected)
+        {
+            if(distancePlayer <= followDistance)
+            {
+                isDetected = true;
+                PlayerController.instance.enemyTriggered ++;
+            }
+        }
+        else
+        {
+            if (distancePlayer > followDistance)
+            {
+                isDetected = false;
+                PlayerController.instance.enemyTriggered --;
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -216,4 +237,15 @@ public class EnemyFollower : MonoBehaviour
             isStun = true;
         }
     }
+
+    private void OnDestroy()
+    {
+        if (isDetected)
+        {
+            isDetected = false;
+            PlayerController.instance.enemyTriggered--;
+        }
+    }
+
+
 }
