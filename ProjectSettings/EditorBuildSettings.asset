@@ -6,23 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level 4.unity
-    guid: db29f596d0772af489ab1fe38757fd96
+    path: Assets/Scenes/Art Scene.unity
+    guid: a8fd5b98c58570948b1c8d7d65afd143
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 6ac39b8d023bbdf43b2406757daf3df8
   - enabled: 0
+    path: Assets/Scenes/Level 4.unity
+    guid: db29f596d0772af489ab1fe38757fd96
+  - enabled: 0
     path: Assets/Scenes/SallesTests.unity
     guid: fee4fe395c29f3c4ca050b0d7a2b0f00
   - enabled: 0
-    path: Assets/Scenes/Level 2.unity
-    guid: f0f0588e6d625b4438a3d433e6f47ca8
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/Level 1.unity
-    guid: 9e294ea321e84fb49a5d436fe8a3d7a1
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/Level.unity
-    guid: 6f49f9af358080d428f18379bc3ba90c
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/Workshop_Environment.unity
     guid: 207972fec3cdc734fa7485fdd84059ca
