@@ -11,6 +11,7 @@ public class EnemyProjectiles : MonoBehaviour
     public int dammage;
     public GameObject Spawner;
     public float speed;
+    public GameObject vfxOnImpact;
 
 
 
@@ -54,7 +55,11 @@ public class EnemyProjectiles : MonoBehaviour
         }
 
         if (other.gameObject != Spawner && !other.isTrigger)
+        {
+            Instantiate(vfxOnImpact, transform.position, Quaternion.identity);
             Destroy(gameObject);
+        }
+            
 
     }
 }

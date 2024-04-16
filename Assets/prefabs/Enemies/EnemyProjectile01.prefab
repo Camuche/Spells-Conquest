@@ -113,6 +113,8 @@ MonoBehaviour:
   dammage: 0
   Spawner: {fileID: 0}
   speed: 3
+  vfxOnImpact: {fileID: 5975657515923498005, guid: d01c92a2d0a8f474e8bf19c79449156c,
+    type: 3}
   mask:
     serializedVersion: 2
     m_Bits: 1

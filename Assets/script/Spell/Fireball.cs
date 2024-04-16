@@ -41,6 +41,8 @@ public class Fireball : MonoBehaviour
     
     public static Fireball instance;
 
+    public AudioClip audioClipTeleguidable;
+
     void Awake()
     {
         instance = this;
@@ -69,8 +71,12 @@ public class Fireball : MonoBehaviour
         //cooldownFireball = player.GetComponent<CastSpell>().cooldownFireball;
         castSpellNewScript = player.GetComponent<CastSpellNew>();
         doNotFollow = castSpellNewScript.doNotFollow;
+        if(!doNotFollow)
+        {
+            GetComponent<AudioSource>().PlayOneShot(audioClipTeleguidable);
+        }
         //doNotFollow = true;
-        
+
     }
 
     public GameObject noImpactPS;

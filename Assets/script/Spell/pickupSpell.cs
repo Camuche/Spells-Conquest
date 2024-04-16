@@ -15,6 +15,8 @@ public class pickupSpell : MonoBehaviour
 
     public UnityEvent unityEvent;
 
+    public AudioClip audioClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class pickupSpell : MonoBehaviour
             player.GetComponent<CastSpellNew>().limit++;
             gameController.GetComponent<gameController>().spellLimit = player.GetComponent<CastSpellNew>().limit;
             unityEvent.Invoke();
+            player.transform.Find("AudioSource").GetComponent<AudioSource>().PlayOneShot(audioClip);
             Destroy(gameObject);
         }
     }

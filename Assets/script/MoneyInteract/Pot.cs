@@ -40,6 +40,7 @@ public class Pot : MonoBehaviour
 
             //do once
             changeColor = true;
+            GetComponent<AudioSource>().Play();
         }
     }
 }
