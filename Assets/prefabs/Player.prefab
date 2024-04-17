@@ -538,6 +538,7 @@ MonoBehaviour:
   isCasting: 0
   lockMode: 0
   runSpeedMultiplier: 1.5
+  enemyTriggered: 0
   dashCoolDown: 0
   movedir: {x: 0, y: 0, z: 0}
   AimDistance: 1
@@ -834,7 +835,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3870732602788733398}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -849,7 +850,7 @@ MonoBehaviour:
     Path: event:/Spells Conquest
   Event: 
   PlayEvent: 1
-  StopEvent: 0
+  StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
@@ -871,7 +872,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3870732602788733398}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07c58048a82c02e418bb2da3c0bd019c, type: 3}
   m_Name: 
@@ -883,6 +884,7 @@ MonoBehaviour:
       Data3: -654711118
       Data4: 906589510
     Path: event:/Spells Conquest
+  volume: 0.5
   intensity: 0
   health: 100
   combat: 0
