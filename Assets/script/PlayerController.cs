@@ -38,14 +38,14 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public bool canMove = true;
 
-    [SerializeField] Animator animator;
+    public Animator animator;
 
     [SerializeField] Material shaderUI;
 
     [HideInInspector]
     public bool isDead;
 
-    [SerializeField] private InputActionReference cameraRotation, movement, mapInput, lockModeInput, runInput, startInput;
+    [SerializeField] private InputActionReference cameraRotation, movement, mapInput, lockModeInput, runInput, startInput, l2Input, r2Input;
 
     [SerializeField] Camera mapCam;
     bool showMap = false;
@@ -240,7 +240,22 @@ public class PlayerController : MonoBehaviour
             //animator.SetFloat("VelocityZ", movement.action.ReadValue<Vector2>().y);
             //animator.SetFloat("VelocityX", movement.action.ReadValue<Vector2>().x);
         }
-        
+        /*Debug.Log(animator.GetBool("Throw"));
+        if (l2Input.action.IsPressed() || r2Input.action.IsPressed())
+        {
+            animator.SetBool("Throw", true);
+            animator.SetBool("HoldSpell", true);
+        }
+        else
+        {
+            animator.SetBool("Throw", false);
+            animator.SetBool("HoldSpell", false);
+        }*/
+
+        /*if (animator.GetBool("Throw") == true)
+        {
+            animator.SetBool("HoldSpell", true);
+        }*/
 
         /*if (Input.GetAxis("Fire") > 0 || Input.GetMouseButton(0))
         {

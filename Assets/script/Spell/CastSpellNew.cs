@@ -56,7 +56,9 @@ public class CastSpellNew : MonoBehaviour
     public GameObject feedback_RightArm;
 
     Inventory inventory;
-    
+
+    [SerializeField] Animator animator;
+
 
     void Awake()
     {
@@ -137,6 +139,12 @@ public class CastSpellNew : MonoBehaviour
         else if (r2IsPressed && spellR2.action.ReadValue<float>() == 0)
         {
             r2IsPressed = false;
+        }
+
+        if(!l2IsPressed && !r2IsPressed)
+        {
+            animator.SetBool("Throw", false);
+            animator.SetBool("HoldSpell", false);
         }
 
         //CHECK RELEASE
@@ -523,6 +531,12 @@ public class CastSpellNew : MonoBehaviour
             timerFireball = 0;
             Instantiate(psFireballInvocation, PlayerController.instance.refModel.transform.position + PlayerController.instance.refModel.forward * 1.5f + PlayerController.instance.refModel.up * 1.5f , PlayerController.instance.refModel.transform.rotation, transform);
             Invoke("Fireball", spellAnimationTime);
+
+            animator.SetBool("Throw", true);
+            if (inventory.fireballAlt)
+            {
+                animator.SetBool("HoldSpell", true);
+            }
         }
 
         if (spellNb == 1 && limit >= 1 && timerFireClone >= cooldownFireClone)     //CAST FIRECLONE
@@ -535,6 +549,8 @@ public class CastSpellNew : MonoBehaviour
             timerFireClone = 0;
             Instantiate(psFireshieldInvocation, PlayerController.instance.refModel.transform.position + PlayerController.instance.refModel.forward * 2 , PlayerController.instance.refModel.transform.rotation);
             Invoke("FireClone", spellAnimationTime);
+
+            animator.SetBool("Throw", true);
         }
 
         if (spellNb == 2 && limit >= 2 && timerTelekinesisClone >= cooldownTelekinesisClone)     //CAST TELEKINESISCLONE
@@ -542,12 +558,14 @@ public class CastSpellNew : MonoBehaviour
             if(aimPoint.transform.GetComponent<MeshRenderer>().enabled == true || aimPointBoth1.transform.GetComponent<MeshRenderer>().enabled == true || aimPointBoth2.transform.GetComponent<MeshRenderer>().enabled == true)
             {
                 //StopPlayerWhenCasting
-            timerCastAnimation = 0;
-            PlayerController.instance.isCasting = true;
-            PlayerController.instance.refModel.forward = new Vector3(PlayerController.instance.transform.right.x, 0,PlayerController.instance.transform.right.z) ;
+                timerCastAnimation = 0;
+                PlayerController.instance.isCasting = true;
+                PlayerController.instance.refModel.forward = new Vector3(PlayerController.instance.transform.right.x, 0,PlayerController.instance.transform.right.z) ;
 
-            timerTelekinesisClone = 0;
-            Invoke("TelekinesisClone", spellAnimationTime);
+                timerTelekinesisClone = 0;
+                Invoke("TelekinesisClone", spellAnimationTime);
+
+                animator.SetBool("Throw", true);
             }
         }
 
