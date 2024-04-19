@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207bb8e4bdc98b94ba631cd46b7031c3, type: 3}
+  m_Name: VoiceTakeDamage
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: fbbd5f6f3c12a4a4d833d1d95f8c26f8, type: 3}
+  - {fileID: 8300000, guid: 234e8037c3efbbd48bb953954ad2314e, type: 3}
+  - {fileID: 8300000, guid: 7129f646027ca8b4f82572a59ee3ea60, type: 3}
+  - {fileID: 8300000, guid: 44813e1119ccdd74f9371bc2e53c7322, type: 3}
+  - {fileID: 8300000, guid: 339c3f96389445246a4806956710ff71, type: 3}
+  - {fileID: 8300000, guid: 5b7d2bbee3abb75498de5a6f314350d0, type: 3}
+  - {fileID: 8300000, guid: 97962525cceb7b9449a2cec5e60ba477, type: 3}
+  - {fileID: 8300000, guid: 5ef5714e89b74af4fb02a53a7ca1af0d, type: 3}
+  volume: {x: 1, y: 1}
+  pitch: {x: 1, y: 1}

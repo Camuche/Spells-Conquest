@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
@@ -277,12 +278,15 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public float dashCoolDown = 0;
     [HideInInspector] public Vector3 movedir;
+
+    public UnityEvent runEvent;
     void movements()
     {
         if (!isRunning && runInput.action.WasPressedThisFrame() && movement.action.ReadValue<Vector2>() != Vector2.zero && canMove)
         {
             speed *= runSpeedMultiplier;
             isRunning = true;
+            runEvent.Invoke();
         }
         if(isRunning && movement.action.ReadValue<Vector2>() == Vector2.zero && canMove)
         {
@@ -621,18 +625,32 @@ public class PlayerController : MonoBehaviour
     GameObject persistentObject;
 
     public AudioSource audioSource;
-    public AudioClip takeDamageAudioClip;
+    //public AudioClip takeDamageAudioClip;
+    
+    public UnityEvent takeDamageEvent;
+    public float timerSoundDamageTrigger = 0.5f;
+    bool canPlayDamageSound = true;
+
     public AudioClip deathAudioClip;
+    public UnityEvent deathEvent;
 
     void CheckLife()
     {
         life = Mathf.Round(life*10)/10;
         damagedTimer -= Time.deltaTime;
+        
+
         if (previousLife!=null && previousLife > life)
         {
             damagedTimer = .05f;
-            audioSource.clip = takeDamageAudioClip;
-            audioSource.Play();
+            if (canPlayDamageSound)
+            {
+                takeDamageEvent.Invoke();
+                canPlayDamageSound = false;
+                Invoke("CanPlaySoundAgain", timerSoundDamageTrigger);
+            }
+            //audioSource.clip = takeDamageAudioClip;
+            //audioSource.Play();
             //audioSource.PlayOneShot(takeDamageAudioClip);
         }
         playerMesh.GetComponent<SkinnedMeshRenderer>().material = damagedTimer > 0 ? damageMat : playerMat;
@@ -646,6 +664,7 @@ public class PlayerController : MonoBehaviour
             {
                 audioSource.clip = deathAudioClip;
                 audioSource.Play();
+                deathEvent.Invoke();
                 StartCoroutine(RestartLevel());
             }
             //StartCoroutine(RestartLevel());
@@ -654,6 +673,11 @@ public class PlayerController : MonoBehaviour
         else isDead = false;
 
         shaderUI.SetFloat("_Life", life / lifeMax);
+    }
+
+    void CanPlaySoundAgain()
+    {
+        canPlayDamageSound = true;
     }
 
     public bool CheckShield()
