@@ -25,6 +25,7 @@ public class FMODParametersValue : MonoBehaviour
             instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
             instance.start();
             isPlaying = true;
+            Debug.Log("instancefmod");
         }
         instance.setVolume(volume);
     }
@@ -34,10 +35,12 @@ public class FMODParametersValue : MonoBehaviour
         if(PlayerController.instance.enemyTriggered > 0)
         {
             combat = 1;
+            Debug.Log("CombatMode");
         }
         else
         {
             combat = 0;
+            Debug.Log("NoCombatMode");
         }
 
         health = PlayerController.instance.life;
@@ -45,7 +48,7 @@ public class FMODParametersValue : MonoBehaviour
 
         instance.setParameterByName("Intensity", intensity);
         instance.setParameterByName("Health", health);
-        instance.setParameterByName("Combat", combat);
+        //instance.setParameterByName("Combat", combat);
     }
 
     private void OnDestroy()
