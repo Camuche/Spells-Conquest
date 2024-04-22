@@ -42,7 +42,7 @@ Material:
     m_Floats:
     - _Float0: 0.53
     - _Metallic_Intensity: 0.89
-    - _Tiling: 1
+    - _Tiling: 0.3
     - __dirty: 0
     m_Colors: []
   m_BuildTextureStacks: []
