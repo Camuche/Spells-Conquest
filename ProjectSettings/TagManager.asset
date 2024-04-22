@@ -17,6 +17,8 @@ TagManager:
   - Money
   - Pot
   - Aura
+  - Sand
+  - Rock
   layers:
   - Default
   - TransparentFX

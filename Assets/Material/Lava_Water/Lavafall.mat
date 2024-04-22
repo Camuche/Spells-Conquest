@@ -35,6 +35,7 @@ Material:
     - _Disto: 0.761
     - _EdgeLength: 15
     - _Float0: 8.13
+    - _Float1: 0
     - _FlowMapTile: 10.36
     - _Lavafall: 1
     - _Lavafall2: 1
@@ -42,8 +43,15 @@ Material:
     - _LavafallSpeed: 0.2
     - _LavafallTilingX: 1.25
     - _LavafallTilingY: 0.05
+    - _Noise_Scale: 0
     - _OffsetStrength: 0.64
     - _OffsetStrengthbis: 1.22
+    - _Offset_Intensity: 0
+    - _Offset_Intensity2: 0
+    - _Remap: 0
+    - _Remap2: 0
+    - _ScaleNoiseTexture: 0
+    - _ScaleOrangeNoise: 0
     - _Smoothness: 0
     - _SpeedAngle: 0.2
     - _SpeedDisto: 0.05
@@ -61,6 +69,9 @@ Material:
     - _Step6: 0.05
     - _Step7: 0.13
     - _Tess: 15
+    - _TessMax: 25
+    - _TessMin: 10
+    - _TessValue: 10
     - _Tiling: 4.64
     - _WaterfallSpeed: 0.35
     - __dirty: 0
@@ -78,4 +89,7 @@ Material:
     - _Color8: {r: 1, g: 0, b: 0, a: 0}
     - _SpherePosition: {r: 0, g: 1e+13, b: 0, a: 0}
     - _SpherePosition1: {r: 0, g: 0, b: 0, a: 0}
+    - _Vector2: {r: 0, g: 0, b: 0, a: 0}
+    - _Vector3: {r: 0, g: 0, b: 0, a: 0}
+    - _Vector4: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

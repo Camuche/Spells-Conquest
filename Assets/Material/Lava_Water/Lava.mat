@@ -34,7 +34,8 @@ Material:
     - _DeapthFade: 0.93
     - _Disto: 0.761
     - _EdgeLength: 15
-    - _Float0: 0.3
+    - _Float0: 2.5
+    - _Float1: 0.1
     - _FlowMapTile: 10.36
     - _Lavafall: 0
     - _Lavafall2: 0
@@ -42,8 +43,15 @@ Material:
     - _LavafallSpeed: 0.3
     - _LavafallTilingX: 1.2
     - _LavafallTilingY: 0.05
+    - _Noise_Scale: 0.84
     - _OffsetStrength: 0.64
     - _OffsetStrengthbis: 0.64
+    - _Offset_Intensity: 0.15
+    - _Offset_Intensity2: 0.1
+    - _Remap: 0.2
+    - _Remap2: -0.75
+    - _ScaleNoiseTexture: 2.5
+    - _ScaleOrangeNoise: 0.96
     - _Smoothness: 0
     - _SpeedAngle: 0.2
     - _SpeedDisto: 0.05
@@ -61,7 +69,11 @@ Material:
     - _Step6: 0.05
     - _Step7: 0.13
     - _Tess: 15
+    - _TessMax: 30
+    - _TessMin: 5
+    - _TessValue: 15
     - _Tiling: 4.64
+    - _TimeSpeed: 0.3
     - _WaterfallSpeed: 0.3
     - __dirty: 0
     - _a: 0.64
@@ -71,11 +83,14 @@ Material:
     - _Color1: {r: 1, g: 0.27789748, b: 0, a: 0}
     - _Color2: {r: 1, g: 0.17090294, b: 0, a: 0}
     - _Color3: {r: 1, g: 0, b: 0, a: 0}
-    - _Color4: {r: 1, g: 0.1709029, b: 0, a: 0}
-    - _Color5: {r: 1, g: 0, b: 0, a: 0}
-    - _Color6: {r: 4.867144, g: 1.04478, b: 0, a: 0}
+    - _Color4: {r: 0, g: 0, b: 0, a: 0}
+    - _Color5: {r: 16.94838, g: 3.371929, b: 0, a: 0}
+    - _Color6: {r: 47.937256, g: 0.5019608, b: 0, a: 0}
     - _Color7: {r: 1, g: 0.2778975, b: 0, a: 0}
     - _Color8: {r: 1.844303, g: 1.264941, b: 0.6083302, a: 0}
     - _SpherePosition: {r: 0, g: 1e+13, b: 0, a: 0}
     - _SpherePosition1: {r: 0, g: 0, b: 0, a: 0}
+    - _Vector2: {r: -0.84, g: 0.86, b: 0, a: 0}
+    - _Vector3: {r: -0.3, g: 0.86, b: 0, a: 0}
+    - _Vector4: {r: 0, g: 0.92, b: 0, a: 0}
   m_BuildTextureStacks: []
