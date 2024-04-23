@@ -8,9 +8,6 @@ public class EnemyCloseAttack : MonoBehaviour
 
     bool isAttacking;
 
-    // PREVISUALISATION TO REMOVE !!
-    public MeshRenderer attackZone;
-
     public float attackDelay;
     float timer =0;
 
@@ -18,6 +15,8 @@ public class EnemyCloseAttack : MonoBehaviour
     public float damage;
 
     bool playerDead;
+
+    public AnimatorBasicEnemy animatorBasicEnemy;
 
 
     // Start is called before the first frame update
@@ -39,8 +38,6 @@ public class EnemyCloseAttack : MonoBehaviour
 
         if(isAttacking == true && playerDead == false)
         {
-            
-
             if (timer<attackDelay)
             {
                 timer += Time.deltaTime;
@@ -49,50 +46,21 @@ public class EnemyCloseAttack : MonoBehaviour
                     CloseAttack();
                     
                 }
-
-            }
-            else
-            {
-                
-                DoNotAttack();
             }
         }
         else
         {
-            
-            DoNotAttack();
             timer = 0f;
-
         }
-
-        
-
     }
 
     void CloseAttack()
     {
-        
+        animatorBasicEnemy.AttackAnimation();
 
         if(Vector3.Distance(transform.position,player.transform.position) < enemyRange)
         {
-            
             player.GetComponent<PlayerController>().life -= damage;
-
-            // PREVISUALISATION TO REMOVE !!
-            attackZone.enabled = true;
         }
-
-        
-        
-
     }
-
-    void DoNotAttack()
-    {
-        // PREVISUALISATION TO REMOVE !!
-        attackZone.enabled = false;
-        
-    }
-
-   
 }

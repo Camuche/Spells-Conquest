@@ -23,7 +23,7 @@ public class EnemyFollower : MonoBehaviour
 
     
     public float attackDuration;
-    bool isStun = false;
+    [HideInInspector] public bool isStun = false;
     public float stunDuration;
     float timer = 0;
     float stunTimer = 0f;
@@ -39,7 +39,7 @@ public class EnemyFollower : MonoBehaviour
 
     public float navMeshDetectionDist = 2;
 
-    bool isDetected;
+    [HideInInspector] public bool isDetected;
     
 
 
@@ -93,9 +93,6 @@ public class EnemyFollower : MonoBehaviour
 			{
 				refCC.Move(Physics.gravity * Time.deltaTime);
 			}
-            /*rb.isKinematic = false;
-            rb.useGravity = true;
-            rb.velocity= new Vector3 (rb.velocity.x , rb.velocity.y, rb.velocity.z);*/
             return;
         }
         else
@@ -138,7 +135,6 @@ public class EnemyFollower : MonoBehaviour
                     }
                 }
                 else dir = Vector3.zero;
-
             }
             else
             {
@@ -146,21 +142,18 @@ public class EnemyFollower : MonoBehaviour
                 if (isAttacking == false)
                 {
                     isAttacking = true;
-                    //Debug.Log("atta");
                 }
 
                 else
                 {
                     if (Vector3.Distance(player.transform.position, transform.position) < followDistance && isHit && (hit.transform.gameObject == player) && ! isStun)
                     {
-                        //Debug.Log("Stop");
                         if (GetComponent<EnemyDash>() == null && navMeshAgent != null)
                         {
                             navMeshAgent.SetDestination(transform.position);
                             gameObject.transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, player.transform.position - transform.position, rotationSpeed * Time.deltaTime, 0.0f));
 
                         }
-
 
                         timer += Time.deltaTime;
                         if (timer >= attackDuration)
@@ -169,36 +162,8 @@ public class EnemyFollower : MonoBehaviour
                             timer = 0;
                         }
                     }
-
-                }
-
-                /*if (Vector3.Distance(player.transform.position, transform.position) < followDistance && isHit && (hit.transform.gameObject == player))
-                {
-                    //Debug.Log("Stop");
-                    navMeshAgent.SetDestination(transform.position);
-                    gameObject.transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, player.transform.position - transform.position, rotationSpeed * Time.deltaTime, 0.0f));
-                }*/
-            }
-
-            /*if (Vector3.Distance(player.transform.position, transform.position) < followDistance && isHit && (hit.transform.gameObject == player))
-            {
-                dir = (player.transform.position - transform.position).normalized;
-                //controller.Move(dir * speed * Time.deltaTime);
-                if (GetComponent<EnemyCharging>() == null && navMeshAgent!=null)
-                {
-                    navMeshAgent.SetDestination(player.transform.position);
-
-                    navMeshAgent.speed = speed;
                 }
             }
-            else
-            {
-                dir = Vector3.zero;
-            }*/
-
-
-            //gravity
-            //controller.Move(Vector3.up * ySpeed * Time.deltaTime);
 
             if (Physics.Raycast(transform.position - Vector3.up, -Vector3.up * 0.1f, 0.1f))
             {

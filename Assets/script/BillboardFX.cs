@@ -11,7 +11,7 @@ public class BillboardFX : MonoBehaviour
 
     void Start()
     {
-        camTransform = Camera.main.transform;
+        camTransform = GameObject.Find("Player").transform.Find("Main Camera").transform; //Camera.main.transform;
     }
 
     void Update()

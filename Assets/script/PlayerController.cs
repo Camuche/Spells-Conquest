@@ -72,6 +72,8 @@ public class PlayerController : MonoBehaviour
 
     public int enemyTriggered;
 
+    GameObject mainCamera;
+
     void Awake()
     {
         instance = this;
@@ -93,6 +95,7 @@ public class PlayerController : MonoBehaviour
 
         //canControlCamera = false;
         refGameController = GameObject.Find("GameController").GetComponent<gameController>();
+        mainCamera = transform.Find("Main Camera").gameObject;
         /*if (!refGameController.xWasPressed)
         {
             GetComponent<PlayerInput>().enabled = false;
@@ -190,7 +193,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!lockMode)
             {
-                //Camera.main.transform.eulerAngles = new Vector3(-2,0.8f,-0.6f);
+                //mainCamera.transform.eulerAngles = new Vector3(-2,0.8f,-0.6f);
                 lockMode = true;
                 StartLockMode();
             }
@@ -334,8 +337,8 @@ public class PlayerController : MonoBehaviour
 
         if(!isAttracted)
         {
-            Vector3 forwardCam = new Vector3 (Camera.main.transform.forward.x , 0 , Camera.main.transform.forward.z);
-            Vector3 rightCam = new Vector3 (Camera.main.transform.right.x , 0 , Camera.main.transform.right.z) *-1;
+            Vector3 forwardCam = new Vector3 (mainCamera.transform.forward.x , 0 , mainCamera.transform.forward.z);
+            Vector3 rightCam = new Vector3 (mainCamera.transform.right.x , 0 , mainCamera.transform.right.z) *-1;
 
             movedir = Vector3.zero;
             if(canMove)
@@ -423,7 +426,7 @@ public class PlayerController : MonoBehaviour
         //invertAxisY = true;
         if (CamzDefault == 999)
         {
-            CamzDefault = Camera.main.transform.localPosition.z;
+            CamzDefault = mainCamera.transform.localPosition.z;
         }
 
         //change angle
@@ -441,7 +444,7 @@ public class PlayerController : MonoBehaviour
 
         rotY = Mathf.Clamp(rotY, -60f, 89.9f);
 
-        Camera.main.transform.rotation = Quaternion.Euler(-rotY, Camera.main.transform.eulerAngles.y, Camera.main.transform.eulerAngles.z);
+       mainCamera.transform.rotation = Quaternion.Euler(-rotY, mainCamera.transform.eulerAngles.y, mainCamera.transform.eulerAngles.z);
 
 
 
@@ -464,7 +467,7 @@ public class PlayerController : MonoBehaviour
         if (hit.distance > CamDistance || hit.collider==null || hit.collider.transform.name=="Player")
         {
             dist = CamDistance;
-            Camera.main.transform.localPosition = new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, CamzDefault + (CamDistance - dist));
+            mainCamera.transform.localPosition = new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, CamzDefault + (CamDistance - dist));
             //Debug.Log(new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, CamzDefault + (CamDistance - dist)));
         }
         else
@@ -472,8 +475,8 @@ public class PlayerController : MonoBehaviour
             dist = hit.distance;
             Vector3 camdest = hit.point;
             camdest = Vector3.MoveTowards(camdest, camposStart, 0.1f);
-            Camera.main.transform.position = camdest;
-            //Camera.main.transform.position = camposStart+((hit.point - camposStart).normalized * dist*-0.9f);
+            mainCamera.transform.position = camdest;
+            //mainCamera.transform.position = camposStart+((hit.point - camposStart).normalized * dist*-0.9f);
         }
 
 
@@ -794,7 +797,7 @@ public class PlayerController : MonoBehaviour
                 if (nearestEnemy != null && Vector3.Distance(transform.position, go.transform.position) <= Vector3.Distance(transform.position, nearestEnemy.transform.position))
                 {
                     RaycastHit hit;
-                    Physics.Raycast(Camera.main.transform.position, go.transform.position - Camera.main.transform.position , out hit, Mathf.Infinity, lockMask);
+                    Physics.Raycast(mainCamera.transform.position, go.transform.position - mainCamera.transform.position , out hit, Mathf.Infinity, lockMask);
                     Debug.Log(hit.collider);
                     if(hit.collider == null)
                     {
@@ -804,7 +807,7 @@ public class PlayerController : MonoBehaviour
                 }*/
 
                 RaycastHit hit;
-                Physics.Raycast(Camera.main.transform.position, go.transform.position - Camera.main.transform.position , out hit, Mathf.Infinity, lockMask);
+                Physics.Raycast(mainCamera.transform.position, go.transform.position - mainCamera.transform.position , out hit, Mathf.Infinity, lockMask);
                 if (hit.collider.tag == "Enemy")
                 {
                     nearestEnemies.Add(go);
@@ -824,7 +827,7 @@ public class PlayerController : MonoBehaviour
                 if (currentEnemy != null && Vector3.Distance(transform.position, go.transform.position) <= Vector3.Distance(transform.position, currentEnemy.transform.position))
                 {
                     /*RaycastHit hit;
-                    Physics.Raycast(Camera.main.transform.position, go.transform.position - Camera.main.transform.position , out hit, Mathf.Infinity, lockMask);
+                    Physics.Raycast(mainCamera.transform.position, go.transform.position - mainCamera.transform.position , out hit, Mathf.Infinity, lockMask);
                     Debug.Log(hit.collider);
                     if(hit.collider == null)
                     {
@@ -905,8 +908,8 @@ public class PlayerController : MonoBehaviour
 
         currentEnemy = nearestEnemies[indexLock];
 
-        //Camera.main.transform.LookAt(currentEnemy.transform, Vector3.up);
-        //Camera.main.transform.forward = Vector3.Lerp(Camera.main.transform.forward, (currentEnemy.transform.position - Camera.main.transform.position).normalized, lockSpeed);
+        //mainCamera.transform.LookAt(currentEnemy.transform, Vector3.up);
+        //mainCamera.transform.forward = Vector3.Lerp(mainCamera.transform.forward, (currentEnemy.transform.position - mainCamera.transform.position).normalized, lockSpeed);
 
         //transform.LookAt(currentEnemy.transform, Vector3.up);
         //transform.forward = Vector3.Lerp(transform.forward, (currentEnemy.transform.position - transform.position).normalized, lockSpeed);
@@ -925,8 +928,8 @@ public class PlayerController : MonoBehaviour
 
         
 
-        Camera.main.transform.localPosition = new Vector3(-2,0.8f,-0.6f);
-        Camera.main.transform.localRotation = Quaternion.Euler (0,Camera.main.transform.localRotation.y +90 /*because player forward is right*/ ,Camera.main.transform.localRotation.z);
+        mainCamera.transform.localPosition = new Vector3(-2,0.8f,-0.6f);
+        mainCamera.transform.localRotation = Quaternion.Euler (0,mainCamera.transform.localRotation.y +90 /*because player forward is right*/ ,mainCamera.transform.localRotation.z);
         
         //TRYING TO ROTATE THE PLAYER BUT NOT IN X 
         /*refModel.transform.localRotation =transform.rotation *  Quaternion.Euler(-transform.rotation.x,90,0);
@@ -934,7 +937,7 @@ public class PlayerController : MonoBehaviour
         
         /*rotY = 0;
         ChangeCamPos();*/
-        /*rotY = Camera.main.transform.rotation.y;
+        /*rotY = mainCamera.transform.rotation.y;
         rotY = Mathf.Clamp(rotY, -60f, 90f);
         ChangeCamPos();*/
 
@@ -975,7 +978,7 @@ public class PlayerController : MonoBehaviour
         if (hit.distance > CamDistance || hit.collider==null || hit.collider.transform.name=="Player")
         {
             dist = CamDistance;
-            Camera.main.transform.localPosition = new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, CamzDefault + (CamDistance - dist));
+            mainCamera.transform.localPosition = new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, CamzDefault + (CamDistance - dist));
             //Debug.Log(new Vector3(-Mathf.Cos(rotY * Mathf.PI / 180) * dist, 0.8f - Mathf.Sin(rotY * Mathf.PI / 180) * dist, CamzDefault + (CamDistance - dist)));
         }
         else
@@ -983,8 +986,8 @@ public class PlayerController : MonoBehaviour
             dist = hit.distance;
             Vector3 camdest = hit.point;
             camdest = Vector3.MoveTowards(camdest, camposStart, 0.1f);
-            Camera.main.transform.position = camdest;
-            //Camera.main.transform.position = camposStart+((hit.point - camposStart).normalized * dist*-0.9f);
+            mainCamera.transform.position = camdest;
+            //mainCamera.transform.position = camposStart+((hit.point - camposStart).normalized * dist*-0.9f);
         }
     }
 
