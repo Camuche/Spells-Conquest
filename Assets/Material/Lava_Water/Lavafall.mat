@@ -73,6 +73,7 @@ Material:
     - _TessMin: 10
     - _TessValue: 10
     - _Tiling: 4.64
+    - _TimeSpeed: 0
     - _WaterfallSpeed: 0.35
     - __dirty: 0
     - _a: 0.94
