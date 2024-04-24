@@ -19,8 +19,28 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 75328d36bbc1c4f48861f277c2b3b0c1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _FlowMap:
         m_Texture: {fileID: 2800000, guid: e5fc194be4ef2994a936322b74927473, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowMap1:
+        m_Texture: {fileID: 2800000, guid: e5fc194be4ef2994a936322b74927473, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowMap2:
+        m_Texture: {fileID: 2800000, guid: e5fc194be4ef2994a936322b74927473, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Roughness:
+        m_Texture: {fileID: 2800000, guid: fe43f7517b642074386a0fe966bf0195, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _normal:
+        m_Texture: {fileID: 2800000, guid: 1b8245471349dea4780491afef1d08b6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -32,29 +52,45 @@ Material:
     - _CircleSize1: 4
     - _Cutoff: 0.5
     - _DeapthFade: 0.93
+    - _DepthFade: 2
     - _Disto: 0.761
+    - _Disto1: 0.761
+    - _Disto2: 0.761
+    - _DistoSize: 1
     - _EdgeLength: 15
     - _Float0: 2.5
-    - _Float1: 0.1
+    - _Float1: 0.3
+    - _Float2: 0.936
+    - _Float3: 1
+    - _Float4: 0.18
+    - _Float5: 0
+    - _FlowMapSize: 0.18
     - _FlowMapTile: 10.36
+    - _HDRRock: 0.88
     - _Lavafall: 0
     - _Lavafall2: 0
     - _LavafallOffsetStrength: 0.64
     - _LavafallSpeed: 0.3
     - _LavafallTilingX: 1.2
     - _LavafallTilingY: 0.05
-    - _Noise_Scale: 0.84
+    - _Noise_Scale: 2.99
     - _OffsetStrength: 0.64
+    - _OffsetStrength1: 0.6
     - _OffsetStrengthbis: 0.64
-    - _Offset_Intensity: 0.15
+    - _Offset_Intensity: 0.41
     - _Offset_Intensity2: 0.1
     - _Remap: 0.2
-    - _Remap2: -0.75
+    - _Remap2: -0.36
+    - _Rock_Nornam_Intensity: 1
+    - _Rock_Roughness_Intensity: 0.8
+    - _Rock_Size: 0.58
     - _ScaleNoiseTexture: 2.5
-    - _ScaleOrangeNoise: 0.96
+    - _ScaleOrangeNoise: 3.32
     - _Smoothness: 0
     - _SpeedAngle: 0.2
     - _SpeedDisto: 0.05
+    - _SpeedDisto1: 0.23
+    - _SpeedDisto2: -1.4
     - _Step: 0.05
     - _Step0: 0.03
     - _Step0bis: 0.03
@@ -69,10 +105,11 @@ Material:
     - _Step6: 0.05
     - _Step7: 0.13
     - _Tess: 15
-    - _TessMax: 30
+    - _TessMax: 50
     - _TessMin: 5
     - _TessValue: 15
     - _Tiling: 4.64
+    - _Tiling1: 4.64
     - _TimeSpeed: 0.3
     - _WaterfallSpeed: 0.3
     - __dirty: 0
@@ -83,14 +120,15 @@ Material:
     - _Color1: {r: 1, g: 0.27789748, b: 0, a: 0}
     - _Color2: {r: 1, g: 0.17090294, b: 0, a: 0}
     - _Color3: {r: 1, g: 0, b: 0, a: 0}
-    - _Color4: {r: 0, g: 0, b: 0, a: 0}
-    - _Color5: {r: 16.94838, g: 3.371929, b: 0, a: 0}
+    - _Color4: {r: 11.984314, g: 0, b: 0, a: 0}
+    - _Color5: {r: 47.937256, g: 9.537255, b: 0, a: 0}
     - _Color6: {r: 47.937256, g: 0.5019608, b: 0, a: 0}
     - _Color7: {r: 1, g: 0.2778975, b: 0, a: 0}
     - _Color8: {r: 1.844303, g: 1.264941, b: 0.6083302, a: 0}
+    - _Rock_Color: {r: 0.6037736, g: 0.2135992, b: 0.2135992, a: 0}
     - _SpherePosition: {r: 0, g: 1e+13, b: 0, a: 0}
     - _SpherePosition1: {r: 0, g: 0, b: 0, a: 0}
-    - _Vector2: {r: -0.84, g: 0.86, b: 0, a: 0}
-    - _Vector3: {r: -0.3, g: 0.86, b: 0, a: 0}
-    - _Vector4: {r: 0, g: 0.92, b: 0, a: 0}
+    - _Vector2: {r: -0.38, g: 0.86, b: 0, a: 0}
+    - _Vector3: {r: 0, g: 1, b: 0, a: 0}
+    - _Vector4: {r: 0, g: 1.5, b: 0, a: 0}
   m_BuildTextureStacks: []
