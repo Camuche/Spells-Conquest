@@ -734,7 +734,7 @@ MonoBehaviour:
   aura: {fileID: -1926743980991009158, guid: ce515ecc6fe77704ba2b9e7fe0281622, type: 3}
   spellAnimationTime: 0.3
   auraGO: {fileID: 6538530026207656442, guid: af772c07065b89d4388decffc2d5e6d2, type: 3}
-  cooldownAura: 1
+  cooldownAura: 1.5
   feedback_LeftArm: {fileID: 6150111399132889184}
   feedback_RightArm: {fileID: 3504513463751858510}
   animator: {fileID: 6223283691279782444}
