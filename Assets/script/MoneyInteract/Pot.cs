@@ -23,8 +23,8 @@ public class Pot : MonoBehaviour
     {
         if(changeColor && lerpTime <= 1 )
         {
-            lerpTime += 0.0001f * lerpSpeed;
-            isEnlightened = Mathf.Lerp(isEnlightened, 1 , lerpTime);
+            lerpTime += Time.deltaTime * lerpSpeed;
+            isEnlightened = Mathf.Lerp(isEnlightened, 0.2f , lerpTime);
             cristal.GetComponent<Renderer>().material.SetFloat("_isEnlightened"  ,isEnlightened);
         }      
     }

@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour
     public int enemyTriggered;
 
     GameObject mainCamera;
+    public float modelRotationSpeed;
 
     void Awake()
     {
@@ -352,8 +353,7 @@ public class PlayerController : MonoBehaviour
 
         if(movedir != Vector3.zero)
         {
-            refModel.forward = movedir;
-            
+            refModel.forward = Vector3.Lerp(refModel.forward, movedir, modelRotationSpeed);
         }
         refModel.position = transform.position - Vector3.up;
 
@@ -370,7 +370,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-
+    
 
     [SerializeField] float AimDistance;
     float DefaultCamDistance;

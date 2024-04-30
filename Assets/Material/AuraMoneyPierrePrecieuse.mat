@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _EmissiveIntensity: 1.5
+    - _EmissiveIntensity: 2.5
     - _Emissive_Speed: 13.53
     - _Float1: 0.8
     - _Float2: 0.22
@@ -70,7 +70,7 @@ Material:
     - _TextureScale: 2.77
     - __dirty: 0
     - _isEnlighted: 0.2
-    - _isEnlightened: 0.2
+    - _isEnlightened: 1
     m_Colors:
     - _Color0: {r: 0.65882355, g: 0.03256822, b: 0, a: 0}
     - _Emissive_Color: {r: 1, g: 0.027406048, b: 0, a: 0}

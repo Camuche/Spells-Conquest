@@ -545,6 +545,7 @@ MonoBehaviour:
   lockMode: 0
   runSpeedMultiplier: 1.5
   enemyTriggered: 0
+  modelRotationSpeed: 0.8
   dashCoolDown: 0
   movedir: {x: 0, y: 0, z: 0}
   runEvent:
