@@ -19,8 +19,28 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _FlowMap:
         m_Texture: {fileID: 2800000, guid: e5fc194be4ef2994a936322b74927473, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowMap1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Roughness:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _normal:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -33,9 +53,12 @@ Material:
     - _Cutoff: 0.5
     - _DeapthFade: 0.93
     - _Disto: 0.761
+    - _Disto1: 0
     - _EdgeLength: 15
     - _Float0: 8.13
     - _Float1: 0
+    - _Float3: 0
+    - _FlowMapSize: 1
     - _FlowMapTile: 10.36
     - _Lavafall: 1
     - _Lavafall2: 1
@@ -44,17 +67,22 @@ Material:
     - _LavafallTilingX: 1.25
     - _LavafallTilingY: 0.05
     - _Noise_Scale: 0
+    - _Normal_Intensity: 0
     - _OffsetStrength: 0.64
+    - _OffsetStrength1: 0
     - _OffsetStrengthbis: 1.22
     - _Offset_Intensity: 0
     - _Offset_Intensity2: 0
     - _Remap: 0
     - _Remap2: 0
+    - _Rock_Roughness_Intensity: 0
+    - _Rock_Size: 0
     - _ScaleNoiseTexture: 0
     - _ScaleOrangeNoise: 0
     - _Smoothness: 0
     - _SpeedAngle: 0.2
     - _SpeedDisto: 0.05
+    - _SpeedDisto1: 0
     - _Step: 0.05
     - _Step0: 0.03
     - _Step0bis: 0.36
@@ -88,6 +116,7 @@ Material:
     - _Color6: {r: 0, g: 0, b: 0, a: 0}
     - _Color7: {r: 1, g: 1, b: 1, a: 0}
     - _Color8: {r: 1, g: 0, b: 0, a: 0}
+    - _Rock_Color: {r: 0, g: 0, b: 0, a: 0}
     - _SpherePosition: {r: 0, g: 1e+13, b: 0, a: 0}
     - _SpherePosition1: {r: 0, g: 0, b: 0, a: 0}
     - _Vector2: {r: 0, g: 0, b: 0, a: 0}
