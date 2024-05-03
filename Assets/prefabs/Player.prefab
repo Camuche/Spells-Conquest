@@ -1952,7 +1952,7 @@ Animator:
   m_GameObject: {fileID: 4373579301818280426}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: f9a5a3aa23f18f94c84d88df11649bbb, type: 3}
-  m_Controller: {fileID: 9100000, guid: 15019d8b97f0b474ab5fdacfaa66d41f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 48128f75ace9fef479737ddd5fd789b6, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1963,3 +1963,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8058715949935356808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4373579301818280426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b651f1dba31d144bb52491c7a237991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepSounds:
+  - {fileID: 11400000, guid: c3902efd26af24a4ba4eaf93690d0d6f, type: 2}
+  - {fileID: 11400000, guid: 7f867f9a41ddb2249b01c0ceccc71736, type: 2}
+  refSource: {fileID: 8922761576172307311}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 1024

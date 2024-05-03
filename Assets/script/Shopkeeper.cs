@@ -21,7 +21,7 @@ public class Shopkeeper : MonoBehaviour
     //Inventory inventory;
     UIupdate uiUpdate;
 
-
+    bool startDone;
     //TEMPORARY
     //[SerializeField] private InputActionReference northButton, leftButton, RightButton;
     
@@ -29,15 +29,28 @@ public class Shopkeeper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //uiUpdate = GameObject.Find("GameController").GetComponent<UIupdate>();
+        //player = GameObject.Find("Player");
+        startDone = false;
+        Invoke("StartContent", Time.deltaTime * 10);
+        //inventory = GameObject.Find("Player").GetComponent<Inventory>();
+    }
+
+    void StartContent()
+    {
         uiUpdate = GameObject.Find("GameController").GetComponent<UIupdate>();
         player = GameObject.Find("Player");
-
-        //inventory = GameObject.Find("Player").GetComponent<Inventory>();
+        startDone = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!startDone)
+        {
+            return;
+        }
+
         //Debug.Log( PlayerController.instance.refPlayerInput.currentActionMap.name);
         if(interact.action.ReadValue<float>() == 0)
         {
