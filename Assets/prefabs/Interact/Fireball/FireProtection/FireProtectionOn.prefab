@@ -103,6 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6751287632631574604}
   - component: {fileID: 6751287632631574605}
+  - component: {fileID: 4187481659767546412}
   m_Layer: 0
   m_Name: FireProtectionOn
   m_TagString: ShaderEffect
@@ -137,6 +138,35 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6751287632631574600}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &4187481659767546412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6751287632631574600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 760d509816a06d54882521b79d6b63a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endTime: 0
+  OnTimerEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 547919410258563231}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  timerOn: 1
 --- !u!1001 &2842157170867187473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -229,6 +259,12 @@ PrefabInstance:
 --- !u!4 &629694201823827260 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3444199734888839725, guid: 378f8aee132bf844b9e2643d09e3cbbd,
+    type: 3}
+  m_PrefabInstance: {fileID: 2842157170867187473}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &547919410258563231 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2372208635622129550, guid: 378f8aee132bf844b9e2643d09e3cbbd,
     type: 3}
   m_PrefabInstance: {fileID: 2842157170867187473}
   m_PrefabAsset: {fileID: 0}

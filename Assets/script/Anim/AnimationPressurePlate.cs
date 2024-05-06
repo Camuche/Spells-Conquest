@@ -9,7 +9,7 @@ public class AnimationPressurePlate : MonoBehaviour
     public GameObject obstacle;
 
     private Vector3 posInit;
-    public float speed;
+    public float speedOpen, speedClose;
     bool isTrigger = false;
 
 
@@ -40,12 +40,12 @@ public class AnimationPressurePlate : MonoBehaviour
             
             if (isTrigger == true)
             {
-                obstacle.transform.position = Vector3.MoveTowards(obstacle.transform.position, target.position, 0.01f * Time.deltaTime * speed);
+                obstacle.transform.position = Vector3.MoveTowards(obstacle.transform.position, target.position, 0.01f * Time.deltaTime * speedOpen);
                 rendererGameObject.transform.position = Vector3.MoveTowards(rendererGameObject.transform.position, targetRenderer , 0.01f* Time.deltaTime * speedRenderer);
             }
             else
             {
-                obstacle.transform.position = Vector3.MoveTowards(obstacle.transform.position, posInit, 0.01f * Time.deltaTime * speed);
+                obstacle.transform.position = Vector3.MoveTowards(obstacle.transform.position, posInit, 0.01f * Time.deltaTime * speedClose);
                 rendererGameObject.transform.position = Vector3.MoveTowards(rendererGameObject.transform.position, posInitRenderer, 0.01f * Time.deltaTime * speedRenderer);
             }
 
