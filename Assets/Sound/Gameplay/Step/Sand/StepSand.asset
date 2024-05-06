@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207bb8e4bdc98b94ba631cd46b7031c3, type: 3}
+  m_Name: StepSand
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 52072a9ccf7474549bb6940a391fb993, type: 3}
+  - {fileID: 8300000, guid: 8b6104c41286ed949b4426b197d43070, type: 3}
+  - {fileID: 8300000, guid: 49e59dd94cb75624e93a5802fd0ff3df, type: 3}
+  - {fileID: 8300000, guid: 0a24004e5e20f444fae78c9fae3fcdbd, type: 3}
+  - {fileID: 8300000, guid: 8bf3aeefe46dc104f835299fa52d2db5, type: 3}
+  - {fileID: 8300000, guid: b076fe56c6c7e1449a33f110bd763a25, type: 3}
+  - {fileID: 8300000, guid: 29df06b88473c3f4e8a9d867bd5b8365, type: 3}
+  - {fileID: 8300000, guid: d348cdffead8f7c4e9825a4baf7bcce1, type: 3}
+  volume: {x: 0.5, y: 0.5}
+  pitch: {x: 1, y: 1}

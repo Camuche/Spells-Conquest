@@ -1976,8 +1976,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepSounds:
-  - {fileID: 11400000, guid: c3902efd26af24a4ba4eaf93690d0d6f, type: 2}
   - {fileID: 11400000, guid: 7f867f9a41ddb2249b01c0ceccc71736, type: 2}
+  - {fileID: 11400000, guid: c3902efd26af24a4ba4eaf93690d0d6f, type: 2}
   refSource: {fileID: 8922761576172307311}
   groundMask:
     serializedVersion: 2

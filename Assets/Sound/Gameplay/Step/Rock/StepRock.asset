@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207bb8e4bdc98b94ba631cd46b7031c3, type: 3}
+  m_Name: StepRock
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 087a1df0be80c56479f4e0ce03d492c4, type: 3}
+  - {fileID: 8300000, guid: 1198f805c6c1a0f4982e4ffb84761477, type: 3}
+  - {fileID: 8300000, guid: efde1c390c47fad4d897c92ec3d1fb19, type: 3}
+  - {fileID: 8300000, guid: 9a41bfd589816de40850461fbbef6961, type: 3}
+  - {fileID: 8300000, guid: 49e0afd312a669e4da7fd56f1f8364c9, type: 3}
+  - {fileID: 8300000, guid: b84f200d3c6b33f49b2954cb7e1280ef, type: 3}
+  - {fileID: 8300000, guid: 6d93e3823aacd2f4eb20bc2c71be6144, type: 3}
+  - {fileID: 8300000, guid: 4eba0ccdd373f8a49a5c6da4df6f74a7, type: 3}
+  volume: {x: 0.5, y: 0.5}
+  pitch: {x: 1, y: 1}

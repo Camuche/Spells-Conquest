@@ -21,10 +21,12 @@ public class StepSoundDetector : MonoBehaviour
     {
         if(Physics.Raycast(transform.position, Vector3.down, out hit, 100, groundMask, QueryTriggerInteraction.Ignore))
         {
+            index = 0;
+            
             switch (hit.collider.tag)
             {
-                case "Sand": index = 0; break;
-                case "Rock": index = 1; break;
+                case "Rock": index = 0; break;
+                case "Sand": index = 1; break;
             }
         }
     }
