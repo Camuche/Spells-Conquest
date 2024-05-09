@@ -277,7 +277,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 8917432669895591123}
   obstacle: {fileID: 5410446296125037739}
-  speed: 200
+  speedOpen: 4
+  speedClose: 4
   rendererGameObject: {fileID: 5410446297467122272}
   speedRenderer: 50
   namesAndTagsToCheck:
