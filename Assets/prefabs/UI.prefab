@@ -4737,6 +4737,9 @@ MonoBehaviour:
   damageAvailable: 3
   priceHp: 50
   priceDamage: 50
+  audioSource: {fileID: 2409513521942822003}
+  notAvailiableAudioSource: {fileID: 8300000, guid: b4ec25e85afa0414ab02fb0debe646bb,
+    type: 3}
   matButtonFireball: {fileID: 8207424865595655934}
   matButtonFireClone: {fileID: 8610131776150367713}
   matButtonTelekinesisClone: {fileID: 3943968181304766691}

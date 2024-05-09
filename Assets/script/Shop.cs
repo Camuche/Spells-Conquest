@@ -17,7 +17,10 @@ public class Shop : MonoBehaviour
 
     //STATS AVAILABLE
     [SerializeField] int hpAvailable, damageAvailable;
-    [SerializeField] int priceHp, priceDamage; 
+    [SerializeField] int priceHp, priceDamage;
+
+    public AudioSource audioSource;
+    public AudioClip notAvailiableAudioSource;
     
 
 
@@ -123,6 +126,7 @@ public class Shop : MonoBehaviour
         else if(Inventory.instance.money < priceFireball && fireballAltAvailable == true && CastSpellNew.instance.limit >= 0)
         {
             notEnoughMoneyTMP.enabled = true;
+            audioSource.PlayOneShot(notAvailiableAudioSource);
         }
     }
 
@@ -140,6 +144,7 @@ public class Shop : MonoBehaviour
         else if(Inventory.instance.money < priceFireClone && fireCloneAltAvailable == true && CastSpellNew.instance.limit >= 1)
         {
             notEnoughMoneyTMP.enabled = true;
+            audioSource.PlayOneShot(notAvailiableAudioSource);
         }
     }
 
@@ -157,6 +162,7 @@ public class Shop : MonoBehaviour
         else if(Inventory.instance.money < priceTelekinesisClone && telekinesisCloneAltAvailable == true && CastSpellNew.instance.limit >= 2)
         {
             notEnoughMoneyTMP.enabled = true;
+            audioSource.PlayOneShot(notAvailiableAudioSource);
         }
     }
 
@@ -235,6 +241,7 @@ public class Shop : MonoBehaviour
         {
             timerDelay = 0f;
             notEnoughMoneyTMP.enabled = true;
+            audioSource.PlayOneShot(notAvailiableAudioSource);
         }
     }
 
@@ -259,6 +266,7 @@ public class Shop : MonoBehaviour
         {
             timerDelay = 0f;
             notEnoughMoneyTMP.enabled = true;
+            audioSource.PlayOneShot(notAvailiableAudioSource);
         }
     }
 
