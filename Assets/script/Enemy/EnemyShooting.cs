@@ -14,6 +14,9 @@ public class EnemyShooting : MonoBehaviour
     float rotationSpeed ;
     public GameObject spawnPos;
 
+    public AudioSource audioSource;
+    public AudioClip shootAudioClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,8 @@ public class EnemyShooting : MonoBehaviour
 
             if (gameObject.GetComponent<EnemyFollower>().dir != Vector3.zero && (GameObject.Find("Player").transform.position-transform.position).magnitude< gameObject.GetComponent<EnemyFollower>().followDistance)
             {
+                audioSource.PlayOneShot(shootAudioClip);
+
                 GameObject b = Instantiate(Bullet);
                 //b.GetComponent<EnemyProjectiles>().dir = gameObject.GetComponent<EnemyFollower>().dir;
                 b.GetComponent<EnemyProjectiles>().dir = (player.transform.position - spawnPos.transform.position).normalized;

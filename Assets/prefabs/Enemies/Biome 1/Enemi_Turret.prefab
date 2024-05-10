@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 3931506438026593828}
   - component: {fileID: 5012097407215716803}
   - component: {fileID: 4244470556581129561}
+  - component: {fileID: 3332751442795559791}
   m_Layer: 11
   m_Name: Enemi_Turret
   m_TagString: Enemy
@@ -348,10 +349,12 @@ MonoBehaviour:
   minDistance: 2
   rotationSpeed: 5
   attackDuration: 0
+  isStun: 0
   stunDuration: 0
   isAttacking: 0
   useGravity: 1
   navMeshDetectionDist: 2
+  isDetected: 0
 --- !u!143 &5387335219111035024
 CharacterController:
   m_ObjectHideFlags: 0
@@ -387,6 +390,8 @@ MonoBehaviour:
   BulletDammage: 10
   BulletSpeed: 30
   spawnPos: {fileID: 3271397850573795120}
+  audioSource: {fileID: 3332751442795559791}
+  shootAudioClip: {fileID: 8300000, guid: 7bc8e2d77962cff4f98be246cfcd632e, type: 3}
 --- !u!114 &3931506438026593828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,6 +447,147 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!82 &3332751442795559791
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4042794045697653259}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 40
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.12693635
+      value: 1
+      inSlope: -40.015934
+      outSlope: -40.015934
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.14465408
+      value: 0.69285583
+      inSlope: -6.3059688
+      outSlope: -6.3059688
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.4724075
+    - serializedVersion: 3
+      time: 0.22377929
+      value: 0.38928223
+      inSlope: -2.0242014
+      outSlope: -2.0242014
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.61835647
+    - serializedVersion: 3
+      time: 0.33833617
+      value: 0.22143555
+      inSlope: -0.9903228
+      outSlope: -0.9903228
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.67758423
+    - serializedVersion: 3
+      time: 0.48737183
+      value: 0.11608887
+      inSlope: -0.55009323
+      outSlope: -0.55009323
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.7747479
+      outWeight: 0.6227775
+    - serializedVersion: 3
+      time: 0.6713379
+      value: 0.0491333
+      inSlope: -0.23683265
+      outSlope: -0.23683265
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.35226208
+      outWeight: 0.4018114
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.02500997
+      outSlope: -0.02500997
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7772159775528050387
 GameObject:
   m_ObjectHideFlags: 0

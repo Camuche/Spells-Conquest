@@ -35,7 +35,7 @@ public class pickupSpell : MonoBehaviour
             player.GetComponent<CastSpellNew>().limit++;
             gameController.GetComponent<gameController>().spellLimit = player.GetComponent<CastSpellNew>().limit;
             unityEvent.Invoke();
-            player.transform.Find("AudioSource").GetComponent<AudioSource>().PlayOneShot(audioClip);
+            player.transform.Find("AudioSourcePickupSpell").GetComponent<AudioSource>().PlayOneShot(audioClip);
             Destroy(gameObject);
         }
     }
