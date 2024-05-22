@@ -7,7 +7,7 @@ public class EnemyLife : MonoBehaviour
 
     public float life;
     public bool DisplayLife;
-    GameObject healthBar;
+    public GameObject healthBar;
 
     private float maxLife;
 
@@ -23,16 +23,16 @@ public class EnemyLife : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthBar = transform.Find("HealthBar").gameObject;
+        
 
-        if (DisplayLife)
+        /*if (DisplayLife)
         {
             healthBar.GetComponent<CanvasGroup>().alpha = 1;
         }
         else
         {
             healthBar.GetComponent<CanvasGroup>().alpha = 0;
-        }
+        }*/
 
 
         maxLife = life;
@@ -71,7 +71,12 @@ public class EnemyLife : MonoBehaviour
 
     private void drawHealth()
     {
-        healthBar.transform.Find("ImageGreen").GetComponent<RectTransform>().localScale = new Vector3((float)(life/maxLife),1,1);
+        //healthBar.transform.Find("ImageGreen").GetComponent<RectTransform>().localScale = new Vector3((float)(life/maxLife),1,1);
+        if (healthBar != null)
+        {
+            healthBar.GetComponent<MeshRenderer>().material.SetFloat("_Life", life/maxLife);
+        }
+        //healthBar.GetComponent<MeshRenderer>().material.SetFloat("_Life",life);
     }
 
     private void OnTriggerEnter(Collider other)

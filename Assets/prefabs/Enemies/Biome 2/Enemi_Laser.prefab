@@ -40,6 +40,7 @@ Transform:
   - {fileID: 298185852537992098}
   - {fileID: 6334786631032362400}
   - {fileID: 1891483048058613015}
+  - {fileID: 6333318435331951363}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -126,10 +127,12 @@ MonoBehaviour:
   minDistance: 2
   rotationSpeed: 5
   attackDuration: 0
+  isStun: 0
   stunDuration: 0
   isAttacking: 0
   useGravity: 1
   navMeshDetectionDist: 2
+  isDetected: 0
 --- !u!143 &5387335219111035024
 CharacterController:
   m_ObjectHideFlags: 0
@@ -162,9 +165,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 20
   DisplayLife: 1
+  healthBar: {fileID: 0}
   IgnoreCol: {fileID: 0}
   money: {fileID: 8151259076252225134, guid: 7ed868fa4092dba41b5b11d7eb78d99b, type: 3}
   dropMoneyNumber: 0
+  refAudioSource: {fileID: 0}
+  physicalDamagedAudioClip: {fileID: 0}
 --- !u!195 &5042605685589712362
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -509,6 +515,81 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &1377217234095612092
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 484699292189609001}
+    m_Modifications:
+    - target: {fileID: 2127846264738759691, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_Name
+      value: Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 621d4a91c33bf0b4baa880a98e9daebb, type: 3}
+--- !u!4 &6333318435331951363 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1377217234095612092}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2427657593493359843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -520,6 +601,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3745781136410623869, guid: 1e9acd4c01b012f4f824506a833021c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409090876675201455, guid: 1e9acd4c01b012f4f824506a833021c0,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5729511207861410725, guid: 1e9acd4c01b012f4f824506a833021c0,
         type: 3}

@@ -262,6 +262,7 @@ Transform:
   - {fileID: 1926194526738181841}
   - {fileID: 2352392498055201428}
   - {fileID: 4644765083769090104}
+  - {fileID: 5862526380782242977}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -389,6 +390,8 @@ MonoBehaviour:
   BulletDammage: 10
   BulletSpeed: 30
   spawnPos: {fileID: 3271397850573795120}
+  audioSource: {fileID: 0}
+  shootAudioClip: {fileID: 0}
 --- !u!114 &3931506438026593828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,9 +406,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 30
   DisplayLife: 1
+  healthBar: {fileID: 0}
   IgnoreCol: {fileID: 0}
   money: {fileID: 8151259076252225134, guid: 7ed868fa4092dba41b5b11d7eb78d99b, type: 3}
   dropMoneyNumber: 0
+  refAudioSource: {fileID: 0}
+  physicalDamagedAudioClip: {fileID: 0}
 --- !u!195 &5012097407215716803
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -525,6 +531,81 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &1559174448862832414
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5127445471214061405}
+    m_Modifications:
+    - target: {fileID: 2127846264738759691, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_Name
+      value: Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 621d4a91c33bf0b4baa880a98e9daebb, type: 3}
+--- !u!4 &5862526380782242977 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4969911617592781759, guid: 621d4a91c33bf0b4baa880a98e9daebb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1559174448862832414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5187931547462588371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -701,6 +782,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3745781136410623869, guid: 1e9acd4c01b012f4f824506a833021c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409090876675201455, guid: 1e9acd4c01b012f4f824506a833021c0,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5729511207861410725, guid: 1e9acd4c01b012f4f824506a833021c0,
         type: 3}

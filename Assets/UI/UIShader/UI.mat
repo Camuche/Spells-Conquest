@@ -9,7 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: UI
   m_Shader: {fileID: 4800000, guid: d1e3ff2fe4ea5024cbb3af6f482ff3b0, type: 3}
-  m_ShaderKeywords: _ENABLESPELL_ON _ENABLESUBSPELLS_ON _ENABLE_SPELL_ON _SPELLAVAILABLE_ON
+  m_ShaderKeywords: _ENABLESPELL_ON _ENABLESUBSPELLS_ON _ENABLE_SPELL_ON _SHOWAIMPOINT_ON
+    _SPELLAVAILABLE_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -47,26 +48,40 @@ Material:
         m_Texture: {fileID: 2800000, guid: 2a6878d0c446f584d94678d0f61a3eb2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _UI_BarreDeVie_et_Spells:
+        m_Texture: {fileID: 2800000, guid: 5158049efc6141d46835db7eb65814f2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UI_MasqueVie:
+        m_Texture: {fileID: 2800000, guid: d1d89c9183af5a84b96f1af4485d2d63, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UI_Viseur:
+        m_Texture: {fileID: 2800000, guid: 4f6064c8e9970594c99a0d095aa1e75e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _2: -0.4725
     - _AlphaCooldownUI: 0.1
     - _Cutoff: 0.5
     - _DebugMiddle: 0
     - _DebugMiddleOffset: 0
-    - _EnableSpell: 0
+    - _EnableSpell: 1
     - _EnableSubSpells: 1
     - _EnableUI: 1
     - _Enable_Spell: 1
     - _Float0: 0.6
+    - _Float1: -0.484275
     - _Float2: 0.78
     - _Keyword0: 0
     - _LB_SpellOffsetX: 0
     - _LB_SpellOffsetY: 0.15
-    - _LeftSpellCooldown: Infinity
-    - _Life: 1
+    - _LeftSpellCooldown: 1.0096525
+    - _Life: 0.9
     - _LifeBarOffsetX: -0.04
     - _LifeBarOffsetY: -4.9
     - _LifeBarScaleX: 3.11
@@ -74,6 +89,7 @@ Material:
     - _RB_SpellOffsetX: -5.03
     - _RB_SpellOffsetY: 0.15
     - _RightSpellCooldown: Infinity
+    - _ShowAimpoint: 1
     - _SpellAvailable: 1
     - _SpellOffsetX: 0.04
     - _SpellOffsetY: 0
@@ -92,11 +108,15 @@ Material:
     - _SubSpells_Scale: 5.5
     - _ToggleSwitch0: 0
     - __dirty: 0
+    - _scale: 1.5
+    - _scale1: 1.5
     m_Colors:
     - _Life: {r: 0, g: 1, b: 0, a: 0}
     - _LifeColor: {r: 0, g: 1, b: 0, a: 0}
     - _LifeLost: {r: 1, g: 0, b: 0, a: 0}
     - _LifeLostColor: {r: 1, g: 0, b: 0, a: 0}
+    - _Pos: {r: 0.427, g: 0.355, b: 0, a: 0}
+    - _Pos1: {r: -0.427, g: 0.355, b: 0, a: 0}
     - _SpellSelection_Scale_Offset: {r: 1.65, g: 1, b: -7.75, a: -0.25}
     - _StaminaColor: {r: 1, g: 1, b: 0, a: 0}
     - _StaminaLostColor: {r: 0, g: 0, b: 0, a: 0}
@@ -107,4 +127,5 @@ Material:
     - _SubSpell5_Position: {r: -7.999996, g: 1.3e-44, b: 0, a: 0}
     - _SubSpell6_Position: {r: -1.81, g: 99, b: 0, a: 0}
     - _Vector0: {r: -1.29, g: -1.02, b: 0, a: 0}
+    - _Vector1: {r: -7.5, g: -4.06, b: 0, a: 0}
   m_BuildTextureStacks: []

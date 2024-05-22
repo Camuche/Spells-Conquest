@@ -144,6 +144,7 @@ public class UIupdate : MonoBehaviour
         spellTopUi.SetActive(false);
         
         mat_UIPlane.SetInt("_EnableSpell", 0);
+        mat_UIPlane.SetInt("_ShowAimpoint", 1);
 
         cameraShop = GameObject.Find("CameraShop");
         Shop.instance.GetShopButton();
@@ -152,6 +153,18 @@ public class UIupdate : MonoBehaviour
         lifeTMP = GameObject.Find("LifeTMP").GetComponent<TMP_Text>();
         lifeTMP.text = PlayerController.instance.life + " / " + PlayerController.lifeMax;
 
+    }
+
+    public void ToggleSwitchAimpoint(bool on_off)
+    {
+        if (on_off == true)
+        {
+            mat_UIPlane.SetInt("_ShowAimpoint", 1);
+        }
+        else
+        {
+            mat_UIPlane.SetInt("_ShowAimpoint", 0);
+        }
     }
 
     // Update is called once per frame

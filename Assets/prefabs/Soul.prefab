@@ -518,7 +518,6 @@ GameObject:
   - component: {fileID: 3206265689599516199}
   - component: {fileID: 7887395207575402595}
   - component: {fileID: 3859065562630581278}
-  - component: {fileID: 1872753699529772461}
   m_Layer: 0
   m_Name: LandMark
   m_TagString: Untagged
@@ -589,19 +588,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1872753699529772461
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4792506813037653494}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6747332346283482732
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,15 +842,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62af83e7663705b4ebd2ceb7716425d7, type: 3}
---- !u!1 &7270379744470284330 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 62af83e7663705b4ebd2ceb7716425d7,
-    type: 3}
-  m_PrefabInstance: {fileID: 7504397801696363899}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8047443762972517008 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 62af83e7663705b4ebd2ceb7716425d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 7504397801696363899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7270379744470284330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 62af83e7663705b4ebd2ceb7716425d7,
     type: 3}
   m_PrefabInstance: {fileID: 7504397801696363899}
   m_PrefabAsset: {fileID: 0}

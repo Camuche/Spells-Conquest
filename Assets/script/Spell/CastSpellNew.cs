@@ -910,6 +910,8 @@ public class CastSpellNew : MonoBehaviour
     {
         if(canPlaceTelekinesisClone && canPlaceIceClone)
         {
+            UIupdate.instance.ToggleSwitchAimpoint(false);
+
             aimPoint.transform.GetComponent<MeshRenderer>().enabled = false;
             aimPoint2.transform.GetComponent<MeshRenderer>().enabled = false;
             aimPoint.transform.position = Camera.main.transform.position + Camera.main.transform.forward * hit.distance ;
@@ -944,6 +946,8 @@ public class CastSpellNew : MonoBehaviour
         }
         else if (canPlaceTelekinesisClone)
         {
+            UIupdate.instance.ToggleSwitchAimpoint(false);
+
             //Debug.Log("TeleClone");
             aimPoint2.transform.GetComponent<MeshRenderer>().enabled = false;
             aimPointBoth1.transform.GetComponent<MeshRenderer>().enabled = false;
@@ -955,6 +959,8 @@ public class CastSpellNew : MonoBehaviour
         }
         else if (canPlaceIceClone)
         {
+            UIupdate.instance.ToggleSwitchAimpoint(false);
+
             //Debug.Log("iceClone");
             aimPoint.transform.GetComponent<MeshRenderer>().enabled = false;
             aimPointBoth1.transform.GetComponent<MeshRenderer>().enabled = false;
@@ -966,6 +972,8 @@ public class CastSpellNew : MonoBehaviour
         }
         else
         {
+            UIupdate.instance.ToggleSwitchAimpoint(true);
+
             //Debug.Log("nop");
             aimPointBoth1.transform.GetComponent<MeshRenderer>().enabled = false;
             aimPointBoth2.transform.GetComponent<MeshRenderer>().enabled = false;
