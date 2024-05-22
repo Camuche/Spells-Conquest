@@ -9,6 +9,9 @@ public class AnimatorBasicEnemy : MonoBehaviour
     bool currentlyAttacking;
     PlayerController playerController;
 
+    public AudioSource refAudioSource;
+    public AudioEvent refAudioEvent;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,5 +36,12 @@ public class AnimatorBasicEnemy : MonoBehaviour
     public void AttackAnimation()
     {
         animator.SetTrigger("attack");
+    }
+
+    public void PlayStepSound()
+    {
+        refAudioEvent.Play(refAudioSource);
+        Debug.Log("Sound");
+        //refAudioSource.PlayOneShot();
     }
 }

@@ -10,6 +10,9 @@ public class Money : MonoBehaviour
     bool followPlayer = false;
     GameObject player;
 
+    public AudioSource refAudioSource;
+    public AudioClip  onHitMoneyAudioClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,5 +39,10 @@ public class Money : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speedTowardPlayer * Time.deltaTime);
         }
+    }
+
+    void OnDestroy()
+    {
+        player.transform.Find("AudioSource").GetComponent<AudioSource>().PlayOneShot(onHitMoneyAudioClip);
     }
 }

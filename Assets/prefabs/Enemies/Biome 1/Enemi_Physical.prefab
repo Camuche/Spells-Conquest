@@ -349,6 +349,9 @@ MonoBehaviour:
   IgnoreCol: {fileID: 0}
   money: {fileID: 8151259076252225134, guid: 7ed868fa4092dba41b5b11d7eb78d99b, type: 3}
   dropMoneyNumber: 2
+  refAudioSource: {fileID: 2445623015632641349}
+  physicalDamagedAudioClip: {fileID: 11400000, guid: 4212e5fa1d1e0dc4abe40289a905dd34,
+    type: 2}
 --- !u!195 &5042605685589712362
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -405,6 +408,7 @@ MonoBehaviour:
   animatorBasicEnemy: {fileID: 3771734021913925459}
   audioSource: {fileID: 2445623015632641349}
   audioClip: {fileID: 8300000, guid: 206aef2c63cefd14f9f798d8c56734a4, type: 3}
+  audioEvent: {fileID: 11400000, guid: e8312466181c54f46be53ecf1ba21015, type: 2}
 --- !u!82 &2445623015632641349
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1074,6 +1078,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyFollower: {fileID: 8432561856949892887}
+  refAudioSource: {fileID: 2445623015632641349}
+  refAudioEvent: {fileID: 11400000, guid: 9e0eb683fed493a438419e2250ee5e17, type: 2}
 --- !u!1001 &7183577722208120987
 PrefabInstance:
   m_ObjectHideFlags: 0

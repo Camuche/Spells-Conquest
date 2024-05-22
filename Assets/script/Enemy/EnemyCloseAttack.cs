@@ -56,11 +56,13 @@ public class EnemyCloseAttack : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip audioClip;
+    public AudioEvent audioEvent;
 
     void CloseAttack()
     {
         animatorBasicEnemy.AttackAnimation();
         audioSource.PlayOneShot(audioClip);
+        audioEvent.Play(audioSource);
 
         if(Vector3.Distance(transform.position,player.transform.position) < enemyRange)
         {

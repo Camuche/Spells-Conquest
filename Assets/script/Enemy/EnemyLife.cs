@@ -81,6 +81,10 @@ public class EnemyLife : MonoBehaviour
         if (other.tag == "Fireball")
         {
             life -= Fireball.instance.fireballDamage * Shop.instance.damageMultiplierValue;
+            if (GetComponent<EnemyCloseAttack>() != null)
+            {
+                SoundDamagedPhysical();
+            }
             //Destroy(other.gameObject);
             other.GetComponent<Fireball>().ImpactFireball();
         }
@@ -93,5 +97,11 @@ public class EnemyLife : MonoBehaviour
         
     }
 
+    public AudioSource refAudioSource;
+    public AudioEvent physicalDamagedAudioClip;
 
+    void SoundDamagedPhysical()
+    {
+        physicalDamagedAudioClip.Play(refAudioSource);
+    }
 }
