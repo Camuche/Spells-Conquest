@@ -49,7 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _UI_BarreDeVie_et_Spells:
-        m_Texture: {fileID: 2800000, guid: 5158049efc6141d46835db7eb65814f2, type: 3}
+        m_Texture: {fileID: 2800000, guid: aa6c5f6b998c6524d93f64b2c54d8c39, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _UI_MasqueVie:
@@ -57,7 +57,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _UI_Viseur:
-        m_Texture: {fileID: 2800000, guid: 4f6064c8e9970594c99a0d095aa1e75e, type: 3}
+        m_Texture: {fileID: 2800000, guid: df7c7f594f28ef346b37eccd05248a4a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -80,15 +80,15 @@ Material:
     - _Keyword0: 0
     - _LB_SpellOffsetX: 0
     - _LB_SpellOffsetY: 0.15
-    - _LeftSpellCooldown: Infinity
-    - _Life: 0.8
+    - _LeftSpellCooldown: 1.0241369
+    - _Life: 0.9
     - _LifeBarOffsetX: -0.04
     - _LifeBarOffsetY: -4.9
     - _LifeBarScaleX: 3.11
     - _LifeBarScaleY: 6.02
     - _RB_SpellOffsetX: -5.03
     - _RB_SpellOffsetY: 0.15
-    - _RightSpellCooldown: 1.0020316
+    - _RightSpellCooldown: Infinity
     - _ShowAimpoint: 1
     - _SpellAvailable: 1
     - _SpellOffsetX: 0.04
@@ -108,14 +108,14 @@ Material:
     - _SubSpells_Scale: 5.5
     - _ToggleSwitch0: 0
     - __dirty: 0
-    - _scale: 1.5
+    - _scale: 1.215
     - _scale1: 1.5
     m_Colors:
     - _Life: {r: 0, g: 1, b: 0, a: 0}
     - _LifeColor: {r: 0, g: 1, b: 0, a: 0}
     - _LifeLost: {r: 1, g: 0, b: 0, a: 0}
     - _LifeLostColor: {r: 1, g: 0, b: 0, a: 0}
-    - _Pos: {r: 0.427, g: 0.355, b: 0, a: 0}
+    - _Pos: {r: 0.439, g: 0.375, b: 0, a: 0}
     - _Pos1: {r: -0.427, g: 0.355, b: 0, a: 0}
     - _SpellSelection_Scale_Offset: {r: 1.65, g: 1, b: -7.75, a: -0.25}
     - _StaminaColor: {r: 1, g: 1, b: 0, a: 0}

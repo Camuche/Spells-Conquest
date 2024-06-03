@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _UI_BarreDeVieEnnemis:
-        m_Texture: {fileID: 2800000, guid: 468d88525758b684cb2be868c1c44f9f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 292132002b04d9e49ad5d26642ec63dd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _UI_MasqueVieEnnemis:
@@ -33,7 +33,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Cutoff: 0.5
-    - _Life: 1
+    - _Life: 0.421
     - __dirty: 0
     m_Colors: []
   m_BuildTextureStacks: []
