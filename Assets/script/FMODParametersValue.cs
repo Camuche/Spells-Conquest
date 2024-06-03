@@ -35,12 +35,12 @@ public class FMODParametersValue : MonoBehaviour
         if(PlayerController.instance.enemyTriggered > 0)
         {
             combat = 1;
-            Debug.Log("CombatMode");
+            //Debug.Log("CombatMode");
         }
         else
         {
             combat = 0;
-            Debug.Log("NoCombatMode");
+            //Debug.Log("NoCombatMode");
         }
 
         health = PlayerController.instance.life;
