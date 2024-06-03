@@ -140,14 +140,26 @@ MonoBehaviour:
   eventOnEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5220632396683099646}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: set_material
+      - m_Target: {fileID: 6632486617898981328}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6632486617898981328}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 2d25d85bbc64eb74da3514e191534ba5,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: fec9a45e07144474bba3bd6171e73a41,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -156,14 +168,26 @@ MonoBehaviour:
   eventOnExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5220632396683099646}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: set_material
+      - m_Target: {fileID: 6632486617898981328}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6632486617898981328}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: d8cfd64c1bed43e4d98e42f78ea6da9f,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: d949be36c9d1d7742abdbf136164784c,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -329,6 +353,7 @@ GameObject:
   - component: {fileID: 5220632396951950121}
   - component: {fileID: 7203293416306103951}
   - component: {fileID: 3372514659412635609}
+  - component: {fileID: 6632486617898981328}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -442,6 +467,147 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!82 &6632486617898981328
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5220632396951950123}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 40
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.12693635
+      value: 1
+      inSlope: -8.620556
+      outSlope: -8.620556
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33298588
+    - serializedVersion: 3
+      time: 0.17549972
+      value: 0.7382202
+      inSlope: -3.1118307
+      outSlope: -3.1118307
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.7597787
+      outWeight: 0.4724075
+    - serializedVersion: 3
+      time: 0.2766449
+      value: 0.5238342
+      inSlope: -1.5642202
+      outSlope: -1.5642202
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.74041957
+    - serializedVersion: 3
+      time: 0.41659698
+      value: 0.34014893
+      inSlope: -1.0740988
+      outSlope: -1.0740988
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.5237764
+    - serializedVersion: 3
+      time: 0.5824951
+      value: 0.19927979
+      inSlope: -0.7852368
+      outSlope: -0.7852368
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.7747479
+      outWeight: 0.62065953
+    - serializedVersion: 3
+      time: 0.76899415
+      value: 0.07940674
+      inSlope: -0.5085904
+      outSlope: -0.5085904
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.6504453
+      outWeight: 0.536653
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.02500997
+      outSlope: -0.02500997
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8694120433655270226
 GameObject:
   m_ObjectHideFlags: 0
