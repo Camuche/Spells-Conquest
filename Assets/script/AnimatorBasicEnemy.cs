@@ -41,7 +41,6 @@ public class AnimatorBasicEnemy : MonoBehaviour
     public void PlayStepSound()
     {
         refAudioEvent.Play(refAudioSource);
-        Debug.Log("Sound");
         //refAudioSource.PlayOneShot();
     }
 }
