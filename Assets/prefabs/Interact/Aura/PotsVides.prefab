@@ -226,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 8151259076252225134, guid: 7ed868fa4092dba41b5b11d7eb78d99b, type: 3}
   potMoneyNumber: 0
+  cristal: {fileID: 2081502907582913313}
   lerpSpeed: 1
 --- !u!82 &1278927681531839983
 AudioSource:
@@ -412,6 +413,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 473c78a50b948674a8c6c513147686f3, type: 3}
+--- !u!1 &2081502907582913313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 473c78a50b948674a8c6c513147686f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1162933710528521840}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1704941698936488347 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 473c78a50b948674a8c6c513147686f3,

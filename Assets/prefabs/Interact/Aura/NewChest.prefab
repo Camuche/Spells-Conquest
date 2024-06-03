@@ -4870,6 +4870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 8151259076252225134, guid: 7ed868fa4092dba41b5b11d7eb78d99b, type: 3}
   potMoneyNumber: 20
+  cristal: {fileID: 8346937900714733126}
   lerpSpeed: 0.5
 --- !u!114 &7386041172965507053
 MonoBehaviour:

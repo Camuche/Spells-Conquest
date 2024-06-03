@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1572358506221597248}
   - component: {fileID: 3618313490327275146}
   - component: {fileID: 1977588227235364395}
-  - component: {fileID: 6138078980198342155}
   m_Layer: 0
   m_Name: Prefab_LDI_Cristal_Lumineux_Cinq
   m_TagString: Untagged
@@ -61,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 22da26005d744b5469f264f86587def4, type: 2}
+  - {fileID: 2100000, guid: 38e84f95fb380c4459ff3de8aa559ca7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,18 +96,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6096263066910515511, guid: 031c1e93096ac1444935002c34f8b14c, type: 3}
---- !u!114 &6138078980198342155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2969605546637371231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92535371525d45f419768271867ef9b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  money: {fileID: 0}
-  potMoneyNumber: 0
-  lerpSpeed: 0

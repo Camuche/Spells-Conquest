@@ -4870,6 +4870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 8151259076252225134, guid: 7ed868fa4092dba41b5b11d7eb78d99b, type: 3}
   potMoneyNumber: 1
+  cristal: {fileID: 8450212152147104909}
   lerpSpeed: 0.5
 --- !u!114 &6922900922690880806
 MonoBehaviour:
@@ -5256,6 +5257,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 473c78a50b948674a8c6c513147686f3, type: 3}
+--- !u!1 &8450212152147104909 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 473c78a50b948674a8c6c513147686f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 8756201638716762588}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9083478436556213815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 473c78a50b948674a8c6c513147686f3,

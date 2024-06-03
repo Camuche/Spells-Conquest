@@ -8,14 +8,14 @@ public class Pot : MonoBehaviour
     [SerializeField] private int potMoneyNumber;
 
     float isEnlightened;
-    GameObject cristal;
+    public GameObject cristal;
     float lerpTime;
     public float lerpSpeed;
     bool changeColor;
 
     void Start()
     {
-        cristal = gameObject.transform.Find("Placeholer_Pierre_Precieuse_low").gameObject;
+        //cristal = gameObject.transform.Find("Placeholer_Pierre_Precieuse_low").gameObject;
         isEnlightened = cristal.GetComponent<Renderer>().material.GetFloat("_isEnlightened");
     }
 
