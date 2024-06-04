@@ -80,6 +80,8 @@ public class Shopkeeper : MonoBehaviour
         }
     }
 
+    public AudioClip shopMenuClip;
+
     void EnterShop()
     {
         uiUpdate.EnableShopUi();
@@ -87,6 +89,7 @@ public class Shopkeeper : MonoBehaviour
         CustomUIManager.instance.currentSelected.PerformOnSelect();
         PlayerController.instance.refPlayerInput.SwitchCurrentActionMap("ShopInput");
         Cursor.lockState = CursorLockMode.None;
+        audioSource.PlayOneShot(shopMenuClip);
     }
 
 

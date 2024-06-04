@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class Shop : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class Shop : MonoBehaviour
     [SerializeField] int priceHp, priceDamage;
 
     public AudioSource audioSource;
-    public AudioClip notAvailiableAudioSource;
+    public AudioClip notAvailiableAudioClip;
+    public AudioEvent buySoundEvent;
     
 
 
@@ -121,12 +123,12 @@ public class Shop : MonoBehaviour
             Inventory.instance.money -= priceFireball;
             Inventory.instance.UpdateMoneyTMP();
             FireballButtonSelected();
-            Debug.Log("UpdateFireball");
+            buySoundEvent.Play(audioSource);
         }
         else if(Inventory.instance.money < priceFireball && fireballAltAvailable == true && CastSpellNew.instance.limit >= 0)
         {
             notEnoughMoneyTMP.enabled = true;
-            audioSource.PlayOneShot(notAvailiableAudioSource);
+            audioSource.PlayOneShot(notAvailiableAudioClip);
         }
     }
 
@@ -139,12 +141,12 @@ public class Shop : MonoBehaviour
             Inventory.instance.money -= priceFireClone;
             Inventory.instance.UpdateMoneyTMP();
             FireCloneButtonSelected();
-            Debug.Log("UpdateFireClone");
+            buySoundEvent.Play(audioSource);
         }
         else if(Inventory.instance.money < priceFireClone && fireCloneAltAvailable == true && CastSpellNew.instance.limit >= 1)
         {
             notEnoughMoneyTMP.enabled = true;
-            audioSource.PlayOneShot(notAvailiableAudioSource);
+            audioSource.PlayOneShot(notAvailiableAudioClip);
         }
     }
 
@@ -157,12 +159,12 @@ public class Shop : MonoBehaviour
             Inventory.instance.money -= priceTelekinesisClone;
             Inventory.instance.UpdateMoneyTMP();
             TelekinesisCloneButtonSelected();
-            Debug.Log("UpdateTelekinesisClone");
+            buySoundEvent.Play(audioSource);
         }
         else if(Inventory.instance.money < priceTelekinesisClone && telekinesisCloneAltAvailable == true && CastSpellNew.instance.limit >= 2)
         {
             notEnoughMoneyTMP.enabled = true;
-            audioSource.PlayOneShot(notAvailiableAudioSource);
+            audioSource.PlayOneShot(notAvailiableAudioClip);
         }
     }
 
@@ -234,14 +236,14 @@ public class Shop : MonoBehaviour
             Inventory.instance.UpdateMoneyTMP();
             HpButtonSelected();
             itemLeftHpTMP.text = "Left : " + hpAvailable;
-            //Debug.Log("Stat HP left :" + hpAvailable);
+            buySoundEvent.Play(audioSource);
             
         }
         else if(Inventory.instance.money < priceHp && hpAvailable > 0 && timerDelay >= hitDelay)
         {
             timerDelay = 0f;
             notEnoughMoneyTMP.enabled = true;
-            audioSource.PlayOneShot(notAvailiableAudioSource);
+            audioSource.PlayOneShot(notAvailiableAudioClip);
         }
     }
 
@@ -261,12 +263,13 @@ public class Shop : MonoBehaviour
             Inventory.instance.UpdateMoneyTMP();
             DamageButtonSelected();
             itemLeftDamageTMP.text = "Left : " + damageAvailable;
+            buySoundEvent.Play(audioSource);
         }
         else if (damageAvailable > 0 && Inventory.instance.money < priceDamage && timerDelay >= hitDelay)
         {
             timerDelay = 0f;
             notEnoughMoneyTMP.enabled = true;
-            audioSource.PlayOneShot(notAvailiableAudioSource);
+            audioSource.PlayOneShot(notAvailiableAudioClip);
         }
     }
 

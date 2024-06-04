@@ -446,6 +446,7 @@ MonoBehaviour:
   shopCancel: {fileID: 5164172851384579573, guid: ce515ecc6fe77704ba2b9e7fe0281622,
     type: 3}
   healPS: {fileID: 6954700737616905642, guid: 7b029e0f17ec4fc4aa0807eb28561feb, type: 3}
+  shopMenuClip: {fileID: 8300000, guid: 62e25348afb28d84cb5b28030c674db9, type: 3}
   audioSource: {fileID: 1952829710573279668}
   healClip: {fileID: 8300000, guid: 674412cdf004b8f47b4551d3f2863193, type: 3}
 --- !u!1 &638456844157366809
