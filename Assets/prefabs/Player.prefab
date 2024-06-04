@@ -807,6 +807,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285678c163edcf74585e8c2ccfbc3d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usingPs4Controller: 0
+  usingXboxController: 0
+  usingKeyboard: 0
 --- !u!1 &3870732602788733398
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,8 +965,8 @@ MonoBehaviour:
       Data2: 1240630487
       Data3: -654711118
       Data4: 906589510
-    Path: event:/Spells Conquest
-  volume: 0.5
+    Path: event:/B1
+  volume: 1
   intensity: 0
   health: 100
   combat: 0

@@ -20,7 +20,7 @@ MonoBehaviour:
   - Name: Desktop
     Value: 15245664
   Exists: 1
---- !u!114 &-5234531725775206892
+--- !u!114 &-8251327999764810244
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,9 +30,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Spells Conquest
+  m_Name: event:/B1
   m_EditorClassIdentifier: 
-  Path: event:/Spells Conquest
+  Path: event:/B1
   Guid:
     Data1: -1693216508
     Data2: 1240630487
@@ -44,12 +44,11 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 2350580346090192711}
-  - {fileID: -1574698464960357136}
-  - {fileID: 1977674893767655289}
+  - {fileID: 5644594215159738653}
+  - {fileID: 6861693441731189810}
   MinDistance: 1
   MaxDistance: 20
-  Length: 458019
+  Length: 484703
 --- !u!114 &-4909849289525309315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +123,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 458019
---- !u!114 &-2502554006116580641
+--- !u!114 &-3021865149810723277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +133,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Spells Conquest/Health
+  m_Name: parameter:/B2/Health
   m_EditorClassIdentifier: 
   Name: Health
   StudioPath: 
@@ -148,7 +147,31 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &-1574698464960357136
+--- !u!114 &-2587012960933883032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/B2/Combat
+  m_EditorClassIdentifier: 
+  Name: Combat
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1938738779
+    data2: 2235822862
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-2502554006116580641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,15 +211,16 @@ MonoBehaviour:
   - {fileID: 5747973252613532652}
   - {fileID: 7349366575696208851}
   EditorEvents:
-  - {fileID: -5234531725775206892}
+  - {fileID: -8251327999764810244}
+  - {fileID: 3158035570597590289}
   EditorParameters: []
   MasterBanks:
   - {fileID: 7349366575696208851}
   StringsBanks:
   - {fileID: 5747973252613532652}
-  cacheTime: 638484338975206858
+  cacheTime: 638531235021326931
   cacheVersion: 131617
---- !u!114 &1977674893767655289
+--- !u!114 &3158035570597590289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,22 +229,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Spells Conquest/Intensity
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/B2
   m_EditorClassIdentifier: 
-  Name: Intensity
-  StudioPath: 
-  Min: 0
-  Max: 100
-  Default: 0
-  ID:
-    data1: 2689305223
-    data2: 1390320682
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &2350580346090192711
+  Path: event:/B2
+  Guid:
+    Data1: -848407971
+    Data2: 1117451602
+    Data3: -450581611
+    Data4: -1529996087
+  Banks:
+  - {fileID: 7349366575696208851}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -2587012960933883032}
+  - {fileID: -3021865149810723277}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 611453
+--- !u!114 &5644594215159738653
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,7 +259,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Spells Conquest/Combat
+  m_Name: parameter:/B1/Combat
   m_EditorClassIdentifier: 
   Name: Combat
   StudioPath: 
@@ -259,10 +288,10 @@ MonoBehaviour:
   Path: Assets/Sound/FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638484338975206858
+  lastModified: 638531235021326931
   FileSizes:
   - Name: 
-    Value: 902
+    Value: 892
   Exists: 1
 --- !u!114 &5956487404372881362
 MonoBehaviour:
@@ -288,6 +317,30 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &6861693441731189810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/B1/Health
+  m_EditorClassIdentifier: 
+  Name: Health
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 265674883
+    data2: 2330325188
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &7349366575696208851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,6 +356,6 @@ MonoBehaviour:
   Path: Assets/Sound/FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638484338975196894
+  lastModified: 638531235021277075
   FileSizes: []
   Exists: 1
