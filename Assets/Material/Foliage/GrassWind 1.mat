@@ -46,8 +46,9 @@ Material:
     m_Floats:
     - _Cutoff: 0.5
     - _NoiseScale: 1.46
+    - _Speed: 0.2
     - _Tesselation: 4.42
     - __dirty: 0
-    - _intensity: 0.08
+    - _intensity: 0.05
     m_Colors: []
   m_BuildTextureStacks: []

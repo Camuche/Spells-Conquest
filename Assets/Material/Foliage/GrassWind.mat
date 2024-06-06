@@ -45,13 +45,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Cutoff: 0.5
-    - _NoiseScale: 3.73
+    - _NoiseScale: 2
     - _Speed: 0.2
     - _TessMax: 25
     - _TessMin: 10
     - _TessValue: 15
-    - _Tesselation: 4.42
+    - _Tesselation: 7.29
     - __dirty: 0
-    - _intensity: 0.2
+    - _intensity: 0.015
     m_Colors: []
   m_BuildTextureStacks: []
