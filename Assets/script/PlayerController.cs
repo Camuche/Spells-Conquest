@@ -291,11 +291,13 @@ public class PlayerController : MonoBehaviour
             speed *= runSpeedMultiplier;
             isRunning = true;
             runEvent.Invoke();
+            animator.SetBool("IsRunning", true);
         }
         if(isRunning && movement.action.ReadValue<Vector2>() == Vector2.zero && canMove)
         {
             speed /= runSpeedMultiplier;
             isRunning = false;
+            animator.SetBool("IsRunning", false);
         }
         //shaderUI.SetFloat("_Stamina", dashCoolDown /-1.5f +1f);
 

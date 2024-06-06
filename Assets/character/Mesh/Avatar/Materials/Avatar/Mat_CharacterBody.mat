@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Mat_CharacterBody
+  m_Shader: {fileID: 4800000, guid: 5fd245b997fe2be4e8ae98c29cc48144, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AO:
+        m_Texture: {fileID: 2800000, guid: bc41d93471b161045994afda9e32a19e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 03dec8042cc088b40858e65e6bf522a2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CharacterTatooEmissive:
+        m_Texture: {fileID: 2800000, guid: ce5e1d2271c27ae4aad41d46cdf4e3e2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CharacterTatooEmissive1:
+        m_Texture: {fileID: 2800000, guid: ce5e1d2271c27ae4aad41d46cdf4e3e2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Metallic:
+        m_Texture: {fileID: 2800000, guid: 97aa84a1957a852499965c44b3afb28d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: 9bf3e202551a2f6408b2bdf30835a8bf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - __dirty: 0
+    m_Colors:
+    - _Left_ArmColor: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 0}
+    - _Right_ArmColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    - _TatooColor: {r: 2.1185474, g: 2.1185474, b: 2.1185474, a: 0}
+  m_BuildTextureStacks: []

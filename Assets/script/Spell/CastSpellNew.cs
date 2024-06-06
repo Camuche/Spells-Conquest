@@ -59,6 +59,8 @@ public class CastSpellNew : MonoBehaviour
 
     [SerializeField] Animator animator;
 
+    public SkinnedMeshRenderer meshRendererCharacterBody;
+
 
     void Awake()
     {
@@ -116,6 +118,39 @@ public class CastSpellNew : MonoBehaviour
             SetSelecting();
         }
         //Debug.Log(limit);
+
+
+        //CHANGE EMISSIVE COLOR
+        if (limit  > -1)
+        {
+            if (SpellL == 0 && meshRendererCharacterBody.material.GetColor("_Left_ArmColor") != Color.yellow*5)
+            {
+                meshRendererCharacterBody.material.SetColor("_Left_ArmColor", Color.yellow*5);
+            }
+            if (SpellL == 1 && meshRendererCharacterBody.material.GetColor("_Left_ArmColor") != Color.red*5)
+            {
+                meshRendererCharacterBody.material.SetColor("_Left_ArmColor", Color.red*5);
+            }
+            if (SpellL == 2 && meshRendererCharacterBody.material.GetColor("_Left_ArmColor") != Color.green*5)
+            {
+                meshRendererCharacterBody.material.SetColor("_Left_ArmColor", Color.green*5);
+            }
+        }
+        if (limit  > 0)
+        {
+            if (SpellR == 0 && meshRendererCharacterBody.material.GetColor("_Right_ArmColor") != Color.yellow*5)
+            {
+                meshRendererCharacterBody.material.SetColor("_Right_ArmColor", Color.yellow*5);
+            }
+            if (SpellR == 1 && meshRendererCharacterBody.material.GetColor("_Right_ArmColor") != Color.red*5)
+            {
+                meshRendererCharacterBody.material.SetColor("_Right_ArmColor", Color.red*5);
+            }
+            if (SpellR == 2 && meshRendererCharacterBody.material.GetColor("_Right_ArmColor") != Color.green*5)
+            {
+                meshRendererCharacterBody.material.SetColor("_Right_ArmColor", Color.green*5);
+            }
+        }
 
         //L2 IS PRESSED
         if(spellL2.action.ReadValue<float>() == 1 && !l2IsPressed)
