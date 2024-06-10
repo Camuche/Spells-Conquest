@@ -10,8 +10,6 @@ ShaderImporter:
   - _LDI_Tenture_Metallic: {fileID: 2800000, guid: 8e1a24a1aded5cd45a237bfc0a4d5098,
       type: 3}
   - _LDI_Tenture_AO: {fileID: 2800000, guid: 81190c6a4cece4747a6545be13bd1c13, type: 3}
-  - _OpacityMaskfromMeshProBuilderDefault: {fileID: 2800000, guid: 932a5308d02a15e4082119a2f849d4bd,
-      type: 3}
   nonModifiableTextures: []
   preprocessorOverride: 0
   userData: 

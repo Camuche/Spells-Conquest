@@ -8,6 +8,7 @@ public class ChangeMaterialValue : MonoBehaviour
     string materialValueName;
     [Range(0,1)] float materialValue;
     float changementSpeed;
+    int index = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -18,9 +19,10 @@ public class ChangeMaterialValue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(changeValue)
+        if (changeValue && GetComponent<MeshRenderer>().materials[index].GetFloat(materialValueName) < 1)
         {
-            GetComponent<MeshRenderer>().material.SetFloat(materialValueName, GetComponent<MeshRenderer>().material.GetFloat(materialValueName) + Time.deltaTime / changementSpeed);
+            materialValue = GetComponent<MeshRenderer>().materials[index].GetFloat(materialValueName) + Time.deltaTime / changementSpeed;
+            GetComponent<MeshRenderer>().materials[index].SetFloat(materialValueName, materialValue);
         }
         
     }
@@ -34,5 +36,10 @@ public class ChangeMaterialValue : MonoBehaviour
     {
         materialValueName = valueName;
         changeValue = true;
+    }
+
+    public void ChangeMaterialIndex(int newIndex)
+    {
+        index = newIndex;
     }
 }

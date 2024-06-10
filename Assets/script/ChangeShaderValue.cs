@@ -16,6 +16,7 @@ public class ChangeShaderValue : MonoBehaviour
     float shaderValue;
     bool changeValue;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,10 @@ public class ChangeShaderValue : MonoBehaviour
         if (changeValue)
         {
             shaderValue += Time.deltaTime * speed;
-            materialGameObject.GetComponent<MeshRenderer>().material.SetFloat(shaderValueName,shaderValue);
+            foreach (Material mat in materialGameObject.GetComponent<Renderer>().materials)
+            {
+                mat.SetFloat(shaderValueName, shaderValue);
+            }
             if (destroyGameObjectAtEnd && shaderValue >= endValue)
             {
                 Destroy(destroyGameObject);

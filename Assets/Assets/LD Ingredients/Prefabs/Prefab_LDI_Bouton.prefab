@@ -219,7 +219,6 @@ GameObject:
   - component: {fileID: 7066613407737576198}
   - component: {fileID: 6178513046407410851}
   - component: {fileID: 8240052024065523817}
-  - component: {fileID: 720610628651886240}
   m_Layer: 0
   m_Name: Prefab_LDI_Bouton
   m_TagString: Untagged
@@ -271,7 +270,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 54c55f585b8d02646978fabfa78e3411, type: 2}
-  - {fileID: 2100000, guid: dd7e7df9b937efc4db38124efa19f036, type: 2}
+  - {fileID: 2100000, guid: 34a3bbdbd61d0ad4fb416a487b5cf38b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -293,16 +292,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &720610628651886240
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7591511894562021820}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0383122, y: 1.0489898, z: 1.3501037}
-  m_Center: {x: -0.000000029802322, y: 0, z: 0}
