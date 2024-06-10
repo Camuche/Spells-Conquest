@@ -110,6 +110,7 @@ MonoBehaviour:
   - {fileID: 3364969446632778478}
   - {fileID: 4871195083993686798}
   lerpSpeed: 0.5
+  lightOnTrigger: 1
 --- !u!82 &7317062109760338803
 AudioSource:
   m_ObjectHideFlags: 0

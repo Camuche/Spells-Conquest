@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 5410446297333464547}
   - component: {fileID: 5410446297333464548}
   - component: {fileID: 5410446297333464546}
+  - component: {fileID: 7814267454278641698}
   m_Layer: 10
   m_Name: Trigger
   m_TagString: Untagged
@@ -342,6 +343,22 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   numberInTrigger: 0
+--- !u!114 &7814267454278641698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5410446297333464550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5beacbd954b5ec4478c41d3ceca5adb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cristal:
+  - {fileID: 1892452256167521708}
+  lerpSpeed: 0.5
+  lightOnTrigger: 1
 --- !u!1 &5410446297467122272
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,6 +512,12 @@ PrefabInstance:
 --- !u!4 &792293700186795015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3952704470119748979, guid: 3bbf1b849137a1b47897048a2e12402d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4333616409062930804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1892452256167521708 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2767266692777088216, guid: 3bbf1b849137a1b47897048a2e12402d,
     type: 3}
   m_PrefabInstance: {fileID: 4333616409062930804}
   m_PrefabAsset: {fileID: 0}

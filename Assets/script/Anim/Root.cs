@@ -17,7 +17,7 @@ public class Root : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        startFloat = 0;
     }
 
     // Update is called once per frame
@@ -27,12 +27,12 @@ public class Root : MonoBehaviour
 
         if (boolEnable == true)
         {
-            if (startFloat > 0)
+            if (startFloat < 1)
             {
-                startFloat -= speed * Time.deltaTime;
+                startFloat += speed * Time.deltaTime;
 
             }
-            else startFloat = 0;
+            else startFloat = 1;
 
             timer += Time.deltaTime;
 
@@ -46,18 +46,16 @@ public class Root : MonoBehaviour
 
         if (boolEnable == false)
         {
-            if (startFloat < 1 )
+            if (startFloat > 0 )
             {
-                startFloat += speed * Time.deltaTime;
+                startFloat -= speed * Time.deltaTime;
 
             }
-            else startFloat = 1;
+            else startFloat = 0;
 
         }
 
-        root.material.SetFloat("_Dissolve", startFloat);
-        
-
+        root.material.SetFloat("_Grow", startFloat);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -65,7 +63,6 @@ public class Root : MonoBehaviour
         if (other.tag == "Fireball")
         {
             boolEnable = true;
-
         }
     }
 }

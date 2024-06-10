@@ -19,16 +19,24 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Texture_AO:
+    - _Metallic:
+        m_Texture: {fileID: 2800000, guid: 538f70c3390c3934787ba3caa31b52a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_AO:
+        m_Texture: {fileID: 2800000, guid: 2bb697eaa62e93141ac9ce92be364655, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture_Albedo:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 8554150fa0e48cb48b6048a6d8e3a6f7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture_Normal:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 8d5ba59712dd64c43b521ee2028f3434, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture_Occlusion:
@@ -52,7 +60,7 @@ Material:
     - _Multiply: 0.2
     - _MultiplyOpacity: 0.57
     - _Opacity: 0.49
-    - _PushPull: -0.1
+    - _PushPull: -0.015
     - _Scale: 0.5
     - _Smoothness: 0.214
     - _StartValue: -0.21

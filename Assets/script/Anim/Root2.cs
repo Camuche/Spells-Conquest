@@ -17,7 +17,7 @@ public class Root2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        startFloat = 0;
     }
 
     // Update is called once per frame
@@ -27,12 +27,12 @@ public class Root2 : MonoBehaviour
 
         if (boolEnable == true)
         {
-            if (startFloat > 0)
+            if (startFloat < 1)
             {
-                startFloat -= speed * Time.deltaTime;
+                startFloat += speed * Time.deltaTime;
 
             }
-            else startFloat = 0;
+            else startFloat = 1;
 
             
             
@@ -40,7 +40,7 @@ public class Root2 : MonoBehaviour
 
        
 
-        root.material.SetFloat("_Dissolve", startFloat);
+        root.material.SetFloat("_Grow", startFloat);
         
 
     }

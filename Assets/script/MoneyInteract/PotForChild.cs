@@ -11,6 +11,8 @@ public class PotForChild : MonoBehaviour
     public float lerpSpeed;
     bool changeColor;
 
+    public bool lightOnTrigger;
+
     void Start()
     {
         foreach (GameObject go in cristal)
@@ -22,7 +24,18 @@ public class PotForChild : MonoBehaviour
 
     void Update()
     {
-        if (changeColor && lerpTime <= 1)
+        if (lightOnTrigger && changeColor && lerpTime <= 1)
+        {
+            lerpTime += Time.deltaTime * lerpSpeed;
+            isEnlightened = Mathf.Lerp(isEnlightened, 1.2f , lerpTime);
+            foreach (GameObject go in cristal)
+            {
+                go.GetComponent<Renderer>().material.SetFloat("_isEnlightened", isEnlightened);
+                //go.GetComponent<Renderer>().material.SetFloat("_EmissiveIntensity", isEnlightened);
+            }
+        }
+
+        else if (changeColor && lerpTime <= 1)
         {
             lerpTime += Time.deltaTime * lerpSpeed;
             isEnlightened = Mathf.Lerp(isEnlightened, 0.2f, lerpTime);
