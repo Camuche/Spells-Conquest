@@ -78,7 +78,8 @@ public class gameController : MonoBehaviour
         }
         if(PlayerController.tutoDone)
         {
-            GetComponent<UIupdate>().bottomMessageGO.SetActive(false);
+            //GetComponent<UIupdate>().displayInput.SetActive(false);
+            DisplayInput.instance.HideInput();
         }
     }
 
@@ -118,7 +119,8 @@ public class gameController : MonoBehaviour
             xWasPressed = true;
             PlayerController.instance.canMove = true;
             PlayerController.tutoDone = true;
-            GetComponent<UIupdate>().bottomMessageGO.SetActive(false);
+            //GetComponent<UIupdate>().displayInput.SetActive(false);
+            DisplayInput.instance.HideInput();
         }
 
         //Debug.Log(spellLimit);

@@ -116,6 +116,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   audioClip: {fileID: 8300000, guid: 269584efaa2bd9545989d66c976742d6, type: 3}
+  distanceToShowInput: 5
 --- !u!1 &2438885017357610493
 GameObject:
   m_ObjectHideFlags: 0

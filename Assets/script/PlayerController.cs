@@ -75,6 +75,8 @@ public class PlayerController : MonoBehaviour
     GameObject mainCamera;
     public float modelRotationSpeed;
 
+    bool combatModeActive;
+
     void Awake()
     {
         instance = this;
@@ -190,6 +192,17 @@ public class PlayerController : MonoBehaviour
 
         /*if (GetComponent<CastSpell>().limit>-1)
             aiming();*/
+        if(enemyTriggered > 0 && !combatModeActive)
+        {
+            combatModeActive = true;
+            DisplayInput.instance.LockModeInput();
+        }
+        else if(enemyTriggered <= 0 && combatModeActive)
+        {
+            combatModeActive = false;
+            DisplayInput.instance.HideInput();
+        }
+
         if(lockModeInput.action.WasPressedThisFrame() && canMove)
         {
             if (!lockMode)

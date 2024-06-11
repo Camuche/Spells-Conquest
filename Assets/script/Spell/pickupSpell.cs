@@ -17,6 +17,8 @@ public class pickupSpell : MonoBehaviour
 
     public AudioClip audioClip;
 
+    public float distanceToShowInput;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,18 @@ public class pickupSpell : MonoBehaviour
         if (spellNb <= gameController.GetComponent<gameController>().spellLimit)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        if (Vector3.Distance(player.transform.position, transform.position) <= distanceToShowInput)
+        {
+            DisplayInput.instance.InteractInput();
+        }
+        else if (DisplayInput.instance.displayInteract)
+        {
+            DisplayInput.instance.HideInput();
         }
     }
 

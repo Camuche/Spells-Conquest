@@ -61,7 +61,7 @@ public class UIupdate : MonoBehaviour
     [SerializeField] TMP_Text lifeTMP;
     public static UIupdate instance;
 
-    [HideInInspector] public GameObject bottomMessageGO;
+    //[HideInInspector] public GameObject displayInput;
 
     void Awake()
     {
@@ -88,7 +88,7 @@ public class UIupdate : MonoBehaviour
             {new Vector4(-6.72f, -0.43f,0,0), new Vector4(-8,0,0,0) }
         };*/
 
-        bottomMessageGO = UI.transform.Find("CameraUI").transform.Find("UIPlane").transform.Find("BottomMessage").gameObject;
+        //displayInput = UI.transform.Find("CameraUI").transform.Find("DisplayInput").gameObject;
 
         StaminaFront = UI.transform.Find("StaminaFront").gameObject;
         StaminaBack = UI.transform.Find("StaminaBack").gameObject;
