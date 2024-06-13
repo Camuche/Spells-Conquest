@@ -835,29 +835,28 @@ public class PlayerController : MonoBehaviour
         foreach (GameObject go in nearestEnemies)
         {
             if (currentEnemy == null)
+            {
+                currentEnemy = go;
+                indexLock = nearestEnemies.IndexOf(go);
+            }
+            if (currentEnemy != null && Vector3.Distance(transform.position, go.transform.position) <= Vector3.Distance(transform.position, currentEnemy.transform.position))
+            {
+                /*RaycastHit hit;
+                Physics.Raycast(mainCamera.transform.position, go.transform.position - mainCamera.transform.position , out hit, Mathf.Infinity, lockMask);
+                Debug.Log(hit.collider);
+                if(hit.collider == null)
                 {
-                    currentEnemy = go;
-                    indexLock = nearestEnemies.IndexOf(go);
-                }
-                if (currentEnemy != null && Vector3.Distance(transform.position, go.transform.position) <= Vector3.Distance(transform.position, currentEnemy.transform.position))
-                {
-                    /*RaycastHit hit;
-                    Physics.Raycast(mainCamera.transform.position, go.transform.position - mainCamera.transform.position , out hit, Mathf.Infinity, lockMask);
-                    Debug.Log(hit.collider);
-                    if(hit.collider == null)
-                    {
-                        nearestEnemy = go;
-                    }*/
-                    currentEnemy = go;
-                    indexLock = nearestEnemies.IndexOf(go);
-                }
+                    nearestEnemy = go;
+                }*/
+                currentEnemy = go;
+                indexLock = nearestEnemies.IndexOf(go);
+            }
         }
-
-        /*if (currentEnemy == null)
+        if (nearestEnemies.Count != 0)
         {
-            lockMode = false;
-            return;
-        }*/
+            UIupdate.instance.UIPlane.GetComponent<MeshRenderer>().material.SetInt("_ShowAimpoint", 0);
+        }
+        
 
     }
 
@@ -1027,6 +1026,7 @@ public class PlayerController : MonoBehaviour
         foreach (GameObject go in nearestEnemies)
         {
             go.transform.Find("FeedbackSelectedEnemy").GetComponent<MeshRenderer>().enabled = false;
+            UIupdate.instance.UIPlane.GetComponent<MeshRenderer>().material.SetInt("_ShowAimpoint", 1);
         }
     }
 }

@@ -28,11 +28,11 @@ public class UIupdate : MonoBehaviour
     GameObject HealthBar;
     float healthbarsize;
 
-    GameObject Crosshair;
+    [HideInInspector] public GameObject Crosshair;
 
     GameObject player;
 
-    GameObject UIPlane;
+    [HideInInspector] public GameObject UIPlane;
 
     gameController refGameController;
 

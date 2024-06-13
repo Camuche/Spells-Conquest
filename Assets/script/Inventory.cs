@@ -52,7 +52,7 @@ public class Inventory : MonoBehaviour
 
     public void UpdateMoneyTMP()
     {
-        moneyTMP.text = money + "$";
-        Shop.instance.moneyShopTMP.text = money + "$";
+        moneyTMP.text = money.ToString();
+        Shop.instance.moneyShopTMP.text = money.ToString();
     }
 }

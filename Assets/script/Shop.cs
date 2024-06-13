@@ -43,6 +43,8 @@ public class Shop : MonoBehaviour
     [SerializeField] string descriptionFireball, descriptionFireClone, descriptionTelekinesisClone, descriptionWave, descriptionIceball, descriptionIceClone, descriptionSpellLocked, descriptionHp, descriptionDamage, soldOut;
     [SerializeField] TMP_Text bonusHpTMP, bonusDamageTMP;
 
+    //public GameObject videoGo;
+
     void Awake()
     {
         if(instance == null)
