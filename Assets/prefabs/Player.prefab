@@ -824,7 +824,6 @@ GameObject:
   - component: {fileID: 3870732602788733396}
   - component: {fileID: 3870732602788733397}
   - component: {fileID: 3870732602788733394}
-  - component: {fileID: 6723488339864468839}
   - component: {fileID: 8951467726113761801}
   m_Layer: 0
   m_Name: Main Camera
@@ -912,43 +911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a2e22ba8cc112419ebaaab4c7f62fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6723488339864468839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3870732602788733398}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1693216508
-      Data2: 1240630487
-      Data3: -654711118
-      Data4: 906589510
-    Path: event:/Spells Conquest
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params:
-  - Name: Combat
-    Value: 0
-  - Name: Health
-    Value: 100
-  - Name: Intensity
-    Value: 0
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!114 &8951467726113761801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -971,6 +933,7 @@ MonoBehaviour:
   volume: 1
   health: 100
   combat: 0
+  speed: 0.5
 --- !u!1 &3870732602979315408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,9 +1945,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 481ad312ea359274f91d032cce63d413, type: 3}
---- !u!4 &1686266685543590592 stripped
+--- !u!4 &673788606559564515 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 481ad312ea359274f91d032cce63d413,
+  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 481ad312ea359274f91d032cce63d413,
     type: 3}
   m_PrefabInstance: {fileID: 1219468212062375211}
   m_PrefabAsset: {fileID: 0}
@@ -1994,9 +1957,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1219468212062375211}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &673788606559564515 stripped
+--- !u!4 &1686266685543590592 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 481ad312ea359274f91d032cce63d413,
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 481ad312ea359274f91d032cce63d413,
     type: 3}
   m_PrefabInstance: {fileID: 1219468212062375211}
   m_PrefabAsset: {fileID: 0}
@@ -2207,15 +2170,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8167320896740266251}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &9050351532932410458 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 95beaa9765ede3047ae7dd8adccc7ffd,
-    type: 3}
-  m_PrefabInstance: {fileID: 8167320896740266251}
-  m_PrefabAsset: {fileID: 0}
 --- !u!137 &1433247555762716362 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7114504455864381377, guid: 95beaa9765ede3047ae7dd8adccc7ffd,
+    type: 3}
+  m_PrefabInstance: {fileID: 8167320896740266251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9050351532932410458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 95beaa9765ede3047ae7dd8adccc7ffd,
     type: 3}
   m_PrefabInstance: {fileID: 8167320896740266251}
   m_PrefabAsset: {fileID: 0}

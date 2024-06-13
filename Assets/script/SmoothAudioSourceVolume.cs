@@ -13,12 +13,14 @@ public class SmoothAudioSourceVolume : MonoBehaviour
 
     float x;
 
+    GameObject mainCam;
 
     void Start()
     {
         volume = audioSource.volume;
         maxVolume = volume;
         x = -1;
+        mainCam = GameObject.Find("Main Camera");
     }
 
     void Update()
@@ -44,5 +46,14 @@ public class SmoothAudioSourceVolume : MonoBehaviour
     {
         x = -1;
         soundIsChanging = true;
+    }
+
+    public void SwitchToBiome1()
+    {
+        mainCam.GetComponent<FMODParametersValue>().SwitchToBiome1();
+    }
+    public void SwitchToBiome2()
+    {
+        mainCam.GetComponent<FMODParametersValue>().SwitchToBiome2();
     }
 }

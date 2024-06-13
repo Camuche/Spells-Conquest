@@ -23,7 +23,6 @@ public class DetectInputType : MonoBehaviour
             }
             ResetBool();
             usingKeyboard = true;
-            Debug.Log("Using Keyboard");
         }
         else if (Gamepad.current.name == "DualShock4GamepadHID")
         {
@@ -33,7 +32,6 @@ public class DetectInputType : MonoBehaviour
             }
             ResetBool();
             usingPs4Controller = true;
-            Debug.Log("Using PlayStation Controller");
         }
         else
         {
@@ -43,7 +41,6 @@ public class DetectInputType : MonoBehaviour
             }
             ResetBool();
             usingXboxController = true;
-            Debug.Log("Using Xbox Controller");
         }
     }
 

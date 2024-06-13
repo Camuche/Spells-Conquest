@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4410295640264802575}
   - component: {fileID: 4410295640264802574}
   - component: {fileID: 4410295640264802569}
-  - component: {fileID: 4410295640264802568}
+  - component: {fileID: 6078539157649388376}
   - component: {fileID: 4410295640264802572}
   m_Layer: 0
   m_Name: Biome2
@@ -97,7 +97,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4410295640264802568
+--- !u!114 &6078539157649388376
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4410295640264802570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 832ab2a24a0478e4aa3ea263e43d25cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d7b81ffd09332541a04472baf337151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tagsAndNamesToCheck:
@@ -150,10 +150,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4410295641528152200}
+        m_TargetAssemblyTypeName: SmoothAudioSourceVolume, Assembly-CSharp
+        m_MethodName: SwitchToBiome2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   eventOnExit:
     m_PersistentCalls:
       m_Calls: []
   numberInTrigger: 0
+  triggerBiomeNumber: 2
 --- !u!114 &4410295640264802572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +233,7 @@ GameObject:
   - component: {fileID: 4410295641419142422}
   - component: {fileID: 4410295641419142417}
   - component: {fileID: 4410295641419142416}
-  - component: {fileID: 4410295641419142419}
+  - component: {fileID: 2085612544348146515}
   - component: {fileID: 4410295641419142423}
   m_Layer: 0
   m_Name: Biome1
@@ -305,7 +318,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4410295641419142419
+--- !u!114 &2085612544348146515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -314,7 +327,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4410295641419142445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 832ab2a24a0478e4aa3ea263e43d25cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d7b81ffd09332541a04472baf337151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tagsAndNamesToCheck:
@@ -358,10 +371,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4410295641528152200}
+        m_TargetAssemblyTypeName: SmoothAudioSourceVolume, Assembly-CSharp
+        m_MethodName: SwitchToBiome1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   eventOnExit:
     m_PersistentCalls:
       m_Calls: []
   numberInTrigger: 0
+  triggerBiomeNumber: 1
 --- !u!114 &4410295641419142423
 MonoBehaviour:
   m_ObjectHideFlags: 0

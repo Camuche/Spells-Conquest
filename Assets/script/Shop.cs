@@ -66,20 +66,20 @@ public class Shop : MonoBehaviour
 
         //TMP
         notEnoughMoneyTMP.enabled = false;
-        itemLeftHpTMP.text = "Left : " + hpAvailable;
-        itemLeftDamageTMP.text = "Left : " + damageAvailable;
+        itemLeftHpTMP.text = "Restant : " + hpAvailable;
+        itemLeftDamageTMP.text = "Restant : " + damageAvailable;
         bonusHpTMP.text = "Points de vie x" + 100 + "%";
         bonusDamageTMP.text = "Dégâts x" + 100 + "%";
 
         //SET ITEM PRICE
-        priceFireballTMP.text = priceFireball + "$";
-        priceFireCloneTMP.text = priceFireClone + "$";
-        priceTelekinesisCloneTMP.text = priceTelekinesisClone + "$";
+        priceFireballTMP.text = priceFireball.ToString();
+        priceFireCloneTMP.text = priceFireClone.ToString();
+        priceTelekinesisCloneTMP.text = priceTelekinesisClone.ToString();
         priceWaveTMP.text = priceWave + "$";
         priceIceballTMP.text = priceIceball + "$";
         priceIceCloneTMP.text = priceIceClone + "$";
-        priceHpTMP.text = priceHp + "$";
-        priceDamageTMP.text = priceDamage + "$";
+        priceHpTMP.text = priceHp.ToString();
+        priceDamageTMP.text = priceDamage.ToString();
 
         hitDelay *= 0.05f;
 
@@ -237,7 +237,7 @@ public class Shop : MonoBehaviour
             Inventory.instance.money -= priceHp;
             Inventory.instance.UpdateMoneyTMP();
             HpButtonSelected();
-            itemLeftHpTMP.text = "Left : " + hpAvailable;
+            itemLeftHpTMP.text = "Restant : " + hpAvailable;
             buySoundEvent.Play(audioSource);
             
         }
@@ -264,7 +264,7 @@ public class Shop : MonoBehaviour
             Inventory.instance.money -= priceDamage;
             Inventory.instance.UpdateMoneyTMP();
             DamageButtonSelected();
-            itemLeftDamageTMP.text = "Left : " + damageAvailable;
+            itemLeftDamageTMP.text = "Restant : " + damageAvailable;
             buySoundEvent.Play(audioSource);
         }
         else if (damageAvailable > 0 && Inventory.instance.money < priceDamage && timerDelay >= hitDelay)
