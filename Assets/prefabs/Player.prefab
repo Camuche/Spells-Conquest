@@ -607,6 +607,8 @@ MonoBehaviour:
         m_CallState: 2
   timerSoundDamageTrigger: 0.5
   deathAudioClip: {fileID: 8300000, guid: 61f11d8728f81a749ad6c0c94476bd5b, type: 3}
+  mapOpenClip: {fileID: 8300000, guid: 2b835de1d87c1824bb2c2c096ea95f28, type: 3}
+  mapCloseClip: {fileID: 8300000, guid: acebc0fff917608428dc8ff5bd9adb1d, type: 3}
   deathEvent:
     m_PersistentCalls:
       m_Calls:

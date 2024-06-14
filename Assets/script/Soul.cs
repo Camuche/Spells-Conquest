@@ -15,17 +15,26 @@ public class Soul : MonoBehaviour
     public float opacity, timeToFade;
     public GameObject characterGO, landmarkGO;
 
+    AudioSource audioSource;
+    public AudioClip spawnSoulClip, soulClip, absorbSoulClip;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-
-        //Debug.Log(soulMoney);
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(spawnSoulClip);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(soulClip);
+        }
+
         if(isFading)
         {
             opacity -= Time.deltaTime / timeToFade;
@@ -45,9 +54,14 @@ public class Soul : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            if (PlayerController.instance.isDead)
+            {
+                return;
+            }
             isFading = true;
-            //Inventory.instance.money += soulMoney;
-            //Inventory.instance.UpdateMoneyTMP();
+
+            audioSource.PlayOneShot(absorbSoulClip);
+
             for (int i=0; i < soulMoney; i++)
             {
                 Instantiate(money, transform.position + new Vector3(Random.Range(-1f,1f),.5f,Random.Range(-1f,1f)), transform.rotation * Quaternion.Euler(0,Random.Range(-180f,180f),0));

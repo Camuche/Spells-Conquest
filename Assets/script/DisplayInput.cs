@@ -5,6 +5,7 @@ using UnityEngine;
 public class DisplayInput : MonoBehaviour
 {
     public static DisplayInput instance;
+    public static bool instanceExist;
 
     bool keyboardInput, playstationInput, xboxInput;
     [HideInInspector] public bool displayInteract, displayLockMode;
@@ -15,7 +16,12 @@ public class DisplayInput : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if(!instanceExist)
+        {
+            instance = this;
+            instanceExist = true;
+        }
+        
     }
 
     private void Start()
@@ -48,7 +54,6 @@ public class DisplayInput : MonoBehaviour
                 keyboardInput = true;
             }
 
-            
 
             else if (DetectInputType.instance.usingPs4Controller)
             {

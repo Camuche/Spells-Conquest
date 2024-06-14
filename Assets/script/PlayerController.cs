@@ -624,11 +624,6 @@ public class PlayerController : MonoBehaviour
     IEnumerator RestartLevel()
     {
         yield return new WaitForSeconds(5);
-        //DontDestroyOnLoad(gameObject);
-
-        GameObject f = Instantiate(soul,transform.position,transform.rotation);
-        f.GetComponent<Soul>().soulMoney = inventory.money;
-        f.transform.parent = persistentObject.transform;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -649,7 +644,7 @@ public class PlayerController : MonoBehaviour
     public float timerSoundDamageTrigger = 0.5f;
     bool canPlayDamageSound = true;
 
-    public AudioClip deathAudioClip;
+    public AudioClip deathAudioClip, mapOpenClip, mapCloseClip;
     public UnityEvent deathEvent;
 
     void CheckLife()
@@ -683,6 +678,11 @@ public class PlayerController : MonoBehaviour
                 audioSource.clip = deathAudioClip;
                 audioSource.Play();
                 deathEvent.Invoke();
+
+                GameObject f = Instantiate(soul, transform.position, transform.rotation);
+                f.GetComponent<Soul>().soulMoney = inventory.money;
+                f.transform.parent = persistentObject.transform;
+
                 StartCoroutine(RestartLevel());
             }
             //StartCoroutine(RestartLevel());
@@ -758,7 +758,7 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0f;
             showMap = true;
             mapCam.enabled = true;
-            //Debug.Log("showMap");
+            audioSource.PlayOneShot(mapOpenClip);
         }
 
         else if (showMap==true && inputMapReleased && (mapInput.action.IsPressed() || startInput.action.WasPressedThisFrame()) && canMove)
@@ -767,8 +767,7 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 1f;
             showMap = false;
             mapCam.enabled = false;
-            //Debug.Log("DisableMap");
-
+            audioSource.PlayOneShot(mapCloseClip);
         }
         if(mapInput.action.ReadValue<float>()==0 && canMove)
         {
@@ -888,7 +887,7 @@ public class PlayerController : MonoBehaviour
         if (currentEnemy == null)
         {
             lockMode = false;
-            //EndLockMode();
+            EndLockMode();
             transform.eulerAngles = new Vector3(0,transform.eulerAngles.y, 0);
             return;
         }
@@ -1023,10 +1022,11 @@ public class PlayerController : MonoBehaviour
 
     void EndLockMode()
     {
+        UIupdate.instance.UIPlane.GetComponent<MeshRenderer>().material.SetInt("_ShowAimpoint", 1);
+
         foreach (GameObject go in nearestEnemies)
         {
             go.transform.Find("FeedbackSelectedEnemy").GetComponent<MeshRenderer>().enabled = false;
-            UIupdate.instance.UIPlane.GetComponent<MeshRenderer>().material.SetInt("_ShowAimpoint", 1);
         }
     }
 }

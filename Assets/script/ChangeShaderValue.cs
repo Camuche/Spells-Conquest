@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ChangeShaderValue : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class ChangeShaderValue : MonoBehaviour
 
     float shaderValue;
     bool changeValue;
+    public UnityEvent triggerEvent;
 
 
     // Start is called before the first frame update
@@ -49,6 +51,7 @@ public class ChangeShaderValue : MonoBehaviour
                 Instantiate(instantiateGameObject, transform.position, Quaternion.identity);
             }
             changeValue = true;
+            triggerEvent.Invoke();
         }
     }
 }

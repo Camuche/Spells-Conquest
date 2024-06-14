@@ -104,9 +104,11 @@ public class EnemyLife : MonoBehaviour
 
     public AudioSource refAudioSource;
     public AudioEvent physicalDamagedAudioClip;
+    public AudioClip takeDamageClip;
 
     void SoundDamagedPhysical()
     {
         physicalDamagedAudioClip.Play(refAudioSource);
+        refAudioSource.PlayOneShot(takeDamageClip);
     }
 }
