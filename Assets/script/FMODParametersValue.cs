@@ -77,13 +77,13 @@ public class FMODParametersValue : MonoBehaviour
     {
         time = -1;
         soundIsChanging = true;
-        fmodEvent = FMODUnity.EventReference.Find("event:/B1");
+        fmodEvent = FMODUnity.RuntimeManager.PathToEventReference("event:/B1");
     }
     public void SwitchToBiome2()
     {
         time = -1;
         soundIsChanging = true;
-        fmodEvent = FMODUnity.EventReference.Find("event:/B2");
+        fmodEvent = FMODUnity.RuntimeManager.PathToEventReference("event:/B2");
     }
 
     void ResetInstance()
