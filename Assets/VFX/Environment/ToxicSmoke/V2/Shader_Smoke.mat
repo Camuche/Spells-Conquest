@@ -36,10 +36,10 @@ Material:
     - _Step: 0.5
     - _TessMax: 25
     - _TessMin: 10
-    - _TessValue: 15
-    - _TimeScale: 0.42
-    - _VertexOffset_Intensity: 1.5
+    - _TessValue: 8
+    - _TimeScale: 0.6
+    - _VertexOffset_Intensity: 2.5
     - __dirty: 0
     m_Colors:
-    - _Color0: {r: 0.10636133, g: 0.6415094, b: 0, a: 0}
+    - _Color0: {r: 0.27999285, g: 0.49056602, b: 0.29321286, a: 0}
   m_BuildTextureStacks: []

@@ -126,6 +126,12 @@ public class EnemyFollower : MonoBehaviour
                 {
                     dir = (player.transform.position - transform.position).normalized;
 
+                    if (!isDetected)
+                    {
+                        isDetected = true;
+                        PlayerController.instance.enemyTriggered++;
+                    }
+
                     if (GetComponent<EnemyDash>() == null && navMeshAgent != null)
                     {
                         navMeshAgent.SetDestination(player.transform.position);
@@ -177,15 +183,8 @@ public class EnemyFollower : MonoBehaviour
 
         float distancePlayer = Vector3.Distance(transform.position, player.transform.position);
         
-        if (!isDetected)
-        {
-            if(distancePlayer <= followDistance)
-            {
-                isDetected = true;
-                PlayerController.instance.enemyTriggered ++;
-            }
-        }
-        else
+        
+        if (isDetected)
         {
             if (distancePlayer > followDistance)
             {
