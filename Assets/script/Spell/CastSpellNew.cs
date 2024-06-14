@@ -312,7 +312,16 @@ public class CastSpellNew : MonoBehaviour
             refUiUpdate.UpdateUiSelection();
             CheckSelectedSpell();
 
-            
+            if (leftSelection.action.WasPressedThisFrame() || rightSelection.action.WasPressedThisFrame())
+            {
+                audioSource.PlayOneShot(selectionOpenClip);
+            }
+            else if (leftSelection.action.WasReleasedThisFrame() || rightSelection.action.WasReleasedThisFrame())
+            {
+                audioSource.PlayOneShot(selectionCloseClip);
+            }
+
+
             //SELECT SPELL ON RELEASE (LEFT)
             if (hand ==-1)
             {
@@ -1020,6 +1029,7 @@ public class CastSpellNew : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip selectedIconClip;
     public AudioClip spellSelectionClip;
+    public AudioClip selectionOpenClip, selectionCloseClip;
 
     public void PlaySelectedIconClip()
     {

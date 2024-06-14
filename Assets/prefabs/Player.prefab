@@ -766,6 +766,8 @@ MonoBehaviour:
   audioSource: {fileID: 8922761576172307311}
   selectedIconClip: {fileID: 8300000, guid: a95c6153cc73b3142b8646a489d725ab, type: 3}
   spellSelectionClip: {fileID: 8300000, guid: be117cd11827bc84995ebfc0e9c9a0b0, type: 3}
+  selectionOpenClip: {fileID: 8300000, guid: 0f46e2ea97f73cc4cac04fa7b7d9b0ff, type: 3}
+  selectionCloseClip: {fileID: 8300000, guid: 2ddd27b4cf7070848b5f2764da368217, type: 3}
 --- !u!114 &6646515115025402441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -933,6 +935,7 @@ MonoBehaviour:
   volume: 1
   health: 100
   combat: 0
+  soundIsChanging: 0
   speed: 0.5
 --- !u!1 &3870732602979315408
 GameObject:
