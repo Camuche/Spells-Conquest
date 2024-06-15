@@ -38,10 +38,11 @@ public class Shop : MonoBehaviour
     [SerializeField] float hitDelay;
 
     //TextMeshPro
-    [SerializeField] TMP_Text descriptionTMP, notEnoughMoneyTMP, priceFireballTMP, priceFireCloneTMP, priceTelekinesisCloneTMP, priceWaveTMP, priceIceballTMP, priceIceCloneTMP, priceHpTMP, priceDamageTMP, itemLeftHpTMP, itemLeftDamageTMP;
+    [SerializeField] TMP_Text descriptionTMP, priceFireballTMP, priceFireCloneTMP, priceTelekinesisCloneTMP, priceWaveTMP, priceIceballTMP, priceIceCloneTMP, priceHpTMP, priceDamageTMP, itemLeftHpTMP, itemLeftDamageTMP;
     [HideInInspector] public TMP_Text moneyShopTMP;
     [SerializeField] string descriptionFireball, descriptionFireClone, descriptionTelekinesisClone, descriptionWave, descriptionIceball, descriptionIceClone, descriptionSpellLocked, descriptionHp, descriptionDamage, soldOut;
     [SerializeField] TMP_Text bonusHpTMP, bonusDamageTMP;
+    [SerializeField] GameObject notEnoughMoney;
 
     //public GameObject videoGo;
 
@@ -65,7 +66,7 @@ public class Shop : MonoBehaviour
         damageMultiplierValue = 1f;
 
         //TMP
-        notEnoughMoneyTMP.enabled = false;
+        notEnoughMoney.SetActive(false);
         itemLeftHpTMP.text = "Restant : " + hpAvailable;
         itemLeftDamageTMP.text = "Restant : " + damageAvailable;
         bonusHpTMP.text = "Points de vie x" + 100 + "%";
@@ -129,7 +130,7 @@ public class Shop : MonoBehaviour
         }
         else if(Inventory.instance.money < priceFireball && fireballAltAvailable == true && CastSpellNew.instance.limit >= 0)
         {
-            notEnoughMoneyTMP.enabled = true;
+            notEnoughMoney.SetActive(true);
             audioSource.PlayOneShot(notAvailiableAudioClip);
         }
     }
@@ -147,7 +148,7 @@ public class Shop : MonoBehaviour
         }
         else if(Inventory.instance.money < priceFireClone && fireCloneAltAvailable == true && CastSpellNew.instance.limit >= 1)
         {
-            notEnoughMoneyTMP.enabled = true;
+            notEnoughMoney.SetActive(true);
             audioSource.PlayOneShot(notAvailiableAudioClip);
         }
     }
@@ -165,7 +166,7 @@ public class Shop : MonoBehaviour
         }
         else if(Inventory.instance.money < priceTelekinesisClone && telekinesisCloneAltAvailable == true && CastSpellNew.instance.limit >= 2)
         {
-            notEnoughMoneyTMP.enabled = true;
+            notEnoughMoney.SetActive(true);
             audioSource.PlayOneShot(notAvailiableAudioClip);
         }
     }
@@ -183,7 +184,7 @@ public class Shop : MonoBehaviour
         }
         else if(Inventory.instance.money < priceWave && waveAltAvailable == true && CastSpellNew.instance.limit >= 3)
         {
-            notEnoughMoneyTMP.enabled = true;
+            notEnoughMoney.enabled = true;
         }
     }
 
@@ -200,7 +201,7 @@ public class Shop : MonoBehaviour
         }
         else if(Inventory.instance.money < priceIceball && iceballAltAvailable == true && CastSpellNew.instance.limit >= 4)
         {
-            notEnoughMoneyTMP.enabled = true;
+            notEnoughMoney.enabled = true;
         }
     }*/
 
@@ -217,7 +218,7 @@ public class Shop : MonoBehaviour
         }
         else if(Inventory.instance.money < priceIceClone && iceCloneAltAvailable == true && CastSpellNew.instance.limit >= 3)
         {
-            notEnoughMoneyTMP.enabled = true;
+            notEnoughMoney.SetActive(true);
         }
     }
 
@@ -244,7 +245,7 @@ public class Shop : MonoBehaviour
         else if(Inventory.instance.money < priceHp && hpAvailable > 0 && timerDelay >= hitDelay)
         {
             timerDelay = 0f;
-            notEnoughMoneyTMP.enabled = true;
+            notEnoughMoney.SetActive(true);
             audioSource.PlayOneShot(notAvailiableAudioClip);
         }
     }
@@ -270,7 +271,7 @@ public class Shop : MonoBehaviour
         else if (damageAvailable > 0 && Inventory.instance.money < priceDamage && timerDelay >= hitDelay)
         {
             timerDelay = 0f;
-            notEnoughMoneyTMP.enabled = true;
+            notEnoughMoney.SetActive(true);
             audioSource.PlayOneShot(notAvailiableAudioClip);
         }
     }
@@ -284,8 +285,8 @@ public class Shop : MonoBehaviour
     //REAL TIME CHECK IF BUTTON CAN BE PURCHASED OR NOT
     public void UpdateUnselectedShopButton()
     {
-        notEnoughMoneyTMP.enabled = false;
-        //Debug.Log(notEnoughMoneyTMP);
+        notEnoughMoney.SetActive(false);
+        //Debug.Log(notEnoughMoney);
 
         if(CastSpellNew.instance.limit >= 0 && fireballAltAvailable)
         {
