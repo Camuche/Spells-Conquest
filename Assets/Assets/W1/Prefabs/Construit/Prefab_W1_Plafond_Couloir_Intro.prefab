@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3950709747026975305}
   - component: {fileID: 1240542533804076675}
   - component: {fileID: 501834138383626761}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Plafond_Couloir_Intro
   m_TagString: Untagged
   m_Icon: {fileID: 0}

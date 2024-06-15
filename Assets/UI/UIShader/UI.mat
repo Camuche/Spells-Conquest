@@ -81,7 +81,7 @@ Material:
     - _Keyword0: 0
     - _LB_SpellOffsetX: 0
     - _LB_SpellOffsetY: 0.15
-    - _LeftSpellCooldown: 1.0260783
+    - _LeftSpellCooldown: Infinity
     - _Life: 1
     - _LifeBarOffsetX: -0.04
     - _LifeBarOffsetY: -4.9
@@ -89,8 +89,8 @@ Material:
     - _LifeBarScaleY: 6.02
     - _RB_SpellOffsetX: -5.03
     - _RB_SpellOffsetY: 0.15
-    - _RightSpellCooldown: 1.0012583
-    - _ShowAimpoint: 1
+    - _RightSpellCooldown: 1.002818
+    - _ShowAimpoint: 0
     - _SpellAvailable: 1
     - _SpellOffsetX: 0.04
     - _SpellOffsetY: 0
