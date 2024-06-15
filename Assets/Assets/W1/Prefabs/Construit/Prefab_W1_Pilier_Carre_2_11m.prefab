@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3488277526585410126}
   - component: {fileID: 1696782442193155716}
   - component: {fileID: 4032545370245729975}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Pilier_Carre_2_11m
   m_TagString: Untagged
   m_Icon: {fileID: 0}

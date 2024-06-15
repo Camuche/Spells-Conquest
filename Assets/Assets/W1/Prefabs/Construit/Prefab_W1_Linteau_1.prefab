@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 877371878178594254}
   - component: {fileID: 3155328282511042820}
   - component: {fileID: 626646837265851494}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Linteau_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

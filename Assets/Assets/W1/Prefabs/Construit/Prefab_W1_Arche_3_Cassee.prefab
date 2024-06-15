@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6820115521323545279}
   - component: {fileID: 8737297357144508021}
   - component: {fileID: 419025126680899442}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Arche_3_Cassee
   m_TagString: Untagged
   m_Icon: {fileID: 0}

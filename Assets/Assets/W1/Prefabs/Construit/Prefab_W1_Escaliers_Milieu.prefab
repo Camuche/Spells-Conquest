@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9172628756503670106}
   - component: {fileID: 6390412195582171536}
   - component: {fileID: 5723753697064600854}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Escaliers_Milieu
   m_TagString: Untagged
   m_Icon: {fileID: 0}

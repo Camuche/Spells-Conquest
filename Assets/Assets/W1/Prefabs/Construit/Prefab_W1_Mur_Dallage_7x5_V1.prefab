@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3927732726559795114}
   - component: {fileID: 1253948288945951584}
   - component: {fileID: 479491467144302554}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Mur_Dallage_7x5_V1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

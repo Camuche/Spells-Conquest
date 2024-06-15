@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1538449987425137726}
   - component: {fileID: 3656178893783367924}
   - component: {fileID: 1981833391416225062}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Marches_8m
   m_TagString: Untagged
   m_Icon: {fileID: 0}

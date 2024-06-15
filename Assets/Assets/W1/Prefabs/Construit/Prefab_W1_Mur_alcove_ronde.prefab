@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8259033667415132336}
   - component: {fileID: 6158967251154615418}
   - component: {fileID: 4807761602855510268}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Mur_alcove_ronde
   m_TagString: Untagged
   m_Icon: {fileID: 0}

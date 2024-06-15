@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6580224849617275670}
   - component: {fileID: 8986177601562361820}
   - component: {fileID: 6908895621036175988}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Mur_Tombes_7m
   m_TagString: Untagged
   m_Icon: {fileID: 0}

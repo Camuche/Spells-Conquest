@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3791991616893678042}
   - component: {fileID: 1403762992388244752}
   - component: {fileID: 1344019788642066411}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Pierre_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
