@@ -40,7 +40,12 @@ public class CustomUIManager : MonoBehaviour
         if (Mathf.Abs(verticalInput) < 0.1f) { verticalInput = 0; }
 
         confirmInputDown = interact.action.IsPressed();
-        cancelInputDown = cancel.action.IsPressed();
+        if (interact.name == "CustomInput:PlayerInput/Aura")
+        {
+            Debug.Log(interact.name);
+            cancelInputDown = cancel.action.IsPressed();
+        }
+        
 
         if(confirmInputDown)
 		{

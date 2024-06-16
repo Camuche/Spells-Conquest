@@ -114,13 +114,13 @@ public class PlayerRaycast : MonoBehaviour
         {
             if (interact.action.WasReleasedThisFrame())
             {
-                CastSpellNew.instance.waitForNextFrame = true;
+                if (CastSpellNew.instance != null)
+                {
+                    CastSpellNew.instance.waitForNextFrame = true;
+                }
                 raycastable.PerformOnInteract();
-                
             }
-        }
-
-        
+        }        
     }
 
 	private void LateUpdate()

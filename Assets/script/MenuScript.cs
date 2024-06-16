@@ -22,7 +22,7 @@ public class MenuScript : MonoBehaviour
 
     public void Level()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Art Scene");
     }
 
     public void Menu()
