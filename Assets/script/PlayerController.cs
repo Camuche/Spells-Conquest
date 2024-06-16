@@ -79,8 +79,11 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
-        refPlayerInput = GetComponent<PlayerInput>();
+        if (instance == null)
+        {
+            instance = this;
+            refPlayerInput = GetComponent<PlayerInput>();
+        }
     }
 
     // Start is called before the first frame update
@@ -853,7 +856,7 @@ public class PlayerController : MonoBehaviour
         }
         if (nearestEnemies.Count != 0)
         {
-            UIupdate.instance.UIPlane.GetComponent<MeshRenderer>().material.SetInt("_ShowAimpoint", 0);
+            shaderUI.SetInt("_ShowAimpoint", 0);
         }
         
 
@@ -1022,7 +1025,7 @@ public class PlayerController : MonoBehaviour
 
     void EndLockMode()
     {
-        UIupdate.instance.UIPlane.GetComponent<MeshRenderer>().material.SetInt("_ShowAimpoint", 1);
+        shaderUI.SetInt("_ShowAimpoint", 1);
 
         foreach (GameObject go in nearestEnemies)
         {

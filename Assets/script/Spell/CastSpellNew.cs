@@ -64,7 +64,10 @@ public class CastSpellNew : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
 
 
@@ -919,7 +922,11 @@ public class CastSpellNew : MonoBehaviour
     RaycastHit hit;
     void CamRaycast()
     {
-           
+        if (Camera.main== null)
+        {
+            return;
+        }
+
         Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity);
         
 
@@ -936,7 +943,11 @@ public class CastSpellNew : MonoBehaviour
     RaycastHit hit2;
     void CamRaycast2()
     {
-        
+        if (Camera.main == null)
+        {
+            return;
+        }
+
         Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit2, Mathf.Infinity);
 
 

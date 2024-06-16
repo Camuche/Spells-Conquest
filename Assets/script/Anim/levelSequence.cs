@@ -41,7 +41,6 @@ public class levelSequence : MonoBehaviour
         {
 
 
-            print("sequence");
 
             player = other.gameObject;
             playerCam.SetActive(false);
