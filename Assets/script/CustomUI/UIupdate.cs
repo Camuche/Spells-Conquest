@@ -65,9 +65,12 @@ public class UIupdate : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
-        UI = Instantiate(_UI);
-        UI.transform.SetParent(transform.parent);
+        if (instance == null)
+        {
+            instance = this;
+            UI = Instantiate(_UI);
+            UI.transform.SetParent(transform.parent);
+        }
     }
 
     private void OnLevelWasLoaded(int level)
