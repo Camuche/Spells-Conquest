@@ -60,6 +60,7 @@ public class Shopkeeper : MonoBehaviour
         //Debug.Log(""+canInteract+" "+inShop+" "+interactReleased);
         if(interact.action.IsPressed() && canInteract == true && inShop == false && interactReleased == true)
         {
+            player = GameObject.Find("Player");
             Time.timeScale = 0.05f;
             inShop = true;
             interactReleased = false;
@@ -70,6 +71,7 @@ public class Shopkeeper : MonoBehaviour
         }
         else if(shopCancel.action.IsPressed() && canInteract == true && inShop == true && interactReleased == true)
         {
+            player = GameObject.Find("Player");
             Time.timeScale = 1f;
             inShop = false;
             interactReleased = false;
