@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 222867801662581297}
   - component: {fileID: 2662540371173089019}
   - component: {fileID: 5150311496189254575}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab_W1_Pilier_Merlon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 55335898445340181}
   - component: {fileID: 6733582606788264562}
   - component: {fileID: 4550849743464794655}
+  - component: {fileID: 6977053294543520101}
   m_Layer: 10
   m_Name: W1_Grand_Escalier_Casse_Base
   m_TagString: Untagged
@@ -81,6 +82,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6977053294543520101
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635986095994993249}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3308193405415074817, guid: 6f737a71b86f40c4cbe6428db4a07b9a, type: 3}
 --- !u!1 &2745300825828974007
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +107,7 @@ GameObject:
   - component: {fileID: 6475919185511202326}
   - component: {fileID: 6517790909857424272}
   - component: {fileID: 190560947025368}
+  - component: {fileID: 7725500297916919548}
   m_Layer: 10
   m_Name: W1_Grand_Escalier_Casse_Cote_Droit
   m_TagString: Untagged
@@ -162,6 +178,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7725500297916919548
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745300825828974007}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6632031606710229460, guid: 6f737a71b86f40c4cbe6428db4a07b9a, type: 3}
 --- !u!1 &2767000845973861300
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +203,7 @@ GameObject:
   - component: {fileID: 66846165625092431}
   - component: {fileID: 2454454017217113642}
   - component: {fileID: 777949381217263934}
+  - component: {fileID: 2693320758782109291}
   m_Layer: 10
   m_Name: W1_Grand_Escalier_Casse_Marches
   m_TagString: Untagged
@@ -243,6 +274,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2693320758782109291
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767000845973861300}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8910844622010328465, guid: 6f737a71b86f40c4cbe6428db4a07b9a, type: 3}
 --- !u!1 &4152757591133294449
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,6 +299,7 @@ GameObject:
   - component: {fileID: 4419303208880514865}
   - component: {fileID: 2447143270575382307}
   - component: {fileID: 3604270321638554353}
+  - component: {fileID: 7154786972716111340}
   m_Layer: 10
   m_Name: W1_Grand_Escalier_Casse_Briques
   m_TagString: Untagged
@@ -324,6 +370,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7154786972716111340
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4152757591133294449}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3301559942209378880, guid: 6f737a71b86f40c4cbe6428db4a07b9a, type: 3}
 --- !u!1 &6531955247750592399
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +445,7 @@ GameObject:
   - component: {fileID: 2784894818095059100}
   - component: {fileID: 2659864412803290285}
   - component: {fileID: 926590558381383002}
+  - component: {fileID: 6717988819869798402}
   m_Layer: 10
   m_Name: W1_Grand_Escalier_Casse_Cote_Gauche
   m_TagString: Untagged
@@ -455,3 +516,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6717988819869798402
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7617554585584906128}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -316746139490840537, guid: 6f737a71b86f40c4cbe6428db4a07b9a, type: 3}
